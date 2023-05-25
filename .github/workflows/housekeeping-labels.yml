@@ -31,6 +31,8 @@ jobs:
     name: Setup labels
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
       - name: Delete default labels
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN_REPO_AND_PROJECT }}
