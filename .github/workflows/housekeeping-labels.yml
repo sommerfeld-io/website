@@ -37,14 +37,14 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN_REPO_AND_PROJECT }}
         run: |
-          gh label delete documentation --yes
-          gh label delete duplicate --yes
-          gh label delete enhancement --yes
-          gh label delete good first issue --yes
-          gh label delete help wanted --yes
-          gh label delete invalid --yes
-          gh label delete question --yes
-          gh label delete wontfix --yes
+          gh label delete "documentation" --yes
+          gh label delete "duplicate" --yes
+          gh label delete "enhancement" --yes
+          gh label delete "good first issue" --yes
+          gh label delete "help wanted" --yes
+          gh label delete "invalid" --yes
+          gh label delete "question" --yes
+          gh label delete "wontfix" --yes
 
           gh label create "blocked / waiting" --color "5319E7" --description "Issues that are blocked or waiting for something" --force
           gh label create "bug" --color "B60205" --description "Something is not working" --force
