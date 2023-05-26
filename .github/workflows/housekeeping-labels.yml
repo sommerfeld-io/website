@@ -58,7 +58,6 @@ jobs:
           gh label create "docker" --color "000000" --description "Dependabot: Pull requests that update Docker code" --force
           gh label create "github_actions" --color "000000" --description "Dependabot: Pull requests that update GitHub Actions code" --force
           gh label create "terraform" --color "000000" --description "Dependabot: Pull requests that update Terraform code" --force
-          
         shell: bash
 
   on-failure:
