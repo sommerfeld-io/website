@@ -1,0 +1,19 @@
+---
+version: 2
+
+# +----------------------------------------------------+
+# |                                                    |
+# |    File is managed by terraform (initially).       |
+# |    See sommerfeld-io/dev-envorinment-config repo   |
+# |    for the "real" source.                          |
+# |                                                    |
+# |    However, feel free to update this file          |
+# |    because changes won't be overwritten.           |
+# |                                                    |
+# +----------------------------------------------------+
+
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
