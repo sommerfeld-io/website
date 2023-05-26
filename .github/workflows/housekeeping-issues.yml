@@ -35,7 +35,7 @@ jobs:
         uses: actions/checkout@v3
       # - name: Add to project (issues and PRs)
       #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN_PROJECT }} # TODO USE DEDICATED TOKEN WITH PROJECT SCOPE !!!
+      #     GITHUB_TOKEN: ${{ secrets.GH_TOKEN_PROJECT_ISSUES }} # TODO USE DEDICATED TOKEN WITH PROJECT SCOPE !!!
       #   run: |
       #     gh issue edit ${{github.event.issue.number}} --add-project "https://github.com/orgs/sommerfeld-io/projects/1"
       #   shell: bash
@@ -43,7 +43,7 @@ jobs:
         uses: actions/add-to-project@main
         with:
           project-url: https://github.com/orgs/sommerfeld-io/projects/1
-          github-token: ${{ secrets.GH_TOKEN_PROJECT }}
+          github-token: ${{ secrets.GH_TOKEN_PROJECT_ISSUES }}
 
   assign-issue-to-user:
     name: Assign to user
