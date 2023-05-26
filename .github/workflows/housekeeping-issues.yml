@@ -24,7 +24,7 @@ permissions:
   contents: read
   issues: write
   pull-requests: write
-  organization-projects: write
+  repository-projects: write
   
 jobs:
   add-issue-to-project:
@@ -36,14 +36,18 @@ jobs:
       - name: Add to project (issues and PRs)
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        #gh issue edit ${{github.event.issue.number}} --add-project "https://github.com/orgs/sommerfeld-io/projects/1"
+        # https://docs.github.com/en/enterprise-cloud@latest/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects#adding-an-item-to-a-project
         run: |
-          gh issue edit ${{github.event.issue.number}} --add-project "https://github.com/orgs/sommerfeld-io/projects/1"
+          gh api graphql -f query='
+            mutation {
+              addProjectV2ItemById(input: {projectId: "1" contentId: "${{github.event.issue.number}}"}) {
+                item {
+                  id
+                }
+              }
+            }'
         shell: bash
-      # - name: Add to project (issues and PRs)
-      #   uses: actions/add-to-project@main
-      #   with:
-      #     project-url: https://github.com/orgs/sommerfeld-io/projects/1
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
 
   assign-issue-to-user:
     name: Assign to user
