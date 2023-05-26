@@ -1,0 +1,21 @@
+.idea
+target
+node_modules
+.target
+.vagrant*
+*.log
+*.lock
+yamllint-*
+
+# terraform
+.terraform
+.terraform.lock*
+src/main/github-config/terraform.tfstate*
+tfplan
+.bitwarden*
+
+# secrets
+*.token
+*.pass
+*.user
+*.secret
