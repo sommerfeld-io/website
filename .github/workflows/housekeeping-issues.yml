@@ -24,25 +24,26 @@ permissions:
   contents: read
   issues: write
   pull-requests: write
-
+  repository-projects: write
+  
 jobs:
   add-issue-to-project:
     name: Add to project
     runs-on: ubuntu-latest
     steps:
-      # - name: Checkout code
-      #   uses: actions/checkout@v3
-      # - name: Add to project (issues and PRs)
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #   run: |
-      #     gh issue edit ${{github.event.issue.number}} --add-project "https://github.com/orgs/sommerfeld-io/projects/1"
-      #   shell: bash
+      - name: Checkout code
+        uses: actions/checkout@v3
       - name: Add to project (issues and PRs)
-        uses: actions/add-to-project@main
-        with:
-          project-url: https://github.com/orgs/sommerfeld-io/projects/1
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue edit ${{github.event.issue.number}} --add-project "https://github.com/orgs/sommerfeld-io/projects/1"
+        shell: bash
+      # - name: Add to project (issues and PRs)
+      #   uses: actions/add-to-project@main
+      #   with:
+      #     project-url: https://github.com/orgs/sommerfeld-io/projects/1
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
 
   assign-issue-to-user:
     name: Assign to user
