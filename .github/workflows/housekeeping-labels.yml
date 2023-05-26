@@ -34,7 +34,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Setup labels
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN_REPO_AND_PROJECT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh label delete "documentation" --yes || true
           gh label delete "duplicate" --yes || true
