@@ -41,7 +41,7 @@ jobs:
         run: |
           gh api graphql -f query='
             mutation {
-              addProjectV2ItemById(input: {projectId: "1" contentId: "${{github.event.issue.number}}"}) {
+              addProjectV2ItemById(input: {projectId: "https://github.com/orgs/sommerfeld-io/projects/1" contentId: "${{github.event.issue.number}}"}) {
                 item {
                   id
                 }
