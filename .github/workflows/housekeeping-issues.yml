@@ -34,13 +34,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh issue edit ${{ github.event.number }} --add-project "https://github.com/orgs/sommerfeld-io/projects/1"
+          gh issue edit ${{github.event.issue.number}} --add-project "https://github.com/orgs/sommerfeld-io/projects/1"
         shell: bash
-        # uses: actions/add-to-project@main
-        # with:
-        #   project-url: https://github.com/orgs/sommerfeld-io/projects/1
-        #   # github-token: ${{ secrets.GH_TOKEN_REPO_AND_PROJECT }}
-        #   github-token: ${{ secrets.GITHUB_TOKEN }}
 
   assign-issue-to-user:
     name: Assign to user
