@@ -24,16 +24,20 @@ ls:
 
   .env: lowercase
   .folderslintrc: lowercase
+  .shellcheckrc: lowercase
   .gitignore: lowercase
   .gitkeep: lowercase
 
 ignore:
   - .adoc-links.json
-  - .gitpod.yml
+  - src/main/github-config/assets/linters/.adoc-links.json
   - .ls-lint.yml
+  - src/main/github-config/assets/linters/.ls-lint.yml
   - .yamllint.yml
+  - src/main/github-config/assets/linters/.yamllint.yml
+
   - .git
   - .idea
   - node_modules
-  - src/main/github/.terraform-docs.yml
+  - .gitpod.yml
   - target

@@ -5,9 +5,13 @@ name: "Housekeeping: Labels"
 # |                                                    |
 # |    DO NOT EDIT DIRECTLY !!!!!                      |
 # |                                                    |
-# |    File is managed by terraform. Update file in    |
-# |    sommerfeld-io/dev-envorinment-config repo so    |
-# |    you can apply changes to all repos.             |
+# |    File is created from a bootstrap script and     |
+# |    most likely auto-generated from a github        |
+# |    actions workflow. So any changes will be        |
+# |    overwritten regularly.                          |
+# |                                                    |
+# |    See sommerfeld-io/dev-environment-config        |
+# |    repo for master.                                |
 # |                                                    |
 # +----------------------------------------------------+
 
