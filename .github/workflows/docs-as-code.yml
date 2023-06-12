@@ -76,7 +76,7 @@ jobs:
       - name: Run Qodana
         run: |
           (
-            cd src/workflows/qodana || exit
+            cd src/test/qodana || exit
             ./analyze.sh --save-report
           )
         shell: bash
