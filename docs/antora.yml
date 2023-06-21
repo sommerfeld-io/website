@@ -2,7 +2,7 @@
 name: website
 title: Website
 version: setup-playbook
-start_page: ROOT:index.adoc
+start_page: landingpage:index.adoc
 nav:
   - modules/landingpage/nav.adoc
   - modules/ROOT/nav.adoc
