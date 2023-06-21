@@ -1,2 +1,1 @@
 * xref:index.adoc[]
-* link:/_personal-projects/config-docs/main/[My Personal Projects]

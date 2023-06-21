@@ -4,5 +4,6 @@ title: Website
 version: setup-playbook
 start_page: ROOT:index.adoc
 nav:
+  - modules/landingpage/nav.adoc
   - modules/ROOT/nav.adoc
   - modules/AUTO-GENERATED/nav.adoc
