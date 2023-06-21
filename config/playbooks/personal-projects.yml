@@ -34,8 +34,6 @@ content:
     - url: https://github.com/sebastian-sommerfeld-io/github-action-update-antora-yml.git
       start_path: docs
 
-    - url: https://github.com/sebastian-sommerfeld-io/website-sommerfeld-io.git
-      start_path: docs
     - url: https://github.com/sebastian-sommerfeld-io/website-masterblender-de.git
       start_path: docs
     - url: https://github.com/sebastian-sommerfeld-io/website-numero-uno-de.git
