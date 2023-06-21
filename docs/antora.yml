@@ -2,8 +2,7 @@
 name: website
 title: Website
 version: main
-start_page: landingpage:index.adoc
+start_page: ROOT:index.adoc
 nav:
-  - modules/landingpage/nav.adoc
   - modules/ROOT/nav.adoc
   - modules/AUTO-GENERATED/nav.adoc

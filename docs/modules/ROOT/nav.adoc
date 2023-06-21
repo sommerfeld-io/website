@@ -1,2 +1,7 @@
 * xref:index.adoc[]
+* xref:README.adoc[]
 ** xref:settings.adoc[]
+* My Personal Projects
+** link:/_personal-projects/config-docs/main[Configs]
+** link:/_personal-projects/jarvis-cli-docs//main[Jarvis]
+** link:/_personal-projects/k8s-playground/main[Kubernetes Playground]
