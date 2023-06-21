@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v3
       - name: Run Snyk to check latest Docker image for vulnerabilities
         continue-on-error: true
-        uses: snyk/actions/docker@0.3.0
+        uses: snyk/actions/docker@0.4.0
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
