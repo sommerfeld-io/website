@@ -1,9 +1,9 @@
 #!/bin/bash
 # @file build-and-run.sh
-# @brief Build Docker image containing the website and run in container.
+# @brief Build Docker image containing the website and run locally inside a container.
 #
-# @description The script builds a Docker image containing the whole website inside
-# an Apache httpd webserver and runs the image in a container. The base image is the
+# @description The script builds a Docker image containing the whole website inside an
+# Apache httpd webserver and runs the image locally in a container. The base image is the
 # link:https://hub.docker.com/_/httpd[official Apache httpd image].
 #
 # | What                  | Port | Protocol |
