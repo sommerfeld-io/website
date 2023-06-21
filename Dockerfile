@@ -29,4 +29,4 @@ LABEL maintainer="sebastian@sommerfeld.io"
 
 RUN rm /usr/local/apache2/htdocs/index.html
 COPY --from=build /tmp/antora/website/public /usr/local/apache2/htdocs
-COPY --from=build /tmp/antora/personal-projects/public /usr/local/apache2/htdocs/personal-projects
+COPY --from=build /tmp/antora/_personal-projects/public /usr/local/apache2/htdocs/_personal-projects
