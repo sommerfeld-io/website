@@ -1,0 +1,61 @@
+---
+site:
+  title: Sommerfeld.io
+  url: /
+  start_page: config-docs::index.adoc
+  robots: allow
+
+content:
+  branches: ['*', '!dependabot/*']
+  # tags: [v*]
+  sources:
+    - url: https://github.com/sebastian-sommerfeld-io/configs.git
+      start_path: docs
+    - url: https://github.com/sebastian-sommerfeld-io/jarvis.git
+      start_path: docs
+    - url: https://github.com/sebastian-sommerfeld-io/k8s-playground.git
+      start_path: docs
+    - url: https://github.com/sebastian-sommerfeld-io/open-appsec-poc.git
+      start_path: docs
+
+    - url: https://github.com/sebastian-sommerfeld-io/docker-image-folderslint.git
+      start_path: docs
+    - url: https://github.com/sebastian-sommerfeld-io/docker-image-ftp-client.git
+      start_path: docs
+    - url: https://github.com/sebastian-sommerfeld-io/docker-image-jq.git
+      start_path: docs
+    - url: https://github.com/sebastian-sommerfeld-io/docker-image-terraform.git
+      start_path: docs
+
+    - url: https://github.com/sebastian-sommerfeld-io/github-action-generate-docs.git
+      start_path: docs
+    - url: https://github.com/sebastian-sommerfeld-io/github-action-generate-readme.git
+      start_path: docs
+    - url: https://github.com/sebastian-sommerfeld-io/github-action-update-antora-yml.git
+      start_path: docs
+
+    - url: https://github.com/sebastian-sommerfeld-io/website-masterblender-de.git
+      start_path: docs
+    - url: https://github.com/sebastian-sommerfeld-io/website-numero-uno-de.git
+      start_path: docs
+    - url: https://github.com/sebastian-sommerfeld-io/website-tafelboy-de.git
+      start_path: docs
+
+asciidoc:
+  attributes:
+    kroki-fetch-diagram: true
+  extensions:
+    - asciidoctor-kroki
+
+ui:
+  bundle:
+    url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    snapshot: true
+
+output:
+  clean: true
+  dir: /tmp/antora/_personal-projects/public
+
+runtime:
+  cache_dir: /tmp/antora/_personal-projects/cache/antora
+  fetch: true

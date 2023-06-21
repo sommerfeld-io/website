@@ -1,0 +1,6 @@
+= Project-specific settings
+
+== Github Actions Secrets
+Create link:https://github.com/sommerfeld-io/website/settings/secrets/actions[Github Actions secrets] to allow interaction with DockerHub, Snyk and the classic webspace from `link:https://github.com/sommerfeld-io/website/actions/workflows/ci.yml[CI]` and `https://github.com/sommerfeld-io/website/actions/workflows/release.yml[Release]` workflows.
+
+. `DOCKERHUB_TOKEN` -> See Bitwarden entry "DOCKERHUB_TOKEN website sommerfeld.io"

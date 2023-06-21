@@ -1,8 +1,9 @@
 ---
 name: website
 title: Website
-version: main
-start_page: ROOT:index.adoc
+version: setup-playbook
+start_page: landingpage:index.adoc
 nav:
+  - modules/landingpage/nav.adoc
   - modules/ROOT/nav.adoc
   - modules/AUTO-GENERATED/nav.adoc
