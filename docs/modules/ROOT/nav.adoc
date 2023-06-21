@@ -1,2 +1,2 @@
 * xref:index.adoc[]
-* xref:settings.adoc[]
+** xref:settings.adoc[]
