@@ -3,5 +3,6 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 :url-project: https://github.com/sommerfeld-io/{project-name}
 :github-actions-url: {url-project}/actions/workflows
 :job-ci: ci.yml
+:job-release: release.yml
 :job-generate-docs: docs-as-code.yml
 :badge: badge.svg
