@@ -2,6 +2,8 @@
   "rules": [
     ".github/workflows",
 
+    "config/**",
+
     "docs/modules/*/assets/attachments/**",
     "docs/modules/*/assets/images/**",
     "docs/modules/*/examples/*",
