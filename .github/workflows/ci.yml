@@ -69,7 +69,6 @@ jobs:
     needs: ['lint-yaml', 'lint-dockerfile']
     permissions:
       contents: read
-      security-events: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
