@@ -40,7 +40,7 @@ This Docker image follows a tagging convention based on semantic versioning. Eac
 
 Versions with a `-SNAPSHOT` suffix (e.g. `:v0.2.1-SNAPSHOT`) indicate unstable releases, usually used for testing or development purposes. These versions are not recommended for production use. `:latest` never points to a snapshot release.
 
-The image may have a `:ci` tag, which represents an unstable build. These versions come from CI-builds and/or nightly builds and are useful for continuous integration and testing purposes. The `:ci` tag is not meant for production use and may contain experimental features or unresolved issues.
+The image may have a `:ci` tag, which represents an unstable build. These versions come from CI builds and/or nightly builds and are useful for continuous integration and testing purposes. The `:ci` tag is not meant for production use and may contain experimental features or unresolved issues.
 
 == Risks and Technical Debts
 link:{url-project}/issues?q=is%3Aissue+label%3Asecurity%2Crisk+is%3Aopen[All issus labeled as `risk` (= some sort of risk or a technical debt) or `security` (= related to security issues)] are tracked as Github issues and carry the respective label.
