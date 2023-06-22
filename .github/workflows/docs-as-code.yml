@@ -35,7 +35,7 @@ jobs:
       - name: README.adoc
         uses: sebastian-sommerfeld-io/github-action-generate-readme@main
         with:
-          caption: Website Documentation
+          caption: Website
       - name: Generate docs from bash scripts
         uses: sebastian-sommerfeld-io/github-action-generate-docs@main
       - name: Commit and push
