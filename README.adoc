@@ -4,6 +4,7 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 :url-project: https://github.com/sommerfeld-io/{project-name}
 :github-actions-url: {url-project}/actions/workflows
 :job-ci: ci.yml
+:job-release: release.yml
 :job-generate-docs: docs-as-code.yml
 :badge: badge.svg
 
@@ -20,6 +21,7 @@ Website configuration and landingpage contents for www.sommerfeld.io.
 
 image:{github-actions-url}/{job-generate-docs}/{badge}[Github Badge, link={github-actions-url}/{job-generate-docs}]
 image:{github-actions-url}/{job-ci}/{badge}[Github Badge, link={github-actions-url}/{job-ci}]
+image:{github-actions-url}/{job-release}/{badge}[Github Badge, link={github-actions-url}/{job-release}]
 
 * Github Repository -> {url-project}
 * Where to file issues -> {url-project}/issues
