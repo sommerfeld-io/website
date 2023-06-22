@@ -27,7 +27,7 @@ image:{github-actions-url}/{job-release}/{badge}[Github Badge, link={github-acti
 * Where to file issues -> {url-project}/issues
 
 == About this project
-The Docker image "sommerfeldio/website" represents the complete website from https://www.sommerfeld.io[www.sommerfeld.io]. The image is hosted on link:https://hub.docker.com/r/sommerfeldio/website[Docker Hub]. This image encapsulates all the necessary components, including HTML, CSS, JavaScript, and other resources, required to run the sommerfeld.io website (locally or in a production environment) within a Docker container.
+The Docker image `sommerfeldio/website` represents the complete website from https://www.sommerfeld.io[www.sommerfeld.io]. The image is hosted on link:https://hub.docker.com/r/sommerfeldio/website[Docker Hub]. This image encapsulates all the necessary components, including HTML, CSS, JavaScript, and other resources, required to run the sommerfeld.io website (locally or in a production environment) within a Docker container.
 
 == How to use this project
 [source,bash]
