@@ -11,6 +11,9 @@ on:
   schedule:
     - cron: '0 3 * * 1' # https://crontab.guru/#0_2_*_*_1
 
+env:
+  IMAGE: sommerfeldio/website
+
 permissions:
   contents: read
 
@@ -94,7 +97,7 @@ jobs:
           context: ./
           platforms: linux/amd64
           push: ${{ github.actor != 'dependabot[bot]' }}
-          tags: sommerfeldio/website:${{ steps.vars.outputs.DOCKER_TAG }}
+          tags: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
 
   on-failure:
     runs-on: ubuntu-latest
