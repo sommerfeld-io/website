@@ -7,13 +7,16 @@ on:
     # published and latest remains unchanged.
     inputs:
       version:
-        description: Version (= new tag, e.g. `v0.2.0`)
+        description: Version (= new tag, e.g. v0.2.0)
         required: true
       publish:
         type: boolean
         description: If true, artifacts are published to DockerHub etc.
         required: true
         default: true
+
+env:
+  IMAGE: sommerfeldio/website
 
 permissions:
   contents: read
@@ -81,7 +84,6 @@ jobs:
         if: github.event.inputs.publish == 'true'
         run: |
           VERSION_TAG="${{ github.event.inputs.version }}"
-          IMAGE="sommerfeldio/tron"
           docker pull "$IMAGE:ci"
 
           docker tag "$IMAGE:ci" "$IMAGE:latest"
@@ -101,7 +103,6 @@ jobs:
         if: github.event.inputs.publish == 'true'
         run: |
           VERSION_TAG="${{ github.event.inputs.version }}"
-          IMAGE="sommerfeldio/tron"
 
           if [[ "${{ github.event.inputs.version }}" != *"-SNAPSHOT"* ]]; then
             docker pull "$IMAGE:latest"
@@ -129,7 +130,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          repository: sommerfeldio/tron
+          repository: ${{ env.IMAGE }}
           short-description: ${{ github.event.repository.description }}
           readme-filepath: ./README.md
 
