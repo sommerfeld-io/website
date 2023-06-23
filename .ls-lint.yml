@@ -17,6 +17,8 @@ ls:
   .css: kebab-case
   .html: kebab-case
   .js: kebab-case
+  .hbs: kebab-case # handlebars (antora ui bundle)
+  .svg: kebab-case
 
   Dockerfile: PascalCase
   Vagrantfile: PascalCase
@@ -29,6 +31,7 @@ ls:
   .gitkeep: lowercase
 
 ignore:
+  # linter definitions
   - .adoc-links.json
   - src/main/github-config/assets/linters/.adoc-links.json
   - .ls-lint.yml
@@ -36,8 +39,13 @@ ignore:
   - .yamllint.yml
   - src/main/github-config/assets/linters/.yamllint.yml
 
+  # globals
   - .git
   - .idea
   - node_modules
   - .gitpod.yml
   - target
+
+  # antora ui bundle
+  - src/main/.gulp.json
+  - src/main/src/js/vendor/highlight.bundle.js
