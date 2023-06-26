@@ -1,7 +1,6 @@
 #!/bin/bash
 # @file build-and-run.sh
-# @brief Build a Docker image containing the whole link:https://www.sommerfeld.io[www.sommerfeld.io]
-# website and run locally inside a Docker container.
+# @brief Build a Docker image containing the whole link:https://www.sommerfeld.io[www.sommerfeld.io] website and run locally inside a Docker container.
 #
 # @description The script automates the process of creating a Docker image that encapsulates
 # the entire link:https://www.sommerfeld.io[sommerfeld-io website] within an Apache httpd web
