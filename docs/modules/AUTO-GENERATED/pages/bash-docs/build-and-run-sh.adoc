@@ -10,7 +10,7 @@
 // +-----------------------------------------------+
 
 
-Build a Docker image containing the whole link:https://www.sommerfeld.io[www.sommerfeld.io]
+Build a Docker image containing the whole link:https://www.sommerfeld.io[www.sommerfeld.io] website and run locally inside a Docker container.
 
 == Overview
 
