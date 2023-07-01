@@ -47,5 +47,5 @@ ignore:
   - target
 
   # antora ui bundle
-  - src/main/.gulp.json
-  - src/main/src/js/vendor/highlight.bundle.js
+  - src/main/ui/.gulp.json
+  - src/main/ui/src/js/vendor/highlight.bundle.js
