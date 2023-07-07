@@ -41,14 +41,14 @@ Dockerhub.
 To run this website configuration locally with a UI bundle from your localhost, make sure a
 `ui-bundle.zip` is available through a local webserver.
 
-For the `+link:https://github.com/sommerfeld-io/website-ui-bundle[website-ui-bundle]+` project,
-this can be done with the link:/website-ui-bundle/main/AUTO-GENERATED/bash-docs/src/main/ui-bundle-sh.html[ui-bundle.sh]
+For the link:https://github.com/sommerfeld-io/website-ui-bundle[`website-ui-bundle`] project,
+this can be done with the link:/website-ui-bundle/main/AUTO-GENERATED/bash-docs/src/main/ui-bundle-sh.html[`ui-bundle.sh`]
 script.
 
 To connect to the Docker host from within your container, pass the Docker host's IP address
-to the container using the `--add-host` flag. For this script this is needed for building
-the `local/website:dev` image. By leveraging this feature, the webserver running on the
-host is available  as `docker-host-gateway` (http://docker-host-gateway:5252/ui-bundle.zip)
+to the container using the `--add-host` flag. For this script this is needed to build the
+`local/website:dev` image. By leveraging this feature, the webserver running on the host
+is available  as `docker-host-gateway` (http://docker-host-gateway:5252/ui-bundle.zip)
 when building the image.
 
 Use inside your Antora playbook by referencing http://docker-host-gateway:5252/ui-bundle.zip
