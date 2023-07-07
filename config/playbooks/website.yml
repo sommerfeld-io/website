@@ -27,8 +27,8 @@ asciidoc:
 ui:
   bundle:
     # url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
-    # url: https://github.com/sommerfeld-io/website-ui-bundle/releases/download/v0.1.0-SNAPSHOT/ui-bundle-0.1.0-SNAPSHOT.zip
-    url: http://docker-host-gateway:5252/ui-bundle.zip
+    url: https://github.com/sommerfeld-io/website-ui-bundle/releases/download/v0.1.0-SNAPSHOT/ui-bundle-0.1.0-SNAPSHOT.zip
+    # url: http://docker-host-gateway:5252/ui-bundle.zip
     snapshot: true
 
 output:
