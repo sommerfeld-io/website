@@ -1,5 +1,7 @@
 = Project-specific settings
 
+A summary of all settings that are specific to this project.
+
 == Github Actions Secrets
 Create link:https://github.com/sommerfeld-io/website/settings/secrets/actions[Github Actions secrets] to allow interaction with DockerHub, Snyk and the classic webspace from `link:https://github.com/sommerfeld-io/website/actions/workflows/ci.yml[CI]` and `https://github.com/sommerfeld-io/website/actions/workflows/release.yml[Release]` workflows.
 

@@ -20,21 +20,51 @@
 # link:https://hub.docker.com/r/sommerfeldio/website[``sommerfeldio/website``]  image on
 # Dockerhub.
 #
+# === Use a UI bundle from your localhost
+#
+# To run this website configuration locally with a UI bundle from your localhost, make sure a
+# ``ui-bundle.zip`` is available through a local webserver.
+#
+# For the link:https://github.com/sommerfeld-io/website-ui-bundle[``website-ui-bundle``] project,
+# this can be done with the link:/website-ui-bundle/main/AUTO-GENERATED/bash-docs/src/main/ui-bundle-sh.html[``ui-bundle.sh``]
+# script.
+#
+# To connect to the Docker host from within your container, pass the Docker host's IP address
+# to the container using the ``--add-host`` flag. For this script this is needed to build the
+# ``local/website:dev`` image. By leveraging this feature, the webserver running on the host
+# is available  as ``docker-host-gateway`` (http://docker-host-gateway:5252/ui-bundle.zip)
+# when building the image.
+#
+# Use inside your Antora playbook by referencing http://docker-host-gateway:5252/ui-bundle.zip
+# as your UI bundle URL. 
+#
+# [source, yaml]
+#
+# ....
+# ui:
+#   bundle:
+#     url: http://docker-host-gateway:5252/ui-bundle.zip
+#     snapshot: true
+# ....
+#
 # === Script Arguments
 #
 # The script does not accept any parameters.
 
 
-DOCKER_IMAGE="local/website:dev"
-PORT=7888
+DOCKER_HOST_GATEWAY="$(ip -4 addr show scope global dev docker0 | grep inet | awk '{print $2}' | cut -d / -f 1 | sed -n 1p)"
+readonly DOCKER_HOST_GATEWAY
+readonly DOCKER_IMAGE="local/website:dev"
+readonly PORT=7888
 
 
 echo -e "$LOG_INFO Remove old versions of $DOCKER_IMAGE"
 docker image rm "$DOCKER_IMAGE"
 
 echo -e "$LOG_INFO Build Docker image $DOCKER_IMAGE"
-docker build --no-cache -t "$DOCKER_IMAGE" .
+echo -e "$LOG_INFO DOCKER_HOST_GATEWAY = $DOCKER_HOST_GATEWAY"
+docker build --no-cache --add-host="docker-host-gateway:$DOCKER_HOST_GATEWAY" -t "$DOCKER_IMAGE" .
 
 echo -e "$LOG_INFO Run Docker image"
-docker run --rm mwendler/figlet "    $PORT"
-docker run --rm --add-host="host.docker.internal:host-gateway" -p "$PORT:80" "$DOCKER_IMAGE"
+docker run --rm mwendler/figlet "$PORT"
+docker run --rm -p "$PORT:80" "$DOCKER_IMAGE"

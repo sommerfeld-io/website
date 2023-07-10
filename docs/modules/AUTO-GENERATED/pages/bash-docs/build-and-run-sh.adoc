@@ -36,6 +36,33 @@ The image is intended for local testing purposes. For production use, take a loo
 link:https://hub.docker.com/r/sommerfeldio/website[`sommerfeldio/website`]  image on
 Dockerhub.
 
+=== Use a UI bundle from your localhost
+
+To run this website configuration locally with a UI bundle from your localhost, make sure a
+`ui-bundle.zip` is available through a local webserver.
+
+For the link:https://github.com/sommerfeld-io/website-ui-bundle[`website-ui-bundle`] project,
+this can be done with the link:/website-ui-bundle/main/AUTO-GENERATED/bash-docs/src/main/ui-bundle-sh.html[`ui-bundle.sh`]
+script.
+
+To connect to the Docker host from within your container, pass the Docker host's IP address
+to the container using the `--add-host` flag. For this script this is needed to build the
+`local/website:dev` image. By leveraging this feature, the webserver running on the host
+is available  as `docker-host-gateway` (http://docker-host-gateway:5252/ui-bundle.zip)
+when building the image.
+
+Use inside your Antora playbook by referencing http://docker-host-gateway:5252/ui-bundle.zip
+as your UI bundle URL.
+
+[source, yaml]
+
+....
+ui:
+bundle:
+url: http://docker-host-gateway:5252/ui-bundle.zip
+snapshot: true
+....
+
 === Script Arguments
 
 The script does not accept any parameters.
