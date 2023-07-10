@@ -37,4 +37,4 @@ docker build --no-cache -t "$DOCKER_IMAGE" .
 
 echo -e "$LOG_INFO Run Docker image"
 docker run --rm mwendler/figlet "    $PORT"
-docker run --rm -p "$PORT:80" "$DOCKER_IMAGE"
+docker run --rm --add-host="host.docker.internal:host-gateway" -p "$PORT:80" "$DOCKER_IMAGE"
