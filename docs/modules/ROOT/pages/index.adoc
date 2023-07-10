@@ -7,10 +7,11 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 [.menu-item-name]#link:/_personal-projects/config-docs/main[Configs]#
 [.menu-item-desc]#Configuration as code for all my computers and RasPi nodes.#
 [.menu-item-name]#link:/_personal-projects/jarvis-cli-docs//main[Jarvis]#
-[.menu-item-desc]#Bash utility to assist with day to day tasks just like J.A.R.V.I.S. does for Iron Man #
-[.menu-item-name]#link:/_personal-projects/k8s-playground/main[Kubernetes Playground]#[.menu-item-name]#xref:index.adoc[Lorem ipsum dolor sit amet]#
-[.menu-item-desc]#Playground project for kubernetes exercises and local development. #
-|These projects are personal endeavors that are not directly affiliated with www.sommerfeld.io, although in most cases, the generated documentation for these projects is published on the website.
+[.menu-item-desc]#Bash utility to assist with day to day tasks just like J.A.R.V.I.S. does for Iron Man.#
+[.menu-item-name]#link:/_personal-projects/k8s-playground/main[Kubernetes Playground]#
+[.menu-item-desc]#Playground project for kubernetes exercises and local development.#
+|
+These projects are personal endeavors that are not directly affiliated with www.sommerfeld.io, although in most cases, the generated documentation for these projects is published on the website.
 |===
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
