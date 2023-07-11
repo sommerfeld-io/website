@@ -12,9 +12,9 @@ COPY config /antora
 
 WORKDIR /antora
 
-RUN yarn add @asciidoctor/core@~2.2 \
-    && yarn add asciidoctor-kroki \
-    && yarn add @antora/lunr-extension
+RUN yarn add @asciidoctor/core@~3.0.2 \
+    && yarn add asciidoctor-kroki@~0.17.0 \
+    && yarn add @antora/lunr-extension@~1.0.0-alpha.8
 
 RUN antora --version \
     && antora playbooks/website.yml --stacktrace --clean --fetch \
