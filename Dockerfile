@@ -20,6 +20,9 @@ RUN antora --version \
     && antora playbooks/website.yml --stacktrace --clean --fetch \
     && antora playbooks/personal-projects.yml --stacktrace --clean --fetch
 
+# sleep for a moment ... otherwise the search-index.js is not created correctly
+RUN sleep 10
+
 #
 # Stage 2: run
 #
