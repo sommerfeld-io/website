@@ -27,10 +27,10 @@ asciidoc:
 
 antora:
   extensions:
-  - require: '@antora/lunr-extension'
-    enabled: true
-    index_latest_only: true
-    snippet_length: 250
+    - require: '@antora/lunr-extension'
+      enabled: true
+      index_latest_only: true
+      snippet_length: 200
 
 ui:
   bundle:
