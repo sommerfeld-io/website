@@ -8,16 +8,17 @@
 FROM antora/antora:3.1.4 AS build
 LABEL maintainer="sebastian@sommerfeld.io"
 
-RUN yarn global add @asciidoctor/core@~2.2 \
-    && yarn global add asciidoctor-kroki
-
 COPY config /antora
 
 WORKDIR /antora
 
+RUN yarn add @asciidoctor/core@~2.2 \
+    && yarn add asciidoctor-kroki \
+    && yarn add @antora/lunr-extension
+
 RUN antora --version \
-    && antora generate playbooks/website.yml --stacktrace --clean --fetch \
-    && antora generate playbooks/personal-projects.yml --stacktrace --clean --fetch
+    && antora playbooks/website.yml --stacktrace --clean --fetch \
+    && antora playbooks/personal-projects.yml --stacktrace --clean --fetch
 
 #
 # Stage 2: run
