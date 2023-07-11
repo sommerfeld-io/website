@@ -8,16 +8,20 @@
 FROM antora/antora:3.1.4 AS build
 LABEL maintainer="sebastian@sommerfeld.io"
 
-RUN yarn global add @asciidoctor/core@~2.2 \
-    && yarn global add asciidoctor-kroki
-
 COPY config /antora
 
 WORKDIR /antora
 
+RUN yarn add @asciidoctor/core@~3.0.2 \
+    && yarn add asciidoctor-kroki@~0.17.0 \
+    && yarn add @antora/lunr-extension@~1.0.0-alpha.8
+
 RUN antora --version \
-    && antora generate playbooks/website.yml --stacktrace --clean --fetch \
-    && antora generate playbooks/personal-projects.yml --stacktrace --clean --fetch
+    && antora playbooks/website.yml --stacktrace --clean --fetch \
+    && antora playbooks/personal-projects.yml --stacktrace --clean --fetch
+
+# sleep for a moment ... otherwise the search-index.js is not created correctly
+RUN sleep 10
 
 #
 # Stage 2: run

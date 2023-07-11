@@ -145,7 +145,7 @@ jobs:
       - name: Create tag and Github release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN_REPO_AND_PROJECT }}
-        # If a matching git tag does not yet exist, one will automatically get created
+        # If a matching git tag does not yet exist, it will automatically get created
         # from the latest state of the default branch.
         run: |
           if [[ "${{ github.event.inputs.version }}" != *"-SNAPSHOT"* ]]; then
@@ -153,9 +153,6 @@ jobs:
           else
             gh release create "${{ github.event.inputs.version }}" --prerelease --generate-notes
           fi
-
-          # Upload all tarballs in a directory as release assets
-          # gh release create v1.2.3 ./dist/*.tgz
         shell: bash
 
   on-failure:
