@@ -3,17 +3,17 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
 
-Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+== Project related to sommerfeld.io
+The projects listed below all contribute to the services of www.sommerfeld.io, each playing a vital role in enhancing the website's functionality and overall user experience. These projects encompass a range of purposes, including providing direct features for users, handling infrastructure management, and facilitating development setups. Together, they form a cohesive ecosystem that ensures the smooth operation and continuous improvement of www.sommerfeld.io.
 
-[cols="2a,1a",frame=none,grid=none]
-|===
-|
+NOTE: Todo -> https://github.com/sommerfeld-io/website/issues/17 (for personal projects as well)
+
+== Personal Projects
+These projects are personal endeavors that are not directly affiliated with www.sommerfeld.io, although in most cases, the generated documentation for these projects is published on the website.
+
 [.menu-item-name]#link:/_personal-projects/config-docs/main[Configs]#
 [.menu-item-desc]#Configuration as code for all my computers and RasPi nodes.#
 [.menu-item-name]#link:/_personal-projects/jarvis-cli-docs//main[Jarvis]#
 [.menu-item-desc]#Bash utility to assist with day to day tasks just like J.A.R.V.I.S. does for Iron Man.#
 [.menu-item-name]#link:/_personal-projects/k8s-playground/main[Kubernetes Playground]#
 [.menu-item-desc]#Playground project for kubernetes exercises and local development.#
-|
-These projects are personal endeavors that are not directly affiliated with www.sommerfeld.io, although in most cases, the generated documentation for these projects is published on the website.
-|===
