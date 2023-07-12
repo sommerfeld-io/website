@@ -6,4 +6,4 @@ A summary of all settings that are specific to this project.
 Create link:https://github.com/sommerfeld-io/website/settings/secrets/actions[Github Actions secrets] to allow interaction with DockerHub, Snyk and the classic webspace from `link:https://github.com/sommerfeld-io/website/actions/workflows/ci.yml[CI]` and `https://github.com/sommerfeld-io/website/actions/workflows/release.yml[Release]` workflows.
 
 . `DOCKERHUB_TOKEN` -> See Bitwarden entry "DOCKERHUB_TOKEN website sommerfeld.io"
-. `SONAR_TOKEN` -> Configured when creating the project in SonarCloud 
+. `SONAR_TOKEN` -> Configured when creating the project in SonarCloud (manage Tokens on the link:https://sonarcloud.io/account/security[SonarCloud Security page])
