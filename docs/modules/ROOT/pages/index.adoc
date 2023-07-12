@@ -3,6 +3,8 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 
 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. 
 
+NOTE: Todo -> something about me / about www.sommerfeld.io
+
 == Project related to sommerfeld.io
 The projects listed below all contribute to the services of www.sommerfeld.io, each playing a vital role in enhancing the website's functionality and overall user experience. These projects encompass a range of purposes, including providing direct features for users, handling infrastructure management, and facilitating development setups. Together, they form a cohesive ecosystem that ensures the smooth operation and continuous improvement of www.sommerfeld.io.
 
