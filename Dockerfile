@@ -3,7 +3,7 @@
 #
 # Build Antora pages based on repositories from playbook.
 # Contents are cloned from remote repoitories because project files from local
-# machine (the docker-hosts) filesystem are not present inside container.
+# machine filesystem (the docker-host) are not present inside container.
 #
 FROM antora/antora:3.1.4 AS build
 LABEL maintainer="sebastian@sommerfeld.io"
