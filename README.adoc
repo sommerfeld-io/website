@@ -28,6 +28,7 @@ The Docker image `sommerfeldio/website` represents the complete website from htt
 
 * Github Repository -> {url-project}
 * Where to file issues -> {url-project}/issues
+* Sonar -> https://sonarcloud.io/project/overview?id=sommerfeld-io_website
 
 == How to use this project
 [source,bash]
