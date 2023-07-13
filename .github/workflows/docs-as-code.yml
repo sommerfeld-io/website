@@ -22,6 +22,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          ref: main
       - name: Print Branchname
         run: echo ${{github.ref}}
       - name: Adjust version in antora.yml
@@ -38,14 +40,44 @@ jobs:
           caption: Website
       - name: Generate docs from bash scripts
         uses: sebastian-sommerfeld-io/github-action-generate-docs@main
-      - name: Generate content (link personal projects from github using the github cli)
+      - name: Commit and push
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: sebastian
+          author_email: sebastian@sommerfeld.io
+          message: "[Actions Bot] docs: auto-generated docs"
+
+  generate-project-links:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: main
+      - name: Print Branchname
+        run: echo ${{github.ref}}
+      - name: Generate content (project links)... PERSONAL PROJECTS from github using the github cli
         run: |
           JQ_QUERY='.[] | "[.menu-item-name]#link:/_personal-projects/" + .name + "/main[" + .name + "]#" + " [.menu-item-desc]#" + .description + "#"'
           TARGET_ADOC="docs/modules/ROOT/partials/AUTO-GENERATED/projects/personal.adoc"
 
-          echo "[INFO] Read personal project from sebastian-sommerfeld-io and write to adoc"
-          # gh repo list --visibility=public --no-archived --json=name,description --jq="$JQ_QUERY" > "$TARGET_ADOC"
-          gh api users/sebastian-sommerfeld-io/repos --jq="$JQ_QUERY" > "$TARGET_ADOC"
+          echo "[INFO] Read PERSONAL project from sebastian-sommerfeld-io and write to adoc"
+          gh api "users/sebastian-sommerfeld-io/repos?type=pubic&sort=full_name" --jq="$JQ_QUERY" > "$TARGET_ADOC"
+
+          echo "[INFO] Show $TARGET_ADOC"
+          cat "$TARGET_ADOC"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+      - name: Generate content (project links)... ORGANISATION PROJECTS from github using the github cli
+        run: |
+          JQ_QUERY='.[] | "[.menu-item-name]#link:/" + .name + "/main[" + .name + "]#" + " [.menu-item-desc]#" + .description + "#"'
+          TARGET_ADOC="docs/modules/ROOT/partials/AUTO-GENERATED/projects/sommerfeld-io.adoc"
+
+          echo "[INFO] Read ORGANISATION project from sommerfeld-io and write to adoc"
+          gh api "orgs/sommerfeld-io/repos?type=pubic&sort=full_name" --jq="$JQ_QUERY" > "$TARGET_ADOC"
 
           echo "[INFO] Show $TARGET_ADOC"
           cat "$TARGET_ADOC"
@@ -57,13 +89,13 @@ jobs:
         with:
           author_name: sebastian
           author_email: sebastian@sommerfeld.io
-          message: "[Actions Bot] docs: auto-generated docs"
+          message: "[Actions Bot] docs: auto-generated content"
 
   validate-links:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    needs: generate-docs
+    needs: ['generate-docs', 'generate-project-links']
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -79,7 +111,7 @@ jobs:
   qodana-analysis:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
-    needs: generate-docs
+    needs: ['generate-docs', 'generate-project-links']
     permissions:
       security-events: write
     steps:
@@ -110,7 +142,7 @@ jobs:
 
   on-failure:
     runs-on: ubuntu-latest
-    needs: ['generate-docs', 'validate-links', 'qodana-analysis']
+    needs: ['generate-docs', 'generate-project-links', 'validate-links', 'qodana-analysis']
     if: failure()
 
     steps:
