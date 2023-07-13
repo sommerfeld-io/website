@@ -2,9 +2,9 @@
 [.menu-item-name]#link:/_personal-projects/configs/main[configs]# [.menu-item-desc]#Configuration as code for all my computers and RasPi nodes.#
 [.menu-item-name]#link:/_personal-projects/github-action-update-antora-yml/main[github-action-update-antora-yml]# [.menu-item-desc]#Adjust version information in antora.yml depending on current branch or version tag.#
 [.menu-item-name]#link:/_personal-projects/docker-image-terraform/main[docker-image-terraform]# [.menu-item-desc]#Docker image that ships with terraform and Bitwarden CLI#
-[.menu-item-name]#link:/_personal-projects/website-tafelboy-de/main[website-tafelboy-de]# [.menu-item-desc]##
-[.menu-item-name]#link:/_personal-projects/website-numero-uno-de/main[website-numero-uno-de]# [.menu-item-desc]##
-[.menu-item-name]#link:/_personal-projects/website-masterblender-de/main[website-masterblender-de]# [.menu-item-desc]##
+[.menu-item-name]#link:/_personal-projects/website-tafelboy-de/main[website-tafelboy-de]# [.menu-item-desc]#Simple fun project#
+[.menu-item-name]#link:/_personal-projects/website-numero-uno-de/main[website-numero-uno-de]# [.menu-item-desc]#Simple fun project#
+[.menu-item-name]#link:/_personal-projects/website-masterblender-de/main[website-masterblender-de]# [.menu-item-desc]#Simple fun project#
 [.menu-item-name]#link:/_personal-projects/k8s-playground/main[k8s-playground]# [.menu-item-desc]#Playground project for kubernetes exercises and local development.#
 [.menu-item-name]#link:/_personal-projects/jarvis/main[jarvis]# [.menu-item-desc]#Bash utility to assist with day to day tasks just like J.A.R.V.I.S. does for Iron Man#
 [.menu-item-name]#link:/_personal-projects/github-action-generate-docs/main[github-action-generate-docs]# [.menu-item-desc]#Auto-Generate Antora module with Asciicoc contents based on inline-docs from bash script#
