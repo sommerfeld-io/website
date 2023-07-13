@@ -28,16 +28,8 @@ RUN sleep 5
 #
 # Run webserver with the Antora pages (built in previous stage).
 #
-# Per default, httpd runs as root user because only root processes can listen to ports
-# below 1024. The default http port for web applications is 80. But this means the user
-# inside the container is `root` which poses a potential security risk. And since the
-# webserver is running inside a Docker container I don't really care what port is used
-# inside the container. So the http port is changed to 7888 and the user is switched to
-# the already present user `www-data`.
-#
-# Apache is trying to write a file into /usr/local/apache2/logs, but the www-data user
-# does not have permission to create files in this directory. So permissions to this
-# directory are updated as well.
+# Permssions of /usr/local/apache2/logs are changed to allow accoss for www-data user
+# and default http port is changed. See docs in ``build-and-run.sh`` for details.
 #
 FROM httpd:2.4.57-alpine3.18 AS run
 LABEL maintainer="sebastian@sommerfeld.io"
