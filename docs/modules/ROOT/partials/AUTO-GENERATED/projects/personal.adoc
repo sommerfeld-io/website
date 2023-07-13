@@ -9,6 +9,3 @@
 [.menu-item-name]#link:/_personal-projects/jarvis/main[jarvis]# [.menu-item-desc]#Bash utility to assist with day to day tasks just like J.A.R.V.I.S. does for Iron Man#
 [.menu-item-name]#link:/_personal-projects/k8s-playground/main[k8s-playground]# [.menu-item-desc]#Playground project for kubernetes exercises and local development.#
 [.menu-item-name]#link:/_personal-projects/open-appsec-poc/main[open-appsec-poc]# [.menu-item-desc]#PoC project to get a feeling for https://www.openappsec.io. The project comes with an intenionally inscure webapp for testing purposes.#
-[.menu-item-name]#link:/_personal-projects/website-masterblender-de/main[website-masterblender-de]# [.menu-item-desc]#Simple fun project#
-[.menu-item-name]#link:/_personal-projects/website-numero-uno-de/main[website-numero-uno-de]# [.menu-item-desc]#Simple fun project#
-[.menu-item-name]#link:/_personal-projects/website-tafelboy-de/main[website-tafelboy-de]# [.menu-item-desc]#Simple fun project#
