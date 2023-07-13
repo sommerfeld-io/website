@@ -33,7 +33,7 @@ The Docker image `sommerfeldio/website` represents the complete website from htt
 == How to use this project
 [source,bash]
 ----
-docker run --rm -it -p 7888:80 sommerfeldio/website:latest
+docker run --rm -it -p 7888:7888 sommerfeldio/website:latest
 ----
 
 == About the tags and versions
