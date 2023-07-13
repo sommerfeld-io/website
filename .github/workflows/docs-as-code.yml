@@ -44,7 +44,8 @@ jobs:
           TARGET_ADOC="docs/modules/ROOT/partials/AUTO-GENERATED/projects/personal.adoc"
 
           echo "[INFO] Read personal project from sebastian-sommerfeld-io and write to adoc"
-          gh repo list --visibility=public --no-archived --json=name,description --jq="$JQ_QUERY" > "$TARGET_ADOC"
+          # gh repo list --visibility=public --no-archived --json=name,description --jq="$JQ_QUERY" > "$TARGET_ADOC"
+          gh api users/sebastian-sommerfeld-io/repos --jq="$JQ_QUERY" > "$TARGET_ADOC"
 
           echo "[INFO] Show $TARGET_ADOC"
           cat "$TARGET_ADOC"
