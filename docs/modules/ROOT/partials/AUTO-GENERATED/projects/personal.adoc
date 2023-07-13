@@ -1,0 +1,16 @@
+[.menu-item-name]#link:/_personal-projects/archive/main[archive]# [.menu-item-desc]#Collection of old repositories which no longer exist on their own. This repository acts as an archive for abandoned projects,#
+[.menu-item-name]#link:/_personal-projects/configs/main[configs]# [.menu-item-desc]#Configuration as code for all my computers and RasPi nodes.#
+[.menu-item-name]#link:/_personal-projects/docker-image-folderslint/main[docker-image-folderslint]# [.menu-item-desc]#Docker image that ships with the folderslint npm module.#
+[.menu-item-name]#link:/_personal-projects/docker-image-ftp-client/main[docker-image-ftp-client]# [.menu-item-desc]#Docker image with ncftp for uploads and downloads via FTP.#
+[.menu-item-name]#link:/_personal-projects/docker-image-jq/main[docker-image-jq]# [.menu-item-desc]#Docker image for jq (jq is a lightweight and flexible command-line JSON processor).#
+[.menu-item-name]#link:/_personal-projects/docker-image-terraform/main[docker-image-terraform]# [.menu-item-desc]#Docker image that ships with terraform and Bitwarden CLI#
+[.menu-item-name]#link:/_personal-projects/github-action-generate-docs/main[github-action-generate-docs]# [.menu-item-desc]#Auto-Generate Antora module with Asciicoc contents based on inline-docs from bash script#
+[.menu-item-name]#link:/_personal-projects/github-action-generate-readme/main[github-action-generate-readme]# [.menu-item-desc]#Auto-Generate README.adoc for a repository based on projects Antora docs.#
+[.menu-item-name]#link:/_personal-projects/github-action-update-antora-yml/main[github-action-update-antora-yml]# [.menu-item-desc]#Adjust version information in antora.yml depending on current branch or version tag.#
+[.menu-item-name]#link:/_personal-projects/jarvis/main[jarvis]# [.menu-item-desc]#Bash utility to assist with day to day tasks just like J.A.R.V.I.S. does for Iron Man#
+[.menu-item-name]#link:/_personal-projects/k8s-playground/main[k8s-playground]# [.menu-item-desc]#Playground project for kubernetes exercises and local development.#
+[.menu-item-name]#link:/_personal-projects/open-appsec-poc/main[open-appsec-poc]# [.menu-item-desc]#PoC project to get a feeling for https://www.openappsec.io. The project comes with an intenionally inscure webapp for testing purposes.#
+[.menu-item-name]#link:/_personal-projects/trashbox/main[trashbox]# [.menu-item-desc]#Test project for all sorts of tests and PoCs and stuff created by some sort of automation ... No "real" data here. Without this repo, tests and data created during development would pollute "real" repositories.#
+[.menu-item-name]#link:/_personal-projects/website-masterblender-de/main[website-masterblender-de]# [.menu-item-desc]#Simple fun project#
+[.menu-item-name]#link:/_personal-projects/website-numero-uno-de/main[website-numero-uno-de]# [.menu-item-desc]#Simple fun project#
+[.menu-item-name]#link:/_personal-projects/website-tafelboy-de/main[website-tafelboy-de]# [.menu-item-desc]#Simple fun project#
