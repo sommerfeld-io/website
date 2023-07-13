@@ -1,5 +1,5 @@
-[.menu-item-name]#link:/.github/main[.github]# [.menu-item-desc]##
+[.menu-item-name]#link:/.github/main[.github]# [.menu-item-desc]#Special fallback repository for all of repos that don't have an actual .github directory#
 [.menu-item-name]#link:/dev-environment-config/main[dev-environment-config]# [.menu-item-desc]#Common configs for Github and all repositories#
 [.menu-item-name]#link:/infrastructure-config/main[infrastructure-config]# [.menu-item-desc]#Configs to install, configure and provision infrastructure and deploy applications#
 [.menu-item-name]#link:/website/main[website]# [.menu-item-desc]#Website configuration and landingpage contents for www.sommerfeld.io#
-[.menu-item-name]#link:/website-ui-bundle/main[website-ui-bundle]# [.menu-item-desc]#Antora ui bundle for www.sommerfeld.io (used by the sommerfeld-io/website repo) #
+[.menu-item-name]#link:/website-ui-bundle/main[website-ui-bundle]# [.menu-item-desc]#Antora ui bundle for www.sommerfeld.io (used by the sommerfeld-io/website repo)#
