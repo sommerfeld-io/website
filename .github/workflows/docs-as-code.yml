@@ -43,13 +43,14 @@ jobs:
           JQ_QUERY='.[] | "[.menu-item-name]#link:/_personal-projects/" + .name + "/main[" + .name + "]#" + " [.menu-item-desc]#" + .description + "#"'
           TARGET_ADOC="docs/modules/ROOT/partials/AUTO-GENERATED/projects/personal.adoc"
 
+          echo "[INFO] Login with secrets.GITHUB_TOKEN"
+          gh auth login --with-token < ${{ secrets.GITHUB_TOKEN }}
+
           echo "[INFO] Read personal project from sebastian-sommerfeld-io and write to adoc"
           gh repo list --visibility=public --no-archived --json=name,description --jq="$JQ_QUERY" > "$TARGET_ADOC"
 
           echo "[INFO] Show $TARGET_ADOC"
           cat "$TARGET_ADOC"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         shell: bash
       - name: Commit and push
         uses: EndBug/add-and-commit@v9
