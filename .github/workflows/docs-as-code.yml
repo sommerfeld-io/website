@@ -67,6 +67,9 @@ jobs:
           gh api "users/sebastian-sommerfeld-io/repos?type=pubic&sort=full_name" --jq="$JQ_QUERY" > "$TARGET_ADOC"
 
           REPO_BLACKLIST=(
+            'website-masterblender-de'
+            'website-numero-uno-de'
+            'website-tafelboy-de'
             'trashbox'
             'provinzial'
             'job'
