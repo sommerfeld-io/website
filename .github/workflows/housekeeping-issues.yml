@@ -19,6 +19,8 @@ permissions:
 jobs:
   call-workflow:
     uses: sommerfeld-io/.github/.github/workflows/housekeeping-issues.yml@main
+    secrets:
+      GH_TOKEN_REPO_AND_PROJECT: ${{ secrets.GH_TOKEN_REPO_AND_PROJECT }}
 
   on-failure:
     runs-on: ubuntu-latest
