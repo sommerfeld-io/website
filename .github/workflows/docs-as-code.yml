@@ -8,167 +8,21 @@ on:
       - dependabot/**
 
 permissions:
-  contents: read
+  contents: write
+  security-events: write
 
 concurrency:
-  group: ${{ github.ref }}
+  group: "docs-as-code-${{ github.event.repository.name }}-${{ github.ref }}"
   cancel-in-progress: true
 
 jobs:
-  generate-docs:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          ref: main
-      - name: Print Branchname
-        run: echo ${{github.ref}}
-      - name: Adjust version in antora.yml
-        uses: sebastian-sommerfeld-io/github-action-update-antora-yml@main
-        with:
-          git_ref: ${{github.ref}}
-      - name: Run yamllint for docs/antora.yml
-        uses: ibiqlik/action-yamllint@v3
-        with:
-          file_or_dir: docs/antora.yml
-      - name: README.adoc
-        uses: sebastian-sommerfeld-io/github-action-generate-readme@main
-        with:
-          caption: Website
-      - name: Generate docs from bash scripts
-        uses: sebastian-sommerfeld-io/github-action-generate-docs@main
-      - name: Commit and push
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: sebastian
-          author_email: sebastian@sommerfeld.io
-          message: "[Actions Bot] docs: auto-generated docs"
-
-  generate-project-links:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-        with:
-          ref: main
-      - name: Print Branchname
-        run: echo ${{github.ref}}
-      - name: Generate content (project links)... PERSONAL PROJECTS from github using the github cli
-        run: |
-          JQ_QUERY='.[] | "[.menu-item-name]#link:/_personal-projects/" + .name + "/main[" + .name + "]#" + " [.menu-item-desc]#" + .description + "#"'
-          TARGET_ADOC="docs/modules/ROOT/partials/AUTO-GENERATED/projects/personal.adoc"
-
-          echo "[INFO] Read PERSONAL project from sebastian-sommerfeld-io and write to adoc"
-          gh api "users/sebastian-sommerfeld-io/repos?type=pubic&sort=full_name" --jq="$JQ_QUERY" > "$TARGET_ADOC"
-
-          REPO_BLACKLIST=(
-            'website-masterblender-de'
-            'website-numero-uno-de'
-            'website-tafelboy-de'
-            'trashbox'
-            'provinzial'
-            'job'
-            'configs-persistent-data'
-            'archive'
-          )
-          for repo in "${REPO_BLACKLIST[@]}"
-          do
-            echo "[LOG_INFO] Remove blacklisted repo $repo from $TARGET_ADOC"
-            sed -i "/$repo/d" "$TARGET_ADOC"
-          done
-
-          echo "[INFO] Show $TARGET_ADOC"
-          cat "$TARGET_ADOC"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        shell: bash
-      - name: Generate content (project links)... ORGANISATION PROJECTS from github using the github cli
-        run: |
-          JQ_QUERY='.[] | "[.menu-item-name]#link:/" + .name + "/main[" + .name + "]#" + " [.menu-item-desc]#" + .description + "#"'
-          TARGET_ADOC="docs/modules/ROOT/partials/AUTO-GENERATED/projects/sommerfeld-io.adoc"
-
-          echo "[INFO] Read ORGANISATION project from sommerfeld-io and write to adoc"
-          gh api "orgs/sommerfeld-io/repos?type=pubic&sort=full_name" --jq="$JQ_QUERY" > "$TARGET_ADOC"
-
-          # REPO_BLACKLIST=(
-          # )
-          # for repo in "${REPO_BLACKLIST[@]}"
-          # do
-          #   echo "[LOG_INFO] Remove blacklisted repo $repo from $TARGET_ADOC"
-          #   sed -i "/$repo/d" "$TARGET_ADOC"
-          # done
-
-          echo "[INFO] Show $TARGET_ADOC"
-          cat "$TARGET_ADOC"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        shell: bash
-      - name: Commit and push
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: sebastian
-          author_email: sebastian@sommerfeld.io
-          message: "[Actions Bot] docs: auto-generated content"
-
-  validate-links:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    needs: ['generate-docs', 'generate-project-links']
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - name: Install asciidoc-linwir könnenk-check
-        run: npm install --location=global asciidoc-link-check@1.0.15
-      - name: Validate links in all adoc files
-        run: find . -name '*.adoc' -exec asciidoc-link-check -c .adoc-links.json -p {} \;
-
-  qodana-analysis:
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    needs: ['generate-docs', 'generate-project-links']
-    permissions:
-      security-events: write
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - name: Download dependencies
-        run: |
-          files=(
-            "analyze.sh"
-            "Dockerfile"
-            "qodana.yaml"
-          )
-          for f in "${files[@]}"
-          do
-            echo "[INFO] Download $f"
-            curl "https://raw.githubusercontent.com/sommerfeld-io/dev-environment-config/main/src/main/github-actions/workflows/docs-as-code/$f" --output "$f"
-          done
-        shell: bash
-      - name: Run Qodana
-        run: |
-          chmod +x analyze.sh
-          ./analyze.sh --save-report
-        shell: bash
-      - name: Upload qodana result to Github Code Scanning
-        uses: github/codeql-action/upload-sarif@v2
-        with:
-          sarif_file: target/qodana/report/results/qodana.sarif.json
+  call-workflow:
+    uses: sommerfeld-io/.github/.github/workflows/docs-as-code.yml@main
 
   on-failure:
     runs-on: ubuntu-latest
-    needs: ['generate-docs', 'generate-project-links', 'validate-links', 'qodana-analysis']
+    needs: call-workflow
     if: failure()
-
     steps:
       - name: Send Pipeline Status to Google Chat
         if: always()
