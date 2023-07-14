@@ -95,14 +95,13 @@ jobs:
           echo "[INFO] Read ORGANISATION project from sommerfeld-io and write to adoc"
           gh api "orgs/sommerfeld-io/repos?type=pubic&sort=full_name" --jq="$JQ_QUERY" > "$TARGET_ADOC"
 
-          REPO_BLACKLIST=(
-            '.github'
-          )
-          for repo in "${REPO_BLACKLIST[@]}"
-          do
-            echo "[LOG_INFO] Remove blacklisted repo $repo from $TARGET_ADOC"
-            sed -i "/$repo/d" "$TARGET_ADOC"
-          done
+          # REPO_BLACKLIST=(
+          # )
+          # for repo in "${REPO_BLACKLIST[@]}"
+          # do
+          #   echo "[LOG_INFO] Remove blacklisted repo $repo from $TARGET_ADOC"
+          #   sed -i "/$repo/d" "$TARGET_ADOC"
+          # done
 
           echo "[INFO] Show $TARGET_ADOC"
           cat "$TARGET_ADOC"
