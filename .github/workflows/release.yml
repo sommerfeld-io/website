@@ -155,9 +155,43 @@ jobs:
           fi
         shell: bash
 
+  reset-version:
+    runs-on: ubuntu-latest
+    needs: github-tag-and-release
+    permissions:
+      contents: write
+    steps:
+        # CONSIDER THIS when checking out the latest code base:
+        # https://github.com/actions/checkout/issues/439#issuecomment-830862188
+        # The branch, tag or SHA to checkout. When checking out the repository that
+        # triggered a workflow, this defaults to the reference or SHA for that event.
+        # Otherwise, uses the default branch.
+        # To get the latest code base, the branch must be specified explicitely
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: main
+      - name: DEBUG SHA
+        run: git rev-parse --verify HEAD
+        shell: bash
+      - name: Adjust version in antora.yml
+        uses: sebastian-sommerfeld-io/github-action-update-antora-yml@main
+        with:
+          git_ref: refs/heads/main
+      - name: Run yamllint for docs/antora.yml
+        uses: ibiqlik/action-yamllint@v3
+        with:
+          file_or_dir: docs/antora.yml
+      - name: Commit and push
+        uses: EndBug/add-and-commit@v9.1.3
+        with:
+          author_name: sebastian
+          author_email: sebastian@sommerfeld.io
+          message: "[Actions Bot] auto-generated version"
+
   on-failure:
     runs-on: ubuntu-latest
-    needs: ['validate-inputs', 'update-version', 'release-tests', 'github-tag-and-release', 'deploy-dockerhub', 'dockerhub-desc', 'validate-deploy-dockerhub']
+    needs: ['validate-inputs', 'update-version', 'release-tests', 'github-tag-and-release', 'reset-version', 'deploy-dockerhub', 'dockerhub-desc', 'validate-deploy-dockerhub']
     if: failure()
     steps:
       - name: Send Pipeline Status to Google Chat
