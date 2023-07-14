@@ -18,7 +18,7 @@ concurrency:
 jobs:
   call-workflow:
     uses: sommerfeld-io/.github/.github/workflows/docs-as-code.yml@main
-  
+
   generate-project-links:
     runs-on: ubuntu-latest
     permissions:
