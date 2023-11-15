@@ -1,6 +1,6 @@
 ---
 name: website
-title: Website
+title: Module - Website
 version: main
 start_page: ROOT:index.adoc
 nav:

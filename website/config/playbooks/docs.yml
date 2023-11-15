@@ -9,17 +9,19 @@ content:
   branches: ['*', '!dependabot/*']
   # tags: [v*]
   sources:
-    - url: https://github.com/sommerfeld-io/dev-environment-config.git
+    - url: https://github.com/sommerfeld-io/www-sommerfeld-io.git
       start_path: docs
-    - url: https://github.com/sommerfeld-io/infrastructure-config.git
-      start_path: docs
-    - url: https://github.com/sommerfeld-io/semver-action.git
-      start_path: docs
-    - url: https://github.com/sommerfeld-io/website.git
-      start_path: docs
+    - url: https://github.com/sommerfeld-io/www-sommerfeld-io.git
+      start_path: website/docs
 
     # Personal projects
     - url: https://github.com/sebastian-sommerfeld-io/configs.git
+      start_path: docs
+
+    # Deprecated
+    - url: https://github.com/sommerfeld-io/dev-environment-config.git
+      start_path: docs
+    - url: https://github.com/sommerfeld-io/semver-action.git
       start_path: docs
 
 asciidoc:
@@ -38,7 +40,6 @@ antora:
 ui:
   bundle:
     # url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
-    # url: https://github.com/sommerfeld-io/website/releases/download/v0.3.0-alpha.0/ui-bundle-docs-0.3.0-alpha.0.zip
     url: /antora-ui/ui-bundle.zip
     snapshot: true
 
