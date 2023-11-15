@@ -5,3 +5,12 @@ updates:
     directory: /
     schedule:
       interval: weekly
+  # website
+  - package-ecosystem: docker
+    directory: website
+    schedule:
+      interval: weekly
+  - package-ecosystem: docker
+    directory: website/ui/template
+    schedule:
+      interval: weekly
