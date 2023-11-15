@@ -74,10 +74,12 @@ jobs:
           echo "Ref Name = $GITHUB_REF_NAME"
           echo "Head Ref = $GITHUB_HEAD_REF"
 
-          TAG="$GITHUB_REF_NAME"
-          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-            TAG="$GITHUB_HEAD_REF"
-          fi
+          # TAG="$GITHUB_REF_NAME"
+          # if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+          #   TAG="$GITHUB_HEAD_REF"
+          # fi
+
+          TAG='main'
 
           echo "tag = $TAG"
           echo "DOCKER_TAG=$TAG" >> $GITHUB_OUTPUT
@@ -116,8 +118,7 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           command: compare
-          #image: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
-          image: ${{ env.IMAGE }}:main
+          image: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
           to: ${{ env.IMAGE }}:latest
           exit-code: false
           write-comment: ${{ github.event_name == 'pull_request' }}
@@ -126,8 +127,7 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           command: cves
-          #image: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
-          image: ${{ env.IMAGE }}:main
+          image: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
           exit-code: ${{ github.event_name == 'pull_request' }}
           write-comment: ${{ github.event_name == 'pull_request' }}
 
