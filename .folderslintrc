@@ -29,7 +29,7 @@
     "website/ui/ui-bundle/gulp.d/tasks",
     "website/ui/ui-bundle/preview-src",
     "website/ui/ui-bundle/src/css",
-    "website/ui/ui-bundle/src/fonts",
+    "website/ui/ui-bundle/src/font",
     "website/ui/ui-bundle/src/helpers",
     "website/ui/ui-bundle/src/img/**",
     "website/ui/ui-bundle/src/js/vendor",
