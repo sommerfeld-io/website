@@ -1,0 +1,168 @@
+---
+# @file ci-website.yml
+# @brief Github Actions workflow for the website module that builds the app and runs automated tests.
+#
+# @description This GitHub Actions workflow for the website module is designed for integration and
+# automates essential tasks such as code linting, building the application, and running automated
+# tests. It ensures code quality, catches errors early, and provides developers with quick feedback
+# on their changes. The workflow triggers automatically when new code is pushed to the remote repo
+# and automatically each night, making it an integral part of the development process to maintain
+# a stable and reliable codebase.
+
+
+name: CI Website
+
+on:
+  push:
+    branches-ignore:
+      - dependabot/**
+  pull_request:
+    branches-ignore:
+      - dependabot/**
+  schedule:
+    - cron: '0 3 * * 1' # https://crontab.guru/#0_2_*_*_1
+
+env:
+  REGISTRY: docker.io
+  IMAGE: sommerfeldio/website
+  SHA: ${{ github.event.pull_request.head.sha || github.event.after }}
+
+permissions:
+  contents: read
+
+jobs:
+  template:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: hadolint
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: website/ui/template/Dockerfile
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Docker image build
+        uses: docker/build-push-action@v5
+        with:
+          context: website/ui/template
+          platforms: linux/amd64
+          push: false
+          tags: local/ui-bundle-template:dev
+
+  website-docker-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      security-events: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: hadolint
+        uses: hadolint/hadolint-action@v3.1.0
+        with:
+          dockerfile: Dockerfile
+      - name: Set docker tag
+        id: vars
+        run: |
+          echo "Ref = ${{ github.ref }}"
+          echo "Ref Name = $GITHUB_REF_NAME"
+          echo "Head Ref = $GITHUB_HEAD_REF"
+
+          TAG="$GITHUB_REF_NAME"
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            TAG="$GITHUB_HEAD_REF"
+          fi
+
+          echo "tag = $TAG"
+          echo "DOCKER_TAG=$TAG" >> $GITHUB_OUTPUT
+        shell: bash
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+      - name: Login to DockerHub
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      # Extract metadata (tags, labels) for Docker
+      # https://github.com/docker/metadata-action
+      - name: Extract Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5.0.0
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE }}
+          labels: |
+            org.opencontainers.image.revision=${{ env.SHA }}
+      - name: Docker image build
+        uses: docker/build-push-action@v5
+        with:
+          context: website
+          platforms: linux/amd64
+          push: ${{ (github.actor != 'dependabot[bot]') && (github.ref == 'refs/heads/main') }}
+          tags: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          provenance: true
+          sbom: true
+      - name: Docker Scout Compare
+        uses: docker/scout-action@v1.0.9
+        with:
+          command: compare
+          image: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
+          to: ${{ env.IMAGE }}:latest
+          exit-code: false
+          write-comment: ${{ github.event_name == 'pull_request' }}
+      - name: Docker Scout CVEs
+        uses: docker/scout-action@v1.0.9
+        with:
+          command: cves
+          image: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
+          exit-code: ${{ github.event_name == 'pull_request' }}
+          write-comment: ${{ github.event_name == 'pull_request' }}
+
+  ui-bundle:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install gulp-cli
+        run: npm install --location=global gulp-cli@2.3.0
+        shell: bash
+      - name: Install node modules
+        run: |
+          (
+            cd website/ui/ui-bundle || exit
+            npm install
+          )
+        shell: bash
+      - name: Build UI bundle
+        run: |
+          (
+            cd website/ui/ui-bundle || exit
+            gulp bundle
+          )
+        shell: bash
+
+  on-failure:
+    runs-on: ubuntu-latest
+    needs: ['template', 'website-docker-image', 'ui-bundle']
+    if: failure()
+    steps:
+      - name: Send Pipeline Status to Google Chat
+        if: always()
+        uses: Co-qn/google-chat-notification@releases/v1
+        with:
+          name: ${{ github.workflow }}
+          url: ${{ secrets.GOOGLE_CHAT_WEBHOOK }}
+          status: failure

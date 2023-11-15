@@ -1,12 +1,12 @@
 ---
-# @file ci.yml
-# @brief Github Actions workflow that handles integration tasks, runs linters, builds apps and runs automated tests.
+# @file lint.yml
+# @brief Github Actions workflow that runs basic linters for the whole repository.
 #
 # @description ...
 # TODO ...
 
 
-name: CI
+name: Lint Repo
 
 on:
   push:
