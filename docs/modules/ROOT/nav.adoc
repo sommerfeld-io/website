@@ -2,9 +2,9 @@
 * xref:ROOT:settings/github-repository.adoc[]
 * xref:ROOT:settings/github-organization.adoc[]
 
-* Development Process
-** xref:ROOT:development/guidelines.adoc[]
-** xref:ROOT:development/tools.adoc[]
+// * Development Process
+* xref:ROOT:development/guidelines.adoc[]
+* xref:ROOT:development/tools.adoc[]
 
 * How To
 ** xref:ROOT:howto/setup-new-repo.adoc[]

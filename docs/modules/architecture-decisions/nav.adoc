@@ -1,1 +1,1 @@
-* Architecture + Design Decisions
+* Architecture Decisions Records

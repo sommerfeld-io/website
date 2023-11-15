@@ -21,8 +21,6 @@ content:
       start_path: docs
 
     # Deprecated
-    - url: https://github.com/sommerfeld-io/dev-environment-config.git
-      start_path: docs
     - url: https://github.com/sommerfeld-io/semver-action.git
       start_path: docs
 
