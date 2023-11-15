@@ -23,6 +23,9 @@
     "*/docs/modules/*/partials/*",
     "*/docs/modules/*/partials/**",
 
+    "website/ui/template/**",
+    "website/ui/ui-bundle/**",
+
     "target/**"
   ]
 }
