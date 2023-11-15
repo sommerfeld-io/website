@@ -111,17 +111,21 @@ jobs:
           sbom: true
       - name: Docker Scout Compare
         uses: docker/scout-action@v1.0.9
+        if: ${{ github.ref == 'refs/heads/main' }}
         with:
           command: compare
-          image: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
+          #image: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
+          image: ${{ env.IMAGE }}:main
           to: ${{ env.IMAGE }}:latest
           exit-code: false
           write-comment: ${{ github.event_name == 'pull_request' }}
       - name: Docker Scout CVEs
         uses: docker/scout-action@v1.0.9
+        if: ${{ github.ref == 'refs/heads/main' }}
         with:
           command: cves
-          image: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
+          #image: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
+          image: ${{ env.IMAGE }}:main
           exit-code: ${{ github.event_name == 'pull_request' }}
           write-comment: ${{ github.event_name == 'pull_request' }}
 
