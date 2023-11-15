@@ -1,12 +1,12 @@
 = 01 - Introduction and Goals
-:description: Describes the relevant requirements and the driving forces that software architects and development team must consider. 
+:description: Describes the relevant requirements and the driving forces that software architects and development team must consider.
 
-// Describes the relevant requirements and the driving forces that software architects and development team must consider. 
+// Describes the relevant requirements and the driving forces that software architects and development team must consider.
 // These include
 
-// * underlying business goals, 
-// * essential features, 
-// * essential functional requirements, 
+// * underlying business goals,
+// * essential features,
+// * essential functional requirements,
 // * quality goals for the architecture and
 // * relevant stakeholders and their expectations
 
@@ -34,14 +34,14 @@
 // == Quality Goals
 
 // .Contents
-// The top three (max five) quality goals for the architecture whose fulfillment is of highest importance to the major stakeholders. 
+// The top three (max five) quality goals for the architecture whose fulfillment is of highest importance to the major stakeholders.
 // We really mean quality goals for the architecture. Don't confuse them with project goals.
 // They are not necessarily identical.
 
 // Consider this overview of potential topics (based upon the ISO 25010 standard):
 
 // .Motivation
-// You should know the quality goals of your most important stakeholders, since they will influence fundamental architectural decisions. 
+// You should know the quality goals of your most important stakeholders, since they will influence fundamental architectural decisions.
 // Make sure to be very concrete about these qualities, avoid buzzwords.
 // If you as an architect do not know how the quality of your work will be judged...
 
