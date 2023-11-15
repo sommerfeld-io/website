@@ -2,8 +2,10 @@
 # @file lint.yml
 # @brief Github Actions workflow that runs basic linters for the whole repository.
 #
-# @description ...
-# TODO ...
+# @description This workflow has been crafted to maintain consistency of within this
+# project. It uses various linters across the entirety of this repository. More
+# special linters for components can be found in the components resüpective build
+# workflow.
 
 
 name: Lint Repo
