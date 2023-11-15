@@ -1,6 +1,6 @@
 ---
-name: infrastructure-config
-title: Infrastructure Config
+name: infrastructure
+title: Component - Infrastructure Config
 version: main
 start_page: ROOT:index.adoc
 nav:
