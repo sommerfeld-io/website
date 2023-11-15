@@ -1,7 +1,7 @@
 ---
 name: monorepo
 title: Monorepo Docs
-version: main
+version: setup-website
 start_page: ROOT:index.adoc
 nav:
   - modules/ROOT/nav.adoc
