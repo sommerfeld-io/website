@@ -1,0 +1,3 @@
+* xref:AUTO-GENERATED:website/build-and-run-website-sh.adoc[website/build-and-run-website.sh]
+* xref:AUTO-GENERATED:website/build-and-run-template-sh.adoc[website/build-and-run-template.sh]
+* xref:AUTO-GENERATED:website/build-and-preview-ui-bundle-sh.adoc[website/build-and-preview-ui-bundle.sh]

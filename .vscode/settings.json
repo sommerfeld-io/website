@@ -1,3 +1,9 @@
 {
-    "asciidoc.antora.enableAntoraSupport": true
+    "asciidoc.antora.enableAntoraSupport": true,
+    "yaml.schemas": {
+        "https://json.schemastore.org/yamllint.json": [
+            "file:///workspaces/www-sommerfeld-io/website/config/playbooks/docs.yml",
+            "file:///workspaces/www-sommerfeld-io/website/config/playbooks/personal-projects.yml"
+        ]
+    }
 }

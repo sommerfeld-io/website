@@ -11,7 +11,7 @@ ls:
   .tf: kebab-case
   .yml: kebab-case
   .yaml: kebab-case
-  .feature: kebab-case # cucumber
+  .feature: kebab-case
 
   .sh: kebab-case
 
@@ -32,17 +32,18 @@ ls:
   .gitkeep: lowercase
 
 ignore:
-  # globals
   - .git
   - .idea
   - .vscode
   - node_modules
   - .gitpod.yml
   - target
-
-  # linter definitions
   - .adoc-links.json
   - .gherkin-lintrc.json
   - .ls-lint.yml
   - .pre-commit-config.yaml
   - .yamllint.yml
+
+  # website
+  - website/ui/ui-bundle/.gulp.json
+  - website/ui/ui-bundle/src/js/vendor/highlight.min.js

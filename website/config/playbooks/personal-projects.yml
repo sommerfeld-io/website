@@ -1,0 +1,52 @@
+---
+site:
+  title: Personal Projects
+  url: /docs/personal-projects
+  start_page: configs::index.adoc
+  robots: allow
+
+content:
+  branches: ['*', '!dependabot/*']
+  # tags: [v*]
+  sources:
+    - url: https://github.com/sebastian-sommerfeld-io/configs.git
+      start_path: docs
+    - url: https://github.com/sebastian-sommerfeld-io/jarvis.git
+      start_path: docs
+    - url: https://github.com/sebastian-sommerfeld-io/k8s-playground.git
+      start_path: docs
+    - url: https://github.com/sebastian-sommerfeld-io/open-appsec-poc.git
+      start_path: docs
+
+    - url: https://github.com/sebastian-sommerfeld-io/github-action-generate-readme.git
+      start_path: docs
+    - url: https://github.com/sebastian-sommerfeld-io/github-action-update-antora-yml.git
+      start_path: docs
+
+asciidoc:
+  attributes:
+    kroki-fetch-diagram: true
+  extensions:
+    - asciidoctor-kroki
+
+antora:
+  extensions:
+    - require: '@antora/lunr-extension'
+      enabled: true
+      index_latest_only: true
+      snippet_length: 160
+
+ui:
+  bundle:
+    # url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    # url: https://github.com/sommerfeld-io/website/releases/download/v0.3.0-alpha.0/ui-bundle-docs-0.3.0-alpha.0.zip
+    url: /antora-ui/ui-bundle.zip
+    snapshot: true
+
+output:
+  clean: true
+  dir: /tmp/antora/personal-projects/public
+
+runtime:
+  cache_dir: /tmp/antora/personal-projects/cache/antora
+  fetch: true

@@ -1,0 +1,69 @@
+<nav class="navbar navbar-expand navbar-light navbar-bg">
+	<a class="sidebar-toggle">
+		<i class="hamburger align-self-center"></i>
+	</a>
+
+	<!-- ===== SEARCH ===== -->
+	{{!-- <form class="d-none d-sm-inline-block">
+		<div class="input-group input-group-navbar">
+			<input type="text" class="form-control" placeholder="Search projects ..." aria-label="Search">
+			<button class="btn" type="button">
+				<i class="align-middle" data-feather="search"></i>
+			</button>
+		</div>
+	</form> --}}
+	<!-- ===== SEARCH ===== -->
+
+	<ul class="navbar-nav">
+		<li class="nav-item px-2">
+			<a class="nav-link" href="/">Home</a>
+		</li>
+		{{!-- <li class="nav-item px-2 dropdown">
+			<a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Mega Menu
+			</a>
+			<div class="dropdown-menu dropdown-menu-start dropdown-mega" aria-labelledby="servicesDropdown">
+				<div class="d-md-flex align-items-start justify-content-start">
+					<div class="dropdown-mega-list">
+						<div class="dropdown-header">Forms</div>
+						<a class="dropdown-item" href="#">Layouts</a>
+						<a class="dropdown-item" href="#">Basic Inputs</a>
+						<a class="dropdown-item" href="#">Input Groups</a>
+						<a class="dropdown-item" href="#">Advanced Inputs</a>
+						<a class="dropdown-item" href="#">Editors</a>
+						<a class="dropdown-item" href="#">Validation</a>
+						<a class="dropdown-item" href="#">Wizard</a>
+					</div>
+				</div>
+			</div>
+		</li> --}}
+	</ul>
+
+	<div class="navbar-collapse collapse">
+		<ul class="navbar-nav navbar-align">
+			<li class="nav-item">
+				<a class="nav-link" href="/contact.html">Contact</a>
+			</li>
+			<li class="nav-item dropdown">
+				<a class="nav-flag dropdown-toggle" href="#" id="githubDropdown" data-bs-toggle="dropdown">
+					<img src="{{{uiRootPath}}}/img/logos/github-mark-white.png" alt="Github" />
+				</a>
+				<div class="dropdown-menu dropdown-menu-end" aria-labelledby="githubDropdown">
+					<a class="dropdown-item" href="https://github.com/sommerfeld-io">
+						<img src="{{{uiRootPath}}}/img/logos/github-mark-white.png" alt="" width="20" class="align-middle me-1" />
+						<span class="align-middle">Sommerfeld.io organization</span>
+					</a>
+					<a class="dropdown-item" href="https://github.com/sebastian-sommerfeld-io">
+						<img src="{{{uiRootPath}}}/img/logos/github-mark-white.png" alt="" width="20" class="align-middle me-1" />
+						<span class="align-middle">My personal projects</span>
+					</a>
+				</div>
+			</li>
+			<li class="nav-item">
+				<a class="nav-flag" href="https://hub.docker.com/u/sommerfeldio" id="dockerhubDropdown" data-bs-toggle="dropdown">
+					<img src="{{{uiRootPath}}}/img/logos/docker-symbol-white-logo.png" alt="DockerHub" />
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>

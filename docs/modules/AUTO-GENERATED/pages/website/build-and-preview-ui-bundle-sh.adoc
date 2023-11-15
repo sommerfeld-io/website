@@ -1,0 +1,34 @@
+= build-and-preview-ui-bundle.sh
+
+Preview and build the Antora UI bundle used for www.sommerfeld.io.
+
+== Overview
+
+This script automates the process of building the Antora UI
+bundle, running a local preview of the documentation site, and using demo
+content from the `preview-src` folder for testing and development purposes.
+
+|===
+| Port | URL
+
+| 5252
+| http://localhost:5252
+|===
+
+=== Prerequisites
+
+This script needs Node, NPM and Gulp installed. To avoid having to install
+all prerequisites on your host, open the project in the devcontainer from
+this repo.
+
+=== Script Arguments
+
+The script does not accept any parameters.
+
+=== Script Example
+
+[source, bash]
+
+----
+./build-and-preview-ui-bundle.sh
+----

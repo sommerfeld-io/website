@@ -1,9 +1,10 @@
 ---
 name: monorepo
 title: Monorepo Docs
-version: main
+version: setup-website
 start_page: ROOT:index.adoc
 nav:
   - modules/ROOT/nav.adoc
   - modules/arc42-docs/nav.adoc
+  - modules/architecture-decisions/nav.adoc
   - modules/AUTO-GENERATED/nav.adoc

@@ -1,3 +1,6 @@
 = Sommerfeld.io Monorepo Docs
 
-...
+TODO ...
+
+== DockerHub
+A better README which is dedicated to this image is in development. Please have some patience.
