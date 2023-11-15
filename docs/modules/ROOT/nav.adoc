@@ -1,1 +1,3 @@
-* xref:index.adoc[]
+* xref:ROOT:index.adoc[]
+* xref:ROOT:settings/github-repository.adoc[]
+* xref:ROOT:settings/github-organization.adoc[]
