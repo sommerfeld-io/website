@@ -9,8 +9,6 @@ content:
   branches: ['*', '!dependabot/*']
   # tags: [v*]
   sources:
-    - url: https://github.com/sommerfeld-io/.github.git
-      start_path: docs
     - url: https://github.com/sommerfeld-io/dev-environment-config.git
       start_path: docs
     - url: https://github.com/sommerfeld-io/infrastructure-config.git
