@@ -77,9 +77,28 @@ jobs:
           author_email: sebastian@sommerfeld.io
           message: "[Actions Bot] generate docs"
 
+  generate-readme:
+    runs-on: ubuntu-latest
+    needs: ['adjust-antora-yml']
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{github.ref}}
+      - name: README.adoc
+        uses: sebastian-sommerfeld-io/github-action-generate-readme@main
+        with:
+          caption: ${{ github.event.repository.name }}
+      - name: Commit and push
+        uses: EndBug/add-and-commit@v9
+        with:
+          author_name: sebastian
+          author_email: sebastian@sommerfeld.io
+          message: "[Actions Bot] generate readme"
+
   on-failure:
     runs-on: ubuntu-latest
-    needs: ['adjust-antora-yml', 'generate-docs']
+    needs: ['adjust-antora-yml', 'generate-docs', 'generate-readme']
     if: failure()
     steps:
       - name: Send Pipeline Status to Google Chat
