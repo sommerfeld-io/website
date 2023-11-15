@@ -1,0 +1,13 @@
+= All Projects
+Sebastian Sommerfeld <sebastian@sommerfeld.io>
+:page-layout: projects
+
+// +--------------------------------------------+
+// |                                            |
+// |    DO NOT EDIT !!!!!                       |
+// |                                            |
+// |    Don't put content here. This file       |
+// |    is used to enable the "All Projects"    |
+// |    page.                                   |
+// |                                            |
+// +--------------------------------------------+

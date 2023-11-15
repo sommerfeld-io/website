@@ -1,0 +1,19 @@
+{{#with page.navigation}}
+	<li class="sidebar-item" data-panel="menu"
+		{{#if page.component}} data-component="{{page.component.name}}" data-version="{{page.version}}"{{/if}}>
+
+		{{#with @root.page.componentVersion}}
+			{{!-- href="{{{relativize ./url}}} --}}
+			<a data-bs-target="#antora-docs-nav-1" data-bs-toggle="collapse" class="sidebar-link">
+				<i class="align-middle" data-feather="file"></i> <span class="align-middle">{{./title}}</span>
+			</a>
+		{{/with}}
+
+		<ul id="antora-docs-nav-1" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
+			{{!-- iterate all modules, not just current module (which most likely is ROOT) --}}
+			{{#each this}}
+				{{> sidebar-nav-tree navigation=./items}}
+			{{/each}}
+		</ul>
+	</li>
+{{/with}}

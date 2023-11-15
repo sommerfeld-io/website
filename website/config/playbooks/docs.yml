@@ -1,0 +1,53 @@
+---
+site:
+  title: Documentation
+  url: /docs
+  start_page: website::index.adoc
+  robots: allow
+
+content:
+  branches: ['*', '!dependabot/*']
+  # tags: [v*]
+  sources:
+    - url: https://github.com/sommerfeld-io/.github.git
+      start_path: docs
+    - url: https://github.com/sommerfeld-io/dev-environment-config.git
+      start_path: docs
+    - url: https://github.com/sommerfeld-io/infrastructure-config.git
+      start_path: docs
+    - url: https://github.com/sommerfeld-io/semver-action.git
+      start_path: docs
+    - url: https://github.com/sommerfeld-io/website.git
+      start_path: docs
+
+    # Personal projects
+    - url: https://github.com/sebastian-sommerfeld-io/configs.git
+      start_path: docs
+
+asciidoc:
+  attributes:
+    kroki-fetch-diagram: true
+  extensions:
+    - asciidoctor-kroki
+
+antora:
+  extensions:
+    - require: '@antora/lunr-extension'
+      enabled: true
+      index_latest_only: true
+      snippet_length: 160
+
+ui:
+  bundle:
+    # url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
+    # url: https://github.com/sommerfeld-io/website/releases/download/v0.3.0-alpha.0/ui-bundle-docs-0.3.0-alpha.0.zip
+    url: /antora-ui/ui-bundle.zip
+    snapshot: true
+
+output:
+  clean: true
+  dir: /tmp/antora/sommerfeld-io/public
+
+runtime:
+  cache_dir: /tmp/antora/sommerfeld-io/cache/antora
+  fetch: true

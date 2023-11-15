@@ -1,0 +1,34 @@
+<button class="btn btn-secondary my-1" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasToc" aria-controls="offcanvasToc"><i class="align-middle" data-feather="list"></i> Table of Contents</button>
+<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasToc" aria-labelledby="offcanvasTocLabel">
+	<div class="offcanvas-header">
+		<h5 class="offcanvas-title" id="offcanvasTocLabel">Table of Contents</h5>
+		<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+	</div>
+	<div class="offcanvas-body">
+		<div class="mb-3">Jump to any section of this page.</div>
+
+		{{!-- Markup from Antora Default UI --}}
+		<aside class="toc sidebar"
+			data-title="{{{or page.attributes.toctitle 'Table of Contents'}}}"
+			data-levels="{{{or page.attributes.toclevels 2}}}">
+
+			<div class="toc-menu"></div>
+		</aside>
+
+		{{!-- <ul>
+			<li><a href="#">Everything as Code</a></li>
+			<li><a href="#">As much as possible in containers</a></li>
+			<li><a href="#">Test Driven Development</a></li>
+			<li><a href="#">Version Control</a></li>
+			<li><a href="#">Commit Messages</a></li>
+			<li><a href="#">Branching Strategy</a></li>
+			<li><a href="#">Continuous Integration</a></li>
+			<li><a href="#">Automated tests determine the releasability</a></li>
+			<li><a href="#">Keep the software always in a releasable state</a></li>
+			<li><a href="#">Releases and Deployments always are done through a pipeline</a></li>
+			<li><a href="#">Semantic Versioning for our Releases</a></li>
+			<li><a href="#">Artifacts are immutable</a></li>
+			<li><a href="#">User Stories</a></li>
+		</ul> --}}
+	</div>
+</div>

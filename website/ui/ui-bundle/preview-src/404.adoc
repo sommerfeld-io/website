@@ -1,0 +1,3 @@
+= 404
+Sebastian Sommerfeld <sebastian@sommerfeld.io>
+:page-layout: 404

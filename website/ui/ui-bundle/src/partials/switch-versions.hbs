@@ -1,0 +1,28 @@
+{{#with page.versions}}
+	<button class="btn btn-secondary my-1"
+			type="button"
+			data-bs-toggle="offcanvas"
+			data-bs-target="#offcanvasVersions"
+			aria-controls="offcanvasVersions">
+
+			<span data-bs-toggle="tooltip" data-bs-placement="top" title="Switch to other versions or branches">
+				<i class="align-middle" data-feather="git-pull-request"></i> {{@root.page.componentVersion.displayVersion}}
+			</span>
+	</button>
+
+	<div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasVersions" aria-labeledby="offcanvasVersionsLabel">
+		<div class="offcanvas-header">
+			<h5 class="offcanvas-title" id="offcanvasVersionsLabel">Versions &amp; Branches</h5>
+			<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+		</div>
+		<div class="offcanvas-body">
+			<div class="mb-3">Switch to another version of this projects docs. Other versions are either branches or tagged versions.</div>
+			<ul class="mb-3">
+				{{#each this}}
+					<li><i class="align-middle" data-feather="git-pull-request"></i> <a href="{{{relativize ./url}}}">{{./displayVersion}}</a></li>
+				{{/each}}
+			</ul>
+			<div class="mb-3">Currently the docs are from version / branch <code>{{@root.page.componentVersion.displayVersion}}</code>.</div>
+		</div>
+	</div>
+{{/with}}

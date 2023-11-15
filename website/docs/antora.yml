@@ -1,0 +1,7 @@
+---
+name: website
+title: Website
+version: main
+start_page: ROOT:index.adoc
+nav:
+  - modules/ROOT/nav.adoc

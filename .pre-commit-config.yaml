@@ -24,13 +24,13 @@ repos:
       - id: check-added-large-files
         exclude: |
             (?x)^(
-                ui/template/pages/css/light.css|
-                ui/template/pages/css/dark.css|
-                ui/template/pages/js/app.js|
-                ui/ui-bundle/src/css/light.css|
-                ui/ui-bundle/src/css/dark.css|
-                ui/ui-bundle/src/js/00-app.js|
-                ui/ui-bundle/package-lock.json
+                website/ui/template/pages/css/light.css|
+                website/ui/template/pages/css/dark.css|
+                website/ui/template/pages/js/app.js|
+                website/ui/ui-bundle/src/css/light.css|
+                website/ui/ui-bundle/src/css/dark.css|
+                website/ui/ui-bundle/src/js/00-app.js|
+                website/ui/ui-bundle/package-lock.json
             )$
       - id: check-executables-have-shebangs
       - id: check-shebang-scripts-are-executable
