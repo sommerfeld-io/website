@@ -1,0 +1,19 @@
+= Setup a new Repository
+Sebastian Sommerfeld <sebastian@sommerfeld.io>
+
+Setting up a new repository on Github should follow the same process to make sure all repos follow the same configuration and layout.
+
+== Creating a new Repository
+All repositories within the link:https://github.com/sommerfeld-io[sommerfeld-io GitHub organization] adhere to a standardized setup, ensuring consistency and coherence across projects. This uniform approach enables streamlined collaboration, ease of navigation, and familiarity for contributors across the organization.
+
+=== Things to do
+. Create repository on Github in the link:https://github.com/sommerfeld-io[sommerfeld-io] organization
+. Use link:https://github.com/sebastian-sommerfeld-io/jarvis[Jarvis] to setup an Antora component
+. Use link:https://github.com/sebastian-sommerfeld-io/jarvis[Jarvis] to setup Arc42 docs inside the Antora module (if needed)
+. Create all basic Github Actions workflows as well as the `.github/dependabot.yml` and `.gitignore` files for this repository
+. Use `gh repo edit --enable-discussions --enable-issues --enable-projects --enable-wiki=false --visibility=public` or `gh repo edit --enable-discussions --enable-issues --enable-projects --enable-wiki=false --visibility=private` (depending on the visibility) to configure the remote repository
+. Every time you clone a project which uses ``pre-commit``, running ``pre-commit install`` should always be the one of the first things you do (except a DevContainer handles this) - Remember to set up the `.pre-commit-config.yaml` file
+. Create secrets for this repository (if needed) and document them
+. Create organization secrets (if needed) and document them (remember that private repos cannot inherit Action secrets from the organization)
+. Link repository to a project
+. Create Issue Templates and Pull Request templates

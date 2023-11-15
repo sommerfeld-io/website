@@ -1,0 +1,79 @@
+= Development Tools
+Sebastian Sommerfeld <sebastian@sommerfeld.io>
+
+These tools and concepts serve as the cornerstone of our software development and deployment toolkit, forming the building blocks that drive our software development and deployment workflows.
+
+== Code Repositories
+Each project is hosted within its dedicated repository on GitHub. All projects, that provide any service to www.sommerfeld.io, are part of the link:https://github.com/sommerfeld-io[sommerfeld-io Github organization], ensuring centralized management and fostering collaboration across our entire software ecosystem.
+
+== Automated Pipelines
+For every project within the Sommerfeld-io organization, we employ GitHub Actions as our go-to solution for implementing automated pipelines and workflows.
+
+== Artifact Repositories
+We employ two types of repositories. DockerHub serves as our primary artifact repository for storing and distributing Docker images, providing a reliable and efficient solution for containerized components.
+
+The second repository is not traditionally considered a repository but currently fulfills our needs. We leverage GitHub releases, which allow us to attach artifacts such as the Antora UI bundle Zip file, ensuring a way to distribute non-Docker packages.
+
+At present, the Antora UI bundle stands as the sole artifact that deviates from our standard practice of shipping as a Docker image. While solutions like Artifactory exist to handle artifacts in a dedicated repository, implementing such a solution would introduce significant overhead for managing a single software product. As a result, considering the limited scope of artifact publishing needs, we have opted to use alternative methods, such as attaching the Antora UI bundle as a file in GitHub releases, to avoid unnecessary complexity.
+
+[plantuml, puml-build-image, svg]
+----
+@startuml
+
+skinparam linetype ortho
+skinparam monochrome false
+skinparam componentStyle uml2
+skinparam backgroundColor transparent
+skinparam ArrowColor #eee
+skinparam NoteBorderColor #eee
+skinparam NoteFontColor #a9acb3
+skinparam NoteBackgroundColor transparent
+skinparam ComponentBorderColor #eee
+skinparam ComponentFontColor #a9acb3
+skinparam DatabaseBorderColor #eee
+skinparam DatabaseBackgroundColor #444
+skinparam DatabaseFontColor #eee
+skinparam FileBorderColor #eee
+skinparam FileFontColor #a9acb3
+skinparam ControlBorderColor #eee
+skinparam ControlFontColor #a9acb3
+skinparam RectangleBackgroundColor transparent
+skinparam RectangleBorderColor #eee
+skinparam RectangleFontColor #a9acb3
+skinparam ControlBackgroundColor transparent
+skinparam ControlBorderColor #eee
+skinparam ControlFontColor #a9acb3
+skinparam HexagonBackgroundColor transparent
+skinparam HexagonBorderColor #eee
+skinparam HexagonFontColor #a9acb3
+skinparam ArtifactBackgroundColor #444
+skinparam ArtifactBorderColor #eee
+skinparam ArtifactFontColor #a9acb3
+skinparam defaultTextAlignment center
+skinparam activity {
+FontName Ubuntu
+}
+
+database repo as "Code\nRepo" <<GitHub>>
+control actions as "Actions\nWorkflow" <<GitHub>>
+repo -> actions
+
+hexagon isDocker as "is Docker\nImage?"
+actions -> isDocker
+
+artifact release as "Release with Attachment" <<GitHub>>
+isDocker -right-> release
+
+artifact dockerhub as "Container Registry" <<DockerHub>>
+isDocker -down-> dockerhub
+
+@enduml
+----
+
+== Manage Projects and Todos
+We utilize GitHub's project feature extensively within the link:https://github.com/sommerfeld-io[sommerfeld-io organization] to effectively manage user stories, tasks, risks, security issues, and all other types of todos across our projects. By leveraging this feature, we centralize and streamline our project management efforts, enabling efficient collaboration, tracking, and progress monitoring for all initiatives.
+
+== Runtime environments
+Our software operates within containers, leveraging a Kubernetes environment hosted on Linode. This configurationis true for all stages, encompassing both production and various testing environments. By utilizing containers and Kubernetes, we ensure consistent deployment and scalability throughout the whole lifecycle.
+
+Note that the sizing of production and test stages may differ. While production environments typically require dedicated resources and consistent availability, test environments are designed to be flexible and on-demand. Test environments may not be continuously running but can be provisioned as needed to perform specific tests or validations. This approach allows us to optimize resource utilization and cost-effectiveness while ensuring efficient and reliable testing processes throughout the development lifecycle.

@@ -1,0 +1,155 @@
+= Write Source Code Docs
+Sebastian Sommerfeld <sebastian@sommerfeld.io>
+
+We document our source code inline, providing clear explanations and comments directly within the code. To ensure these inline docs are integrated into our broader documentation, we generate link:https://antora.org[Antora] modules from them.
+
+== Where to write docs
+In our development process, we emphasize inline documentation for our source code, providing clear explanations and context directly within the code itself. For larger concepts and broader explanations, almost every repository comes with a `docs` folder whoch contains an Antora component. These link:https://antora.org[Antora] docs focus on the bigger picture and provide a more comprehensive understanding of the software's functionality and design. This combination of inline and non-inline documentation ensures both code-level clarity and a broader view of the project's architecture and implementation.
+
+As part of our documentation process, we automatically convert the inline documentation in our source code into AsciiDoc pages using a GitHub Actions workflow. This ensures that the inline documentation is included in our website, specifically in a designated space within the Antora component of each repository. By automating this conversion, we achieve seamless integration of code-level explanations into our broader documentation, providing users with a comprehensive understanding of both the codebase and the project as a whole.
+
+== Bash Scripts
+Bash scripts documentation is done inline using the documentation pattern from `link:https://github.com/reconquest/shdoc[shdoc]`.
+
+[source, bash]
+----
+# @file SCRIPT_NAME.sh
+# @brief Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+#
+# @description Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut
+# labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
+# Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+#
+# | Lorem             | Ipsum    | Dolor                       |
+# | ----------------- | -------- | --------------------------- |
+# | Lorem ipsum dolor | sit amet | consetetur sadipscing elitr |
+# | Lorem ipsum dolor | sit amet | consetetur sadipscing elitr |
+#
+# === Script Arguments
+#
+# The script does not accept any parameters.
+# * *$1* (string): Some var
+#
+# === Script Example
+#
+# [source, bash]
+# ```
+# ./SCRIPT_NAME.sh
+# ```
+#
+# == Prerequisites
+#
+# Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+# magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+# gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+#
+# == Lorem ipsum dolor
+#
+# Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore
+# magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd
+# gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+
+
+set -o errexit
+set -o pipefail
+set -o nounset
+# set -o xtrace
+----
+
+When documenting functions there a few more options are available.
+
+[source, bash]
+----
+# @description My super function.
+# Not thread-safe.
+#
+# @example
+#    echo "test: $(say-hello World)"
+#
+# @option -h | --help Display help.
+# @option -v<value> | --value=<value> Set a value.
+#
+# @arg $1 string A value to print
+#
+# @stdout Output 'Hello $1'.
+#   It hopes you say Hello back.
+# @stderr Output 'Oups !' on error.
+#   It did it again.
+#
+# @exitcode 0 If successful.
+# @exitcode 1 If an empty string passed.
+#
+# @see validate()
+# @see [shdoc](https://github.com/reconquest/shdoc)
+say-hello() {
+    if [[ ! "$1" ]]; then
+        echo "Oups !" >&2
+        return 1;
+    fi
+
+    echo "Hello $1"
+}
+----
+
+== Dockerfiles
+Dockerfile documentation is done inline using the documentation pattern from `link:https://github.com/reconquest/shdoc[shdoc]`. Although `shdoc` does not officially support Dockerfiles, it still works because both file types use the same comment-style (`#`). However with Dockerfiles it is only possible to document the whole file itself (since Dockerfiles do not support functions like bash scripts).
+
+[source, Dockerfile]
+----
+# @file Dockerfile
+# @brief Lorem ipsum dolor sit amet, consetetur sadipscing elitr.
+#
+# @description Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+# tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+#
+# | Lorem             | Ipsum    | Dolor                       |
+# | ----------------- | -------- | --------------------------- |
+# | Lorem ipsum dolor | sit amet | consetetur sadipscing elitr |
+# | Lorem ipsum dolor | sit amet | consetetur sadipscing elitr |
+#
+# === Example
+#
+# To build and run the image for testng purposes locally use ``docker build -t local/ubuntu:dev .``
+# and ``docker run --rm local/ubuntu:dev``.
+#
+# == Prerequisites
+#
+# This image has been developed and tested with Docker version 24.0.2 on top of Ubuntu 22.10.
+#
+# == See also
+#
+# Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod  tempor invidunt
+# ut labore et dolore magna aliquyam erat, sed diam voluptua.
+
+FROM ubuntu:23.10
+LABEL maintainer="sebastian@sommerfeld.io"
+----
+
+== Docker Compose (`docker-compose.yml`)
+Docker Compose documentation is done inline using the documentation pattern from `link:https://github.com/reconquest/shdoc[shdoc]`. Although `shdoc` does not officially support Yaml, it still works because both file types use the same comment-style (`#`). However with Yaml Files it is only possible to document the whole file itself (since Yaml does not support functions like bash scripts).
+
+[source, yml]
+----
+---
+# @file docker-compose.yml
+# @brief Docker Compose config to ...
+#
+# @description Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod
+# tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+#
+# | Lorem             | Ipsum    | Dolor                       |
+# | ----------------- | -------- | --------------------------- |
+# | Lorem ipsum dolor | sit amet | consetetur sadipscing elitr |
+# | Lorem ipsum dolor | sit amet | consetetur sadipscing elitr |
+#
+# == See also
+#
+# Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt
+# ut labore et dolore magna aliquyam erat, sed diam voluptua.
+version: "3.3"
+services:
+
+  ubuntu:
+    image: ubuntu:23.10
+    container_name: ubuntu
+----

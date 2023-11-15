@@ -1,3 +1,13 @@
 * xref:ROOT:index.adoc[]
 * xref:ROOT:settings/github-repository.adoc[]
 * xref:ROOT:settings/github-organization.adoc[]
+
+* Development Process
+** xref:ROOT:development/guidelines.adoc[]
+** xref:ROOT:development/tools.adoc[]
+
+* How To
+** xref:ROOT:howto/setup-new-repo.adoc[]
+** xref:ROOT:howto/write-docs/write-diagrams.adoc[]
+** xref:ROOT:howto/write-docs/write-source-code-docs.adoc[]
+** xref:ROOT:howto/contribute.adoc[]

@@ -1,0 +1,20 @@
+[plantuml, puml-build-image, svg]
+....
+@startuml
+
+skinparam linetype ortho
+skinparam monochrome false
+skinparam componentStyle uml2
+skinparam backgroundColor #fff
+skinparam ArrowColor black
+skinparam NoteBorderColor Grey
+skinparam NoteBackgroundColor #fdfdfd
+skinparam defaultTextAlignment center
+skinparam activity {
+FontName Ubuntu
+}
+
+component something
+
+@enduml
+....

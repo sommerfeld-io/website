@@ -1,0 +1,32 @@
+= Write Diagrams for Asciidoc Pages
+Sebastian Sommerfeld <sebastian@sommerfeld.io>
+
+We are treating our documentation as code.
+
+== Embedd Diagrams
+This means that we've embraced link:https://docs.asciidoctor.org/asciidoc/latest[Asciidoc] as our markup language of choice. Asciidoc offers a fantastic balance between simplicity and functionality, allowing us to structure our content effectively while keeping the focus on the actual information.
+
+With Asciidoc, we can create documentation using plain text files with the .adoc extension. This simplicity makes it easy for both our developers and writers to contribute without the need for specialized tools or complex setups.
+
+We've integrated link:https://antora.org[Antora] to transform our Asciidoc files into documentation websites. The synergy between Asciidoc and Antora is what powers our documentation pipeline.
+
+Using AsdiiDoc and Antora allows us to write our docs directly from our IDE. Plus it allows us, to auto-generate docs from all possible sources by simply generating Asciidoc files and placing them inside an Antora module. We use this to e.g. generate documentation from Bash scripts and Dockerfiles (which are documented inline).
+
+By using Asciidoc with the link:https://kroki.io[Kroki] extension, we can generate diagrams straight from simple text-based descriptions within our Asciidoc files. See https://kroki.io for all supported diagrams.
+
+Here are some examples:
+
+[source,adoc]
+----
+include::ROOT:example$howto/write-docs/embedd-diagrams/plantuml.adoc[]
+----
+
+[source,adoc]
+----
+include::ROOT:example$howto/write-docs/embedd-diagrams/include.adoc[]
+----
+
+[source,adoc]
+----
+include::ROOT:example$howto/write-docs/embedd-diagrams/ditaa.adoc[]
+----
