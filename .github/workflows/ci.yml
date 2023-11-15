@@ -1,6 +1,6 @@
 ---
 # @file ci.yml
-# @brief Github Actions workflow that handles continuous integration tasks like running linters, building apps and running automated tests.
+# @brief Github Actions workflow that handles integration tasks, runs linters, builds apps and runs automated tests.
 #
 # @description ...
 # TODO ...
@@ -38,7 +38,7 @@ jobs:
       - name: Run folderslint in container
         run: docker run -i --rm --volume "$(pwd):$(pwd)" --workdir "$(pwd)" sommerfeldio/folderslint:latest folderslint
         shell: bash
-  
+
   lint-filenames:
     runs-on: ubuntu-latest
     steps:
