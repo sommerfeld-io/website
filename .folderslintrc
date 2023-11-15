@@ -1,0 +1,28 @@
+{
+  "rules": [
+    ".github/ISSUE_TEMPLATE",
+    ".github/workflows",
+
+    ".vscode",
+
+    "docs/private/modules/*/assets/attachments/**",
+    "docs/private/modules/*/assets/images/**",
+    "docs/private/modules/*/examples/*",
+    "docs/private/modules/*/examples/**",
+    "docs/private/modules/*/pages/*",
+    "docs/private/modules/*/pages/**",
+    "docs/private/modules/*/partials/*",
+    "docs/private/modules/*/partials/**",
+
+    "docs/public/modules/*/assets/attachments/**",
+    "docs/public/modules/*/assets/images/**",
+    "docs/public/modules/*/examples/*",
+    "docs/public/modules/*/examples/**",
+    "docs/public/modules/*/pages/*",
+    "docs/public/modules/*/pages/**",
+    "docs/public/modules/*/partials/*",
+    "docs/public/modules/*/partials/**",
+
+    "target/**"
+  ]
+}
