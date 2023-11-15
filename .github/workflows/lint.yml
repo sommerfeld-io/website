@@ -10,8 +10,10 @@ name: Lint Repo
 
 on:
   push:
-    branches-ignore:
-      - dependabot/**
+    branches:
+      - main
+    # branches-ignore:
+    #   - dependabot/**
   pull_request:
     branches-ignore:
       - dependabot/**
