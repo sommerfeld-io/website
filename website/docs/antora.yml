@@ -1,6 +1,6 @@
 ---
 name: website
-title: Component - Website
+title: Sommerfeld.io - Website
 version: main
 start_page: ROOT:index.adoc
 nav:
