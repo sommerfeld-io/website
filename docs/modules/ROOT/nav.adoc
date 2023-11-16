@@ -6,6 +6,8 @@
 * xref:ROOT:development/guidelines.adoc[]
 * xref:ROOT:development/tools.adoc[]
 
+* xref:ROOT:how-this-page-is-built.adoc[]
+
 * How To
 ** xref:ROOT:howto/setup-new-repo.adoc[]
 ** xref:ROOT:howto/write-docs/write-diagrams.adoc[]

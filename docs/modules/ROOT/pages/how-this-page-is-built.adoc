@@ -1,0 +1,11 @@
+= How this page is built
+Sebastian Sommerfeld <sebastian@sommerfeld.io>
+
+Antora is a static site generator that simplifies the process of creating documentation websites. It takes content from AsciiDoc files, which are simple text documents formatted with a lightweight markup language, and turns them into a cohesive website.
+
+This website is constructed using Antora, and all its pages originate from AsciiDoc files. These AsciiDoc files aren't stored in a single place but rather exist across different repositories. All these repositories are part of the sommerfeld-io GitHub organization. That means that every repository can carry its own documentation. Antora is the tool that brings all this content together, formats it into a cohesive structure, and presents it as a unified documentation website for easy access and navigation.
+
+This website uses Kroki.io to generate diagrams from text sources. PlantUML is mostly used with this website, although other diagram types are supported as well.
+
+== Github Actions Workflows and Docker Image
+TODO: Something about the Github Actions workflows and that this image is published to DockerHub
