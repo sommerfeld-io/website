@@ -16,7 +16,7 @@ content:
     - url: https://github.com/sommerfeld-io/www-sommerfeld-io.git
       start_path: website/docs
     - url: https://github.com/sommerfeld-io/docker-images.git
-      start_path: website/docs
+      start_path: docs
 
     # Personal projects
     - url: https://github.com/sebastian-sommerfeld-io/configs.git
