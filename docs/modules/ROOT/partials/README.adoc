@@ -1,10 +1,12 @@
-The entire codebase for link:http://www.sommerfeld.io[www.sommerfeld.io] is housed in this one repository. Within this repository, you'll find several components. Each of these components holds specific sets of code or logic that collectively contribute to building and running the sommerfeld.io website.
+Welcome to the comprehensive documentation hub of link:http://www.sommerfeld.io[www.sommerfeld.io]. Here, you'll find an extensive array of documentation spanning across all projects within the link:https://github.com/sommerfeld-io[sommerfeld-io Github organization].
 
 image:{github-actions-url}/{job-generate-docs}/{badge}[Github Badge, link={github-actions-url}/{job-generate-docs}]
 image:{github-actions-url}/{job-lint}/{badge}[Github Badge, link={github-actions-url}/{job-lint}]
 image:{github-actions-url}/{job-build}/{badge}[Github Badge, link={github-actions-url}/{job-build}]
 
 == About this project
+The entire codebase for link:http://www.sommerfeld.io[www.sommerfeld.io] is housed in this one repository. Within this repository, you'll find several components. Each of these components holds specific sets of code or logic that collectively contribute to building and running the sommerfeld.io website.
+
 The Docker image `link:https://hub.docker.com/r/sommerfeldio/website[sommerfeldio/website]` represents the complete website from link:https://www.sommerfeld.io[www.sommerfeld.io]. The image is hosted on DockerHub. This image encapsulates all necessary components including the UI bundle required to run the link:http://www.sommerfeld.io[www.sommerfeld.io website] within a Docker container (locally or in a test or production environment).
 
 * Github Repository -> {url-project}
