@@ -1,7 +1,7 @@
 ---
 name: infrastructure
 title: Sommerfeld.io Module Infrastructure
-version: projects-mega-menu
+version: main
 start_page: ROOT:index.adoc
 nav:
   - modules/ROOT/nav.adoc
