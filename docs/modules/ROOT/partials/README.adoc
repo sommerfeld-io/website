@@ -11,8 +11,8 @@ The Docker image `link:https://hub.docker.com/r/sommerfeldio/website[sommerfeldi
 
 * Github Repository -> {url-project}
 * Where to file issues -> {url-project}/issues
-* Container Registry -> https://hub.docker.com/r/sommerfeldio/{project-name}
-* Sonar -> https://sonarcloud.io/project/overview?id=sommerfeld-io_{project-name}
+* Container Registry -> https://hub.docker.com/r/sommerfeldio/website
+// * Sonar -> https://sonarcloud.io/project/overview?id=sommerfeld-io_{project-name}
 
 == How to use this project
 This project is exclusively available as a Docker image, meaning that it is packaged and distributed as a containerized application using Docker technology. There is no traditional FTP-based upload to any web space.
