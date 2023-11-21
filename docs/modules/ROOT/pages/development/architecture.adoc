@@ -1,0 +1,7 @@
+= Architecture Patterns and Guidelines
+
+CAUTION: Work in progress ... Right now this is nothing more than a handwritten note ...
+
+Network communication between apps only async
+
+App to DB traditional (transaction hides the complexity)

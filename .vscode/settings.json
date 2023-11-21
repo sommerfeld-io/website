@@ -5,5 +5,9 @@
             "file:///workspaces/www-sommerfeld-io/website/config/playbooks/docs.yml",
             "file:///workspaces/www-sommerfeld-io/website/config/playbooks/personal-projects.yml"
         ]
-    }
+    },
+    "cSpell.words": [
+        "linetype",
+        "skinparam"
+    ]
 }

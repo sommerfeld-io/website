@@ -42,7 +42,7 @@ Any branch other than `main` is considered a short-lived branch. These branches 
 Git tags are always created from the `main` branch, ensuring that they represent stable and release-worthy versions of the software. The creation of tags is done exclusively through our "Release + Deploy"" pipelines, guaranteeing consistent and reproducible release processes.
 
 === Docker Tag Strategy
-include::ROOT:partial$/docker-tag-strategy.adoc[]
+CAUTION: TODO ... include::ROOT:partial$/docker-tag-strategy.adoc[]
 
 == Continuous Integration
 We integrate code changes from all developers at least once per day. This frequent integration ensures that our software is thoroughly tested and checked with everyone's changes on a daily basis.

@@ -5,6 +5,7 @@
 // * Development Process
 * xref:ROOT:development/guidelines.adoc[]
 * xref:ROOT:development/tools.adoc[]
+* xref:ROOT:development/architecture.adoc[]
 
 * xref:ROOT:how-this-page-is-built.adoc[]
 
