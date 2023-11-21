@@ -38,8 +38,7 @@ antora:
 
 ui:
   bundle:
-    # url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stable
-    # url: https://github.com/sommerfeld-io/website/releases/download/v0.3.0-alpha.0/ui-bundle-docs-0.3.0-alpha.0.zip
+    # url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stabl
     url: /antora-ui/ui-bundle.zip
     snapshot: true
 
