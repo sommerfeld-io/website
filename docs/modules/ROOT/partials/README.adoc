@@ -2,7 +2,7 @@ This is the monorepo project for www.sommerfeld.io.
 
 image:{github-actions-url}/{job-generate-docs}/{badge}[Github Badge, link={github-actions-url}/{job-generate-docs}]
 image:{github-actions-url}/{job-lint}/{badge}[Github Badge, link={github-actions-url}/{job-lint}]
-image:{github-actions-url}/{job-build-website}/{badge}[Github Badge, link={github-actions-url}/{job-build-website}]
+image:{github-actions-url}/{job-build}/{badge}[Github Badge, link={github-actions-url}/{job-build}]
 
 * Github Repository -> {url-project}
 * Where to file issues -> {url-project}/issues
