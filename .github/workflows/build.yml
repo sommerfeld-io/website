@@ -1,5 +1,5 @@
 ---
-# @file build-website.yml
+# @file build.yml
 # @brief Github Actions workflow for the website module that builds the app and runs automated tests.
 #
 # @description This GitHub Actions workflow for the website module is designed for integration and
@@ -10,7 +10,7 @@
 # a stable and reliable codebase.
 
 
-name: Build Website
+name: Build
 
 on:
   push:
