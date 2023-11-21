@@ -20,13 +20,7 @@
 					<div class="container p-0">
 
 						<div class="row">
-							<div class="mx-auto col-lg-10 col-xl-8 mb-3">
-								<nav aria-label="breadcrumb">
-									<ol class="breadcrumb">
-										<li class="breadcrumb-item"><a href="/">Home</a></li>
-									</ol>
-								</nav>
-							</div>
+							{{> breadcrumbs}}
 						</div>
 
 						<div class="row">
@@ -35,6 +29,11 @@
                                 {{#with page.title}}
                                 	<h1 class="h3 mb-3">{{{this}}}</h1>
                                 {{/with}}
+							</div>
+
+							<div class="mx-auto col-lg-10 col-xl-8 mb-5">
+								{{> toc}}
+                                {{> buttons}}
 							</div>
 							<!-- ===== PAGE TITLE ===== -->
 						</div>
@@ -50,31 +49,34 @@
 						<div class="row">
 							<!-- ===== PROJECTS ===== -->
 							<div class="mx-auto col-lg-10 col-xl-8 mb-3">
-								<div class="mb-5">
-									<h3>All Projects</h3>
-									<p class="text-lg">Switch to another project or to another version of a project. Other versions are either git branches or tagged versions.</p>
-								</div>
-
-								<table class="table">
-									<thead>
-										<tr>
-											<th>Project Name</th>
-											<th>Versions</th>
-										</tr>
-									</thead>
-									<tbody>
-										{{#each site.components}}
+								<div class="card">
+									<div class="card-header">
+										<h2 class="card-title mb-0">All Projects and Versions</h2>
+									</div>
+									<div class="card-body">
+										<p class="card-text">Switch to another project or to another version of a project. Other versions are either git branches or tagged versions.</p>
+									</div>
+									<table class="table">
+										<thead>
 											<tr>
-												<td><a class="title" href="{{{relativize ./url}}}">{{{./title}}}</a></td>
-												<td>
-													{{#each ./versions}}
-														<a href="{{{relativize ./url}}}" class="btn btn-outline-secondary mb-1"><i class="align-middle" data-feather="git-pull-request"></i> {{./displayVersion}}</a>
-													{{/each}}
-												</td>
+												<th>Project</th>
+												<th class="align-right">Version / Branch</th>
 											</tr>
-										{{/each}}
-									</tbody>
-								</table>
+										</thead>
+										<tbody>
+											{{#each site.components}}
+												<tr>
+													<td><a href="{{{relativize ./url}}}">{{{./title}}}</a></td>
+													<td class="align-right">
+														{{#each ./versions}}
+															<a href="{{{relativize ./url}}}" class="btn btn-outline-secondary btn-sm mb-1"><i class="align-middle" data-feather="git-pull-request"></i> {{./displayVersion}}</a>
+														{{/each}}
+													</td>
+												</tr>
+											{{/each}}
+										</tbody>
+									</table>
+								</div>
 							</div>
 							<!-- ===== PROJECTS ===== -->
 						</div>

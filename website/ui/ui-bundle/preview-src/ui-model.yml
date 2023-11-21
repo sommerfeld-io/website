@@ -120,8 +120,8 @@ page:
         - content: 404 Page
           url: 404.html
           urlType: internal
-        - content: All Projects
-          url: projects.html
+        - content: Homepage
+          url: homepage.html
           urlType: internal
         - content: Liber Recusabo
           url: '#liber-recusabo'
