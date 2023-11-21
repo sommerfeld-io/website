@@ -1,0 +1,3 @@
+= How To
+
+include::howto:partial$/nav.adoc[]
