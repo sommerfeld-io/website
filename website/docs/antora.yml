@@ -1,7 +1,7 @@
 ---
 name: website
-title: Module Website
-version: main
+title: Sommerfeld.io Module Website
+version: projects-mega-menu
 start_page: ROOT:index.adoc
 nav:
   - modules/ROOT/nav.adoc
