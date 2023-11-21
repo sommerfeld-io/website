@@ -1,18 +1,18 @@
 Website configuration for link:https://www.sommerfeld.io[www.sommerfeld.io] as well as the Antora ui bundle.
 
 image:{github-actions-url}/{job-generate-docs}/{badge}[Github Badge, link={github-actions-url}/{job-generate-docs}]
-image:{github-actions-url}/{job-ci}/{badge}[Github Badge, link={github-actions-url}/{job-ci}]
-image:{github-actions-url}/{job-release}/{badge}[Github Badge, link={github-actions-url}/{job-release}]
+image:{github-actions-url}/{job-lint}/{badge}[Github Badge, link={github-actions-url}/{job-lint}]
+image:{github-actions-url}/{job-build}/{badge}[Github Badge, link={github-actions-url}/{job-build}]
 
-== About this project
-The Docker image `link:https://hub.docker.com/r/sommerfeldio/website[sommerfeldio/website]` represents the complete website from https://www.sommerfeld.io[www.sommerfeld.io]. The image is hosted on DockerHub. This image encapsulates all necessary components including the UI bundle required to run the link:http://www.sommerfeld.io[www.sommerfeld.io website] within a Docker container (locally or in a production environment).
+== About this module
+The Docker image `link:https://hub.docker.com/r/sommerfeldio/website[sommerfeldio/website]` represents the complete website link:from https://www.sommerfeld.io[www.sommerfeld.io]. The image is hosted on DockerHub. This image encapsulates all necessary components including the UI bundle required to run the link:http://www.sommerfeld.io[www.sommerfeld.io website] within a Docker container (locally or in a test or production environment).
 
 * Github Repository -> {url-project}
 * Where to file issues -> {url-project}/issues
 * Container Registry -> https://hub.docker.com/r/sommerfeldio/{project-name}
 * Sonar -> https://sonarcloud.io/project/overview?id=sommerfeld-io_{project-name}
 
-== How to use this project
+== How to use this module
 This project is exclusively available as a Docker image, meaning that it is packaged and distributed as a containerized application using Docker technology. There is no traditional FTP-based upload to any web space.
 
 [source,bash]
@@ -35,20 +35,7 @@ The webserver exposes its status information as http://localhost:7888/server-sta
 == UI Bundle
 This project also contains the Antora UI bundle sources. This UI bundle represents the design for all Antora-based pages of https://www.sommerfeld.io[www.sommerfeld.io].
 
-NOTE: Please note that despite the availability of released versions, this UI bundle is still considered a prototype which means it is not recommended for production use and might still undergo significant changes.
-
-To build the UI bundle, make use of `xref:AUTO-GENERATED:build-and-run-website-sh.adoc[]` or `xref:AUTO-GENERATED:build-and-preview-ui-bundle-sh.adoc[]`.
-
-If you want to simply use the UI for an Antora-generated site, add the following UI configuration to your playbook:
-[source, yaml]
-----
-ui:
-  bundle:
-    url: https://github.com/sommerfeld-io/website/releases/download/v0.2.0-alpha.1/ui-bundle-0.2.0-alpha.1.zip
-    snapshot: true
-----
-
-The `snapshot` flag tells Antora to fetch the UI when the `--fetch` command-line flag is present. This setting is required because updates to the UI bundle are pushed to the same URL. If the URL were to be unique, this setting would not be required.
+The UI bundle is built alongside the whole website ensuring that the latest UI bundle is used for www.sommerfeld.io. This way there is no need to publish the UI bundle anywhere because it is part of the Docker image which serves the website.
 
 == Risks and Technical Debts
 link:{url-project}/issues?q=is%3Aissue+label%3Asecurity%2Crisk+is%3Aopen[All issues labeled as `risk` (= some sort of risk or a technical debt) or `security` (= related to security issues)] are tracked as Github issues and carry the respective label.
