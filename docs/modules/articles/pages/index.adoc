@@ -1,3 +1,0 @@
-= Articles + Info Pages
-
-include::articles:partial$/nav.adoc[]

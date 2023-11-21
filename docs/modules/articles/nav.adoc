@@ -1,1 +1,2 @@
-include::articles:partial$/nav.adoc[]
+* Articles
+** xref:articles:how-this-page-is-built.adoc[]

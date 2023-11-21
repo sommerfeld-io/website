@@ -1,5 +1,0 @@
-* xref:howto:index.adoc[]
-** xref:howto:setup-new-repo.adoc[]
-** xref:howto:write-docs/write-diagrams.adoc[]
-** xref:howto:write-docs/write-source-code-docs.adoc[]
-** xref:howto:contribute.adoc[]
