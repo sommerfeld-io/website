@@ -17,7 +17,7 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 // |                                          |
 // +------------------------------------------+
 
-This is the repository for www.sommerfeld.io.
+This is the monorepo project for www.sommerfeld.io.
 
 image:{github-actions-url}/{job-generate-docs}/{badge}[Github Badge, link={github-actions-url}/{job-generate-docs}]
 image:{github-actions-url}/{job-lint}/{badge}[Github Badge, link={github-actions-url}/{job-lint}]
@@ -27,10 +27,11 @@ image:{github-actions-url}/{job-build-website}/{badge}[Github Badge, link={githu
 * Where to file issues -> {url-project}/issues
 
 == About this project
-The entire codebase for link:http://www.sommerfeld.io[www.sommerfeld.io] is housed in this one repository. Within this repository, you'll find several components. Each of these components holds specific sets of code or logic that collectively contribute to building and running the sommerfeld.io website.
+The entire codebase for link:http://www.sommerfeld.io[www.sommerfeld.io] is housed in this one repository. Within this monorepo, you'll find several components. Each of these components holds specific sets of code or logic that collectively contribute to building and running the sommerfeld.io website.
 
 == Risks and Technical Debts
 link:{url-project}/issues?q=is%3Aissue+label%3Asecurity%2Crisk+is%3Aopen[All issues labeled as risk (= some sort of risk or a technical debt) or security (= related to security issues)] are tracked as Github issue and carry the respective label.
 
 == Contact
 Feel free to contact me via sebastian@sommerfeld.io or visit my website https://www.sommerfeld.io.
+
