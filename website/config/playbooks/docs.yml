@@ -22,10 +22,6 @@ content:
     - url: https://github.com/sebastian-sommerfeld-io/configs.git
       start_path: docs
 
-    # Deprecated
-    - url: https://github.com/sommerfeld-io/semver-action.git
-      start_path: docs
-
 asciidoc:
   attributes:
     kroki-fetch-diagram: true
