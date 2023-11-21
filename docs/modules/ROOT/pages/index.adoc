@@ -1,4 +1,4 @@
-= About this project
+= About Sommerfeld.io
 include::ROOT:partial$vars.adoc[]
 :page-layout: homepage
 
