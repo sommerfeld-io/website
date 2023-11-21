@@ -1,6 +1,6 @@
 = All Projects
 Sebastian Sommerfeld <sebastian@sommerfeld.io>
-:page-layout: projects
+:page-layout: homepage
 
 // +--------------------------------------------+
 // |                                            |
