@@ -1,5 +1,5 @@
 {
-    "name": "Monorepo",
+    "name": "sommerfeld-io",
     "build": {
         "dockerfile": "Dockerfile"
     },

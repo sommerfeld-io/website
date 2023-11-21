@@ -2,7 +2,7 @@
 site:
   title: Documentation
   url: /docs
-  start_page: monorepo::index.adoc
+  start_page: overview::index.adoc
   robots: allow
 
 content:

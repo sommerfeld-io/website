@@ -1,8 +1,10 @@
 # @file Dockerfile
-# @brief A devcontainer ...
+# @brief A devcontainer image tailored specifically for the project.
 #
-# @description ...
-# TODO
+# @description This Dockerfile represents the development environment container tailored
+# specifically for the project. It serves as the foundation for encapsulating all necessary
+# dependencies within the image, ensuring a consistent and reproducible environment across
+# various workstations.
 #
 # == Prerequisites
 #
@@ -26,7 +28,7 @@
 #
 # ....
 # {
-# 	"name": "Monorepo",
+# 	"name": "sommerfeld-io",
 #   "build": {
 #       "dockerfile": "Dockerfile"
 #   },
