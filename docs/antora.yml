@@ -1,6 +1,6 @@
 ---
 name: monorepo
-title: Sommerfeld.io Monorepo
+title: Sommerfeld.io Overview
 version: main
 start_page: ROOT:index.adoc
 nav:

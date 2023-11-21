@@ -1,6 +1,6 @@
 ---
 name: infrastructure
-title: Sommerfeld.io - Infrastructure Config
+title: Sommerfeld.io Infrastructure Module
 version: main
 start_page: ROOT:index.adoc
 nav:
