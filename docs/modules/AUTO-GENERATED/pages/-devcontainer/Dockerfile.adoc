@@ -1,11 +1,13 @@
 = Dockerfile
 
-A devcontainer ...
+A devcontainer image tailored specifically for the project.
 
 == Overview
 
-...
-TODO
+This Dockerfile represents the development environment container tailored
+specifically for the project. It serves as the foundation for encapsulating all necessary
+dependencies within the image, ensuring a consistent and reproducible environment across
+various workstations.
 
 == Prerequisites
 
@@ -29,7 +31,7 @@ inside the devcontainer and initializes `pre-commit` once the container is creat
 
 ....
 {
-"name": "Monorepo",
+"name": "sommerfeld-io",
 "build": {
 "dockerfile": "Dockerfile"
 },
