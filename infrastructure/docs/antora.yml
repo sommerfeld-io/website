@@ -1,7 +1,7 @@
 ---
 name: infrastructure
 title: Module Infrastructure
-version: main
+version: projects-mega-menu
 start_page: ROOT:index.adoc
 nav:
   - modules/ROOT/nav.adoc
