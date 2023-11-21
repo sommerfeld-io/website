@@ -1,6 +1,6 @@
 ---
 name: overview
-title: Sommerfeld.io Overview
+title: Overview
 version: main
 start_page: ROOT:index.adoc
 nav:
