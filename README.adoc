@@ -17,17 +17,30 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 // |                                          |
 // +------------------------------------------+
 
-This is the monorepo project for www.sommerfeld.io.
+The entire codebase for link:http://www.sommerfeld.io[www.sommerfeld.io] is housed in this one repository. Within this repository, you'll find several components. Each of these components holds specific sets of code or logic that collectively contribute to building and running the sommerfeld.io website.
 
 image:{github-actions-url}/{job-generate-docs}/{badge}[Github Badge, link={github-actions-url}/{job-generate-docs}]
 image:{github-actions-url}/{job-lint}/{badge}[Github Badge, link={github-actions-url}/{job-lint}]
 image:{github-actions-url}/{job-build}/{badge}[Github Badge, link={github-actions-url}/{job-build}]
 
+== About this project
+The Docker image `link:https://hub.docker.com/r/sommerfeldio/website[sommerfeldio/website]` represents the complete website from link:https://www.sommerfeld.io[www.sommerfeld.io]. The image is hosted on DockerHub. This image encapsulates all necessary components including the UI bundle required to run the link:http://www.sommerfeld.io[www.sommerfeld.io website] within a Docker container (locally or in a test or production environment).
+
 * Github Repository -> {url-project}
 * Where to file issues -> {url-project}/issues
+* Container Registry -> https://hub.docker.com/r/sommerfeldio/{project-name}
+* Sonar -> https://sonarcloud.io/project/overview?id=sommerfeld-io_{project-name}
 
-== About this project
-The entire codebase for link:http://www.sommerfeld.io[www.sommerfeld.io] is housed in this one repository. Within this monorepo, you'll find several components. Each of these components holds specific sets of code or logic that collectively contribute to building and running the sommerfeld.io website.
+== How to use this project
+This project is exclusively available as a Docker image, meaning that it is packaged and distributed as a containerized application using Docker technology. There is no traditional FTP-based upload to any web space.
+
+[source,bash]
+----
+docker run --rm -it -p 7888:7888 sommerfeldio/website:latest
+----
+
+== About the tags and versions
+See https://github.com/sommerfeld-io/dev-environment-config/blob/main/docs/modules/ROOT/partials/docker-tag-strategy.adoc
 
 == Risks and Technical Debts
 link:{url-project}/issues?q=is%3Aissue+label%3Asecurity%2Crisk+is%3Aopen[All issues labeled as risk (= some sort of risk or a technical debt) or security (= related to security issues)] are tracked as Github issue and carry the respective label.
