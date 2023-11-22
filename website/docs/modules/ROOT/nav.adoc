@@ -1,3 +1,2 @@
 * xref:index.adoc[]
-* xref:settings.adoc[]
 * xref:ui-bundle/about.adoc[]

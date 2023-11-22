@@ -26,6 +26,7 @@ Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/depe
 |`DOCKERHUB_TOKEN` |See https://hub.docker.com/settings/security (Access Token Description = "Repo www-sommerfeld-io")
 |`GH_TOKEN_REPO_AND_PROJECT` |Bitwarden entry "GH_TOKEN_REPO_AND_PROJECT"
 |`GOOGLE_CHAT_WEBHOOK` |Google Chat (Account = sebastian@sommerfeld.io) -> Channel "Workflows: sommerfeld-io" -> Apps & Integrations -> Webhooks
+// |`SONAR_TOKEN` |Configured when creating the project in SonarCloud (manage Tokens on the link:https://sonarcloud.io/account/security[SonarCloud Security
 |===
 
 NOTE: Although dependabot secrets can be inherited from the organization with my plan, these would contain other values than the Actions secrets.
