@@ -29,7 +29,11 @@
 			<!-- ==== NAV BLOCK ===== -->
 
 			<!-- ==== NAV BLOCK - ANTORA PAGES ===== -->
-			{{> sidebar-nav}}
+			{{#if (eq page.layout 'static')}}
+				{{!-- no sidebar nav --}}
+			{{else}}
+				{{> sidebar-nav}}
+			{{/if}}
 			<!-- ==== NAV BLOCK - ANTORA PAGES ===== -->
 		</ul>
 	</div>
