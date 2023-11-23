@@ -1,15 +1,10 @@
 ---
 # @file scan.yml
-# @brief Github Actions workflow to scan Docker images and the whole project with SonarCloud.
+# @brief Github Actions workflow to scan the whole project with SonarCloud.
 #
-# @description This GitHub Actions workflow orchestrates two essential tasks: firstly,
-# it employs Docker Scout to scan Docker images, meticulously checking for vulnerabilities
-# and outdated components within these images. Secondly, the workflow integrates SonarCloud
-# to conduct a comprehensive scan of the entire project's codebase, scrutinizing for code
-# quality issues, bugs, security vulnerabilities, and adherence to best practices. By
-# combining Docker image analysis and codebase scanning, this workflow ensures a robust
-# approach to identifying and addressing potential security flaws and code quality concerns
-# within the project, all streamlined within the GitHub Actions automation pipeline.
+# @description This GitHub Actions workflow integrates SonarCloud to conduct a
+# comprehensive scan of the entire project's codebase, scrutinizing for code
+# quality issues, bugs, security vulnerabilities, and adherence to best practices.
 
 
 name: Scan
