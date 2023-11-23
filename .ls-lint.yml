@@ -31,6 +31,8 @@ ls:
   .gitignore: lowercase
   .gitkeep: lowercase
 
+  .properties: kebab-case
+
 ignore:
   - .git
   - .idea
