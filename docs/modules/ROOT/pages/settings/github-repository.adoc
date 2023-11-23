@@ -2,7 +2,7 @@
 
 A summary of all settings that are specific to this project.
 
-== Secrets: Actions
+== Actions Secrets
 Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/actions[Github Actions secrets for the organization] to prepare interaction with DockerHub and Google Chat from Github Actions workflows:
 
 [cols="1,3", options="header"]
@@ -16,7 +16,7 @@ Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/acti
 
 NOTE: Secrets must be specified here because a private repository cannot inherit actions secrets from the organization with my plan.
 
-== Secrets: Dependabot
+== Dependabot Secrets
 Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/dependabot[Dependabot secrets for the organization] to allow successful Github Actions workflows which are triggered by dependabot (like assigning PRs to a project).
 
 [cols="1,3", options="header"]
