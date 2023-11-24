@@ -32,14 +32,18 @@ By extending version control to encompass the management of tools, third-party s
 == Commit Messages
 Read something link:https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html[about Git commit messages].
 
-== Branching Strategy
-We follow a trunk-based development approach, which means that we primarily focus our development efforts on the `main` branch of our repository. This approach encourages frequent and continuous integration of code changes directly into the `main` branch, allowing us to avoid long-lived feature branches and promote a fast-paced development cycle. We still rely hevily on branching and Pull Requests, but our branches do not live for longer than one day (more on that in the comming sections).
+== Trunk-Based Development
+We follow a trunk-based development approach, which means that we primarily focus our development efforts on the `main` branch of our repository. This approach encourages frequent and continuous integration of code changes directly into the `main` branch, allowing us to avoid long-lived feature branches and promote a fast-paced development cycle. We still rely hevily on branching and Pull Requests, but our branches do not live for longer than one day (more on that in the coming sections).
 
 The `main` branch represents the releasable state of the software. It serves as the mainline branch from which stable releases are made.
 
 Any branch other than `main` is considered a short-lived branch. These branches are used for feature development, bug fixing, and any other updates. There are no specific naming conventions for these branches. These branches do not live for longer than one day.
 
 Git tags are always created from the `main` branch, ensuring that they represent stable and release-worthy versions of the software. The creation of tags is done exclusively through our "Release + Deploy"" pipelines, guaranteeing consistent and reproducible release processes.
+
+image::docs/modules/ROOT/assets/images/development/guidelines/trunk-based-development.drawio.png[]
+
+Each developer is streaming small commits either directly into the `main` branch with a pre-integration step of running the build first (which must pass) or commits into short-lived branches and flows through Pull-Request style code-review and build automation before merging into `main`.
 
 === Docker Tag Strategy
 CAUTION: TODO ... include::ROOT:partial$/docker-tag-strategy.adoc[]
