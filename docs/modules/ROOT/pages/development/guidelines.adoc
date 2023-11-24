@@ -41,7 +41,7 @@ Any branch other than `main` is considered a short-lived branch. These branches 
 
 Git tags are always created from the `main` branch, ensuring that they represent stable and release-worthy versions of the software. The creation of tags is done exclusively through our "Release + Deploy"" pipelines, guaranteeing consistent and reproducible release processes.
 
-image::docs/modules/ROOT/assets/images/development/guidelines/trunk-based-development.drawio.png[]
+image:ROOT:development/guidelines/trunk-based-development.drawio.png[]
 
 Each developer is streaming small commits either directly into the `main` branch with a pre-integration step of running the build first (which must pass) or commits into short-lived branches and flows through Pull-Request style code-review and build automation before merging into `main`.
 
