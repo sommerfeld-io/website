@@ -86,56 +86,61 @@ This pipeline (and all predesessing pipelines) include all steps and tests that 
 skinparam monochrome false
 skinparam componentStyle uml2
 skinparam backgroundColor transparent
-skinparam ArrowColor #eee
-skinparam NoteBorderColor #eee
+'skinparam backgroundColor #202634
+skinparam ArrowColor #a9acb3
+skinparam NoteBorderColor #a9acb3
 skinparam NoteFontColor #a9acb3
 skinparam NoteBackgroundColor transparent
-skinparam ComponentBorderColor #eee
+skinparam ComponentBorderColor #a9acb3
+skinparam ComponentBackgroundColor #293042
 skinparam ComponentFontColor #a9acb3
-skinparam DatabaseBorderColor #eee
-skinparam DatabaseBackgroundColor #444
-skinparam DatabaseFontColor #eee
-skinparam FileBorderColor #eee
+skinparam DatabaseBorderColor #a9acb3
+skinparam DatabaseBackgroundColor #293042
+skinparam DatabaseFontColor #a9acb3
+skinparam FileBorderColor #a9acb3
+skinparam FileBackgroundColor #293042
 skinparam FileFontColor #a9acb3
-skinparam ControlBorderColor #eee
+skinparam ControlBorderColor #a9acb3
+skinparam ControlBackgroundColor #293042
 skinparam ControlFontColor #a9acb3
 skinparam RectangleBackgroundColor transparent
-skinparam RectangleBorderColor #eee
+skinparam RectangleBorderColor #a9acb3
 skinparam RectangleFontColor #a9acb3
 skinparam ControlBackgroundColor transparent
-skinparam ControlBorderColor #eee
+skinparam ControlBorderColor #a9acb3
 skinparam ControlFontColor #a9acb3
 skinparam HexagonBackgroundColor transparent
-skinparam HexagonBorderColor #eee
+skinparam HexagonBorderColor #a9acb3
 skinparam HexagonFontColor #a9acb3
-skinparam ArtifactBackgroundColor #444
-skinparam ArtifactBorderColor #eee
+skinparam ArtifactBackgroundColor #293042
+skinparam ArtifactBorderColor #a9acb3
 skinparam ArtifactFontColor #a9acb3
 skinparam defaultTextAlignment center
 skinparam activity {
 FontName Ubuntu
 }
 
-file code as "Source\nCode" #E18114
-database code_repo as "Code\nRepo" #E18114
 database artifact_repo as "Artifact\nRepo"
-control ci as "Automated Tests\nSoftware Builds\nCode Scans\netc." #E18114
+
+file code as "Source\nCode" <<Commit>> #66461C
+database code_repo as "Code\nRepo" <<Commit>> #66461C
+control ci as "Automated Tests\nSoftware Builds\nCode Scans\netc." <<Commit>> #66461C
 
 code -> code_repo
 code_repo -right-> ci
 ci -down-> artifact_repo
 
-control more as "More\nTests" #35A339
-control acceptance as "Acceptance\nTests" #35A339
-control security as "Security\nTests" #35A339
-control performance as "Performance\nTests" #35A339
+control more as "More\nTests" <<Acceptance>> #26603A
+control acceptance as "Acceptance\nTests" <<Acceptance>> #26603A
+control security as "Security\nTests" <<Acceptance>> #26603A
+control performance as "Performance\nTests" <<Acceptance>> #26603A
 artifact_repo -right-> acceptance
 artifact_repo -down-> security
 artifact_repo -down-> performance
 artifact_repo -down-> more
 
-control deploy as "Release + Deploy\nPipeline" #2F81F7
-component prod as "Production\nEnvironment" #2F81F7
+control deploy as "Release + Deploy\nPipeline" <<Production>> #204075
+component prod as "Production\nEnvironment" <<Production>> #204075
 
 artifact_repo -left-> deploy
 deploy -left-> prod
