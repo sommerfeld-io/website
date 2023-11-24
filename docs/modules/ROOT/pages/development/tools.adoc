@@ -10,11 +10,7 @@ Each project is hosted within its dedicated repository on GitHub. All projects, 
 For every project within the Sommerfeld-io organization, we employ GitHub Actions as our go-to solution for implementing automated pipelines and workflows.
 
 == Artifact Repositories
-We employ two types of repositories. DockerHub serves as our primary artifact repository for storing and distributing Docker images, providing a reliable and efficient solution for containerized components.
-
-The second repository is not traditionally considered a repository but currently fulfills our needs. We leverage GitHub releases, which allow us to attach artifacts such as the Antora UI bundle Zip file, ensuring a way to distribute non-Docker packages.
-
-At present, the Antora UI bundle stands as the sole artifact that deviates from our standard practice of shipping as a Docker image. While solutions like Artifactory exist to handle artifacts in a dedicated repository, implementing such a solution would introduce significant overhead for managing a single software product. As a result, considering the limited scope of artifact publishing needs, we have opted to use alternative methods, such as attaching the Antora UI bundle as a file in GitHub releases, to avoid unnecessary complexity.
+We employ only one type of repository. DockerHub serves as our primary artifact repository for storing and distributing Docker images, providing a reliable and efficient solution for containerized components. Since we publish everything as Docker images, there is no need for any other artifact repository.
 
 [plantuml, puml-build-image, svg]
 ----
@@ -65,11 +61,8 @@ repo -> actions
 hexagon isDocker as "is Docker\nImage?"
 actions -> isDocker
 
-artifact release as "Release with Attachment" <<GitHub>>
-isDocker -right-> release
-
 artifact dockerhub as "Container Registry" <<DockerHub>>
-isDocker -down-> dockerhub
+isDocker -right-> dockerhub
 
 @enduml
 ----
