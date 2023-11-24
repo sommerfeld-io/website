@@ -61,7 +61,7 @@ repo -> actions
 hexagon isDocker as "is Docker\nImage?"
 actions -> isDocker
 
-artifact dockerhub as "Container Registry" <<DockerHub>>
+component dockerhub as "Container Registry" <<DockerHub>>
 isDocker -right-> dockerhub
 
 @enduml

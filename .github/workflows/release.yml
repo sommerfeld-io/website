@@ -53,6 +53,7 @@ jobs:
     needs: update-version
     env:
       IMAGE: sommerfeldio/website
+      DOCS_FILE: docs/modules/AUTO-GENERATED/pages/website/Dockerfile # without extension
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -78,7 +79,8 @@ jobs:
       - name: Convert README from Asciidoc to Markdown for DockerHub description
         run: |
           sudo apt-get install -y pandoc asciidoc
-          asciidoc -b docbook README.adoc
+          asciidoc -b docbook ${{ env.DOCS_FILE }}.adoc
+          mv ${{ env.DOCS_FILE }}.xml ./README.xml
           pandoc -f docbook -t markdown_strict README.xml -o README.md
         shell: bash
       - name: Update DockerHub description
