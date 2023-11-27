@@ -114,7 +114,7 @@ jobs:
           provenance: true
           sbom: true
       - name: Docker Scout Compare
-        uses: docker/scout-action@v1.1.0
+        uses: docker/scout-action@v1.2.0
         with:
           command: compare
           image: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
@@ -122,7 +122,7 @@ jobs:
           exit-code: false
           write-comment: ${{ github.event_name == 'pull_request' }}
       - name: Docker Scout CVEs
-        uses: docker/scout-action@v1.1.0
+        uses: docker/scout-action@v1.2.0
         with:
           command: cves
           image: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
