@@ -85,7 +85,7 @@ RUN yarn install \
     && gulp bundle
 
 
-FROM antora/antora:3.1.4 AS build-antora-site
+FROM antora/antora:3.1.5 AS build-antora-site
 LABEL maintainer="sebastian@sommerfeld.io"
 
 RUN yarn add @asciidoctor/core@~3.0.2 \
