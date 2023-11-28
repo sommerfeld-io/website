@@ -15,7 +15,7 @@
 #
 # == About the tags and versions
 #
-# See https://github.com/sommerfeld-io/dev-environment-config/blob/main/docs/modules/ROOT/partials/docker-tag-strategy.adoc
+# include::ROOT:partial$/docker-tag-strategy.adoc[]
 #
 # === Example
 #

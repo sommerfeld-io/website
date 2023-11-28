@@ -21,7 +21,7 @@ docker run --rm -it -p 7888:7888 sommerfeldio/website:latest
 ----
 
 == About the tags and versions
-See https://github.com/sommerfeld-io/dev-environment-config/blob/main/docs/modules/ROOT/partials/docker-tag-strategy.adoc
+include::ROOT:partial$/docker-tag-strategy.adoc[]
 
 == Webserver inside the Docker image
 All pages are served from an Apache webserver. This webserver comes with some configurations specific to this project.
