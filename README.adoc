@@ -42,7 +42,7 @@ docker run --rm -it -p 7888:7888 sommerfeldio/website:latest
 ----
 
 == About the tags and versions
-See https://github.com/sommerfeld-io/dev-environment-config/blob/main/docs/modules/ROOT/partials/docker-tag-strategy.adoc
+include::ROOT:partial$/docker-tag-strategy.adoc[]
 
 == Risks and Technical Debts
 link:{url-project}/issues?q=is%3Aissue+label%3Asecurity%2Crisk+is%3Aopen[All issues labeled as risk (= some sort of risk or a technical debt) or security (= related to security issues)] are tracked as Github issue and carry the respective label.
