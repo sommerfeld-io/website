@@ -18,7 +18,7 @@ This image has been developed and tested with Docker version 24.0.2 on top of Ub
 
 == About the tags and versions
 
-See https://github.com/sommerfeld-io/dev-environment-config/blob/main/docs/modules/ROOT/partials/docker-tag-strategy.adoc
+include::ROOT:partial$/docker-tag-strategy.adoc[]
 
 === Example
 
