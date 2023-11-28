@@ -20,9 +20,6 @@ This project is exclusively available as a Docker image, meaning that it is pack
 docker run --rm -it -p 7888:7888 sommerfeldio/website:latest
 ----
 
-== About the tags and versions
-include::ROOT:partial$/docker-tag-strategy.adoc[]
-
 == Webserver inside the Docker image
 All pages are served from an Apache webserver. This webserver comes with some configurations specific to this project.
 
