@@ -116,4 +116,6 @@ RUN chown -hR "$USER:$USER" /usr/local/apache2 \
 COPY --from=build-antora-site /tmp/antora/sommerfeld-io/public /usr/local/apache2/htdocs/docs
 COPY --from=build-antora-site /tmp/antora/personal-projects/public /usr/local/apache2/htdocs/docs-personal-projects
 
+RUN cp /usr/local/apache2/htdocs/docs/robots.txt /usr/local/apache2/htdocs/robots.txt
+
 USER "$USER"
