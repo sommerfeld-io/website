@@ -79,7 +79,7 @@ RUN yarn global add gulp-cli@2.3.0 \
     && yarn global add @antora/cli@3.1 \
     && yarn global add @antora/site-generator@3.1
 
-COPY website/ui/ui-bundle /antora-ui
+COPY website/ui/appstack/ui-bundle /antora-ui
 WORKDIR /antora-ui
 
 RUN yarn install \

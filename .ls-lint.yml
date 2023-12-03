@@ -47,6 +47,6 @@ ignore:
   - .pre-commit-config.yaml
   - .yamllint.yml
 
-  # website
-  - website/ui/ui-bundle/.gulp.json
-  - website/ui/ui-bundle/src/js/vendor/highlight.min.js
+  # UI bundle
+  - website/ui/appstack/ui-bundle/.gulp.json
+  - website/ui/appstack/ui-bundle/src/js/vendor/highlight.min.js

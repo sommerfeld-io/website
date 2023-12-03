@@ -123,7 +123,7 @@ jobs:
         run: npm install --location=global gulp-cli@2.3.0
         shell: bash
       - name: Build UI bundle
-        run: make ui-bundle-build
+        run: make ui-build
         shell: bash
 
   on-failure:

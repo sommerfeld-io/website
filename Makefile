@@ -53,6 +53,11 @@
 # To expose the HTML template through a webserver, just use ``make template``. The HTML
 # template is available through http://localhost:5353.
 #
+# [source, bash]
+# ```
+# make template
+# ```
+#
 # == Build and preview UI Bundle
 #
 # The ``ui-bundle`` target automates the process of building the Antora UI
@@ -61,12 +66,12 @@
 #
 # [source, bash]
 # ```
-# make ui-bundle
+# make ui
 # ```
 #
 # The UI bundle preview is available through http://localhost:5252.
 #
-# NOTE: To build the UI bundle from a Github Actions workflow, use  ``make ui-bundle-build``.
+# NOTE: To build the UI bundle from a Github Actions workflow, use  ``make ui-build``.
 # This target does not start up a webserver to preview the UI bundle in a browser.
 #
 # This target needs Node, NPM and Gulp installed. To avoid having to install
@@ -82,7 +87,7 @@ TEMPLATE_PORT = 5353
 .DEFAULT_GOAL := run
 .PHONY: all remove-image build run template ui-buncle-build ui-bundle clean test
 
-all: ui-bundle-build build
+all: ui-build build
 
 remove-image:
 	@echo "[INFO] Remove old versions of $(WEBSITE_DOCKER_IMAGE)"
@@ -98,18 +103,18 @@ run: build
 	docker run --rm -p "$(WEBSITE_PORT):7888" "$(WEBSITE_DOCKER_IMAGE)"
 
 template:
-	@cd website/ui/template/pages || exit \
+	@cd website/ui/appstack/template/pages || exit \
 		&& docker run --rm mwendler/figlet:latest $(TEMPLATE_PORT) \
 		&& python3 -m http.server $(TEMPLATE_PORT)
 
-ui-bundle-build:
-	@cd website/ui/ui-bundle || exit \
+ui-build:
+	@cd website/ui/appstack/ui-bundle || exit \
 		&& yarn install \
 		&& cp node_modules/@fontsource/poppins/files/poppins-*.woff* src/font \
 		&& gulp bundle
 
-ui-bundle: ui-bundle-build
-	@cd website/ui/ui-bundle || exit \
+ui: ui-build
+	@cd website/ui/appstack/ui-bundle || exit \
 		&& gulp preview
 
 test:
