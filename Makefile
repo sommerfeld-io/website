@@ -103,18 +103,18 @@ run: build
 	docker run --rm -p "$(WEBSITE_PORT):7888" "$(WEBSITE_DOCKER_IMAGE)"
 
 template:
-	@cd website/ui/appstack/template/pages || exit \
+	@cd website/ui/material-admin-pro/template/pages || exit \
 		&& docker run --rm mwendler/figlet:latest $(TEMPLATE_PORT) \
 		&& python3 -m http.server $(TEMPLATE_PORT)
 
 ui-build:
-	@cd website/ui/appstack/ui-bundle || exit \
+	@cd website/ui/material-admin-pro/ui-bundle || exit \
 		&& yarn install \
 		&& cp node_modules/@fontsource/poppins/files/poppins-*.woff* src/font \
 		&& gulp bundle
 
 ui: ui-build
-	@cd website/ui/appstack/ui-bundle || exit \
+	@cd website/ui/material-admin-pro/ui-bundle || exit \
 		&& gulp preview
 
 test:
