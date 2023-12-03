@@ -25,6 +25,11 @@ docker run --rm -it -p 7888:7888 sommerfeldio/website:latest
 == About the tags and versions
 include::ROOT:partial$/docker-tag-strategy.adoc[]
 
+== UI Bundle
+This project also contains the Antora UI bundle sources. This UI bundle represents the design for all Antora-based pages of https://www.sommerfeld.io[www.sommerfeld.io].
+
+The UI bundle is built alongside the whole website ensuring that the latest UI bundle is used for www.sommerfeld.io. This way there is no need to publish the UI bundle anywhere because it is part of the Docker image which serves the website.
+
 == Risks and Technical Debts
 link:{url-project}/issues?q=is%3Aissue+label%3Asecurity%2Crisk+is%3Aopen[All issues labeled as risk (= some sort of risk or a technical debt) or security (= related to security issues)] are tracked as Github issue and carry the respective label.
 

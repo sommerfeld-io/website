@@ -1,6 +1,6 @@
 ---
-name: overview
-title: Sommerfeld.io Overview
+name: website
+title: Sommerfeld.io Website
 version: main
 start_page: ROOT:index.adoc
 nav:

@@ -65,6 +65,8 @@
 # root permissions because the httpd server inside the container is started with the already existing
 # user ``www-data``.
 #
+# The webserver exposes his status information through http://localhost:7888/server-status.
+#
 # == SBOM
 #
 # include::AUTO-GENERATED:partial$/sbom/sbom-website.adoc[]

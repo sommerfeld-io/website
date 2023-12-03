@@ -2,7 +2,7 @@
 site:
   title: Documentation
   url: /docs
-  start_page: overview::index.adoc
+  start_page: website::index.adoc
   robots: allow
 
 content:
@@ -11,10 +11,6 @@ content:
   sources:
     - url: https://github.com/sommerfeld-io/www-sommerfeld-io.git
       start_path: docs
-    - url: https://github.com/sommerfeld-io/www-sommerfeld-io.git
-      start_path: infrastructure/docs
-    - url: https://github.com/sommerfeld-io/www-sommerfeld-io.git
-      start_path: website/docs
     - url: https://github.com/sommerfeld-io/docker-images.git
       start_path: docs
 

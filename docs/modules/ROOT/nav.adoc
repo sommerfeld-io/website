@@ -6,3 +6,6 @@
 * xref:ROOT:development/guidelines.adoc[]
 * xref:ROOT:development/tools.adoc[]
 * xref:ROOT:development/architecture.adoc[]
+* xref:ROOT:development/infrastructure-checklist.adoc[]
+
+* xref:ROOT:ui-bundle/about.adoc[]
