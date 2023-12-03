@@ -82,6 +82,8 @@ TEMPLATE_PORT = 5353
 .DEFAULT_GOAL := run
 .PHONY: all clean test
 
+all: ui-bundle-build remove-image build
+
 remove-image:
 	@echo "[INFO] Remove old versions of $(WEBSITE_DOCKER_IMAGE)"
 	docker image rm "$(WEBSITE_DOCKER_IMAGE)"
@@ -115,5 +117,3 @@ test:
 
 clean:
 	@echo "[INFO] Nothing to clean up"
-
-all: ui-bundle-build remove-image build
