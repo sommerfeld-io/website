@@ -77,7 +77,7 @@ RUN yarn global add gulp-cli@2.3.0 \
     && yarn global add @antora/cli@3.1 \
     && yarn global add @antora/site-generator@3.1
 
-COPY ui/ui-bundle /antora-ui
+COPY website/ui/ui-bundle /antora-ui
 WORKDIR /antora-ui
 
 RUN yarn install \
@@ -93,7 +93,7 @@ RUN yarn add @asciidoctor/core@~3.0.2 \
     && yarn add @antora/lunr-extension@~1.0.0-alpha.8
 
 COPY --from=build-ui-bundle /antora-ui/build/ui-bundle.zip /antora-ui/ui-bundle.zip
-COPY config /antora
+COPY website/config /antora
 WORKDIR /antora
 
 RUN antora --version \
@@ -107,7 +107,7 @@ RUN sleep 5
 FROM httpd:2.4.58-alpine3.18 AS run
 LABEL maintainer="sebastian@sommerfeld.io"
 
-COPY config/httpd.conf /usr/local/apache2/conf/httpd.conf
+COPY website/config/httpd.conf /usr/local/apache2/conf/httpd.conf
 
 ARG USER=www-data
 RUN chown -hR "$USER:$USER" /usr/local/apache2 \
