@@ -1,3 +1,2 @@
 * xref:AUTO-GENERATED:-devcontainer/Dockerfile.adoc[.devcontainer/Dockerfile]
-* xref:AUTO-GENERATED:website/ui/template/Dockerfile.adoc[website/ui/template/Dockerfile]
-* xref:AUTO-GENERATED:website/Dockerfile.adoc[website/Dockerfile]
+* xref:AUTO-GENERATED:Dockerfile.adoc[Dockerfile]
