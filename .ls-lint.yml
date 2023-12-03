@@ -22,8 +22,9 @@ ls:
   .svg: kebab-case
 
   Dockerfile: PascalCase
-  Vagrantfile: PascalCase
   Jenkinsfile: PascalCase
+  Makefile: PascalCase
+  Vagrantfile: PascalCase
 
   .env: lowercase
   .folderslintrc: lowercase
