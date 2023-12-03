@@ -41,10 +41,12 @@ This project is exclusively available as a Docker image, meaning that it is pack
 docker run --rm -it -p 7888:7888 sommerfeldio/website:latest
 ----
 
+To build and run this project locally, take a look at the xref:AUTO-GENERATED:Makefile.adoc[].
+
 == About the tags and versions
 include::ROOT:partial$/docker-tag-strategy.adoc[]
 
-== UI Bundle
+== About the UI Bundle
 This project also contains the Antora UI bundle sources. This UI bundle represents the design for all Antora-based pages of https://www.sommerfeld.io[www.sommerfeld.io].
 
 The UI bundle is built alongside the whole website ensuring that the latest UI bundle is used for www.sommerfeld.io. This way there is no need to publish the UI bundle anywhere because it is part of the Docker image which serves the website.
