@@ -79,10 +79,8 @@ WEBSITE_PORT = 7888
 
 TEMPLATE_PORT = 5353
 
-.DEFAULT_GOAL := all
+.DEFAULT_GOAL := run
 .PHONY: all clean test
-
-all: remove-image build run
 
 remove-image:
 	@echo "[INFO] Remove old versions of $(WEBSITE_DOCKER_IMAGE)"
@@ -92,16 +90,10 @@ build:
 	@echo "[INFO] Build Docker image $(WEBSITE_DOCKER_IMAGE)"
 	docker build --no-cache -t "$(WEBSITE_DOCKER_IMAGE)" .
 
-run:
+run: build
 	@echo "[INFO] Run Docker image"
 	docker run --rm mwendler/figlet:latest "$(WEBSITE_PORT)"
 	docker run --rm -p "$(WEBSITE_PORT):7888" "$(WEBSITE_DOCKER_IMAGE)"
-
-test:
-	@echo "[INFO] Testing is done during the build targets"
-
-clean:
-	@echo "[INFO] Nothing to clean up"
 
 template:
 	@cd website/ui/template/pages || exit \
@@ -117,3 +109,11 @@ ui-bundle-build:
 ui-bundle: ui-bundle-build
 	@cd website/ui/ui-bundle || exit \
 		&& gulp preview
+
+test:
+	@echo "[INFO] Testing is done during the build targets"
+
+clean:
+	@echo "[INFO] Nothing to clean up"
+
+all: ui-bundle-build remove-image build
