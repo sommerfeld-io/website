@@ -80,9 +80,9 @@ WEBSITE_PORT = 7888
 TEMPLATE_PORT = 5353
 
 .DEFAULT_GOAL := run
-.PHONY: all clean test remove-image build run template ui-buncle-build ui-bundle
+.PHONY: all remove-image build run template ui-buncle-build ui-bundle clean test
 
-all: ui-bundle-build remove-image build
+all: ui-bundle-build build
 
 remove-image:
 	@echo "[INFO] Remove old versions of $(WEBSITE_DOCKER_IMAGE)"
