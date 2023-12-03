@@ -80,7 +80,7 @@ WEBSITE_PORT = 7888
 TEMPLATE_PORT = 5353
 
 .DEFAULT_GOAL := run
-.PHONY: all clean test
+.PHONY: all clean test remove-image build run template ui-buncle-build ui-bundle
 
 all: ui-bundle-build remove-image build
 
