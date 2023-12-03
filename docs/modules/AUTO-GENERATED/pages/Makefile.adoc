@@ -62,6 +62,12 @@ To remove the local Docker image, just use `make remove-image`
 To expose the HTML template through a webserver, just use `make template`. The HTML
 template is available through http://localhost:5353.
 
+[source, bash]
+
+----
+make template
+----
+
 == Build and preview UI Bundle
 
 The `ui-bundle` target automates the process of building the Antora UI
@@ -71,7 +77,7 @@ content from the `preview-src` folder for testing and development purposes.
 [source, bash]
 
 ----
-make ui-bundle
+make ui
 ----
 
 The UI bundle preview is available through http://localhost:5252.
