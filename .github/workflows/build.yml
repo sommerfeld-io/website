@@ -33,27 +33,6 @@ permissions:
   contents: read
 
 jobs:
-  template:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: hadolint
-        uses: hadolint/hadolint-action@v3.1.0
-        with:
-          dockerfile: website/ui/template/Dockerfile
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-      - name: Docker image build
-        uses: docker/build-push-action@v5
-        with:
-          context: website/ui/template
-          platforms: linux/amd64
-          push: false
-          tags: local/ui-bundle-template:dev
-
   website-docker-image:
     runs-on: ubuntu-latest
     permissions:
@@ -66,7 +45,7 @@ jobs:
       - name: hadolint
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: website/Dockerfile
+          dockerfile: Dockerfile
       - name: Set docker tag
         id: vars
         run: |
@@ -143,24 +122,13 @@ jobs:
       - name: Install gulp-cli
         run: npm install --location=global gulp-cli@2.3.0
         shell: bash
-      - name: Install node modules
-        run: |
-          (
-            cd website/ui/ui-bundle || exit
-            npm install
-          )
-        shell: bash
       - name: Build UI bundle
-        run: |
-          (
-            cd website/ui/ui-bundle || exit
-            gulp bundle
-          )
+        run: make ui-bundle-build
         shell: bash
 
   on-failure:
     runs-on: ubuntu-latest
-    needs: ['template', 'website-docker-image', 'ui-bundle']
+    needs: ['website-docker-image', 'ui-bundle']
     if: failure()
     steps:
       - name: Send Pipeline Status to Google Chat

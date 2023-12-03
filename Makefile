@@ -64,7 +64,10 @@
 # make ui-bundle
 # ```
 #
-#  The UI bundle preview is available through http://localhost:5252.
+# The UI bundle preview is available through http://localhost:5252.
+#
+# To build the UI bundle from a Github Actions workflow, use  ``make ui-bundle-build``.
+# This target does not start up a webserver to preview the UI bundle in a browser.
 #
 # This target needs Node, NPM and Gulp installed. To avoid having to install
 # all prerequisites on your host, open the project in the devcontainer from
@@ -105,9 +108,12 @@ template:
 		&& docker run --rm mwendler/figlet:latest $(TEMPLATE_PORT) \
 		&& python3 -m http.server $(TEMPLATE_PORT)
 
-ui-bundle:
+ui-bundle-build:
 	@cd website/ui/ui-bundle || exit \
 		&& yarn install \
 		&& cp node_modules/@fontsource/poppins/files/poppins-*.woff* src/font \
-		&& gulp bundle \
+		&& gulp bundle
+
+ui-bundle: ui-bundle-build
+	@cd website/ui/ui-bundle || exit \
 		&& gulp preview
