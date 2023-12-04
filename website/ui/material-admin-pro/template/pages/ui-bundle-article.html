@@ -335,8 +335,27 @@
                         </div>
                         <div class="d-flex align-items-center">
                             <div class="btn-group mb-5" role="group" aria-label="article-actions">
-                                <button class="btn btn-outline-primary btn-sm" type="button"><i class="material-icons leading-icon">share</i>main</button>
+                                <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#branchesModal"><i class="material-icons leading-icon">share</i>main</button>
                                 <button class="btn btn-outline-primary btn-sm" type="button"><i class="material-icons leading-icon">edit</i>Edit</button>
+                            </div>
+
+                            <!-- MODAL -->
+                            <div class="modal fade" id="branchesModal" tabindex="-1" aria-labelledby="branchesModalLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="branchesModalLabel">Versions and Branches</h5>
+                                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Switch to another version of this projects docs. Other versions are either branches or tagged versions.</p>
+                                            <p>Currently the docs are from version / branch <code>material-admin-pro</code>.</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button class="btn btn-text-primary me-2" type="button" data-bs-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
@@ -526,11 +545,29 @@
                                 <div class="mx-1">&middot;</div>
                                 <a class="text-decoration-none" href="contact.html">Contact</a>
                                 <div class="mx-1">&middot;</div>
-                                <a class="btn btn-outline-primary btn-xs" href="#" type="button">Cookie Settings</a>
+                                <button class="btn btn-outline-primary btn-xs" type="button" data-bs-toggle="modal" data-bs-target="#cookieModal">Cookie Settings</button>
                                 <div class="mx-1">&middot;</div>
                                 <a class="text-decoration-none" href="privacy.html">Privacy</a>
                                 <div class="mx-1">&middot;</div>
                                 <a class="text-decoration-none" href="terms.html">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MODAL -->
+                    <div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="cookieModalLabel">Cookie Settings</h5>
+                                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p>See <a href="/privacy.html">Privacy</a> Information</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-text-primary me-2" type="button" data-bs-dismiss="modal">Close</button>
+                                </div>
                             </div>
                         </div>
                     </div>
