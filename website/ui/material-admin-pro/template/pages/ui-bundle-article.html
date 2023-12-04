@@ -72,7 +72,7 @@
                     <div class="drawer-menu">
                         <div class="nav">
                             <!-- Drawer section heading (Navigation)-->
-                            <div class="drawer-menu-heading d-sm-none">Navigation</div>
+                            <div class="drawer-menu-heading">Navigation</div>
                             <!-- Drawer link (Notifications)-->
                             <a class="nav-link d-sm-none" href="/">
                                 <div class="nav-link-icon"><i class="material-icons">home</i></div>
@@ -84,13 +84,19 @@
                                 Contact
                             </a>
 
+                            <!-- Drawer link (Projects)-->
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#projectsModal">
+                                <div class="nav-link-icon"><i class="material-icons">layers</i></div>
+                                Projects List
+                            </a>
+
                             <!-- Divider-->
-                            <div class="drawer-menu-divider d-sm-none"></div>
+                            <div class="drawer-menu-divider"></div>
                             <!-- Drawer section heading (UI Bundle)-->
                             <div class="drawer-menu-heading">UI Bundle Pages</div>
-                            <!-- Drawer link (Overview)-->
+                            <!-- Drawer link (Article)-->
                             <a class="nav-link" href="ui-bundle-article.html">
-                                <div class="nav-link-icon"><i class="material-icons">layers</i></div>
+                                <div class="nav-link-icon"><i class="material-icons">description</i></div>
                                 Article Page
                             </a>
 
@@ -338,25 +344,6 @@
                                 <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#branchesModal"><i class="material-icons leading-icon">share</i>main</button>
                                 <button class="btn btn-outline-primary btn-sm" type="button"><i class="material-icons leading-icon">edit</i>Edit</button>
                             </div>
-
-                            <!-- MODAL -->
-                            <div class="modal fade" id="branchesModal" tabindex="-1" aria-labelledby="branchesModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="branchesModalLabel">Versions and Branches</h5>
-                                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Switch to another version of this projects docs. Other versions are either branches or tagged versions.</p>
-                                            <p>Currently the docs are from version / branch <code>material-admin-pro</code>.</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button class="btn btn-text-primary me-2" type="button" data-bs-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
 
                         <div class="row gx-5">
@@ -553,27 +540,65 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- MODAL -->
-                    <div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="cookieModalLabel">Cookie Settings</h5>
-                                    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <p>See <a href="/privacy.html">Privacy</a> Information</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-text-primary me-2" type="button" data-bs-dismiss="modal">Close</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </footer>
             </div>
         </div>
+
+        <!-- MODAL projects -->
+        <div class="modal fade" id="projectsModal" tabindex="-1" aria-labelledby="projectsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="projectsModalLabel">Projects</h5>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Put Table here ...</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-text-primary me-2" type="button" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL branches -->
+        <div class="modal fade" id="branchesModal" tabindex="-1" aria-labelledby="branchesModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="branchesModalLabel">Versions and Branches</h5>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Switch to another version of this projects docs. Other versions are either branches or tagged versions.</p>
+                        <p>Currently the docs are from version / branch <code>material-admin-pro</code>.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-text-primary me-2" type="button" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODAL cookie -->
+        <div class="modal fade" id="cookieModal" tabindex="-1" aria-labelledby="cookieModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="cookieModalLabel">Cookie Settings</h5>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>See <a href="/privacy.html">Privacy</a> Information</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-text-primary me-2" type="button" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Load Bootstrap JS bundle-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <!-- Load global scripts-->
