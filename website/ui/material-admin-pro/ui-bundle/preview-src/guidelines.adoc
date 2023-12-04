@@ -13,7 +13,7 @@ When it comes to configuration management, we opt for approaches that align with
 By treating various aspects of our work as code, we can leverage the benefits of version control, automation, and reproducibility.
 
 == As much as possible in containers
-We prioritize running as many components as possible in Docker containers within our organization. This includes our own software applications, 3rd party tools usd for develpment, and project dependencies. By containerizing these elements, we enhance portability, and consistency across different environments, while minizing the requirements for development workstations.
+We prioritize running as many components as possible in Docker containers within our organization. This includes our own software applications, 3rd party tools usd for development, and project dependencies. By containerizing these elements, we enhance portability, and consistency across different environments, while minizing the requirements for development workstations.
 
 Whenever feasible, we package and ship our software using Docker containers. Docker containers serve as the preferred format for shipping executable components of our applications. However, for non-executable artifacts such as Jar files or Zip files, we employ alternative packaging methods. For instance, the Antora UI bundle, as an example, is published as a Zip file attachment to a GitHub release, ensuring the appropriate distribution and availability of the artifact.
 
