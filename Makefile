@@ -110,7 +110,6 @@ template:
 ui-build:
 	@cd website/ui/material-admin-pro/ui-bundle || exit \
 		&& yarn install \
-		&& cp node_modules/@fontsource/poppins/files/poppins-*.woff* src/font \
 		&& gulp bundle
 
 ui: ui-build
