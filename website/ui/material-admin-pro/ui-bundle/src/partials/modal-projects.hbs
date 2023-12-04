@@ -1,0 +1,37 @@
+<!-- MODAL projects -->
+<div class="modal fade" id="projectsModal" tabindex="-1" aria-labelledby="projectsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="projectsModalLabel">Projects</h5>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Explore all projects along with their corresponding branches and versions. Select the documentation you wish to access.</p>
+                <table class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Project</th>
+                            <th scope="col">Versions and Branches</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each site.components}}
+                            <tr>
+                                <td><a class="dropdown-item" href="{{{relativize ./url}}}">{{{./title}}}</a></td>
+                                <td>
+                                    {{#each ./versions}}
+                                        <a class="btn btn-primary btn-sm mx-1" type="button" href="{{{relativize ./url}}}">{{./displayVersion}}</a>
+                                    {{/each}}
+                                </td>
+                            </tr>
+						{{/each}}
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-text-primary me-2" type="button" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
