@@ -1,0 +1,7 @@
+@charset "UTF-8";
+:root {
+  --bs-dark: #202634;
+  --bs-dark-rgb: 32, 38, 52;
+}
+
+.bg-dark { background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important; }
