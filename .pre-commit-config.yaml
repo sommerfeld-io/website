@@ -32,7 +32,8 @@ repos:
                 website/ui/appstack/ui-bundle/src/js/00-app.js|
                 website/ui/appstack/ui-bundle/package-lock.json|
                 website/ui/material-admin-pro/template/pages/js/material.js|
-                website/ui/material-admin-pro/template/pages/css/styles.css
+                website/ui/material-admin-pro/template/pages/css/styles.css|
+                website/ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz
             )$
       - id: check-executables-have-shebangs
       - id: check-shebang-scripts-are-executable
