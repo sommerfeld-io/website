@@ -26,12 +26,15 @@
 .bg-dark { background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important; }
 
 article.doc h1,
-article.doc h2,
+article.doc h2 {
+  margin: 5rem 0 1rem 0 !important;
+}
+
 article.doc h3,
 article.doc h4,
 article.doc h5,
 article.doc h6 {
-  margin: 5rem 0 1rem 0 !important;
+  margin: 2.5rem 0 1rem 0 !important;
 }
 
 article.doc hr { display: none; }
