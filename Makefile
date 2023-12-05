@@ -4,10 +4,12 @@
 # @description This Makefile streamlines the process of building the website from its
 # source files and orchestrating its execution within a Docker container.
 #
+# == How to use this Makefile
+#
 # The default target, which is triggered when simply using ``make`` combines ``make build``
 # and ``make run``.
 #
-# == ``make build``
+# === ``make build``
 #
 # Automates the process of creating a Docker image that encapsulates the entire
 # link:https://www.sommerfeld.io[sommerfeld-io website] within an Apache httpd web server. The
@@ -33,33 +35,33 @@
 # link:https://hub.docker.com/r/sommerfeldio/website[``sommerfeldio/website``]  image on
 # Dockerhub.
 #
-# == ``make run``
+# === ``make run``
 #
 # Launches a Docker container based on the newly created image. The container is started in the
 # foreground. The locally hosted website can be accessed via a web browser at http://localhost:7888.
 #
-# == ``make build-ui``
+# === ``make build-ui``
 #
 # Automates the process of building the Antora UI bundle. Use this target from a Github Actions
 # workflow to build the UI bundle from a pipeline. This target does not start up a webserver to
 # preview the UI bundle in a browser.
 #
-# == ``make preview-ui``
+# === ``make preview-ui``
 #
 # Run a local preview of the documentation site using the UI bundle. The preview uses demo
 # content from the ``preview-src`` folder for testing and development purposes. The UI bundle
 # preview is available through http://localhost:5252. This target uses ``make build-ui``
 # as a prerequisites.
 #
-# == ``make preview-template``
+# === ``make preview-template``
 #
 # Exposes the HTML template through a webserver on http://localhost:5353.
 #
-# == ``make clean``
+# === ``make clean``
 #
 # Remove the local Docker image
 #
-# == ``make all``
+# === ``make all``
 #
 # This phony target triggers all build-related targets (``make build-ui`` and ``make build``)
 #
