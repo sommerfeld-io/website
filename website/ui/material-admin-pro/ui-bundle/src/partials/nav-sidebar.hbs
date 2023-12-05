@@ -15,56 +15,25 @@
                 Contact
             </a>
 
+            {{!-- STATIC LINK --}}
             <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#projectsModal">
                 <div class="nav-link-icon"><i class="material-icons">view_list</i></div>
                 Projects Overview
                 <div class="drawer-collapse-arrow"><i class="material-icons">picture_in_picture</i></div>
             </a>
 
-            {{!-- Antoa pages nav --}}
-            <div class="drawer-menu-divider"></div>
-            <div class="drawer-menu-heading">UI Bundle Pages</div>
-            <a class="nav-link" href="ui-bundle-article.html">
-                <div class="nav-link-icon"><i class="material-icons">layers</i></div>
-                Article Page
-            </a>
+            {{!-- Antora pages nav --}}
+            {{#with page.navigation}}
+                <div class="drawer-menu-divider"></div>
+                {{#with @root.page.componentVersion}}
+                    <div class="drawer-menu-heading">{{./title}}</div>
+                {{/with}}
 
-
-
-
-            <!-- Divider-->
-            <div class="drawer-menu-divider"></div>
-            <!-- Drawer section heading (Interface)-->
-            <div class="drawer-menu-heading">Interface</div>
-
-            <!-- Drawer link (Pages)-->
-            <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-                <div class="nav-link-icon"><i class="material-icons">layers</i></div>
-                Pages
-                <div class="drawer-collapse-arrow"><i class="material-icons">expand_more</i></div>
-            </a>
-            <!-- Nested drawer nav (Pages)-->
-            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#drawerAccordion">
-                <nav class="drawer-menu-nested nav accordion" id="drawerAccordionPages">
-                    <!-- Drawer link (Pages -> Pricing)-->
-                    <a class="nav-link" href="app-invoice.html">Invoice</a>
-                    <!-- Drawer link (Pages -> Knowledgebase)-->
-                    <a class="nav-link collapsed" href="javascript:void(0);" data-bs-toggle="collapse" data-bs-target="#pagesCollapseKnowledgebase" aria-expanded="false" aria-controls="pagesCollapseKnowledgebase">
-                        Knowledgebase
-                        <div class="drawer-collapse-arrow"><i class="material-icons">expand_more</i></div>
-                    </a>
-                    <!-- Nested drawer nav (Pages -> Knowledgebase)-->
-                    <div class="collapse" id="pagesCollapseKnowledgebase" aria-labelledby="headingOne" data-bs-parent="#drawerAccordionPages">
-                        <nav class="drawer-menu-nested nav">
-                            <a class="nav-link" href="app-knowledgebase-home.html">Home</a>
-                            <a class="nav-link" href="app-knowledgebase-categories.html">Categories</a>
-                            <a class="nav-link" href="app-knowledgebase-article.html">Article</a>
-                        </nav>
-                    </div>
-                    <!-- Drawer link (Pages -> Pricing)-->
-                    <a class="nav-link" href="app-pricing.html">Pricing</a>
-                </nav>
-            </div>
+                {{!-- iterate nav elements --}}
+                {{#each this}}
+				    {{> nav-sidebar-tree navigation=./items}}
+			    {{/each}}
+            {{/with}}
         </div>
     </div>
 </nav>

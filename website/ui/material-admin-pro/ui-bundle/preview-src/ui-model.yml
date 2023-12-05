@@ -114,9 +114,17 @@ page:
         - content: Development Principles and Guidelines
           url: guidelines.html
           urlType: internal
-        - content: Lorem Ipsum
-          url: lorem.html
-          urlType: internal
+        - content: Level 0 (Next Lv = 1)
+          items:
+            - content: Lorem
+              url: lorem.html
+              urlType: internal
+            - content: Lorem Ipsum
+              url: lorem-ipsum.html
+              urlType: internal
+            - content: Lorem Ipsum Dolor
+              url: lorem-ipsum-dolor.html
+              urlType: internal
         - content: 404 Page
           url: 404.html
           urlType: internal
