@@ -1,6 +1,15 @@
 <div class="sticky-top nav-stick">
     <div class="nav-heading">On This Page</div>
-    <ul class="nav flex-column" id="navStick">
+
+    {{!-- Markup from Antora Default UI --}}
+    <aside class="toc sidebar"
+        data-title="{{{or page.attributes.toctitle 'On This Page'}}}"
+        data-levels="{{{or page.attributes.toclevels 2}}}">
+
+        <div class="toc-menu"></div>
+    </aside>
+
+    {{!-- <ul class="nav flex-column" id="navStick">
         <li class="nav-item"><a class="nav-link" href="#article-a">Everything as Code</a></li>
         <li class="nav-item"><a class="nav-link" href="#article-b">As much as possible in containers</a></li>
         <li class="nav-item"><a class="nav-link" href="#article-c">Test Driven Development</a></li>
@@ -14,5 +23,5 @@
         <li class="nav-item"><a class="nav-link" href="#article-k">Semantic Versioning for our Releases</a></li>
         <li class="nav-item"><a class="nav-link" href="#article-l">User Stories</a></li>
         <li class="nav-item"><a class="nav-link" href="#article-m">As much as possible in containers</a></li>
-    </ul>
+    </ul> --}}
 </div>
