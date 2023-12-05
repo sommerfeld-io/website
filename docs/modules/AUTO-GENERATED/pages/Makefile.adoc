@@ -7,29 +7,16 @@ Build the website from its source files and run the website within a Docker cont
 This Makefile streamlines the process of building the website from its
 source files and orchestrating its execution within a Docker container.
 
-== Build an run the website
+The default target, which is triggered when simply using `make` combines `make build`
+and `make run`.
 
-The `build` target automates the process of creating a Docker image thatencapsulates
-the entire link:https://www.sommerfeld.io[sommerfeld-io website] within an Apache httpd
-web server. The website is built with Antora first. This target simplifies the setup and
-configuration required to run the website locally. The image is based on the official
-link:https://hub.docker.com/_/httpd[Apache httpd] image.
+== `make build`
 
-[source, bash]
-
-----
-make build
-----
-
-The `run` target launches a Docker container based on the newly created image. The container
-is started in the foreground. The locally hosted website can be accessed via a web browser at
-http://localhost:7888.
-
-[source, bash]
-
-----
-make run
-----
+Automates the process of creating a Docker image that encapsulates the entire
+link:https://www.sommerfeld.io[sommerfeld-io website] within an Apache httpd web server. The
+website is built with Antora first. This target simplifies the setup and configuration required
+to run the website locally. The image is based on the official link:https://hub.docker.com/_/httpd[Apache httpd]
+image.
 
 Per default, Apache httpd runs as `root` user because only root processes can listen to ports
 below 1024. The default http port for web applications is 80. But this means the user inside the
@@ -42,7 +29,7 @@ not have permission to create files in this directory. So permissions to this di
 updated as well.
 
 |===
-| What | Port | Protocol
+| Image | Port | Protocol
 
 | `local/website:dev`
 | 7888
@@ -53,38 +40,39 @@ The image is intended for local testing purposes. For production use, take a loo
 link:https://hub.docker.com/r/sommerfeldio/website[`sommerfeldio/website`]  image on
 Dockerhub.
 
-== Remove the Docker image
+== `make run`
 
-To remove the local Docker image, just use `make remove-image`
+Launches a Docker container based on the newly created image. The container is started in the
+foreground. The locally hosted website can be accessed via a web browser at http://localhost:7888.
 
-== HTML Template
+== `make build-ui`
 
-To expose the HTML template through a webserver, just use `make template`. The HTML
-template is available through http://localhost:5353.
+Automates the process of building the Antora UI bundle. Use this target from a Github Actions
+workflow to build the UI bundle from a pipeline. This target does not start up a webserver to
+preview the UI bundle in a browser.
 
-[source, bash]
+== `make preview-ui`
 
-----
-make template
-----
+Run a local preview of the documentation site using the UI bundle. The preview uses demo
+content from the `preview-src` folder for testing and development purposes. The UI bundle
+preview is available through http://localhost:5252. This target uses `make build-ui`
+as a prerequisites.
 
-== Build and preview UI Bundle
+== `make preview-template`
 
-The `ui-bundle` target automates the process of building the Antora UI
-bundle, running a local preview of the documentation site, and using demo
-content from the `preview-src` folder for testing and development purposes.
+Exposes the HTML template through a webserver on http://localhost:5353.
 
-[source, bash]
+== `make clean`
 
-----
-make ui
-----
+Remove the local Docker image
 
-The UI bundle preview is available through http://localhost:5252.
+== `make all`
 
-NOTE: To build the UI bundle from a Github Actions workflow, use  `make build-ui`.
-This target does not start up a webserver to preview the UI bundle in a browser.
+This phony target triggers all build-related targets (`make build-ui` and `make build`)
 
-This target needs Node, NPM and Gulp installed. To avoid having to install
-all prerequisites on your host, open the project in the devcontainer from
-this repo.
+== Prerequisites
+
+This Makefile needs Node, NPM and Gulp installed. To avoid having to install all
+prerequisites on your host, open the project in the devcontainer from this repo. Python3
+is needed as well. The xref:AUTO-GENERATED:-devcontainer/Dockerfile.adoc[DevContainer]
+for this repository ships all these depencencies.
