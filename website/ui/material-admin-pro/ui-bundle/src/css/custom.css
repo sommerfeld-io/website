@@ -33,7 +33,7 @@ article.doc h1 { margin: 5rem 0 1rem 0 !important; }
 article.doc h2 {
   margin: 2.5rem 0 0 0 !important;
   border-top: solid 2px var(--custom-hr);
-  padding: 2.5rem 0 0 0 !important;
+  padding: 2.5rem 0 1rem 0 !important;
 }
 
 article.doc h3,
