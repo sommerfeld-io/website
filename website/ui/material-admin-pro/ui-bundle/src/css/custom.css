@@ -9,6 +9,9 @@
   --custom-code-bg: #e5e5e5;
   --custom-image-bg: var(--custom-code-bg);
 
+  --custom-table-border: #e5e5e5;
+  --custom-hr: var(--custom-table-border);
+
   --bs-table-bg: var(--bs-white);
 
   --caution-color: #A0439C;
@@ -25,9 +28,12 @@
 
 .bg-dark { background-color: rgba(var(--bs-dark-rgb), var(--bs-bg-opacity)) !important; }
 
-article.doc h1,
+article.doc h1 { margin: 5rem 0 1rem 0 !important; }
+
 article.doc h2 {
-  margin: 5rem 0 1rem 0 !important;
+  margin: 2.5rem 0 0 0 !important;
+  border-top: solid 2px var(--custom-hr);
+  padding: 2.5rem 0 0 0 !important;
 }
 
 article.doc h3,
@@ -42,7 +48,7 @@ article.doc sup.footnote,
 article.doc sup.footnoteref { padding: 0 0.5rem;  }
 article.doc div.footnote { padding: 0.25rem 2rem;  }
 
-article.doc #preamble { margin-bottom: 3rem !important; }
+article.doc #preamble { margin-bottom: 0 !important; }
 article.doc #preamble .sectionbody div.paragraph p {
   font-size: 1.5rem;
   font-weight: 300;
@@ -92,7 +98,6 @@ article.doc .imageblock .content object {
 article.doc code {
   background: var(--custom-code-bg);
   padding: 3px 6px;
-  /* font-size: var(--code-font-size); */
 }
 
 article.doc .listingblock .content,
@@ -103,21 +108,17 @@ article.doc .tableblock .content {
   padding: 0 !important;
 }
 
+article.doc .imageblock.kroki { margin-bottom: 1rem; }
+
 table.tableblock {
   width: 100%;
   margin-bottom: 1rem;
   color: #212121;
   vertical-align: top;
-  border-color: #e0e0e0;
+  border-color: var(--custom-table-border);
 }
 
-/* table.tableblock tbody,
-table.tableblock td,
-table.tableblock tfoot,
-table.tableblock th,
-table.tableblock thead,
-table.tableblock tr {
-} */
+table.table-bordered { border-color: var(--custom-table-border); }
 
 table.tableblock > :not(caption) > * > * {
   border-width: 1px;
