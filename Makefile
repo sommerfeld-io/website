@@ -83,6 +83,10 @@ TEMPLATE_PORT = 5353
 all: build-ui build
 
 test:
+	docker run --rm --volume "$(shell pwd):/data" cytopia/checkmake:latest Makefile
+	docker run --rm  $$(tty -s && echo "-it" || echo) --volume $(shell pwd):/data cytopia/yamllint:latest .
+	docker run --rm -i --volume "$(shell pwd):$(shell pwd)" --workdir "$(shell pwd)" sommerfeldio/folderslint:latest folderslint
+	docker run --rm -i --volume "$(shell pwd):/data" --workdir "/data" lslintorg/ls-lint:1.11.2
 	docker run --rm -i hadolint/hadolint:latest < Dockerfile
 
 build: test

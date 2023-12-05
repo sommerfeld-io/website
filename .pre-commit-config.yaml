@@ -42,16 +42,9 @@ repos:
       - id: check-json
       - id: check-merge-conflict
       - id: detect-private-key
-  - repo: https://github.com/adrienverge/yamllint.git
-    rev: v1.32.0
-    hooks:
-      - id: yamllint
-        entry: yamllint
-        types: [file, yaml]
   - repo: local
     hooks:
-      - id: hadolint
-        name: hadolint
-        language: docker_image
-        types: ["dockerfile"]
-        entry: hadolint/hadolint hadolint
+      - id: lint
+        name: lint
+        entry: bash -c 'make test'
+        language: system
