@@ -66,10 +66,6 @@
 # user ``www-data``.
 #
 # The webserver exposes his status information through http://localhost:7888/server-status.
-#
-# == SBOM
-#
-# include::AUTO-GENERATED:partial$/sbom/sbom-website.adoc[]
 
 
 FROM node:21-bullseye-slim AS build-ui-bundle
