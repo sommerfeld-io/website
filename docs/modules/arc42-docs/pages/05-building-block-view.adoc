@@ -1,7 +1,7 @@
 = Building Block View
 :description: Overview of source code and components by making its structure understandable through abstraction.
 
-{{description}
+{description}
 
 == Antora
 This website is constructed using Antora, and all its pages originate from Asciidoc files.

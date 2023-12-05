@@ -1,5 +1,7 @@
 = Deployment View
-:description: Describe technical infrastructure used to execute your system and mappings of (software) building blocks to that infrastructure elements
+:description: Technical infrastructure used to execute the system and mappings of (software) building blocks to that infrastructure elements.
+
+{description}
 
 == Github Actions Workflows and Docker Image
 TODO: Something about the Github Actions workflows (especially build.yml and release.yml) and that this image is published to DockerHub
