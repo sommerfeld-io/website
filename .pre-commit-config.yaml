@@ -24,13 +24,18 @@ repos:
       - id: check-added-large-files
         exclude: |
             (?x)^(
-                website/ui/template/pages/css/light.css|
-                website/ui/template/pages/css/dark.css|
-                website/ui/template/pages/js/app.js|
-                website/ui/ui-bundle/src/css/light.css|
-                website/ui/ui-bundle/src/css/dark.css|
-                website/ui/ui-bundle/src/js/00-app.js|
-                website/ui/ui-bundle/package-lock.json
+                website/ui/appstack/template/pages/css/light.css|
+                website/ui/appstack/template/pages/css/dark.css|
+                website/ui/appstack/template/pages/js/app.js|
+                website/ui/appstack/ui-bundle/src/css/light.css|
+                website/ui/appstack/ui-bundle/src/css/dark.css|
+                website/ui/appstack/ui-bundle/src/js/00-app.js|
+                website/ui/appstack/ui-bundle/package-lock.json|
+                website/ui/material-admin-pro/template/pages/js/material.js|
+                website/ui/material-admin-pro/template/pages/css/styles.css|
+                website/ui/material-admin-pro/ui-bundle/src/js/material.js|
+                website/ui/material-admin-pro/ui-bundle/src/css/styles.css|
+                website/ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz
             )$
       - id: check-executables-have-shebangs
       - id: check-shebang-scripts-are-executable

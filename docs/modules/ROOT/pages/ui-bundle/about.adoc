@@ -1,37 +1,50 @@
 = About this UI bundle
 Sebastian Sommerfeld <sebastian@sommerfeld.io>
 
-This UI bundle is based on the link:https://themes.getbootstrap.com/product/appstack-responsive-admin-template[AppStack - Admin & Dashboard Template (Dark/Light)]. To turn this template into an Antora UI bundle, the link:https://gitlab.com/antora/antora-ui-default[Antora Default UI] served as a guideline.
+This UI bundle is based on the link:https://startbootstrap.com/theme/material-admin-pro[Material Admin Pro]. To turn this template into an Antora UI bundle, the link:https://gitlab.com/antora/antora-ui-default[Antora Default UI] served as a guideline.
 
-== Control the Visual Appearance of Pages
-To control the visual appearance of pages, the UI bundle provides a CSS stylesheet (for changing the CSS style rules) and any number of layouts in the form of Handlebars templates (for changing the HTML). Although most styles are used on all pages, it's possible to configure styles to target certain pages either based on the layout or page role.
+== About the HTML template
+The `website/ui/material-admin-pro/template` only contains static HTML, CSS, ... files. For deeper changes, unpack `website/ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz` and update the source files.
 
-The following steps were done when turning the HTML template into an Antora UI bundle. Additionally the HTML files were turned into handlebars templates.
+Changes could mean updating the sites color scheme. You can use the link:https://startbootstrap.com/previews/material-admin-pro[theme preview on StartBootstrap.com] to generate new colors through the theme customizer.
 
-* The `dark.css` file is not linked from the handlebars files directly because to build the Antora UI, gulp expects a `site.css`. The `dark.css` is included in this `site.css`. The `site.css` file is linked from the handlebars templates. There are no changes inside `dark.css`.
-* Any CSS updates and additional styles are done inside `custom.css`
-* To build the Antora UI, gulp expects a `site.js` and compresses all files from `ui/ui-bundle/src/js` into this `site.js` file. So the `app.js` from the template was renamed into `00-app.js`. The `site.js` file is linked from the handlebars templates.
-* To avoid downloading Javascript files from the internet as a page dependency, the `highlight.min.js` was downloaded manually from https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js and saved in `ui/ui-bundle/src/js/vendor/highlight.min.js` and linked from `ui/ui-bundle/src/layouts/default.hbs` (the filename is converted to `highlight.js` when when linking the file from a handlebars template).
-* The left navigation is rendered by all `sidebar-nav*.hbs` files. These files take care of rendering links as well as opening and closing sub-lists to allow nested navigation elements.
-* To ship fonts with this UI bundle, (additional) style definitions are needed. These styles can be found in `font.css`. We ship all fonts with this UI bundle to avoid loading any font from the internet.
-* The `fonts` directory from the template was renamed `font` for the UI bundle. This way Antora automatically picks up the fonts. All references in CSS files from the template were adjusted.
-* It seems like font-awesome does not ship the icons needed to display icons with admonition blocks. To display icons, we followed the instructions from https://blog.yuzutech.fr/antora-admonitions-icons and placed the icons in `ui/ui-bundle/src/img/admonitions`. Some additional styles were added to `custom.css`.
-* The Google font "Poppins" (https://www.npmjs.com/package/@fontsource/poppins) is now part of the `package.json`. The Dockerfile takes care of copying the fonts from `ui/ui-bundle/node_modules/@fontsource/poppins` to `ui/ui-bundle/src/font`. The `font.css` file overrides the `font-face` style definitions for this font. The font is no longer referenced using a Google URL from the HTML `<head>`.
+[code, scss]
+----
+$primary: #5b84b1; // 91 132 177
+$secondary: #9cc3d5; // 156 195 213
+$success: #00ac69; // 0 172 105
+$danger: #e81500; // 232 21 0
+$warning: #f4a100; // 244 161 0
+$info: #5b84b1; // 91 132 177
+----
 
-=== 3rd-Party Artifacts
+The best way to extend and customize the Material Admin Pro theme is to work with the source files contained in the `src` directory. To start, you will need to launch the development environment by installing project dependencies and running a script in your terminal. To do this, follow these simple steps:
+
+To start, you will need to launch the development environment by installing project dependencies and running a script within your terminal. To do this, follow these simple steps:
+
+* Before you begin, make sure your development environment includes Node.js and npm. Download and install Node.js from https://nodejs.org/en/download/ which will install Node.js and npm on your system.
+* Unpack `website/ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz`
+* Open your terminal, and navigate into the root folder of the theme.
+* Install project dependencies by running `npm install`
+* Start the project by running `npm start`
+
+With everything installed properly, running the `npm start` script will launch a window in your default web browser showing you a local preview of the Material Admin Pro theme. The script will also watch for changes made to the `.pug`, `.scss`, or `.js` files within the `src` directory, and it will compile and reload the browser when changes are saved.
+
+TIP: See https://docs.startbootstrap.com/material-admin-pro/quickstart for further instructions.
+
+== 3rd-Party Artifacts
 * The Github logos shipped with the UI bundle are downloaded from https://github.com/logos (see this page for Githubs terms of use)
 * The Docker logos shipped with the UI bundle are downloaded from https://www.docker.com/company/newsroom/media-resources (see this page for Dockers terms of use)
 * The Google fonts are shipped as part of the UI bundle, so there are no requests to a Google server from the live website (for Googles terms of use see https://developers.google.com/fonts/terms and the "Can I embed Google Fonts in my website without sending end-user data to Google's servers?" section on https://developers.google.com/fonts/faq/privacy)
 
-=== UI Layouts
+== UI Layouts
 The most drastic way to change the appearance of the page is to change the HTML. The HTML is controlled by layouts, which are Handlebars templates located in `[.path]_src/layouts`. A layout typically includes partials, located in `[.path]_src/partials`, which are reusable template fragments. Partials may, in turn, include other partials.
 
 This project currently features multiple layouts:
 
 * `default.hbs` -> Default layout for documentation pages
+* `homepage.hbs` -> Layout for the websites start page
 * `404.hbs` -> Special layout which acts as the 404 error page
-* `homepage.hbs` -> Startpage of the whole website with intro-text from the adoc file and table to allow switching to docs from other projects or to other versions of the current projects docs from the UI bundle
-* `static.hbs` -> Special layout for static pages like contact or terms of service
 
 If a page doesn't specify a layout, the `[.path]_default.hbs_` layout is used. To specify a layout, the page file must declare the `page-layout` document attribute in the AsciiDoc header. The value of that attribute should match the stem of the layout file (the filename minus the file extension, e.g., `homepage`).
 
@@ -43,13 +56,3 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 ----
 
 In this case, Antora will select the `[.path]_homepage.hbs_` layout for this page instead of `[.path]_default.hbs_`. Using a dedicated layout affords a lot of control over what gets displayed on this page. Every layout has access to the same UI model.
-
-=== UI Elements
-The UI template provides several UI elements which can be used inside the Asciidoc pages.
-
-[cols="2,5,1,4",options="header"]
-|===
-|What |Markup in Adoc files (wrap in `+++`) |Rendered |More info
-|Feather Icons |`<i class="align-middle" data-feather="activity"></i>` |+++<i class="align-middle" data-feather="activity"></i>+++ |https://appstack.bootlab.io/icons-feather
-|FontAwesome Icons |`<i class="align-middle me-2 fas fa-fw fa-address-card"></i>` |+++<i class="align-middle me-2 fas fa-fw fa-address-card"></i>+++ |https://appstack.bootlab.io/icons-font-awesome
-|===

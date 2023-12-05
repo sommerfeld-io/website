@@ -1,0 +1,39 @@
+<!-- Drawer navigation-->
+<nav class="drawer accordion drawer-light bg-white" id="drawerAccordion">
+    <div class="drawer-menu">
+        <div class="nav">
+
+            <div class="drawer-menu-heading">Navigation</div>
+
+            {{!-- TOP NAV DUPLICATES FOR RESPONSIVE RENDERING --}}
+            <a class="nav-link d-sm-none" href="/">
+                <div class="nav-link-icon"><i class="material-icons">home</i></div>
+                Home
+            </a>
+            <a class="nav-link d-sm-none" href="/contact.html">
+                <div class="nav-link-icon"><i class="material-icons">mail</i></div>
+                Contact
+            </a>
+
+            {{!-- STATIC LINK --}}
+            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#projectsModal">
+                <div class="nav-link-icon"><i class="material-icons">view_list</i></div>
+                Projects Overview
+                <div class="drawer-collapse-arrow"><i class="material-icons">picture_in_picture</i></div>
+            </a>
+
+            {{!-- Antora pages nav --}}
+            {{#with page.navigation}}
+                <div class="drawer-menu-divider"></div>
+                {{#with @root.page.componentVersion}}
+                    <div class="drawer-menu-heading">{{./title}}</div>
+                {{/with}}
+
+                {{!-- iterate nav elements --}}
+                {{#each this}}
+				    {{> nav-sidebar-tree navigation=./items}}
+			    {{/each}}
+            {{/with}}
+        </div>
+    </div>
+</nav>

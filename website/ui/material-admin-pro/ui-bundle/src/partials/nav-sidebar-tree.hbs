@@ -1,0 +1,52 @@
+{{#if navigation.length}}
+    {{#each navigation}}
+		{{#if ./content}}
+
+            {{#if ./items.length}}
+
+                {{!-- ================================= --}}
+                {{!-- Render dropdown                   --}}
+                {{!-- Setup dropdown markup (open div)  --}}
+                {{!-- ================================= --}}
+
+                {{> nav-sidebar-tree-dropdown-start sublist_id=(uuid)}}
+                {{> nav-sidebar-tree navigation=./items level=(increment ../level)}}
+            {{else}}
+
+                {{!-- ================================= --}}
+                {{!-- Render link (no dropdown)         --}}
+                {{!-- ================================= --}}
+
+                {{#if ./url}}
+                    {{!-- normal link without dropdown --}}
+                    <a class="nav-link {{#if (eq ./url @root.page.url)}}active{{/if}}" data-depth="{{or ../level 0}}" href="
+                            {{~#if (eq ./urlType 'internal')}}{{{relativize ./url}}}
+                            {{~else}}{{{./url}}}{{~/if}}
+                        ">
+
+                        <div class="nav-link-icon"><i class="material-icons">layers</i></div>
+                        {{{./content}}}
+                    </a>
+                {{else}}
+                    {{!-- display single text-only entry --}}
+                    <span class="nav-link" data-depth="{{or ../level 0}}">
+                        <div class="nav-link-icon"><i class="material-icons">layers</i></div>
+                        {{{./content}}}
+                    </span>
+                {{/if}}
+
+            {{/if}}
+
+            {{#if ./items.length}}
+
+                {{!-- ================================= --}}
+                {{!-- Render dropdown                   --}}
+                {{!-- Setup dropdown markup (close div) --}}
+                {{!-- ================================= --}}
+
+                {{> nav-sidebar-tree-dropdown-stop}}
+            {{/if}}
+
+		{{/if}}
+	{{/each}}
+{{/if}}

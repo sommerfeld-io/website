@@ -1,2 +1,2 @@
-* Articles
-** xref:articles:how-this-page-is-built.adoc[]
+// * Articles
+// ** xref:articles:some-article.adoc[]

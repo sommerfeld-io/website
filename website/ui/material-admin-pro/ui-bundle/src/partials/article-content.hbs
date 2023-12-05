@@ -1,0 +1,110 @@
+<article class="doc">
+    {{{page.contents}}}
+</article>
+
+{{!--
+<p>Our approach and guidelines to software development. These principles apply to every project we are developing.</p>
+<hr class="my-5" />
+<div id="article-a">
+    <h2 class="mb-4">Everything as Code</h2>
+    <p>We embrace the philosophy of treating as much as possible as code, incorporating best practices from software development in every aspect of our work. We prioritize utilizing technologies and tools that allow us to leverage version control and adhere to established development practices like branching and code reviews. This applies to source code, infrastructure code, utility scripts and basically everything that can be depicted as some sort of "code".</p>
+    <p class="mb-4">For instance, we prefer using technologies like Asciidoc and Antora instead of using a traditional Wiki. We prefer RevealJS for presentations instead of traditional PowerPoint slides.</p>
+    <hr class="my-5" />
+</div>
+<div id="article-b">
+    <h2 class="mb-4">As much as possible in containers</h2>
+    <p>We prioritize running as many components as possible in Docker containers within our organization. This includes our own software applications, 3rd party tools usd for development, and project dependencies. By containerizing these elements, we enhance portability, and consistency across different environments, while minizing the requirements for development workstations.</p>
+    <p class="mb-4">Whenever feasible, we package and ship our software using Docker containers. Docker containers serve as the preferred format for shipping executable components of our applications. However, for non-executable artifacts such as Jar files or Zip files, we employ alternative packaging methods. For instance, the Antora UI bundle, as an example, is published as a Zip file attachment to a GitHub release, ensuring the appropriate distribution and availability of the artifact.</p>
+    <hr class="my-5" />
+</div>
+<div id="article-c">
+    <h2 class="mb-4">Test Driven Development</h2>
+    <p>At our organization, we follow Test-Driven Development (TDD) principles, using TDD to design our systems. However, we are still in the learning phase when it comes to applying TDD to infrastructure development.</p>
+    <hr class="my-5" />
+</div>
+<div id="article-d">
+    <h2 class="mb-4">Version Control</h2>
+    <p>We make all changes to code, test, infrastructure, configuration, and ultimately production via version control.</p>
+    <p class="mb-4">Version control extends beyond just managing code repositories like Git. It encompasses a broader scope that includes controlling the versions of tools and third-party software utilized within our environments. By actively managing these dependencies, we ensure that our software remains stable, consistent, and immune to uncontrolled changes originating from external sources.</p>
+    <p class="mb-4">We employ version control to manage and track changes made to our production systems, ensuring that modifications are controlled, traceable, and reversible.</p>
+    <p class="mb-4">By extending version control to encompass the management of tools, third-party software and production environment, we maintain a firm grip on the external factors that can impact our software development and our runtime environments. This approach allows us to minimize the risk of uncontrolled changes.</p>
+    <hr class="my-5" />
+</div>
+<div id="article-e">
+    <h2 class="mb-4">Commit Messages</h2>
+    <p>Read something <a href="https://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html">about Git commit messages</a>.</p>
+    <hr class="my-5" />
+</div>
+<div id="article-f">
+    <h2 class="mb-4">Branching Strategy</h2>
+    <p>We follow a trunk-based development approach, which means that we primarily focus our development efforts on the `main` branch of our repository. This approach encourages frequent and continuous integration of code changes directly into the `main` branch, allowing us to avoid long-lived feature branches and promote a fast-paced development cycle. We still rely hevily on branching and Pull Requests, but our branches do not live for longer than one day (more on that in the comming sections).</p>
+    <p class="mb-4">The main branch represents the releasable state of the software. It serves as the mainline branch from which stable releases are made.</p>
+    <p class="mb-4">Any branch other than `main` is considered a short-lived branch. These branches are used for feature development, bug fixing, and any other updates. There are no specific naming conventions for these branches. These branches do not live for longer than one day.</p>
+    <p class="mb-4">Tags are always created from the `main` branch, ensuring that they represent stable and release-worthy versions of the software. The creation of tags is done exclusively through our "Release + Deploy"" pipelines, guaranteeing consistent and reproducible release processes.</p>
+    <hr class="my-5" />
+</div>
+<div id="article-g">
+    <h2 class="mb-4">Continuous Integration</h2>
+    <p>We integrate code changes from all developers at least once per day. This frequent integration ensures that our software is thoroughly tested and checked with everyone's changes on a daily basis.</p>
+    <p class="mb-4">We work with short lived (feature) branches. But we won't hide work on separate branches for longer than a working day before integrating them together.</p>
+    <p class="mb-4">We don't merge the main branch into our feature branches to make them live longer! This is not a way to integrate everyone's changes into a single source of truth and prevents us from determining the releasability of our software.</p>
+    <p class="mb-4">We grow our code incrementally, making frequent small changes to our code - leaving our code in a working state after each small change.</p>
+    <p class="mb-4">We get feedback on the quality of our work after every small change through the use of automated tests in pipelines.</p>
+    <hr class="my-5" />
+</div>
+<div id="article-h">
+    <h2 class="mb-4">Automated tests determine the releasability</h2>
+    <p>We automate almost everything in our pipeline(s), and have enough automated testing to in place to validate and release our changes without dependence on manual regression testing, or approval QA and approval processes.</p>
+    <p class="mb-4">Manual tests are not forbidden. But since the only make us feel better and more save instead of providing a real judgement on the releasability of our software, the make it or break it desicion always comes from our pipeline(s).</p>
+    <p class="mb-4">When we identify manual tests that are performed repeatedly, we actively work on transforming them into automated tests and integrate them into our pipelines.</p>
+    <hr class="my-5" />
+</div>
+<div id="article-i">
+    <h2 class="mb-4">Keep the software always in a releasable state</h2>
+    <p>While we may not release our software daily, our goal is to have the capability to release changes every day if required. To achieve this goal we have to keep our software in a releaseable state all the time!</p>
+    <hr class="my-5" />
+</div>
+<div id="article-j">
+    <h2 class="mb-4">Releases and Deployments always are done through a pipeline</h2>
+    <p>We can deploy our changes into production, or any test environment, "at the touch of a button".</p>
+    <p class="mb-4">This means that all deployments to any test environment, whether it's a software version to some test environment or to production or a Docker image to DockerHub or any other kind of deployment, are carried out automatically via dedicated pipelines.</p>
+    <p class="mb-4">This pipeline (and all predesessing pipelines) include all steps and tests that are sufficient to determine the releasability of our software. When a change has completed its transit through the pipeline(s), there is no more work to do for the software to be released into production other than triggering the release itself. This is done through a dedicated "Release + Deploy" Pipeline. Deployments are never done manually! This pipeline also documents this as a release.</p>
+    <hr class="my-5" />
+</div>
+<div id="article-k">
+    <h2 class="mb-4">Semantic Versioning for our Releases</h2>
+    <p>We prioritize running as many components as possible in Docker containers within our organization. This includes our own software applications, 3rd party tools usd for development, and project dependencies. By containerizing these elements, we enhance portability, and consistency across different environments, while minizing the requirements for development workstations.</p>
+    <p class="mb-4">At our organization, we adhere to link:https://semver.org[Semantic Versioning (SemVer)] principles when releasing artifacts. This means that we follow a structured versioning format, consisting of major, minor, and patch numbers, to indicate changes and updates in our software. Unstable versions are marked as Alpha or Beta version.</p>
+    <p class="mb-4">Key definitions of Semantic Versioning:</p>
+    <ul class="mb-4">
+        <li>A normal version number must take the form `major.minor.bugfix` in non-negative integers, and must not contain leading zeroes. Each element must increase numerically. For instance: `1.9.0` -> `1.10.0` -> `1.11.0`.</li>
+        <li>Once a versioned package has been released, the contents of that version must not be modified. Any modifications must be released as a new version.</li>
+        <li>Major version zero (`0.x.x`)` is for initial development. Anything MAYmay change at any time. The public API should not be considered stable.</li>
+        <li>Version `1.0.0` defines the initial public API.</li>
+        <li>Patch version (`x.x.patch`) must be incremented if only backward compatible bug fixes are introduced. A bug fix is defined as an internal change that fixes incorrect behavior.</li>
+        <li>Minor version (`x.minor.x`) must be incremented if new, backward compatible functionality is introduced to the public API. It must be incremented if any public API functionality is marked as deprecated. It may be incremented if substantial new functionality or improvements are introduced within the private code. It may include patch level changes. Patch version must be reset to 0 when minor version is incremented.</li>
+        <li>Major version (`major.x.x`) must be incremented if any backward incompatible changes are introduced to the public API. It may also include minor and patch level changes. Patch and minor versions must be reset to 0 when major version is incremented.</li>
+        <li>A pre-release version may be denoted by appending a hyphen and a series of dot separated identifiers immediately following the patch version. Pre-release versions have a lower precedence than the associated normal version. A pre-release version indicates that the version is unstable and might not satisfy the intended compatibility requirements as denoted by its associated normal version. Examples: `1.0.0-alpha.0`, `1.0.0-beta.0`.</li>
+    </ul>
+    <p class="mb-4">Our Git tags always include a leading "v" before the version number.</p>
+    <ol class="mb-4">
+        <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</li>
+        <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</li>
+        <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</li>
+        <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</li>
+        <li>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</li>
+    </ol>
+    <hr class="my-5" />
+</div>
+<div id="article-l">
+    <h2 class="mb-4">User Stories</h2>
+    <p>We are validating the delivered artifact with the pipeline. It is built once and deployed to all environments. A common anti-pattern is building an artifact for each environment.</p>
+    <hr class="my-5" />
+</div>
+<div id="article-m">
+    <h2 class="mb-4">As much as possible in containers</h2>
+    <p>We want requirements to define small focused needs rather than vast vague projects. We use user stories to describe our requirements. We try to finish a user story within a couple of days at most. We need to keep in mind, that we integrate our changes daily, so we must design our user stories accordingly.</p>
+    <p class="mb-4">If we can't think of user need in terms of a story, we don't understand what our software is meant to achieve yet. If we can't think of an example, that would demonstrate that the need is fullfilled, we don't really understand the problem (domain) yet.</p>
+    <hr class="my-5" />
+</div>
+ --}}

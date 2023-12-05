@@ -1,0 +1,37 @@
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+{{#with page.canonicalUrl}}
+	<link rel="canonical" href="{{{this}}}">
+{{/with}}
+{{#unless (eq page.attributes.pagination undefined)}}
+	{{#with page.previous}}
+		<link rel="prev" href="{{{relativize ./url}}}">
+	{{/with}}
+	{{#with page.next}}
+		<link rel="next" href="{{{relativize ./url}}}">
+	{{/with}}
+{{/unless}}
+
+{{#with page.description}}
+	<meta name="description" content="{{{detag this}}}">
+{{/with}}
+{{#with page.keywords}}
+	<meta name="keywords" content="{{{this}}}">
+{{/with}}
+
+<meta name="author" content="Sommerfeld.io">
+
+<title>{{{detag (or page.title defaultPageTitle)}}}{{#with site.title}} :: {{this}}{{/with}}</title>
+<!-- Load Favicon-->
+<link href="{{{uiRootPath}}}/img/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+<!-- Load Material Icons from Google Fonts-->
+<link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet" />
+<!-- Roboto and Roboto Mono fonts from Google Fonts-->
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500" rel="stylesheet" />
+
+<!-- Load main stylesheet-->
+<link href="{{{uiRootPath}}}/css/site.css" rel="stylesheet">

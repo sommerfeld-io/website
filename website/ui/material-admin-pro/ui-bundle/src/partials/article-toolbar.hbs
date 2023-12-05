@@ -1,0 +1,19 @@
+<div class="d-flex align-items-center">
+    <div class="btn-group mb-5" role="group" aria-label="article-actions">
+        <button class="btn btn-outline-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#branchesModal">
+            <i class="material-icons leading-icon">share</i>
+            {{@root.page.componentVersion.displayVersion}}
+        </button>
+        {{#if (and page.fileUri (not env.CI))}}
+            <a class="btn btn-outline-primary btn-sm" type="button" href="{{page.fileUri}}" target="_blank">
+                <i class="material-icons leading-icon">edit</i>
+                Edit
+            </a>
+        {{else if (and page.editUrl (or env.FORCE_SHOW_EDIT_PAGE_LINK (not page.origin.private)))}}
+            <a class="btn btn-outline-primary btn-sm" type="button" href="{{page.editUrl}}" target="_blank">
+                <i class="material-icons leading-icon">edit</i>
+                Edit
+            </a>
+        {{/if}}
+    </div>
+</div>

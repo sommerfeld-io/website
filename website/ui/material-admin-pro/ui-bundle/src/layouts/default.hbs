@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {{> head defaultPageTitle='Untitled'}}
+    </head>
+    <body class="nav-fixed bg-light">
+        {{> nav-top}}
+
+        <!-- Layout wrapper-->
+        <div id="layoutDrawer">
+            <!-- Layout navigation-->
+            <div id="layoutDrawer_nav">
+                {{> nav-sidebar}}
+            </div>
+
+            <!-- Layout content-->
+            <div id="layoutDrawer_content">
+
+                <!-- Main page content-->
+                <main>
+                    <div class="container-xl px-5">
+                        <div class="d-flex mt-10 align-items-center">
+                            <!-- <img class="me-4" src="{{{uiRootPath}}}/img/icons/icons.svg" alt="..." style="height: 48px" /> -->
+                            {{#with page.title}}
+                                <h1 class="mb-4">{{{this}}}</h1>
+                            {{/with}}
+                        </div>
+                        {{> article-toolbar}}
+
+                        <div class="row gx-5">
+                            <div class="col-lg-9">
+                                {{> article-content}}
+                                {{!-- {{> article-helpful}} --}}
+                                {{!-- {{> related-boxes}} --}}
+
+                                <div class="mb-5"></div>
+                            </div>
+                            <div class="col-lg-3 mb-5 mb-lg-0">
+                                {{> toc}}
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+                {{> footer}}
+            </div>
+        </div>
+
+        {{> modal-projects}}
+        {{> modal-branches}}
+        {{> modal-cookie}}
+
+        {{> scripts}}
+
+        <!-- Load Bootstrap JS bundle-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<!-- MODAL branches -->
+<div class="modal fade" id="branchesModal" tabindex="-1" aria-labelledby="branchesModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="branchesModalLabel">Versions and Branches</h5>
+                <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Switch to another version of this projects docs. Other versions are either branches or tagged versions.</p>
+                {{#with page.versions}}
+                    <ul>
+                        {{#each this}}
+                        <li><a href="{{{relativize ./url}}}">{{./displayVersion}}</a></li>
+                        {{/each}}
+                    </ul>
+                {{/with}}
+                <p>Currently the docs are from version / branch <code>{{@root.page.componentVersion.displayVersion}}</code>.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-text-primary me-2" type="button" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
