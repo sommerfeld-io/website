@@ -32,7 +32,7 @@
 # | ``local/website:dev`` | 7888 | http     |
 #
 # The image is intended for local testing purposes. For production use, take a look at the
-# link:https://hub.docker.com/r/sommerfeldio/website[``sommerfeldio/website``]  image on
+# link:https://hub.docker.com/r/sommerfeldio/website[``sommerfeldio/website``] image on
 # Dockerhub.
 #
 # === ``make run``
