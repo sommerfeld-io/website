@@ -75,7 +75,6 @@
 
 WEBSITE_DOCKER_IMAGE = "local/website:dev"
 WEBSITE_PORT = 7888
-
 TEMPLATE_PORT = 5353
 
 .DEFAULT_GOAL := run
@@ -83,7 +82,10 @@ TEMPLATE_PORT = 5353
 
 all: build-ui build
 
-build:
+test:
+	docker run --rm -i hadolint/hadolint:latest < Dockerfile
+
+build: test
 	@echo "[INFO] Build Docker image $(WEBSITE_DOCKER_IMAGE)"
 	docker build --no-cache -t "$(WEBSITE_DOCKER_IMAGE)" .
 
@@ -106,9 +108,11 @@ preview-template:
 		&& docker run --rm mwendler/figlet:latest $(TEMPLATE_PORT) \
 		&& python3 -m http.server $(TEMPLATE_PORT)
 
-test:
-	@echo "[INFO] Testing is done during the build targets"
-
 clean:
 	@echo "[INFO] Remove old versions of $(WEBSITE_DOCKER_IMAGE)"
 	docker image rm "$(WEBSITE_DOCKER_IMAGE)"
+
+	@echo "[INFO] Cleanup local filesystem"
+	rm -rf website/ui/material-admin-pro/ui-bundle/build
+	rm -rf website/ui/material-admin-pro/ui-bundle/node_modules
+	rm -rf website/ui/material-admin-pro/ui-bundle/public
