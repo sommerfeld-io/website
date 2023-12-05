@@ -82,7 +82,7 @@ make ui
 
 The UI bundle preview is available through http://localhost:5252.
 
-NOTE: To build the UI bundle from a Github Actions workflow, use  `make ui-build`.
+NOTE: To build the UI bundle from a Github Actions workflow, use  `make build-ui`.
 This target does not start up a webserver to preview the UI bundle in a browser.
 
 This target needs Node, NPM and Gulp installed. To avoid having to install

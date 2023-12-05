@@ -4,27 +4,16 @@
 # @description This Makefile streamlines the process of building the website from its
 # source files and orchestrating its execution within a Docker container.
 #
-# == Build an run the website
+# The default target, which is triggered when simply using ``make`` combines ``make build``
+# and ``make run``.
 #
-# The ``build`` target automates the process of creating a Docker image thatencapsulates
-# the entire link:https://www.sommerfeld.io[sommerfeld-io website] within an Apache httpd
-# web server. The website is built with Antora first. This target simplifies the setup and
-# configuration required to run the website locally. The image is based on the official
-# link:https://hub.docker.com/_/httpd[Apache httpd] image.
+# == ``make build``
 #
-# [source, bash]
-# ```
-# make build
-# ```
-#
-# The ``run`` target launches a Docker container based on the newly created image. The container
-# is started in the foreground. The locally hosted website can be accessed via a web browser at
-# http://localhost:7888.
-#
-# [source, bash]
-# ```
-# make run
-# ```
+# Automates the process of creating a Docker image that encapsulates the entire
+# link:https://www.sommerfeld.io[sommerfeld-io website] within an Apache httpd web server. The
+# website is built with Antora first. This target simplifies the setup and configuration required
+# to run the website locally. The image is based on the official link:https://hub.docker.com/_/httpd[Apache httpd]
+# image.
 #
 # Per default, Apache httpd runs as ``root`` user because only root processes can listen to ports
 # below 1024. The default http port for web applications is 80. But this means the user inside the
@@ -36,7 +25,7 @@
 # not have permission to create files in this directory. So permissions to this directory are
 # updated as well.
 #
-# | What                  | Port | Protocol |
+# | Image                 | Port | Protocol |
 # | --------------------- | ---- | -------- |
 # | ``local/website:dev`` | 7888 | http     |
 #
@@ -44,39 +33,42 @@
 # link:https://hub.docker.com/r/sommerfeldio/website[``sommerfeldio/website``]  image on
 # Dockerhub.
 #
-# == Remove the Docker image
+# == ``make run``
 #
-# To remove the local Docker image, just use ``make remove-image``
+# Launches a Docker container based on the newly created image. The container is started in the
+# foreground. The locally hosted website can be accessed via a web browser at http://localhost:7888.
 #
-# == HTML Template
+# == ``make build-ui``
 #
-# To expose the HTML template through a webserver, just use ``make template``. The HTML
-# template is available through http://localhost:5353.
+# Automates the process of building the Antora UI bundle. Use this target from a Github Actions
+# workflow to build the UI bundle from a pipeline. This target does not start up a webserver to
+# preview the UI bundle in a browser.
 #
-# [source, bash]
-# ```
-# make template
-# ```
+# == ``make preview-ui``
 #
-# == Build and preview UI Bundle
+# Run a local preview of the documentation site using the UI bundle. The preview uses demo
+# content from the ``preview-src`` folder for testing and development purposes. The UI bundle
+# preview is available through http://localhost:5252. This target uses ``make build-ui``
+# as a prerequisites.
 #
-# The ``ui-bundle`` target automates the process of building the Antora UI
-# bundle, running a local preview of the documentation site, and using demo
-# content from the ``preview-src`` folder for testing and development purposes.
+# == ``make preview-template``
 #
-# [source, bash]
-# ```
-# make ui
-# ```
+# Exposes the HTML template through a webserver on http://localhost:5353.
 #
-# The UI bundle preview is available through http://localhost:5252.
+# == ``make clean``
 #
-# NOTE: To build the UI bundle from a Github Actions workflow, use  ``make ui-build``.
-# This target does not start up a webserver to preview the UI bundle in a browser.
+# Remove the local Docker image
 #
-# This target needs Node, NPM and Gulp installed. To avoid having to install
-# all prerequisites on your host, open the project in the devcontainer from
-# this repo.
+# == ``make all``
+#
+# This phony target triggers all build-related targets (``make build-ui`` and ``make build``)
+#
+# == Prerequisites
+#
+# This Makefile needs Node, NPM and Gulp installed. To avoid having to install all
+# prerequisites on your host, open the project in the devcontainer from this repo. Python3
+# is needed as well. The xref:AUTO-GENERATED:-devcontainer/Dockerfile.adoc[DevContainer]
+# for this repository ships all these depencencies.
 
 
 WEBSITE_DOCKER_IMAGE = "local/website:dev"
@@ -85,13 +77,9 @@ WEBSITE_PORT = 7888
 TEMPLATE_PORT = 5353
 
 .DEFAULT_GOAL := run
-.PHONY: all remove-image build run template ui-buncle-build ui-bundle clean test
+.PHONY: all build run template ui-buncle-build ui-bundle clean test
 
-all: ui-build build
-
-remove-image:
-	@echo "[INFO] Remove old versions of $(WEBSITE_DOCKER_IMAGE)"
-	docker image rm "$(WEBSITE_DOCKER_IMAGE)"
+all: build-ui build
 
 build:
 	@echo "[INFO] Build Docker image $(WEBSITE_DOCKER_IMAGE)"
@@ -102,22 +90,23 @@ run: build
 	docker run --rm mwendler/figlet:latest "$(WEBSITE_PORT)"
 	docker run --rm -p "$(WEBSITE_PORT):7888" "$(WEBSITE_DOCKER_IMAGE)"
 
-template:
-	@cd website/ui/material-admin-pro/template/pages || exit \
-		&& docker run --rm mwendler/figlet:latest $(TEMPLATE_PORT) \
-		&& python3 -m http.server $(TEMPLATE_PORT)
-
-ui-build:
+build-ui:
 	@cd website/ui/material-admin-pro/ui-bundle || exit \
 		&& yarn install \
 		&& gulp bundle
 
-ui: ui-build
+preview-ui: build-ui
 	@cd website/ui/material-admin-pro/ui-bundle || exit \
 		&& gulp preview
+
+preview-template:
+	@cd website/ui/material-admin-pro/template/pages || exit \
+		&& docker run --rm mwendler/figlet:latest $(TEMPLATE_PORT) \
+		&& python3 -m http.server $(TEMPLATE_PORT)
 
 test:
 	@echo "[INFO] Testing is done during the build targets"
 
 clean:
-	@echo "[INFO] Nothing to clean up"
+	@echo "[INFO] Remove old versions of $(WEBSITE_DOCKER_IMAGE)"
+	docker image rm "$(WEBSITE_DOCKER_IMAGE)"
