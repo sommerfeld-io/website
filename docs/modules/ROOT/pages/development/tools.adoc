@@ -9,6 +9,7 @@ Each project is hosted within its dedicated repository on GitHub. All projects, 
 [CAUTION]
 ====
 .TODO
+* Explain how our repos are structured
 * Every repo contains a `Makefile` in its root folder ... explain why
 * Every repo contains a `Dockerfile` in its root folder ... explain why
 * pre-commit for every repo
