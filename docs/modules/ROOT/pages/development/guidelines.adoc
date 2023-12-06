@@ -47,9 +47,6 @@ Each developer is streaming small commits either directly into the `main` branch
 
 Basically we follow most recommendations from link:https://trunkbaseddevelopment.com[trunkbaseddevelopment.com].
 
-== Docker Tag Strategy
-include::ROOT:partial$/docker-tag-strategy.adoc[]
-
 == Continuous Integration
 We integrate code changes from all developers at least once per day. This frequent integration ensures that our software is thoroughly tested and checked with everyone's changes on a daily basis.
 
@@ -165,6 +162,9 @@ Key definitions of Semantic Versioning:
 * A pre-release version may be denoted by appending a hyphen and a series of dot separated identifiers immediately following the patch version. Pre-release versions have a lower precedence than the associated normal version. A pre-release version indicates that the version is unstable and might not satisfy the intended compatibility requirements as denoted by its associated normal version. Examples: `1.0.0-alpha.0`, `1.0.0-beta.0`.
 
 Our Git tags always include a leading "v" before the version number.
+
+== Docker Tag Strategy
+include::ROOT:partial$/docker-tag-strategy.adoc[]
 
 == Artifacts are immutable
 We are validating the delivered artifact with the pipeline. It is built once and deployed to all environments. A common anti-pattern is building an artifact for each environment.
