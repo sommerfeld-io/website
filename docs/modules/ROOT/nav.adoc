@@ -4,6 +4,7 @@
 
 // * Development Process
 * xref:ROOT:development/guidelines.adoc[]
+* xref:ROOT:development/sdlc.adoc[]
 * xref:ROOT:development/tools.adoc[]
 * xref:ROOT:development/architecture.adoc[]
 * xref:ROOT:development/infrastructure-checklist.adoc[]

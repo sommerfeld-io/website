@@ -1,0 +1,24 @@
+= Our Software Development Life Cycle
+Sebastian Sommerfeld <sebastian@sommerfeld.io>
+
+CAUTION: Work in Progress ...
+
+. Requirements
+.. Write a user story or create a Todo issue (say to mitigate a CVE)
+. Dev
+.. clone repo / pull repo /maybe create a branch
+.. when branch -> create PR
+.. write code locally following TDD
+.. if needed, add BDD style test cases
+.. commit
+... pre-commit -> run checks to avoid pipeline fails as much as possible (the simple things like linting)
+... commit and push into main or branch (if a branch is used)
+.. pipelines
+... lint
+... build
+.. integrate
+... if branch and pipelines green, merge into main
+.. Release
+.. then the release candidate is delivered
+
+NOTE: TODO ... Create some soft of diagram. Point out that everything takes place in small iterations
