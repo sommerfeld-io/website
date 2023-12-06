@@ -43,6 +43,7 @@ The most drastic way to change the appearance of the page is to change the HTML.
 This project currently features multiple layouts:
 
 * `default.hbs` -> Default layout for documentation pages
+* `full-page.hbs` -> Layout for documentation pages which uses the full width of the page and does not render a Table of Contents.
 * `homepage.hbs` -> Layout for the websites start page
 * `404.hbs` -> Special layout which acts as the 404 error page
 

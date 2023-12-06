@@ -29,8 +29,6 @@ Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/acti
 |`GOOGLE_CHAT_WEBHOOK` |Google Chat (Account = sebastian@sommerfeld.io) -> Channel "Workflows: sommerfeld-io" -> Apps & Integrations -> Manage Webhooks
 |===
 
-CAUTION: TODO: remove this section once all other repos are gone
-
 === Dependabot secrets
 Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/dependabot[Dependabot secrets for the organization] to allow successful Github Actions workflows which are triggered by dependabot (like assigning PRs to a project).
 
