@@ -1,4 +1,4 @@
-= Our Software Development Life Cycle
+= Software Development Life Cycle
 Sebastian Sommerfeld <sebastian@sommerfeld.io>
 
 CAUTION: Work in Progress ...
