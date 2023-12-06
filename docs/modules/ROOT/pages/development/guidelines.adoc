@@ -47,7 +47,7 @@ Each developer is streaming small commits either directly into the `main` branch
 
 Basically we follow most recommendations from link:https://trunkbaseddevelopment.com[trunkbaseddevelopment.com].
 
-=== Docker Tag Strategy
+== Docker Tag Strategy
 include::ROOT:partial$/docker-tag-strategy.adoc[]
 
 == Continuous Integration
