@@ -10,6 +10,7 @@
   --custom-image-bg: var(--custom-code-bg);
 
   --custom-table-border: #e5e5e5;
+  --custom-blockquote-border: var(--custom-table-border);
   --custom-hr: var(--custom-table-border);
 
   --bs-table-bg: var(--bs-white);
@@ -223,10 +224,9 @@ article.doc .dlist dl dt {} */
 article.doc .dlist dl dd { padding: 0 0 0 1rem; }
 
 article.doc .quoteblock {
-  border: solid 1px var(--bs-border-color);
-  border-left-style: double;
-  border-left-width: 0.4rem;
+  border-left: solid 5px var(--custom-blockquote-border);
   padding: 1rem;
-  margin: 0 4rem 1rem 3rem;
-  background: var(--bs-white);
+  margin: 0 0 1rem 0;
+  background: var(--bs-gray-200);
+  color: var(--bs-gray-600);
 }
