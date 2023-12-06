@@ -167,7 +167,7 @@ Our Git tags always include a leading "v" before the version number.
 include::ROOT:partial$/docker-tag-strategy.adoc[]
 
 == Artifacts are immutable
-We are validating the delivered artifact with the pipeline. It is built once and deployed to all environments. A common anti-pattern is building an artifact for each environment.
+We are validating the delivered artifact with the pipeline. It is built once and deployed to all environments. A common anti-pattern is building an artifact for each environment. Each build is a possibility to introduce unintended changes. By promoting a single artifact through the stages we ensure that the deployed artifact is exactly the one that was tested.
 
 == User Stories
 We want requirements to define small focused needs rather than vast vague projects. We use user stories to describe our requirements. We try to finish a user story within a couple of days at most. We need to keep in mind, that we integrate our changes daily, so we must design our user stories accordingly.
