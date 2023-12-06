@@ -78,15 +78,23 @@ WEBSITE_PORT = 7888
 TEMPLATE_PORT = 5353
 
 .DEFAULT_GOAL := run
-.PHONY: all build run template ui-buncle-build ui-bundle clean test
+.PHONY: all clean test build run build-ui preview-ui preview-template lint-makefile lint-yaml lint-folders lint-filenames
 
 all: build-ui build
 
-test:
+lint-makefile:
 	docker run --rm --volume "$(shell pwd):/data" cytopia/checkmake:latest Makefile
+
+lint-yaml:
 	docker run --rm  $$(tty -s && echo "-it" || echo) --volume $(shell pwd):/data cytopia/yamllint:latest .
+
+lint-folders:
 	docker run --rm -i --volume "$(shell pwd):$(shell pwd)" --workdir "$(shell pwd)" sommerfeldio/folderslint:latest folderslint
+
+lint-filenames:
 	docker run --rm -i --volume "$(shell pwd):/data" --workdir "/data" lslintorg/ls-lint:1.11.2
+
+test: lint-makefile lint-yaml lint-folders lint-filenames
 	docker run --rm -i hadolint/hadolint:latest < Dockerfile
 
 build: test
