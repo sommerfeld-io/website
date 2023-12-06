@@ -48,7 +48,7 @@ Each developer is streaming small commits either directly into the `main` branch
 Basically we follow most recommendations from link:https://trunkbaseddevelopment.com[trunkbaseddevelopment.com].
 
 === Docker Tag Strategy
-CAUTION: TODO ... include::ROOT:partial$/docker-tag-strategy.adoc[]
+include::ROOT:partial$/docker-tag-strategy.adoc[]
 
 == Continuous Integration
 We integrate code changes from all developers at least once per day. This frequent integration ensures that our software is thoroughly tested and checked with everyone's changes on a daily basis.
@@ -86,61 +86,56 @@ This pipeline (and all predesessing pipelines) include all steps and tests that 
 skinparam monochrome false
 skinparam componentStyle uml2
 skinparam backgroundColor transparent
-'skinparam backgroundColor #202634
-skinparam ArrowColor #a9acb3
-skinparam NoteBorderColor #a9acb3
-skinparam NoteFontColor #a9acb3
+skinparam ArrowColor #212121
+skinparam NoteBorderColor #212121
+skinparam NoteFontColor #212121
 skinparam NoteBackgroundColor transparent
-skinparam ComponentBorderColor #a9acb3
-skinparam ComponentBackgroundColor #293042
-skinparam ComponentFontColor #a9acb3
-skinparam DatabaseBorderColor #a9acb3
-skinparam DatabaseBackgroundColor #293042
-skinparam DatabaseFontColor #a9acb3
-skinparam FileBorderColor #a9acb3
-skinparam FileBackgroundColor #293042
-skinparam FileFontColor #a9acb3
-skinparam ControlBorderColor #a9acb3
-skinparam ControlBackgroundColor #293042
-skinparam ControlFontColor #a9acb3
+skinparam ComponentBorderColor #212121
+skinparam ComponentFontColor #212121
+skinparam DatabaseBorderColor #212121
+skinparam DatabaseFontColor #212121
+skinparam FileBorderColor #212121
+skinparam FileFontColor #212121
+skinparam ControlBorderColor #212121
+skinparam ControlFontColor #212121
 skinparam RectangleBackgroundColor transparent
-skinparam RectangleBorderColor #a9acb3
-skinparam RectangleFontColor #a9acb3
+skinparam RectangleBorderColor #212121
+skinparam RectangleFontColor #212121
 skinparam ControlBackgroundColor transparent
-skinparam ControlBorderColor #a9acb3
-skinparam ControlFontColor #a9acb3
+skinparam ControlBorderColor #212121
+skinparam ControlFontColor #212121
 skinparam HexagonBackgroundColor transparent
-skinparam HexagonBorderColor #a9acb3
-skinparam HexagonFontColor #a9acb3
-skinparam ArtifactBackgroundColor #293042
-skinparam ArtifactBorderColor #a9acb3
-skinparam ArtifactFontColor #a9acb3
+skinparam HexagonBorderColor #212121
+skinparam HexagonFontColor #212121
+skinparam ArtifactBorderColor #212121
+skinparam ArtifactFontColor #212121
 skinparam defaultTextAlignment center
 skinparam activity {
-FontName Ubuntu
+    'FontName Ubuntu
+    FontName Roboto
 }
 
 database artifact_repo as "Artifact\nRepo"
 
-file code as "Source\nCode" <<Commit>> #66461C
-database code_repo as "Code\nRepo" <<Commit>> #66461C
-control ci as "Automated Tests\nSoftware Builds\nCode Scans\netc." <<Commit>> #66461C
+file code as "Source\nCode" <<Commit>> #f4a100
+database code_repo as "Code\nRepo" <<Commit>> #f4a100
+control ci as "Automated Tests\nSoftware Builds\nCode Scans\netc." <<Commit>> #f4a100
 
 code -> code_repo
 code_repo -right-> ci
 ci -down-> artifact_repo
 
-control more as "More\nTests" <<Acceptance>> #26603A
-control acceptance as "Acceptance\nTests" <<Acceptance>> #26603A
-control security as "Security\nTests" <<Acceptance>> #26603A
-control performance as "Performance\nTests" <<Acceptance>> #26603A
+control more as "More\nTests" <<Acceptance>> #00ac69
+control acceptance as "Acceptance\nTests" <<Acceptance>> #00ac69
+control security as "Security\nTests" <<Acceptance>> #00ac69
+control performance as "Performance\nTests" <<Acceptance>> #00ac69
 artifact_repo -right-> acceptance
 artifact_repo -down-> security
 artifact_repo -down-> performance
 artifact_repo -down-> more
 
-control deploy as "Release + Deploy\nPipeline" <<Production>> #204075
-component prod as "Production\nEnvironment" <<Production>> #204075
+control deploy as "Release + Deploy\nPipeline" <<Production>> #5b84b1
+component prod as "Production\nEnvironment" <<Production>> #5b84b1
 
 artifact_repo -left-> deploy
 deploy -left-> prod
