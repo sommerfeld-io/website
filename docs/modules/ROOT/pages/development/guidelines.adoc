@@ -93,6 +93,7 @@ skinparam NoteBackgroundColor transparent
 skinparam ComponentBorderColor #212121
 skinparam ComponentFontColor #212121
 skinparam DatabaseBorderColor #212121
+skinparam DatabaseBackgroundColor #bdbdbd
 skinparam DatabaseFontColor #212121
 skinparam FileBorderColor #212121
 skinparam FileFontColor #212121

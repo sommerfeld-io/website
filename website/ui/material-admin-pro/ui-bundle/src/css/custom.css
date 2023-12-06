@@ -90,10 +90,7 @@ article.doc pre {
 }
 
 article.doc .imageblock .content img,
-article.doc .imageblock .content object {
-  max-width: 100%;
-  background: var(--custom-code-bg);
-}
+article.doc .imageblock .content object { max-width: 100%; }
 
 article.doc code {
   background: var(--custom-code-bg);
