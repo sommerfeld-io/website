@@ -114,6 +114,9 @@ page:
         - content: Development Principles and Guidelines
           url: guidelines.html
           urlType: internal
+        - content: Checklist Production-grade infrastructure
+          url: infrastructure-checklist.html
+          urlType: internal
         - content: Level 0 (Next Lv = 1)
           items:
             - content: Lorem
