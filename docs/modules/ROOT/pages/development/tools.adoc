@@ -3,33 +3,4 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 
 These tools and concepts serve as the cornerstone of our software development and deployment toolkit, forming the building blocks that drive our software development and deployment workflows.
 
-== Code Repositories
-Each project is hosted within its dedicated repository on GitHub. All projects, that provide any service to www.sommerfeld.io, are part of the link:https://github.com/sommerfeld-io[sommerfeld-io Github organization], ensuring centralized management and fostering collaboration across our entire software ecosystem.
-
-[CAUTION]
-====
-.TODO
-* Explain how our repos are structured
-* Every repo contains a `Makefile` in its root folder ... explain why
-* Every repo contains a `Dockerfile` in its root folder ... explain why
-* pre-commit for every repo
-* basic linters for every repo
-* every repo uses a devcontainer
-* every repo comes with antora docs ... explain the README.adoc in project root as well
-====
-
-== Automated Pipelines
-For every project within the Sommerfeld-io organization, we employ GitHub Actions as our go-to solution for implementing automated pipelines and workflows.
-
-CAUTION: TODO -> explain the most common workflows
-
-== Artifact Repositories
-DockerHub serves as our only artifact repository for storing and distributing software, providing a reliable and efficient solution for containerized components. Since we publish everything as Docker images, there is no need for any other artifact repository.
-
-== Manage Projects and Todos
-We utilize GitHub's project feature extensively within the link:https://github.com/sommerfeld-io[sommerfeld-io organization] to effectively manage user stories, tasks, risks, security issues, and all other types of todos across our projects. By leveraging this feature, we centralize and streamline our project management efforts, enabling efficient collaboration, tracking, and progress monitoring for all initiatives.
-
-== Runtime environments
-Our software operates within containers. This configuration is true for all stages, encompassing both production and various testing environments. By utilizing containers, we ensure consistent deployment and scalability throughout the whole lifecycle.
-
-Note that the sizing of production and test stages may differ. While production environments typically require dedicated resources and consistent availability, test environments are designed to be flexible and on-demand. Test environments may not be continuously running but can be provisioned as needed to perform specific tests or validations. This approach allows us to optimize resource utilization and cost-effectiveness while ensuring efficient and reliable testing processes throughout the development lifecycle.
+include::ROOT:partial$/development/architecture.adoc[]

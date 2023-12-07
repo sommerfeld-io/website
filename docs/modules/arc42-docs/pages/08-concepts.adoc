@@ -43,7 +43,7 @@ Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/depe
 == Github Repository Settings
 A summary of all settings that are specific to this project.
 
-== Actions Secrets
+=== Actions Secrets
 Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/actions[Github Actions secrets for the organization] to prepare interaction with DockerHub and Google Chat from Github Actions workflows:
 
 [cols="1,3", options="header"]
@@ -57,7 +57,7 @@ Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/acti
 
 NOTE: Secrets must be specified here because a private repository cannot inherit actions secrets from the organization with my plan.
 
-== Dependabot Secrets
+=== Dependabot Secrets
 Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/dependabot[Dependabot secrets for the organization] to allow successful Github Actions workflows which are triggered by dependabot (like assigning PRs to a project).
 
 [cols="1,3", options="header"]
@@ -89,3 +89,8 @@ See link:https://docs.github.com/en/repositories/managing-your-repositorys-setti
 The GitHub Actions workflows within this repository adhere to a standardized approach tailored for the link:https://github.com/sommerfeld-io[Sommerfeld.io Github organization]. These workflows serve as a blueprint, showcasing best practices and a consistent structure that other projects can leverage and adapt. While maintaining this standardized framework, individual projects within the Sommerfeld.io organization might diverge in certain details to accommodate their unique requirements or specific workflows.
 
 This project is equipped with linter definitions, serving as a foundational standard for other repositories within the organization. These linter definitions establish a baseline coding style and quality standard that other projects can adopt and build upon. This serves as a valuable resource for other repositories within the organization, allowing them to maintain a cohesive codebase and adhere to best practices in coding standards.
+
+CAUTION: TODO generate docs fpr github actions workflows and link here
+
+// Development Tools
+include::ROOT:partial$/development/architecture.adoc[]
