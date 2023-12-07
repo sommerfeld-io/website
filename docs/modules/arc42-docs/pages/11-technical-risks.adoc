@@ -3,19 +3,4 @@
 :page-layout: full-page
 
 {description}
-
-// .Contents
-// A list of identified technical risks or technical debts, ordered by priority
-
-// .Motivation
-// “Risk management is project management for grown-ups” (Tim Lister, Atlantic Systems Guild.)
-
-// This should be your motto for systematic detection and evaluation of risks and technical debts in the architecture, which will be needed by management stakeholders (e.g. project managers, product owners) as part of the overall risk analysis and measurement planning.
-
-// .Form
-// List of risks and/or technical debts, probably including suggested measures to minimize, mitigate or avoid risks or reduce technical debts.
-
-// .Further Information
-// See https://docs.arc42.org/section-11/[Risks and Technical Debt] in the arc42 documentation.
-
 link:{url-project}/issues?q=is%3Aissue+label%3Asecurity%2Crisk+is%3Aopen[All issues labeled as risk (= some sort of risk or a technical debt) or security (= related to security issues)] are tracked as Github issue and carry the respective label.
