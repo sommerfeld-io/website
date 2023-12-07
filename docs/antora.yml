@@ -8,5 +8,4 @@ nav:
   - modules/howto/nav.adoc
   - modules/articles/nav.adoc
   - modules/arc42-docs/nav.adoc
-  - modules/architecture-decisions/nav.adoc
   - modules/AUTO-GENERATED/nav.adoc

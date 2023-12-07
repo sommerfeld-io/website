@@ -1,5 +1,6 @@
 = Architecture Decisions
 :description: Important, expensive, large scale or risky architecture decisions including rationales.
+:page-layout: full-page
 
 {description}
 
