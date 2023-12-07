@@ -1,5 +1,8 @@
 = Glossary
 :description: The most important domain and technical terms that your stakeholders use when discussing the system.
+:page-layout: full-page
+
+{description}
 
 // .Contents
 // The most important domain and technical terms that your stakeholders use when discussing the system.

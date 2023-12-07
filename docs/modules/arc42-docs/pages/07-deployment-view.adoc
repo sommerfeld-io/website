@@ -4,4 +4,6 @@
 {description}
 
 == Github Actions Workflows and Docker Image
+CAUTION: maybe something about the SLDC,or at least on how we deploy. not abut every workflow
+
 TODO: Something about the Github Actions workflows (especially build.yml and release.yml) and that this image is published to DockerHub

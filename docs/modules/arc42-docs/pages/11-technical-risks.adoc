@@ -1,5 +1,8 @@
 = Risks and Technical Debts
-:description: A list of identified technical risks or technical debts, ordered by priority.
+:description: A list of identified technical risks or technical debts.
+:page-layout: full-page
+
+{description}
 
 // .Contents
 // A list of identified technical risks or technical debts, ordered by priority
