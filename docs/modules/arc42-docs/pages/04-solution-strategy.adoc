@@ -1,6 +1,9 @@
 = Solution Strategy
 :description: A short summary and explanation of the fundamental decisions and solution strategies, that shape system architecture.
 
+{description}
+The strategies and patterns act as a guideline for all projects of the link:https://github.com/sommerfeld-io[Sommerfeld.io Github organization].
+
 include::ROOT:partial$/development/guidelines.adoc[]
 
 == Software Development Life Cycle
