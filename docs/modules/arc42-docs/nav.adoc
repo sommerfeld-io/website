@@ -1,4 +1,4 @@
-* Arc42 Architecture Docs
+* Architecture Docs
 ** xref:arc42-docs:01-introduction-and-goals.adoc[]
 ** xref:arc42-docs:02-architecture-constraints.adoc[]
 ** xref:arc42-docs:03-system-scope-and-context.adoc[]
