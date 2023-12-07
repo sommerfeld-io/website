@@ -15,14 +15,9 @@
                 Contact
             </a>
 
-            {{!-- STATIC LINK --}}
-            {{!-- <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#projectsModal">
-                <div class="nav-link-icon"><i class="material-icons">view_list</i></div>
-                Projects Overview
-                <div class="drawer-collapse-arrow"><i class="material-icons">picture_in_picture</i></div>
-            </a> --}}
-
             <div class="drawer-menu-divider d-sm-none"></div>
+
+            {{> supplemental-nav-sidebar-static-links}}
 
             {{!-- Antora pages nav --}}
             {{#with page.navigation}}
@@ -35,6 +30,8 @@
 				    {{> nav-sidebar-tree navigation=./items}}
 			    {{/each}}
             {{/with}}
+
+            {{> supplemental-nav-sidebar-static-projects-link}}
         </div>
     </div>
 </nav>
