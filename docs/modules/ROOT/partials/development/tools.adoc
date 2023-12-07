@@ -13,8 +13,10 @@ Each project is hosted within its dedicated repository on GitHub. All projects, 
 * every repo comes with antora docs ... explain the README.adoc in project root as well
 ====
 
-== Automated Pipelines
-For every project within the Sommerfeld-io organization, we employ GitHub Actions as our go-to solution for implementing automated pipelines and workflows.
+== Automated Pipelines with Github Actions Workflows
+The GitHub Actions workflows within this repository adhere to a standardized approach tailored for the link:https://github.com/sommerfeld-io[Sommerfeld.io Github organization]. These workflows serve as a blueprint, showcasing best practices and a consistent structure that other projects can leverage and adapt. While maintaining this standardized framework, individual projects within the Sommerfeld.io organization might diverge in certain details to accommodate their unique requirements or specific workflows.
+
+This project is equipped with linter definitions, serving as a foundational standard for other repositories within the organization. These linter definitions establish a baseline coding style and quality standard that other projects can adopt and build upon. This serves as a valuable resource for other repositories within the organization, allowing them to maintain a cohesive codebase and adhere to best practices in coding standards.
 
 CAUTION: TODO -> explain the most common workflows
 

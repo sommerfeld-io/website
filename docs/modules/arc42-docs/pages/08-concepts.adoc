@@ -85,12 +85,5 @@ By default, when you create a new repository in your personal account, `GITHUB_T
 
 See link:https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions[Configuring the default `GITHUB_TOKEN` permissions] on the Github docs pages for more information.
 
-== Github Actions Workflows
-The GitHub Actions workflows within this repository adhere to a standardized approach tailored for the link:https://github.com/sommerfeld-io[Sommerfeld.io Github organization]. These workflows serve as a blueprint, showcasing best practices and a consistent structure that other projects can leverage and adapt. While maintaining this standardized framework, individual projects within the Sommerfeld.io organization might diverge in certain details to accommodate their unique requirements or specific workflows.
-
-This project is equipped with linter definitions, serving as a foundational standard for other repositories within the organization. These linter definitions establish a baseline coding style and quality standard that other projects can adopt and build upon. This serves as a valuable resource for other repositories within the organization, allowing them to maintain a cohesive codebase and adhere to best practices in coding standards.
-
-CAUTION: TODO generate docs fpr github actions workflows and link here
-
-== Architecture Patterns and Guidelines
-include::ROOT:partial$/development/architecture.adoc[]
+// Development Tools
+include::ROOT:partial$/development/tools.adoc[]
