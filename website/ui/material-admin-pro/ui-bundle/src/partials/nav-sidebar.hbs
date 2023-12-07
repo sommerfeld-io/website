@@ -3,7 +3,7 @@
     <div class="drawer-menu">
         <div class="nav">
 
-            <div class="drawer-menu-heading">Navigation</div>
+            <div class="drawer-menu-heading d-sm-none">Navigation</div>
 
             {{!-- TOP NAV DUPLICATES FOR RESPONSIVE RENDERING --}}
             <a class="nav-link d-sm-none" href="/">
@@ -16,15 +16,16 @@
             </a>
 
             {{!-- STATIC LINK --}}
-            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#projectsModal">
+            {{!-- <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#projectsModal">
                 <div class="nav-link-icon"><i class="material-icons">view_list</i></div>
                 Projects Overview
                 <div class="drawer-collapse-arrow"><i class="material-icons">picture_in_picture</i></div>
-            </a>
+            </a> --}}
+
+            <div class="drawer-menu-divider d-sm-none"></div>
 
             {{!-- Antora pages nav --}}
             {{#with page.navigation}}
-                <div class="drawer-menu-divider"></div>
                 {{#with @root.page.componentVersion}}
                     <div class="drawer-menu-heading">{{./title}}</div>
                 {{/with}}
