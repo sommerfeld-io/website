@@ -92,5 +92,5 @@ This project is equipped with linter definitions, serving as a foundational stan
 
 CAUTION: TODO generate docs fpr github actions workflows and link here
 
-// Development Tools
+== Architecture Patterns and Guidelines
 include::ROOT:partial$/development/architecture.adoc[]
