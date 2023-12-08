@@ -6,7 +6,14 @@ This UI bundle is based on the link:https://startbootstrap.com/theme/material-ad
 == About the HTML template
 The `website/ui/material-admin-pro/template` only contains static HTML, CSS, ... files. For deeper changes, unpack `website/ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz` and update the source files.
 
-Changes could mean updating the sites color scheme. You can use the link:https://startbootstrap.com/previews/material-admin-pro[theme preview on StartBootstrap.com] to generate new colors through the theme customizer.
+Changes could mean updating the sites color scheme.
+
+You can use the link:https://startbootstrap.com/previews/material-admin-pro[theme preview on StartBootstrap.com] to generate new colors through the theme customizer. The exported scss file contains this installation instruction (for the full `material-admin-pro-1.0.6.tar.xz` version):
+
+[quote, variables-colors-overrides.scss]
+____
+This file was generated for Start Bootstrap link:https://startbootstrap.com/theme/material-admin-pro[Material Admin Pro]. Place this file in `src/scss/_variables-colors-overrides.scss`.
+____
 
 [code, scss]
 ----
