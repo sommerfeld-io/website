@@ -48,11 +48,7 @@ ignore:
   - .yamllint.yml
 
   # UI bundle
-  - website/ui/appstack/ui-bundle/node_modules
-  - website/ui/appstack/ui-bundle/public
   - website/ui/material-admin-pro/ui-bundle/node_modules
   - website/ui/material-admin-pro/ui-bundle/public
-  - website/ui/appstack/ui-bundle/.gulp.json
-  - website/ui/appstack/ui-bundle/src/js/vendor/highlight.min.js
   - website/ui/material-admin-pro/ui-bundle/.gulp.json
   - website/ui/material-admin-pro/ui-bundle/src/js/vendor/highlight.bundle.js
