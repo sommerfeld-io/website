@@ -15,7 +15,7 @@ The Docker image `link:https://hub.docker.com/r/sommerfeldio/website[sommerfeldi
 // * Sonar -> https://sonarcloud.io/project/overview?id=sommerfeld-io_{project-name}
 
 == How to use this project
-This project is exclusively available as a Docker image, meaning that it is packaged and distributed as a containerized application using Docker technology. There is no traditional FTP-based upload to any web space.
+The website project is exclusively available as a Docker image, meaning that it is packaged and distributed as a containerized application using Docker technology. There is no traditional FTP-based upload to any web space.
 
 [source,bash]
 ----
@@ -30,7 +30,17 @@ include::ROOT:partial$/docker-tag-strategy.adoc[]
 == About the UI Bundle
 This project also contains the Antora UI bundle sources. This UI bundle represents the design for all Antora-based pages of https://www.sommerfeld.io[www.sommerfeld.io].
 
-The UI bundle is built alongside the whole website ensuring that the latest UI bundle is used for www.sommerfeld.io. This way there is no need to publish the UI bundle anywhere because it is part of the Docker image which serves the website.
+The UI bundle is built alongside the whole website ensuring that the latest UI bundle is used for www.sommerfeld.io. This way there is no need to download the UI bundle from anywhere because it is part of the Docker image which serves the website.
+
+Still a download is possible because the UI bundle is published as a zip-File with each Github release. This way other projects can use this UI bundle as well.
+
+[source,yaml]
+----
+ui:
+  bundle:
+    url: https://github.com/sommerfeld-io/website/releases/download/v0.5.0-alpha.1/ui-bundle-0.5.0-alpha.1.zip
+    snapshot: true
+----
 
 == Risks and Technical Debts
 link:{url-project}/issues?q=is%3Aissue+label%3Asecurity%2Crisk+is%3Aopen[All issues labeled as risk (= some sort of risk or a technical debt) or security (= related to security issues)] are tracked as Github issue and carry the respective label.
