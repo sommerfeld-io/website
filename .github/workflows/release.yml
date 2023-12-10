@@ -119,6 +119,7 @@ jobs:
 
   reset-version:
     needs: deploy-release
+    if: always()
     permissions:
       contents: write
     uses: sommerfeld-io/.github/.github/workflows/module-release-antora-version.yml@main
