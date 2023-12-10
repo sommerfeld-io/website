@@ -113,6 +113,14 @@ RUN chown -hR "$USER:$USER" /usr/local/apache2 \
 COPY --from=build-antora-site /tmp/antora/sommerfeld-io/public /usr/local/apache2/htdocs/docs
 COPY --from=build-antora-site /tmp/antora/personal-projects/public /usr/local/apache2/htdocs/docs-personal-projects
 
+COPY ui/material-admin-pro/ui-bundle/src/css/styles.css /usr/local/apache2/htdocs/css/styles.css
+COPY ui/material-admin-pro/ui-bundle/src/css/custom.css /usr/local/apache2/htdocs/css/custom.css
+COPY ui/material-admin-pro/ui-bundle/src/js/scripts.js /usr/local/apache2/htdocs/js/scripts.js
+COPY ui/material-admin-pro/ui-bundle/src/js/material.js /usr/local/apache2/htdocs/js/material.js
+COPY ui/material-admin-pro/ui-bundle/src/img/favicon.ico /usr/local/apache2/htdocs/assets/img/favicon.ico
+COPY static-pages/contact.html /usr/local/apache2/htdocs/contact.html
+COPY static-pages/terms-conditions.html /usr/local/apache2/htdocs/terms-conditions.html
+
 RUN cp /usr/local/apache2/htdocs/docs/robots.txt /usr/local/apache2/htdocs/robots.txt
 
 USER "$USER"

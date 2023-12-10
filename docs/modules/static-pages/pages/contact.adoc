@@ -1,5 +1,0 @@
-= Contact
-Sebastian Sommerfeld <sebastian@sommerfeld.io>
-:page-layout: static
-
-Feel free to contact me via sebastian@sommerfeld.io.

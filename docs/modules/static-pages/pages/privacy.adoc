@@ -1,7 +1,0 @@
-= Privacy
-Sebastian Sommerfeld <sebastian@sommerfeld.io>
-:page-layout: static
-
-We do not use cookies to track your activities. Rest assured that your visit remains entirely anonymous, without any data being stored or shared.
-
-All the assets, resources, and dependencies required for this website are loaded exclusively from our domain, www.sommerfeld.io. This means that no external content delivery network (CDN) or other extarnal sources are utilized. By centralizing all assets, we aim to enhance your browsing experience while maintaining the security and integrity of our website.
