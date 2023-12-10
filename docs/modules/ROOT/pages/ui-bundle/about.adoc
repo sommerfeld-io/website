@@ -37,9 +37,7 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 In this case, Antora will select the `[.path]_homepage.hbs_` layout for this page instead of `[.path]_default.hbs_`. Using a dedicated layout affords a lot of control over what gets displayed on this page. Every layout has access to the same UI model.
 
 == Images and Resources from the UI bundle
-The following images can be used from Asciidoc pages:
-
-image::/docs/_/img/brands/sonarcloud.svg[,width=64,height=64]
+The UI bundle ships some images which can be used from Asciidoc pages. Simply use `image::/docs/_/img/brands/bootstrap.svg[,width=64,height=64]` (with the respective image URL).
 
 === Brand Logos
 * `/docs/_/img/brands/bootstrap.svg`
