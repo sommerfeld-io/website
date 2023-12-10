@@ -4,7 +4,7 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 This UI bundle is based on the link:https://startbootstrap.com/theme/material-admin-pro[Material Admin Pro]. To turn this template into an Antora UI bundle, the link:https://gitlab.com/antora/antora-ui-default[Antora Default UI] served as a guideline.
 
 == About the HTML template
-The `website/ui/material-admin-pro/template` only contains static HTML, CSS, ... files. For deeper changes, unpack `website/ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz` and update the source files.
+The `ui/material-admin-pro/template` only contains static HTML, CSS, ... files. For deeper changes, unpack `ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz` and update the source files.
 
 Changes could mean updating the sites color scheme.
 
@@ -30,7 +30,7 @@ The best way to extend and customize the Material Admin Pro theme is to work wit
 To start, you will need to launch the development environment by installing project dependencies and running a script within your terminal. To do this, follow these simple steps:
 
 * Before you begin, make sure your development environment includes Node.js and npm. Download and install Node.js from https://nodejs.org/en/download/ which will install Node.js and npm on your system.
-* Unpack `website/ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz`
+* Unpack `ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz`
 * Open your terminal, and navigate into the root folder of the theme.
 * Install project dependencies by running `npm install`
 * Start the project by running `npm start`

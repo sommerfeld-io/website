@@ -107,16 +107,16 @@ run: build
 	docker run --rm -p "$(WEBSITE_PORT):7888" "$(WEBSITE_DOCKER_IMAGE)"
 
 build-ui:
-	@cd website/ui/material-admin-pro/ui-bundle || exit \
+	@cd ui/material-admin-pro/ui-bundle || exit \
 		&& yarn install \
 		&& gulp bundle
 
 preview-ui: build-ui
-	@cd website/ui/material-admin-pro/ui-bundle || exit \
+	@cd ui/material-admin-pro/ui-bundle || exit \
 		&& gulp preview
 
 preview-template:
-	@cd website/ui/material-admin-pro/template/pages || exit \
+	@cd ui/material-admin-pro/template/pages || exit \
 		&& docker run --rm mwendler/figlet:latest $(TEMPLATE_PORT) \
 		&& python3 -m http.server $(TEMPLATE_PORT)
 
@@ -125,6 +125,6 @@ clean:
 	docker image rm "$(WEBSITE_DOCKER_IMAGE)"
 
 	@echo "[INFO] Cleanup local filesystem"
-	rm -rf website/ui/material-admin-pro/ui-bundle/build
-	rm -rf website/ui/material-admin-pro/ui-bundle/node_modules
-	rm -rf website/ui/material-admin-pro/ui-bundle/public
+	rm -rf ui/material-admin-pro/ui-bundle/build
+	rm -rf ui/material-admin-pro/ui-bundle/node_modules
+	rm -rf ui/material-admin-pro/ui-bundle/public

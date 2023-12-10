@@ -42,7 +42,7 @@
 #
 # The Google font "Poppins" (https://www.npmjs.com/package/@expo-google-fonts/poppins?activeTab=readme)
 # is now part of the ``package.json``. The Dockerfile takes care of copying the fonts from
-# ``ui/ui-bundle/node_modules/@expo-google-fonts`` to ``ui/ui-bundle/src/font``.
+# ``ui/material-admin-pro/ui-bundle/node_modules/@expo-google-fonts`` to ``ui/material-admin-pro/ui-bundle/src/font``.
 #
 # The ``build-ui-bundle`` stage leverages link:https://antora.org[Antora], a documentation site generator,
 # to build the documentation sites of the website. Antora allows the documentation to be sourced from
@@ -75,7 +75,7 @@ RUN yarn global add gulp-cli@2.3.0 \
     && yarn global add @antora/cli@3.1 \
     && yarn global add @antora/site-generator@3.1
 
-COPY website/ui/material-admin-pro/ui-bundle /antora-ui
+COPY ui/material-admin-pro/ui-bundle /antora-ui
 WORKDIR /antora-ui
 
 RUN yarn install \
@@ -89,8 +89,8 @@ RUN yarn add @asciidoctor/core@~3.0.2 \
     && yarn add asciidoctor-kroki@~0.18.1 \
     && yarn add @antora/lunr-extension@~1.0.0-alpha.8
 
-COPY --from=build-ui-bundle /antora-ui/build/ui-bundle.zip /antora-ui/ui-bundle.zip
-COPY website/config /antora
+COPY --from=build-ui-bundle /antora-ui/build/ui-bundle.zip /antora-ui/material-admin-pro/ui-bundle.zip
+COPY config /antora
 WORKDIR /antora
 
 RUN antora --version \
@@ -104,7 +104,7 @@ RUN sleep 5
 FROM httpd:2.4.58-alpine3.18 AS run
 LABEL maintainer="sebastian@sommerfeld.io"
 
-COPY website/config/httpd.conf /usr/local/apache2/conf/httpd.conf
+COPY config/httpd.conf /usr/local/apache2/conf/httpd.conf
 
 ARG USER=www-data
 RUN chown -hR "$USER:$USER" /usr/local/apache2 \

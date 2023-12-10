@@ -46,7 +46,7 @@ and layout throughout the site.
 
 The Google font "Poppins" (https://www.npmjs.com/package/@expo-google-fonts/poppins?activeTab=readme)
 is now part of the `package.json`. The Dockerfile takes care of copying the fonts from
-`ui/ui-bundle/node_modules/@expo-google-fonts` to `ui/ui-bundle/src/font`.
+`ui/material-admin-pro/ui-bundle/node_modules/@expo-google-fonts` to `ui/material-admin-pro/ui-bundle/src/font`.
 
 The `build-ui-bundle` stage leverages link:https://antora.org[Antora], a documentation site generator,
 to build the documentation sites of the website. Antora allows the documentation to be sourced from
