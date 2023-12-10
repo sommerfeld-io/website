@@ -3,48 +3,19 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 
 This UI bundle is based on the link:https://startbootstrap.com/theme/material-admin-pro[Material Admin Pro]. To turn this template into an Antora UI bundle, the link:https://gitlab.com/antora/antora-ui-default[Antora Default UI] served as a guideline.
 
-== About the HTML template
-The `ui/material-admin-pro/template` only contains static HTML, CSS, ... files. For deeper changes, unpack `ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz` and update the source files.
+== Color Scheme
+[cols="1,3", options="header"]
+|===
+|Color |Hey |RGB
+|primary |`#5b84b1` |`91 132 177`
+|secondary |`#9cc3d5` |`156 195 213`
+|success |`#00ac69` |`0 172 105`
+|danger |`#e81500` |`232 21 0`
+|warning |`#f4a100` |`244 161 0`
+|info |`#5b84b1` |`91 132 177`
+|===
 
-Changes could mean updating the sites color scheme.
-
-You can use the link:https://startbootstrap.com/previews/material-admin-pro[theme preview on StartBootstrap.com] to generate new colors through the theme customizer. The exported scss file contains this installation instruction (for the full `material-admin-pro-1.0.6.tar.xz` version):
-
-[quote, variables-colors-overrides.scss]
-____
-This file was generated for Start Bootstrap link:https://startbootstrap.com/theme/material-admin-pro[Material Admin Pro]. Place this file in `src/scss/_variables-colors-overrides.scss`.
-____
-
-[code, scss]
-----
-$primary: #5b84b1; // 91 132 177
-$secondary: #9cc3d5; // 156 195 213
-$success: #00ac69; // 0 172 105
-$danger: #e81500; // 232 21 0
-$warning: #f4a100; // 244 161 0
-$info: #5b84b1; // 91 132 177
-----
-
-The best way to extend and customize the Material Admin Pro theme is to work with the source files contained in the `src` directory. To start, you will need to launch the development environment by installing project dependencies and running a script in your terminal. To do this, follow these simple steps:
-
-To start, you will need to launch the development environment by installing project dependencies and running a script within your terminal. To do this, follow these simple steps:
-
-* Before you begin, make sure your development environment includes Node.js and npm. Download and install Node.js from https://nodejs.org/en/download/ which will install Node.js and npm on your system.
-* Unpack `ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz`
-* Open your terminal, and navigate into the root folder of the theme.
-* Install project dependencies by running `npm install`
-* Start the project by running `npm start`
-
-With everything installed properly, running the `npm start` script will launch a window in your default web browser showing you a local preview of the Material Admin Pro theme. The script will also watch for changes made to the `.pug`, `.scss`, or `.js` files within the `src` directory, and it will compile and reload the browser when changes are saved.
-
-TIP: See https://docs.startbootstrap.com/material-admin-pro/quickstart for further instructions.
-
-== 3rd-Party Artifacts
-* The Github logos shipped with the UI bundle are downloaded from https://github.com/logos (see this page for Githubs terms of use)
-* The Docker logos shipped with the UI bundle are downloaded from https://www.docker.com/company/newsroom/media-resources (see this page for Dockers terms of use)
-* The Google fonts are shipped as part of the UI bundle, so there are no requests to a Google server from the live website (for Googles terms of use see https://developers.google.com/fonts/terms and the "Can I embed Google Fonts in my website without sending end-user data to Google's servers?" section on https://developers.google.com/fonts/faq/privacy)
-
-== UI Layouts
+== About UI Layouts
 The most drastic way to change the appearance of the page is to change the HTML. The HTML is controlled by layouts, which are Handlebars templates located in `[.path]_src/layouts`. A layout typically includes partials, located in `[.path]_src/partials`, which are reusable template fragments. Partials may, in turn, include other partials.
 
 This project currently features multiple layouts:
@@ -64,3 +35,116 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 ----
 
 In this case, Antora will select the `[.path]_homepage.hbs_` layout for this page instead of `[.path]_default.hbs_`. Using a dedicated layout affords a lot of control over what gets displayed on this page. Every layout has access to the same UI model.
+
+== Images and Resources from the UI bundle
+The following images can be used from Asciidoc pages:
+
+image::/docs/_/img/brands/sonarcloud.svg[]
+
+=== Brand Logos
+* `/docs/_/img/brands/bootstrap.svg`
+* `/docs/_/img/brands/cc-amazon-pay.svg`
+* `/docs/_/img/brands/cc-amex.svg`
+* `/docs/_/img/brands/cc-apple-pay.svg`
+* `/docs/_/img/brands/cc-diners-club.svg`
+* `/docs/_/img/brands/cc-discover.svg`
+* `/docs/_/img/brands/cc-jcb.svg`
+* `/docs/_/img/brands/cc-mastercard.svg`
+* `/docs/_/img/brands/cc-paypal.svg`
+* `/docs/_/img/brands/cc-stripe.svg`
+* `/docs/_/img/brands/cc-visa.svg`
+* `/docs/_/img/brands/chartjs.svg`
+* `/docs/_/img/brands/docker-dark-blue-logo.svg`
+* `/docs/_/img/brands/docker-light-blue-logo.svg`
+* `/docs/_/img/brands/docker-off-black-logo.svg`
+* `/docs/_/img/brands/docker-primary-blue-logo.svg`
+* `/docs/_/img/brands/docker-symbol-dark-blue-logo.svg`
+* `/docs/_/img/brands/docker-symbol-light-blue-logo.svg`
+* `/docs/_/img/brands/docker-symbol-off-black-logo.svg`
+* `/docs/_/img/brands/docker-symbol-primary-blue-logo.svg`
+* `/docs/_/img/brands/docker-symbol-white-logo.svg`
+* `/docs/_/img/brands/docker-white-logo.svg`
+* `/docs/_/img/brands/github.svg`
+* `/docs/_/img/brands/google-g-logo.svg`
+* `/docs/_/img/brands/litepicker.png`
+* `/docs/_/img/brands/material-design.svg`
+* `/docs/_/img/brands/nhl-logo.svg`
+* `/docs/_/img/brands/prism.svg`
+* `/docs/_/img/brands/sonarcloud.svg`
+
+=== Icons
+* `/docs/_/img/icons/alerts.svg`
+* `/docs/_/img/icons/background.svg`
+* `/docs/_/img/icons/badges.svg`
+* `/docs/_/img/icons/borders.svg`
+* `/docs/_/img/icons/buttons.svg`
+* `/docs/_/img/icons/cards.svg`
+* `/docs/_/img/icons/charts.svg`
+* `/docs/_/img/icons/checks-and-radios.svg`
+* `/docs/_/img/icons/chips.svg`
+* `/docs/_/img/icons/code-blocks.svg`
+* `/docs/_/img/icons/data-tables.svg`
+* `/docs/_/img/icons/datepicker.svg`
+* `/docs/_/img/icons/dropdowns.svg`
+* `/docs/_/img/icons/icon-buttons.svg`
+* `/docs/_/img/icons/icons.svg`
+* `/docs/_/img/icons/input-groups.svg`
+* `/docs/_/img/icons/inputs.svg`
+* `/docs/_/img/icons/modals.svg`
+* `/docs/_/img/icons/navs.svg`
+* `/docs/_/img/icons/progress.svg`
+* `/docs/_/img/icons/range.svg`
+* `/docs/_/img/icons/ripples.svg`
+* `/docs/_/img/icons/select.svg`
+* `/docs/_/img/icons/shadows.svg`
+* `/docs/_/img/icons/spinners.svg`
+* `/docs/_/img/icons/tables.svg`
+* `/docs/_/img/icons/text.svg`
+* `/docs/_/img/icons/tooltips.svg`
+* `/docs/_/img/icons/transforms.svg`
+* `/docs/_/img/icons/typography.svg`
+
+=== Illustrations
+* `/docs/_/img/illustrations/cloud.svg`
+* `/docs/_/img/illustrations/create.svg`
+* `/docs/_/img/illustrations/error-400.svg`
+* `/docs/_/img/illustrations/error-401.svg`
+* `/docs/_/img/illustrations/error-403.svg`
+* `/docs/_/img/illustrations/error-404.svg`
+* `/docs/_/img/illustrations/error-429.svg`
+* `/docs/_/img/illustrations/error-500.svg`
+* `/docs/_/img/illustrations/error-503.svg`
+* `/docs/_/img/illustrations/error-504.svg`
+* `/docs/_/img/illustrations/security.svg`
+
+== About the HTML template
+The `ui/material-admin-pro/template` only contains static HTML, CSS, ... files. For deeper changes, unpack `ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz` and update the source files.
+
+Changes could mean updating the sites color scheme.
+
+You can use the link:https://startbootstrap.com/previews/material-admin-pro[theme preview on StartBootstrap.com] to generate new colors through the theme customizer. The exported scss file contains this installation instruction (for the full `material-admin-pro-1.0.6.tar.xz` version):
+
+[quote, variables-colors-overrides.scss]
+____
+This file was generated for Start Bootstrap link:https://startbootstrap.com/theme/material-admin-pro[Material Admin Pro]. Place this file in `src/scss/_variables-colors-overrides.scss`.
+____
+
+The best way to extend and customize the Material Admin Pro theme is to work with the source files contained in the `src` directory (from `ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz`). To start, you will need to launch the development environment by installing project dependencies and running a script within your terminal. To do this, follow these simple steps:
+
+* Before you begin, make sure your development environment includes Node.js and npm. Download and install Node.js from https://nodejs.org/en/download/ which will install Node.js and npm on your system.
+* Unpack `ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz`
+* Open your terminal, and navigate into the root folder of the theme.
+* Install project dependencies by running `npm install`
+* Start the project by running `npm start`
+
+With everything installed properly, running the `npm start` script will launch a window in your default web browser showing you a local preview of the Material Admin Pro theme. The script will also watch for changes made to the `.pug`, `.scss`, or `.js` files within the `src` directory, and it will compile and reload the browser when changes are saved.
+
+TIP: See https://docs.startbootstrap.com/material-admin-pro/quickstart for further instructions.
+
+== About Static Pages
+This project comes with a few static pages which are plain HTML files. All needed resources like CSS and JS files are copied from the ui-bundle (see Dockerfile).
+
+== 3rd-Party Artifacts
+* The Github logos shipped with the UI bundle are downloaded from https://github.com/logos (see this page for Githubs terms of use)
+* The Docker logos shipped with the UI bundle are downloaded from https://www.docker.com/company/newsroom/media-resources (see this page for Dockers terms of use)
+* The Google fonts are shipped as part of the UI bundle, so there are no requests to a Google server from the live website (for Googles terms of use see https://developers.google.com/fonts/terms and the "Can I embed Google Fonts in my website without sending end-user data to Google's servers?" section on https://developers.google.com/fonts/faq/privacy)
