@@ -1,5 +1,6 @@
 = Contribute to our Projects
 Sebastian Sommerfeld <sebastian@sommerfeld.io>
+:page-layout: full-page
 
 We're thrilled that you'd like to contribute to our projects.
 

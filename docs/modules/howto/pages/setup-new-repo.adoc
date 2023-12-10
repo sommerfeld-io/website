@@ -1,5 +1,6 @@
 = Setup a new Repository
 Sebastian Sommerfeld <sebastian@sommerfeld.io>
+:page-layout: full-page
 
 Setting up a new repository on Github should follow the same process to make sure all repos follow the same configuration and layout.
 

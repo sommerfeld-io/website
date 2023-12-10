@@ -1,5 +1,6 @@
 = Write Diagrams for Asciidoc Pages
 Sebastian Sommerfeld <sebastian@sommerfeld.io>
+:page-layout: full-page
 
 We are treating our documentation as code.
 
