@@ -39,7 +39,7 @@ In this case, Antora will select the `[.path]_homepage.hbs_` layout for this pag
 == Images and Resources from the UI bundle
 The following images can be used from Asciidoc pages:
 
-image::/docs/_/img/brands/sonarcloud.svg[]
+image::/docs/_/img/brands/sonarcloud.svg[,width=64,height=64]
 
 === Brand Logos
 * `/docs/_/img/brands/bootstrap.svg`
