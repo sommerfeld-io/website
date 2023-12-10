@@ -3,4 +3,4 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 
 These tools and concepts serve as the cornerstone of our software development and deployment toolkit, forming the building blocks that drive our software development and deployment workflows.
 
-include::ROOT:partial$/development/architecture.adoc[]
+include::ROOT:partial$/development/tools.adoc[]
