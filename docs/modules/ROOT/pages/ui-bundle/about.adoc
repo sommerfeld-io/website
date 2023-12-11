@@ -143,7 +143,7 @@ The best way to extend and customize the Material Admin Pro theme is to work wit
 
 With everything installed properly, running the `npm start` script will launch a window in your default web browser showing you a local preview of the Material Admin Pro theme. The script will also watch for changes made to the `.pug`, `.scss`, or `.js` files within the `src` directory, and it will compile and reload the browser when changes are saved.
 
-TIP: See https://docs.startbootstrap.com/material-admin-pro/quickstart for further instructions.
+For further instructions, see https://docs.startbootstrap.com/material-admin-pro/quickstart.
 
 == About Static Pages
 This project comes with a few static pages which are plain HTML files. All needed resources like CSS and JS files are copied from the ui-bundle (see Dockerfile).
