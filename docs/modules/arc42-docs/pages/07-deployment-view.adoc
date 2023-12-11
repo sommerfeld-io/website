@@ -54,7 +54,7 @@ database artifact_repo <<DockerHub>>
 code_repo -> lint_workflow
 note right: Validate repository contents
 code_repo -> build_workflow
-note right: Build :rc image with\neach push to GitHub
+note right: Test and build :rc image\nwith each push to GitHub
 build_workflow -> artifact_repo
 note left: Deploy :rc image
 
