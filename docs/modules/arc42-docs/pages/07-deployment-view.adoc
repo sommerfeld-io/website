@@ -4,6 +4,67 @@
 {description}
 
 == Github Actions Workflows and Docker Image
-CAUTION: maybe something about the SLDC,or at least on how we deploy. not abut every workflow
+Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
 
-TODO: Something about the Github Actions workflows (especially build.yml and release.yml) and that this image is published to DockerHub
+[plantuml, puml-build-image, svg]
+----
+@startuml
+
+'skinparam linetype ortho
+skinparam monochrome false
+skinparam componentStyle uml2
+skinparam backgroundColor transparent
+skinparam ArrowColor #212121
+skinparam NoteBorderColor #212121
+skinparam NoteFontColor #212121
+skinparam NoteBackgroundColor #fff
+skinparam ComponentBorderColor #212121
+skinparam ComponentFontColor #212121
+skinparam DatabaseBorderColor #212121
+skinparam DatabaseBackgroundColor #bdbdbd
+skinparam DatabaseFontColor #212121
+skinparam FileBorderColor #212121
+skinparam FileFontColor #212121
+skinparam ControlBorderColor #212121
+skinparam ControlFontColor #212121
+skinparam RectangleBackgroundColor transparent
+skinparam RectangleBorderColor #212121
+skinparam RectangleFontColor #212121
+skinparam ControlBackgroundColor transparent
+skinparam ControlBorderColor #212121
+skinparam ControlFontColor #212121
+skinparam HexagonBackgroundColor transparent
+skinparam HexagonBorderColor #212121
+skinparam HexagonFontColor #212121
+skinparam ArtifactBorderColor #212121
+skinparam ArtifactFontColor #212121
+skinparam defaultTextAlignment center
+skinparam activity {
+    'FontName Ubuntu
+    FontName Roboto
+}
+
+database code_repo <<Github>>
+control lint_workflow <<Github-Action>>
+control build_workflow <<Github-Action>>
+control release_workflow <<Github-Action>>
+database artifact_repo <<DockerHub>>
+
+== Build ==
+code_repo -> lint_workflow
+note right: Validate repository contents
+code_repo -> build_workflow
+note right: Build :rc image with\neach push to GitHub
+build_workflow -> artifact_repo
+note left: Deploy :rc image
+
+== Release ==
+artifact_repo -> release_workflow
+note left: Download :rc image
+release_workflow -> release_workflow
+note left: Re-tag as :latest and :v0.1.2
+release_workflow -> artifact_repo
+note left: Deploy released image
+
+@enduml
+----
