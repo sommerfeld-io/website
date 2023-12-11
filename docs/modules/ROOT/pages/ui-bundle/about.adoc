@@ -15,6 +15,9 @@ This UI bundle is based on the link:https://startbootstrap.com/theme/material-ad
 |info |`#5b84b1` |`91 132 177`
 |===
 
+== Static Links
+The UI bundle generates links according to the content in the Asciidoc pages. Yet, it includes two fixed links that need specific static HTML pages served via a webserver. To comply, it's recommended to create HTML pages for /contact.html and /terms-conditions.html, or alternatively, use link:https://docs.antora.org/antora/latest/playbook/ui-supplemental-files[Supplemental UI] to remove these links from the displayed website.
+
 == About UI Layouts
 The most drastic way to change the appearance of the page is to change the HTML. The HTML is controlled by layouts, which are Handlebars templates located in `[.path]_src/layouts`. A layout typically includes partials, located in `[.path]_src/partials`, which are reusable template fragments. Partials may, in turn, include other partials.
 
