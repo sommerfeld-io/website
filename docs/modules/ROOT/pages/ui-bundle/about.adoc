@@ -7,12 +7,12 @@ This UI bundle is based on the link:https://startbootstrap.com/theme/material-ad
 [cols="1,1,1", options="header"]
 |===
 |Color |Hey |RGB
-|primary |`#5b84b1` |`91 132 177`
-|secondary |`#9cc3d5` |`156 195 213`
-|success |`#00ac69` |`0 172 105`
-|danger |`#e81500` |`232 21 0`
-|warning |`#f4a100` |`244 161 0`
-|info |`#5b84b1` |`91 132 177`
+|primary |`#5b84b1` |`91, 132, 177`
+|secondary |`#9cc3d5` |`156, 195, 213`
+|success |`#00ac69` |`0, 172, 105`
+|danger |`#e81500` |`232, 21, 0`
+|warning |`#f4a100` |`244, 161, 0`
+|info |`#5b84b1` |`91, 132, 177`
 |===
 
 == Static Links
