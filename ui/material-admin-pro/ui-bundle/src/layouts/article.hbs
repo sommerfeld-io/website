@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {{> head defaultPageTitle='Untitled'}}
+    </head>
+    <body class="nav-fixed bg-light">
+        {{> nav-top}}
+
+        <!-- Layout wrapper-->
+        <div id="layoutDrawer">
+            <!-- Layout navigation-->
+            <div id="layoutDrawer_nav">
+                {{> nav-sidebar}}
+            </div>
+
+            <!-- Layout content-->
+            <div id="layoutDrawer_content">
+
+                <!-- Main page content-->
+                <main>
+                    <!-- Page header -->
+                    <header class="masthead bg-dark">
+                        <div class="container-xl px-5">
+                            <div class="row justify-content-center gx-5">
+                                <div class="col-md-8 col-lg-6">
+                                    <div class="text-center py-10">
+                                        <!-- Masthead content-->
+                                        {{#with page.title}}
+                                            <h1 class="masthead-heading mb-3 display-5">{{{this}}}</h1>
+                                        {{/with}}
+                                        {{!-- <p>Build high-quality digital experiences with the world's most intuitive union between Bootstrap 5 and Material Design.</p>
+                                        <a class="btn btn-masthead mdc-ripple-upgraded" href="#scrollTarget">Explore Demos</a> --}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="container-xl px-5">
+                        {{!-- {{> article-toolbar}} --}}
+
+                        <div class="row gx-5">
+                            <div class="col-lg-9">
+                                {{> article-content}}
+                                {{!-- {{> article-helpful}} --}}
+                                {{!-- {{> supplemental-related-boxes}} --}}
+
+                                <div class="mb-5"></div>
+                            </div>
+                            <div class="col-lg-3 mb-5 mb-lg-0">
+                                {{> toc}}
+                            </div>
+                        </div>
+                    </div>
+                </main>
+
+                {{> footer}}
+            </div>
+        </div>
+
+        {{> modal-projects}}
+        {{> modal-branches}}
+        {{> modal-cookie}}
+
+        {{> scripts}}
+
+        <!-- Load Bootstrap JS bundle-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    </body>
+</html>
