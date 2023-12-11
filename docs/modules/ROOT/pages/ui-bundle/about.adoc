@@ -4,7 +4,7 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 This UI bundle is based on the link:https://startbootstrap.com/theme/material-admin-pro[Material Admin Pro]. To turn this template into an Antora UI bundle, the link:https://gitlab.com/antora/antora-ui-default[Antora Default UI] served as a guideline.
 
 == Color Scheme
-[cols="1,3", options="header"]
+[cols="1,1,1", options="header"]
 |===
 |Color |Hey |RGB
 |primary |`#5b84b1` |`91 132 177`
