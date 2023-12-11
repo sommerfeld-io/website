@@ -30,7 +30,7 @@ This project currently features multiple layouts:
 
 If a page doesn't specify a layout, the `[.path]_default.hbs_` layout is used. To specify a layout, the page file must declare the `page-layout` document attribute in the AsciiDoc header. The value of that attribute should match the stem of the layout file (the filename minus the file extension, e.g., `homepage`).
 
-[source,asciidoc]
+[source, asciidoc]
 ----
 = Homepage
 Sebastian Sommerfeld <sebastian@sommerfeld.io>
@@ -42,7 +42,7 @@ In this case, Antora will select the `[.path]_homepage.hbs_` layout for this pag
 == Images and Resources from the UI bundle
 The UI bundle ships some images which can be used from Asciidoc pages. Simply use `image::/docs/_/img/brands/bootstrap.svg[,width=64,height=64]` (with the respective image URL).
 
-=== Brand Logos
+.Logos
 * `/docs/_/img/brands/bootstrap.svg`
 * `/docs/_/img/brands/cc-amazon-pay.svg`
 * `/docs/_/img/brands/cc-amex.svg`
@@ -73,7 +73,7 @@ The UI bundle ships some images which can be used from Asciidoc pages. Simply us
 * `/docs/_/img/brands/prism.svg`
 * `/docs/_/img/brands/sonarcloud.svg`
 
-=== Icons
+.Icons
 * `/docs/_/img/icons/alerts.svg`
 * `/docs/_/img/icons/background.svg`
 * `/docs/_/img/icons/badges.svg`
@@ -105,7 +105,7 @@ The UI bundle ships some images which can be used from Asciidoc pages. Simply us
 * `/docs/_/img/icons/transforms.svg`
 * `/docs/_/img/icons/typography.svg`
 
-=== Illustrations
+.Illustrations
 * `/docs/_/img/illustrations/cloud.svg`
 * `/docs/_/img/illustrations/create.svg`
 * `/docs/_/img/illustrations/error-400.svg`
@@ -117,6 +117,9 @@ The UI bundle ships some images which can be used from Asciidoc pages. Simply us
 * `/docs/_/img/illustrations/error-503.svg`
 * `/docs/_/img/illustrations/error-504.svg`
 * `/docs/_/img/illustrations/security.svg`
+
+== Highlight Code Blocks
+The link:https://highlightjs.org[Highlight JS Library] allows syntax coloring for `asciidoc`, `bash`, `clojure`, `cpp`, `cs`, `css`, `diff`, `dockerfile`, `elixir`, `go`, `groovy`, `haskell`, `java`, `javascript`, `json`, `kotlin`, `lua`, `markdown`, `nix`, `none`, `objectivec`, `perl`, `php `, `properties`, `puppet`, `python`, `ruby`, `rust`, `scala`, `shell`, `sql `, `swift`, `xml ` and `yaml`.
 
 == About the HTML template
 The `ui/material-admin-pro/template` only contains static HTML, CSS, ... files. For deeper changes, unpack `ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz` and update the source files.
