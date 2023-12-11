@@ -85,9 +85,11 @@ aside.toc.sidebar .toc-menu ul li[data-level="4"] a { padding-left: 4rem; }
 aside.toc.sidebar .toc-menu ul li[data-level="5"] a { padding-left: 5rem; }
 aside.toc.sidebar .toc-menu ul li[data-level="6"] a { padding-left: 6rem; }
 
-article.doc pre {
+article.doc pre,
+article.doc pre.highlightjs.highlight {
   background: var(--custom-code-bg);
   padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
 }
 
 article.doc .imageblock .content img,
