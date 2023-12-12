@@ -11,21 +11,18 @@ simultaneously. Each container within this Compose configuration corresponds to 
 component or service of the development environment.
 
 |===
-| Image | Port | Protocol | Info
+| Image | URL | Info
 
 | `local/website:dev`
-| 7888
-| http
+| http://localhost:7888
 | Antora-generated website with real contents (see xref:AUTO-GENERATED:Dockerfile.adoc[Dockerfile])
 
 | `local/ui-preview:dev`
-| 5252
-| http
+| http://localhost:5252
 | UI bundle preview for local development (see xref:AUTO-GENERATED:ui/material-admin-pro/ui-bundle/Dockerfile.adoc[ui/material-admin-pro/ui-bundle/Dockerfile])
 
 | `httpd:2.4.58-alpine3.18`
-| 5353
-| http
+| http://localhost:5353
 | Serve the static HTML template files, which form the foundation of the UI bundle (and hence the whole website UI) through an Apache webserver.
 |===
 
