@@ -9,7 +9,7 @@ specifically for the project. It serves as the foundation for encapsulating all 
 dependencies within the image, ensuring a consistent and reproducible environment across
 various workstations.
 
-== Prerequisites
+=== Prerequisites
 
 Having Visual Studio Code (VSCode) and the Dev Container plugin installed are
 essential prerequisites for this development environment. This devcontainer has
@@ -29,7 +29,7 @@ inside the devcontainer and initializes `pre-commit` once the container is creat
 
 [source, json]
 
-....
+----
 {
 "name": "sommerfeld-io",
 "build": {
@@ -42,4 +42,4 @@ inside the devcontainer and initializes `pre-commit` once the container is creat
 
 "postCreateCommand": "pre-commit install"
 }
-....
+----
