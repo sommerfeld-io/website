@@ -197,6 +197,31 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
+"@fontsource/material-icons-outlined@5.0.11":
+  version "5.0.11"
+  resolved "https://registry.yarnpkg.com/@fontsource/material-icons-outlined/-/material-icons-outlined-5.0.11.tgz#1661f444a834ae2055c82778aa2c44579459be00"
+  integrity sha512-V0U/WCRXijxVHWr5ACj9CcUzxwAeCBayEGawKQFDB7f12tyCWTIVLKRDEhf1EaNVpSStkjl738jesY4j8Dr94Q==
+
+"@fontsource/material-icons-round@5.0.11":
+  version "5.0.11"
+  resolved "https://registry.yarnpkg.com/@fontsource/material-icons-round/-/material-icons-round-5.0.11.tgz#b0a7337b85be3bc53e16d008c8296b67aa0f16f7"
+  integrity sha512-rcF36hREmgoMLpv6SQlibr6tVqNGeYrkpCabNok7ne7Y282FMZFiv8+B74t7SLWa3d0gSRFFLKOWTpolr8HbvA==
+
+"@fontsource/material-icons-sharp@5.0.11":
+  version "5.0.11"
+  resolved "https://registry.yarnpkg.com/@fontsource/material-icons-sharp/-/material-icons-sharp-5.0.11.tgz#c02b30121333daa99bae66d8605ced2e97744420"
+  integrity sha512-iZWFBP56QmXFcUoI8Cj8/8+Ga5q2/JXWg7IW6YNvUVRv0TJr2bjBLRzBHTqnl+E4XeXoRMvibk9FbT68KPx+3A==
+
+"@fontsource/material-icons-two-tone@5.0.11":
+  version "5.0.11"
+  resolved "https://registry.yarnpkg.com/@fontsource/material-icons-two-tone/-/material-icons-two-tone-5.0.11.tgz#f5546dfeea080bbbbf2500497dc9235b822d9e33"
+  integrity sha512-biSJ2GkeGbfgmTBnzYAdWSr+4RaWa/5jZ2xGY3SjdVhXHp9vBl7NkFTxdYACvTSMGies9b095X098CmfTvUxLQ==
+
+"@fontsource/material-icons@5.0.11":
+  version "5.0.11"
+  resolved "https://registry.yarnpkg.com/@fontsource/material-icons/-/material-icons-5.0.11.tgz#01b7cc91c2897d043acf4e5dc45ea190c098d72d"
+  integrity sha512-6JVVgGSrcDmst31WXaLG1MVNL6Sn0JLHwrGGLcg8u2KtXW+lTAJnscKEgj1pMpK73ks9Q193Mw2Oh9aebDj26g==
+
 "@fontsource/roboto-mono@~4.5":
   version "4.5.10"
   resolved "https://registry.yarnpkg.com/@fontsource/roboto-mono/-/roboto-mono-4.5.10.tgz#197fc2d5fa9c25fd7ad9dcccb2705663f2409850"

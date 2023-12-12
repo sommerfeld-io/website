@@ -83,6 +83,11 @@ RUN yarn install \
     && mkdir -p src/font \
     && cp node_modules/@fontsource/roboto/files/roboto-*.woff* src/font \
     && cp node_modules/@fontsource/roboto-mono/files/roboto-mono-*.woff* src/font \
+    && cp node_modules/@fontsource/material-icons/files/material-icons-*.woff* src/font \
+    && cp node_modules/@fontsource/material-icons-outlined/files/material-icons-*.woff* src/font \
+    && cp node_modules/@fontsource/material-icons-round/files/material-icons-*.woff* src/font \
+    && cp node_modules/@fontsource/material-icons-sharp/files/material-icons-*.woff* src/font \
+    && cp node_modules/@fontsource/material-icons-two-tone/files/material-icons-*.woff* src/font \
     && gulp bundle
 
 

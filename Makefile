@@ -78,7 +78,7 @@ WEBSITE_PORT = 7888
 TEMPLATE_PORT = 5353
 
 .DEFAULT_GOAL := run
-.PHONY: all clean test build run build-ui preview-ui preview-template lint-makefile lint-yaml lint-folders lint-filenames
+.PHONY: all clean test build run install build-ui preview-ui preview-template lint-makefile lint-yaml lint-folders lint-filenames
 
 all: build-ui build
 
@@ -106,9 +106,12 @@ run: build
 	docker run --rm mwendler/figlet:latest "$(WEBSITE_PORT)"
 	docker run --rm -p "$(WEBSITE_PORT):7888" "$(WEBSITE_DOCKER_IMAGE)"
 
-build-ui:
+install:
 	@cd ui/material-admin-pro/ui-bundle || exit \
-		&& yarn install \
+		&& yarn install
+
+build-ui: install
+	@cd ui/material-admin-pro/ui-bundle || exit \
 		&& gulp bundle
 
 preview-ui: build-ui
