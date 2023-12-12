@@ -37,9 +37,11 @@ built, it can serve as the foundation upon which the actual website content is a
 combines the content with the UI bundle to generate the final website, ensuring consistency in design
 and layout throughout the site.
 
-IMPORTANT: Make sure to control local image builds by using the xref:AUTO-GENERATED:Makefile.adoc[Makefile].
-The `make ui/material-admin-pro/ui-bundle/build/ui-bundle.zip` is a mandatory prerequisite. Otherwise
-The build breaks due to a missing UI bundle.
+IMPORTANT: Make sure to control the image builds and containers by using the
+xref:AUTO-GENERATED:Makefile.adoc[Makefile]. The
+`make ui/material-admin-pro/ui-bundle/build/ui-bundle.zip` is a mandatory
+prerequisite (which the Makefile ensures). Otherwise the build breaks due to a
+missing UI bundle.
 
 Once all pages are built, the `run` stage of the image initiates an HTTP server using the Docker
 image link:https://hub.docker.com/_/httpd[httpd]. This HTTP server makes the entire website accessible
