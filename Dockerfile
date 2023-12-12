@@ -76,9 +76,13 @@ RUN yarn global add gulp-cli@2.3.0 \
     && yarn global add @antora/site-generator@3.1
 
 COPY ui/material-admin-pro/ui-bundle /antora-ui
+
 WORKDIR /antora-ui
 
 RUN yarn install \
+    && mkdir -p src/font \
+    && cp node_modules/@fontsource/roboto/files/roboto-*.woff* src/font \
+    && cp node_modules/@fontsource/roboto-mono/files/roboto-mono-*.woff* src/font \
     && gulp bundle
 
 

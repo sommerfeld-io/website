@@ -22,6 +22,8 @@ At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergr
 === UI Elements
 The UI template provides several UI elements which can be used inside the Asciidoc pages.
 
+Something in _italic_ and *bold*.
+
 [cols="2,5,1,4",options="header"]
 |===
 |What |Markup in Adoc files (wrap in `+++`) |Rendered |More info

@@ -52,3 +52,4 @@ ignore:
   - ui/material-admin-pro/ui-bundle/public
   - ui/material-admin-pro/ui-bundle/.gulp.json
   - ui/material-admin-pro/ui-bundle/src/js/vendor/highlight.bundle.js
+  - ui/material-admin-pro/ui-bundle/src/js/vendor/bootstrap.bundle.min.js
