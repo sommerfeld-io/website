@@ -12,6 +12,8 @@
 #
 # == See also
 #
+# * xref:AUTO-GENERATED:Makefile.adoc[Makefile]
+# * xref:AUTO-GENERATED:ui/material-admin-pro/ui-bundle/Dockerfile.adoc[ui/material-admin-pro/ui-bundle/Dockerfile]
 # * xref:AUTO-GENERATED:docker-compose-yml.adoc[docker-compose.yml]
 
 

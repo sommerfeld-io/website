@@ -30,6 +30,12 @@
 # has been developed in VSCode and tested with Docker version 24.0.7 on top of Ubuntu 23.10.
 # The xref:AUTO-GENERATED:-devcontainer/Dockerfile.adoc[DevContainer] for this repository ships
 # all these depencencies.
+#
+# == See also
+#
+# * xref:AUTO-GENERATED:Dockerfile.adoc[Dockerfile]
+# * xref:AUTO-GENERATED:ui/material-admin-pro/ui-bundle/Dockerfile.adoc[ui/material-admin-pro/ui-bundle/Dockerfile]
+# * xref:AUTO-GENERATED:docker-compose-yml.adoc[docker-compose.yml]
 
 
 UI_SRC_DIR = ui/material-admin-pro/ui-bundle
