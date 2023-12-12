@@ -6,27 +6,21 @@
 # components. The main purpose of this Dockerfile is to generate the documentation sites using
 # link:https://www.antora.org[Antora].
 #
-# Once all sites are built, the last stage of this multistage image starts an Apache server, making
-# the website accessible over HTTP.
+# === Prerequisites
 #
-# == Prerequisites
+# This image has been developed and tested with Docker version 24.0.7 on top of Ubuntu 23.10.
 #
-# This image has been developed and tested with Docker version 24.0.2 on top of Ubuntu 22.10.
-#
-# == About the tags and versions
+# === About the tags and versions
 #
 # include::ROOT:partial$/docker-tag-strategy.adoc[]
 #
-# === Example
+# == How to use
 #
-# Use the xref:AUTO-GENERATED:build-and-run-website-sh.adoc[``build-and-run-website.sh``] script
-# to build this image and start a container. The script basically invokes these two commands.
+# Use ``docker run --rm -p "7888:7888" sommerfeldio/website:rc`` to run the moist recent release
+# candidate from DockerHub.
 #
-# [source, bash]
-# ```
-# docker build --no-cache -t local/website:dev .
-# docker run --rm -p "7888:7888" local/website:dev
-# ```
+# The most effective method to construct and operate the website on a local machine is by using
+# the xref:AUTO-GENERATED:Makefile.adoc[Makefile].
 #
 # == Image Structure
 #
@@ -40,19 +34,13 @@
 # combines the content with the UI bundle to generate the final website, ensuring consistency in design
 # and layout throughout the site.
 #
-# The Google font "Poppins" (https://www.npmjs.com/package/@expo-google-fonts/poppins?activeTab=readme)
-# is now part of the ``package.json``. The Dockerfile takes care of copying the fonts from
-# ``ui/material-admin-pro/ui-bundle/node_modules/@expo-google-fonts`` to ``ui/material-admin-pro/ui-bundle/src/font``.
+# IMPORTANT: Make sure to control the image builds and containers by using the
+# xref:AUTO-GENERATED:Makefile.adoc[Makefile]. The
+# ``make ui/material-admin-pro/ui-bundle/build/ui-bundle.zip`` is a mandatory
+# prerequisite (which the Makefile ensures). Otherwise the build breaks due to a
+# missing UI bundle.
 #
-# The ``build-ui-bundle`` stage leverages link:https://antora.org[Antora], a documentation site generator,
-# to build the documentation sites of the website. Antora allows the documentation to be sourced from
-# different repositories, making it easier to manage and update documentation across various projects.
-# The configuration for Antora can be found in the ``config/playbooks`` folder. The contents from all
-# repos are cloned from GitHub because (a) project files from the local machine filesystem (the docker-host)
-# are not present inside container and (b) maybe not all relevant repositories are cloned on the local
-# workstation, making it impossible to mount everything into the container.
-#
-# Once all the sites are built, the ``run`` stage of the image initiates an HTTP server using the Docker
+# Once all pages are built, the ``run`` stage of the image initiates an HTTP server using the Docker
 # image link:https://hub.docker.com/_/httpd[httpd]. This HTTP server makes the entire website accessible
 # over HTTP. The resulting image from this stage only includes the built files needed for serving the
 # website, avoiding any unnecessary dependencies or intermediate build artifacts from previous stages.
@@ -68,29 +56,6 @@
 # The webserver exposes his status information through http://localhost:7888/server-status.
 
 
-FROM node:21-bullseye-slim AS build-ui-bundle
-LABEL maintainer="sebastian@sommerfeld.io"
-
-RUN yarn global add gulp-cli@2.3.0 \
-    && yarn global add @antora/cli@3.1 \
-    && yarn global add @antora/site-generator@3.1
-
-COPY ui/material-admin-pro/ui-bundle /antora-ui
-
-WORKDIR /antora-ui
-
-RUN yarn install \
-    && mkdir -p src/font \
-    && cp node_modules/@fontsource/roboto/files/roboto-*.woff* src/font \
-    && cp node_modules/@fontsource/roboto-mono/files/roboto-mono-*.woff* src/font \
-    && cp node_modules/@fontsource/material-icons/files/material-icons-*.woff* src/font \
-    && cp node_modules/@fontsource/material-icons-outlined/files/material-icons-*.woff* src/font \
-    && cp node_modules/@fontsource/material-icons-round/files/material-icons-*.woff* src/font \
-    && cp node_modules/@fontsource/material-icons-sharp/files/material-icons-*.woff* src/font \
-    && cp node_modules/@fontsource/material-icons-two-tone/files/material-icons-*.woff* src/font \
-    && gulp bundle
-
-
 FROM antora/antora:3.1.5 AS build-antora-site
 LABEL maintainer="sebastian@sommerfeld.io"
 
@@ -98,7 +63,7 @@ RUN yarn add @asciidoctor/core@~3.0.2 \
     && yarn add asciidoctor-kroki@~0.18.1 \
     && yarn add @antora/lunr-extension@~1.0.0-alpha.8
 
-COPY --from=build-ui-bundle /antora-ui/build/ui-bundle.zip /antora-ui/material-admin-pro/ui-bundle.zip
+COPY ui/material-admin-pro/ui-bundle/build/ui-bundle.zip /antora-ui/material-admin-pro/ui-bundle.zip
 COPY config /antora
 WORKDIR /antora
 

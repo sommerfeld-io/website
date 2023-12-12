@@ -6,7 +6,7 @@
 # dependencies within the image, ensuring a consistent and reproducible environment across
 # various workstations.
 #
-# == Prerequisites
+# === Prerequisites
 #
 # Having Visual Studio Code (VSCode) and the Dev Container plugin installed are
 # essential prerequisites for this development environment. This devcontainer has
@@ -25,8 +25,7 @@
 # inside the devcontainer and initializes ``pre-commit`` once the container is created.
 #
 # [source, json]
-#
-# ....
+# ```
 # {
 # 	"name": "sommerfeld-io",
 #   "build": {
@@ -39,7 +38,7 @@
 #
 # 	"postCreateCommand": "pre-commit install"
 # }
-# ....
+# ```
 
 
 FROM mcr.microsoft.com/devcontainers/javascript-node:20-bullseye

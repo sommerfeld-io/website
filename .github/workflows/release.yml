@@ -92,7 +92,7 @@ jobs:
           short-description: ${{ github.event.repository.description }}
           readme-filepath: ./README.md
       - name: Build UI bundle
-        run: make build-ui
+        run: make ui/material-admin-pro/ui-bundle/build/ui-bundle.zip
         shell: bash
       - name: Create tag and Github release
         env:
