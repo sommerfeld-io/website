@@ -6,7 +6,7 @@
 # remains confined to local usage. This particular Dockerfile is providing the preview for
 # the UI bundle, enabling convenient development by running ``gulp preview``.
 #
-# == Prerequisites
+# === Prerequisites
 #
 # This image has been developed and tested with Docker version 24.0.7 on top of Ubuntu 23.10.
 #

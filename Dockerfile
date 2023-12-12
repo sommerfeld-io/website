@@ -6,15 +6,15 @@
 # components. The main purpose of this Dockerfile is to generate the documentation sites using
 # link:https://www.antora.org[Antora].
 #
-# == Prerequisites
+# === Prerequisites
 #
 # This image has been developed and tested with Docker version 24.0.7 on top of Ubuntu 23.10.
 #
-# == About the tags and versions
+# === About the tags and versions
 #
 # include::ROOT:partial$/docker-tag-strategy.adoc[]
 #
-# === How to use
+# == How to use
 #
 # Use ``docker run --rm -p "7888:7888" sommerfeldio/website:rc`` to run the moist recent release
 # candidate from DockerHub.

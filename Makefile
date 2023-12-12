@@ -4,6 +4,14 @@
 # @description This Makefile streamlines the process of building the website from its
 # source files and orchestrating its execution within Docker containers.
 #
+# === Prerequisites
+#
+# This Makefile needs Node, NPM and Gulp installed. To avoid having to install all
+# prerequisites on your host, open the project in the DevContainer from this repo. This project
+# has been developed in VSCode and tested with Docker version 24.0.7 on top of Ubuntu 23.10.
+# The xref:AUTO-GENERATED:-devcontainer/Dockerfile.adoc[DevContainer] for this repository ships
+# all these depencencies.
+#
 # == How to use this Makefile
 #
 # The default target, which is triggered when simply using ``make`` installs all dependencies,
@@ -11,25 +19,19 @@
 #
 # === ``make run``
 #
-# Launches a Docker container based on the newly created image. The container is started in the
-# foreground. The locally hosted website can be accessed via a web browser at http://localhost:7888.
+# Start all Docker containers for local development. Installing and buindling dependencies
+# are triggered automatically if needed. Take a look at xref:AUTO-GENERATED:docker-compose-yml.adoc[docker-compose.yml]
+# for further information on the started Docker containers.
 #
 # === ``make ui/material-admin-pro/ui-bundle/build/ui-bundle.zip``
 #
 # Automates the process of building the Antora UI bundle. Use this target from a Github Actions
-# workflow to build the UI bundle from a pipeline.
+# workflow to build the UI bundle from a pipeline. Installing dependencies is triggered
+# automatically if needed.
 #
 # === ``make clean``
 #
 # Remove local Docker images, dependencies and build artifacts.
-#
-# == Prerequisites
-#
-# This Makefile needs Node, NPM and Gulp installed. To avoid having to install all
-# prerequisites on your host, open the project in the DevContainer from this repo. This project
-# has been developed in VSCode and tested with Docker version 24.0.7 on top of Ubuntu 23.10.
-# The xref:AUTO-GENERATED:-devcontainer/Dockerfile.adoc[DevContainer] for this repository ships
-# all these depencencies.
 #
 # == See also
 #

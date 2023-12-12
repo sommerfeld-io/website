@@ -1,8 +1,8 @@
 ---
 # @file docker-compose.yml
-# @brief ...
+# @brief Docker Compose configuration to build and start all Docker containers required for local development.
 #
-# @description This Docker Compose configuration serves the purpose of buildind and starting all
+# @description This Docker Compose configuration serves the purpose of building and starting all
 # the essential Docker containers required to facilitate the local development of both the website
 # and the UI bundle. This configuration orchestrates this by starting multiple containers
 # simultaneously. Each container within this Compose configuration corresponds to a distinct
@@ -14,19 +14,18 @@
 # | ``local/ui-preview:dev``    | 5252 | http     | UI bundle preview for local development (see xref:AUTO-GENERATED:ui/material-admin-pro/ui-bundle/Dockerfile.adoc[ui/material-admin-pro/ui-bundle/Dockerfile]) |
 # | ``httpd:2.4.58-alpine3.18`` | 5353 | http     | Serve the static HTML template files, which form the foundation of the UI bundle (and hence the whole website UI) through an Apache webserver. |
 #
+# === Prerequisites
+#
+# This compose config has been developed and tested with Docker version 24.0.2 on top of
+# Ubuntu 22.10.
+#
 # == How to Use
 #
-# Make sure to control the image builds and containers by using the
-# xref:AUTO-GENERATED:Makefile.adoc[Makefile]. The ``make ui/material-admin-pro/ui-bundle/build/ui-bundle.zip``
-# is a mandatory prerequisite (which the Makefile ensures). Otherwise the build breaks due to a
+# Make sure to control the image builds and containers by using the xref:AUTO-GENERATED:Makefile.adoc[Makefile].
+#
+# The ``make ui/material-admin-pro/ui-bundle/build/ui-bundle.zip`` is a mandatory prerequisite
+# (which the Makefile ensures). Otherwise the build breaks due to a
 # missing UI bundle.
-#
-# See xref:AUTO-GENERATED:Makefile.adoc[Makefile]
-#
-# == Prerequisites
-#
-# This compose config has been developed and tested with Docker version 24.0.2 on top
-# of Ubuntu 22.10.
 
 
 version: "3.3"
