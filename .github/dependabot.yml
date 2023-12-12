@@ -9,3 +9,7 @@ updates:
     directory: /
     schedule:
       interval: weekly
+  - package-ecosystem: docker
+    directory: ui/material-admin-pro/ui-bundle/Dockerfile
+    schedule:
+      interval: weekly

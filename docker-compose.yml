@@ -1,0 +1,49 @@
+---
+# @file docker-compose.yml
+# @brief ...
+#
+# @description ...
+# todo ... write description and brief (above)
+#
+# == Prerequisites
+#
+# This compose config has been developed and tested with Docker version 24.0.2 on top
+# of Ubuntu 22.10.
+#
+# == How to use
+#
+# todo ... at least update the image names below
+#
+# == See also
+#
+# * xref:AUTO-GENERATED:Dockerfile.adoc[Dockerfile]
+
+
+version: "3.3"
+services:
+
+  ui-preview:
+    container_name: ui-preview
+    build: ui/material-admin-pro/ui-bundle
+    image: local/ui-preview:dev
+    ports:
+      - 5252:5252
+    volumes:
+      - ./ui/material-admin-pro/ui-bundle:/ui-bundle
+
+  website:
+    container_name: website
+    build: .
+    image: local/website:dev
+    ports:
+      - 7888:7888
+    depends_on:
+      - ui-preview
+
+  template:
+    container_name: template
+    image: httpd:2.4.58-alpine3.18
+    ports:
+      - 5353:80
+    volumes:
+      - ./ui/material-admin-pro/template/pages:/usr/local/apache2/htdocs
