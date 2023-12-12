@@ -1,0 +1,1 @@
+* xref:AUTO-GENERATED:docker-compose-yml.adoc[docker-compose.yml]
