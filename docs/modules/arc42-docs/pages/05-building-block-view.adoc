@@ -3,11 +3,71 @@
 
 {description}
 
-CAUTION: update this page
+== Overview
+[plantuml, puml-build-image, svg]
+----
+@startuml
+
+skinparam linetype ortho
+skinparam monochrome false
+skinparam componentStyle uml2
+skinparam backgroundColor transparent
+skinparam ArrowColor #212121
+skinparam NoteBorderColor #212121
+skinparam NoteFontColor #212121
+skinparam NoteBackgroundColor #fff
+skinparam ComponentBorderColor #212121
+skinparam ComponentFontColor #212121
+skinparam DatabaseBorderColor #212121
+skinparam DatabaseFontColor #212121
+skinparam FileBorderColor #212121
+skinparam FileFontColor #212121
+skinparam ControlBorderColor #212121
+skinparam ControlFontColor #212121
+skinparam RectangleBackgroundColor transparent
+skinparam RectangleBorderColor #212121
+skinparam RectangleFontColor #212121
+skinparam ControlBackgroundColor transparent
+skinparam ControlBorderColor #212121
+skinparam ControlFontColor #212121
+skinparam HexagonBackgroundColor transparent
+skinparam HexagonBorderColor #212121
+skinparam HexagonFontColor #212121
+skinparam ArtifactBorderColor #212121
+skinparam ArtifactFontColor #212121
+skinparam defaultTextAlignment center
+skinparam activity {
+    'FontName Ubuntu
+    FontName Roboto
+}
+
+rectangle github as "Github.com" {
+    database repo as "Website\nRepo" <<Github>>
+    component ui_bundle as "UI\nBundle" <<Sources>>
+    collections adoc as "Asciidoc\nContents" <<Sources>>
+
+    ui_bundle -up-> repo
+    adoc -up-> repo
+
+    queue build_workflow <<Github Actions>>
+    repo -right-> build_workflow
+}
+
+rectangle dockerhub as "hub.docker.com" {
+    artifact image as "Website\nContainer\nImage" <<Docker>>
+}
+
+build_workflow -right-> image
+
+artifact kroki as "Kroki.io"
+
+build_workflow -up-> kroki
+kroki -down-> build_workflow
+
+@enduml
+----
 
 == Antora
-CAUTION: chould this really be mentioned here
-
 This website is constructed using Antora, and all its pages originate from Asciidoc files.
 
 link:https://antora.org[Antora] is a static site generator that simplifies the process of creating documentation websites. It takes content from link:https://docs.asciidoctor.org/asciidoc/latest[Asciidoc] files, which are simple text documents formatted with a lightweight markup language, and turns them into a cohesive website.
