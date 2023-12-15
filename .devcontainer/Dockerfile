@@ -36,7 +36,10 @@
 # 		"ghcr.io/devcontainers/features/docker-in-docker:2": {}
 # 	},
 #
-# 	"postCreateCommand": "pre-commit install"
+# 	"postCreateCommand": "pre-commit install",
+#	"postStartCommand": "docker compose --file ${containerWorkspaceFolder}/.devcontainer/ops/docker-compose.yml --env-file ${containerWorkspaceFolder}/.devcontainer/ops/.env up -d",
+#
+#	"forwardPorts": [7990]
 # }
 # ```
 
