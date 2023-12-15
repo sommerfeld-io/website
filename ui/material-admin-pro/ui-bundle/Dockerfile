@@ -6,9 +6,20 @@
 # remains confined to local usage. This particular Dockerfile is providing the preview for
 # the UI bundle, enabling convenient development by running ``gulp preview``.
 #
+# The reason for not simply copying the UI bundle sources directly into the container is
+# because this method wouldn't allow the preview to update based on changes made to the
+# source files. Instead, by mounting a volume, the container can dynamically reflect any
+# modifications made to the source files without needing to be rebuilt or restarted. This
+# live synchronization between the host and container filesystems enables real-time updates,
+# crucial for rendering an accurate preview based on the latest changes in the source code.
+#
 # === Prerequisites
 #
 # This image has been developed and tested with Docker version 24.0.7 on top of Ubuntu 23.10.
+#
+# === Unprivileged user
+#
+# This Dockerfile ensures that the container doesn't run as the default root user but rather switches to a user named "sebastian." This change is crucial to prevent permission conflicts between the container and the host filesystem
 #
 # == See also
 #
@@ -23,6 +34,11 @@ LABEL maintainer="sebastian@sommerfeld.io"
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 RUN mkdir -p /ui-bundle \
     && yarn global add gulp-cli@2.3.0
+
+RUN groupmod -g 1000 node && usermod -u 1000 -g 1000 node \
+    && usermod -d /home/sebastian -l sebastian node
+
+USER sebastian
 
 WORKDIR /ui-bundle
 
