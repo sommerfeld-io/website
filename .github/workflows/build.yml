@@ -33,6 +33,23 @@ permissions:
   contents: read
 
 jobs:
+  sonar-scan:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        if: ${{ github.actor != 'dependabot[bot]' }}
+        with:
+          fetch-depth: 0
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        if: ${{ github.actor != 'dependabot[bot]' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
   ui-preview:
     runs-on: ubuntu-latest
     permissions:
@@ -149,7 +166,7 @@ jobs:
 
   on-failure:
     runs-on: ubuntu-latest
-    needs: ['website', 'ui-preview']
+    needs: ['sonar-scan', 'website', 'ui-preview']
     if: failure()
     steps:
       - name: Send Pipeline Status to Google Chat
