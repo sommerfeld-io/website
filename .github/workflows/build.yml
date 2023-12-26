@@ -159,7 +159,7 @@ jobs:
       - name: Build UI bundle
         run: make src/main/ui/material-admin-pro/ui-bundle/build/ui-bundle.zip
         shell: bash
-      - name: &docker-tag Set docker tag
+      - name: Set docker tag
         id: vars
         run: |
           echo "Ref = ${{ github.ref }}"
@@ -230,7 +230,26 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: *docker-tag
+      - name: Set docker tag
+        id: vars
+        run: |
+          echo "Ref = ${{ github.ref }}"
+          echo "Ref Name = $GITHUB_REF_NAME"
+          echo "Head Ref = $GITHUB_HEAD_REF"
+
+          # TAG="$GITHUB_REF_NAME"
+          # if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+          #   TAG="$GITHUB_HEAD_REF"
+          # fi
+
+          TAG='rc'
+
+          echo "tag = $TAG"
+          echo "DOCKER_TAG=$TAG" >> $GITHUB_OUTPUT
+        shell: bash
+      - name: Pull ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }} container
+        run: docker pull ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
+        shell: bash
       - name: Start ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }} container
         run: docker run --rm --name ${{ env.CONTAINER_NAME }} -d -p 7888:7888 ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
         shell: bash
