@@ -48,6 +48,12 @@ services:
       - 7888:7888
     depends_on:
       - ui-preview
+    healthcheck:
+      test: "wget --no-verbose --tries=1 --spider http://localhost:7888 || exit 1"
+      interval: 10s
+      timeout: 10s
+      retries: 6
+      start_period: 10s
 
   template:
     container_name: template
@@ -56,3 +62,23 @@ services:
       - 5353:80
     volumes:
       - ./src/main/ui/material-admin-pro/template/pages:/usr/local/apache2/htdocs
+
+  inspec-check:
+    container_name: inspec-check
+    image: chef/inspec:5.22.36
+    volumes: &inspec-volumes
+      - ./src/test/inspec:/src/test/inspec
+    working_dir: &working_dir /src/test/inspec
+    command: check website --chef-license=accept-no-persist
+
+  inspec-test:
+    container_name: inspec-test
+    image: chef/inspec:5.22.36
+    volumes: *inspec-volumes
+    working_dir: *working_dir
+    command: exec website --chef-license=accept-no-persist
+    depends_on:
+      website:
+        condition: service_healthy
+      inspec-check:
+        condition: service_completed_successfully

@@ -1,0 +1,11 @@
+---
+name: website
+title: InSpec Profile
+maintainer: Sebastian Sommerfeld
+copyright: sommerfeld.io
+copyright_email: sebastian@sommerfeld.io
+license: Apache-2.0
+summary: An InSpec Compliance Profile
+version: 0.1.0
+supports:
+  platform: os

@@ -101,4 +101,4 @@ clean:
 	rm -rf $(UI_SRC_DIR)/public
 
 	@echo "[INFO] Remove yarn.loc"
-	rm $(UI_SRC_DIR)/yarn.lock
+	rm -f $(UI_SRC_DIR)/yarn.lock

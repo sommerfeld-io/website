@@ -1,0 +1,18 @@
+= Example InSpec Profile
+
+This example shows the implementation of an InSpec profile.
+
+CAUTION: TODO ... decide what to do with this README
+
+== Create new profile
+
+[source, bash]
+----
+docker run -it --rm \
+    --volume /etc/passwd:/etc/passwd:ro \
+    --volume /etc/group:/etc/group:ro \
+    --user "$(id -u):$(id -g)" \
+    --volume "$(pwd):$(pwd)" \
+    --workdir "$(pwd)" \
+    chef/inspec:latest init profile website --chef-license=accept-no-persist
+----
