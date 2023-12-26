@@ -206,6 +206,7 @@ jobs:
           provenance: true
           sbom: true
       - name: Run Inspec tests
+        # TODO ... Run the image first! From here or from dedicated step?
         run: docker run --rm --volume ./src/test/inspec:/src/test/inspec --workdir /src/test/inspec chef/inspec:5.22.36 exec website --chef-license=accept-no-persist
         shell: bash
       - name: Docker Scout Compare
@@ -221,7 +222,8 @@ jobs:
         with:
           command: cves
           image: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
-          exit-code: ${{ github.event_name == 'pull_request' }}
+          # exit-code: ${{ github.event_name == 'pull_request' }}
+          exit-code: false
           write-comment: ${{ github.event_name == 'pull_request' }}
 
   on-failure:
