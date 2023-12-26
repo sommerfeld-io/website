@@ -159,7 +159,7 @@ jobs:
       - name: Build UI bundle
         run: make src/main/ui/material-admin-pro/ui-bundle/build/ui-bundle.zip
         shell: bash
-      - name: Set docker tag
+      - name: &docker-tag Set docker tag
         id: vars
         run: |
           echo "Ref = ${{ github.ref }}"
@@ -205,10 +205,6 @@ jobs:
           cache-to: type=gha,mode=max
           provenance: true
           sbom: true
-      - name: Run Inspec tests
-        # TODO ... Run the image first! From here or from dedicated step?
-        run: docker run --rm --volume ./src/test/inspec:/src/test/inspec --workdir /src/test/inspec chef/inspec:5.22.36 exec website --chef-license=accept-no-persist
-        shell: bash
       - name: Docker Scout Compare
         uses: docker/scout-action@v1.2.2
         with:
@@ -226,9 +222,25 @@ jobs:
           exit-code: false
           write-comment: ${{ github.event_name == 'pull_request' }}
 
+  inspec-tests:
+    runs-on: ubuntu-latest
+    needs: ['website']
+    env:
+      CONTAINER_NAME: website
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: *docker-tag
+      - name: Start ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }} container
+        run: docker run --rm --name ${{ env.CONTAINER_NAME }} -d -p 7888:7888 ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
+        shell: bash
+      - name: Stop ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }} container
+        run: docker stop --name ${{ env.CONTAINER_NAME }}
+        shell: bash
+
   on-failure:
     runs-on: ubuntu-latest
-    needs: ['sonar-scan', 'lint-yaml', 'lint-folders', 'lint-filenames', 'shellcheck', 'lint-makefile', 'validate-inspec-profile', 'website', 'ui-preview']
+    needs: ['sonar-scan', 'lint-yaml', 'lint-folders', 'lint-filenames', 'shellcheck', 'lint-makefile', 'validate-inspec-profile', 'ui-preview', 'website', 'inspec-tests']
     if: failure()
     steps:
       - name: Send Pipeline Status to Google Chat
