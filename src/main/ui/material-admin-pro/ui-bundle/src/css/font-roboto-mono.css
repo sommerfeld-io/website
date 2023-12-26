@@ -1,8 +1,8 @@
 /*
  * Styles to ship fonts with this project so there is no need to load anything from the internet.
  *
- * The Dockerfile takes care of copying the fonts from `ui/material-admin-pro/ui-bundle/node_modules/@fontsource/roboto-mono`
- * to `ui/material-admin-pro/ui-bundle/src/font`
+ * The Dockerfile takes care of copying the fonts from `src/main/ui/material-admin-pro/ui-bundle/node_modules/@fontsource/roboto-mono`
+ * to `src/main/ui/material-admin-pro/ui-bundle/src/font`
  */
 
 /* cyrillic-ext */

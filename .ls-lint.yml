@@ -48,8 +48,8 @@ ignore:
   - .yamllint.yml
 
   # UI bundle
-  - ui/material-admin-pro/ui-bundle/node_modules
-  - ui/material-admin-pro/ui-bundle/public
-  - ui/material-admin-pro/ui-bundle/.gulp.json
-  - ui/material-admin-pro/ui-bundle/src/js/vendor/highlight.bundle.js
-  - ui/material-admin-pro/ui-bundle/src/js/vendor/bootstrap.bundle.min.js
+  - src/main/ui/material-admin-pro/ui-bundle/node_modules
+  - src/main/ui/material-admin-pro/ui-bundle/public
+  - src/main/ui/material-admin-pro/ui-bundle/.gulp.json
+  - src/main/ui/material-admin-pro/ui-bundle/src/js/vendor/highlight.bundle.js
+  - src/main/ui/material-admin-pro/ui-bundle/src/js/vendor/bootstrap.bundle.min.js

@@ -108,7 +108,7 @@ jobs:
       - name: hadolint
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: ui/material-admin-pro/ui-bundle/Dockerfile
+          dockerfile: src/main/ui/material-admin-pro/ui-bundle/Dockerfile
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Login to DockerHub
@@ -120,7 +120,7 @@ jobs:
       - name: Docker image build
         uses: docker/build-push-action@v5
         with:
-          context: ui/material-admin-pro/ui-bundle
+          context: src/main/ui/material-admin-pro/ui-bundle
           platforms: linux/amd64
           push: false
           tags: local/ui-preview:dev
@@ -147,7 +147,7 @@ jobs:
         run: npm install --location=global gulp-cli@2.3.0
         shell: bash
       - name: Build UI bundle
-        run: make ui/material-admin-pro/ui-bundle/build/ui-bundle.zip
+        run: make src/main/ui/material-admin-pro/ui-bundle/build/ui-bundle.zip
         shell: bash
       - name: Set docker tag
         id: vars

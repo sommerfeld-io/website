@@ -23,7 +23,7 @@
 # are triggered automatically if needed. Take a look at xref:AUTO-GENERATED:docker-compose-yml.adoc[docker-compose.yml]
 # for further information on the started Docker containers.
 #
-# === ``make ui/material-admin-pro/ui-bundle/build/ui-bundle.zip``
+# === ``make src/main/ui/material-admin-pro/ui-bundle/build/ui-bundle.zip``
 #
 # Automates the process of building the Antora UI bundle. Use this target from a Github Actions
 # workflow to build the UI bundle from a pipeline. Installing dependencies is triggered
@@ -36,11 +36,11 @@
 # == See also
 #
 # * xref:AUTO-GENERATED:Dockerfile.adoc[Dockerfile]
-# * xref:AUTO-GENERATED:ui/material-admin-pro/ui-bundle/Dockerfile.adoc[ui/material-admin-pro/ui-bundle/Dockerfile]
+# * xref:AUTO-GENERATED:src/main/ui/material-admin-pro/ui-bundle/Dockerfile.adoc[src/main/ui/material-admin-pro/ui-bundle/Dockerfile]
 # * xref:AUTO-GENERATED:docker-compose-yml.adoc[docker-compose.yml]
 
 
-UI_SRC_DIR = ui/material-admin-pro/ui-bundle
+UI_SRC_DIR = src/main/ui/material-admin-pro/ui-bundle
 NODE_MODULES = $(UI_SRC_DIR)/node_modules
 FONTS = $(UI_SRC_DIR)/src/font
 UI_BUNDLE_ZIP = $(UI_SRC_DIR)/build/ui-bundle.zip
@@ -99,3 +99,6 @@ clean:
 	rm -rf $(UI_BUNDLE_ZIP)
 	rm -rf $(NODE_MODULES)
 	rm -rf $(UI_SRC_DIR)/public
+
+	@echo "[INFO] Remove yarn.loc"
+	rm $(UI_SRC_DIR)/yarn.lock

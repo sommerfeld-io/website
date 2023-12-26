@@ -122,7 +122,7 @@ The UI bundle ships some images which can be used from Asciidoc pages. Simply us
 The link:https://highlightjs.org[Highlight JS Library] allows syntax coloring for `asciidoc`, `bash`, `clojure`, `cpp`, `cs`, `css`, `diff`, `dockerfile`, `elixir`, `go`, `groovy`, `haskell`, `java`, `javascript`, `json`, `kotlin`, `lua`, `markdown`, `nix`, `none`, `objectivec`, `perl`, `php `, `properties`, `puppet`, `python`, `ruby`, `rust`, `scala`, `shell`, `sql `, `swift`, `xml ` and `yaml`.
 
 == About the HTML template
-The `ui/material-admin-pro/template` only contains static HTML, CSS, ... files. For deeper changes, unpack `ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz` and update the source files.
+The `src/main/ui/material-admin-pro/template` only contains static HTML, CSS, ... files. For deeper changes, unpack `src/main/ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz` and update the source files.
 
 Changes could mean updating the sites color scheme.
 
@@ -133,10 +133,10 @@ ____
 This file was generated for Start Bootstrap link:https://startbootstrap.com/theme/material-admin-pro[Material Admin Pro]. Place this file in `src/scss/_variables-colors-overrides.scss`.
 ____
 
-The best way to extend and customize the Material Admin Pro theme is to work with the source files contained in the `src` directory (from `ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz`). To start, you will need to launch the development environment by installing project dependencies and running a script within your terminal. To do this, follow these simple steps:
+The best way to extend and customize the Material Admin Pro theme is to work with the source files contained in the `src` directory (from `src/main/ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz`). To start, you will need to launch the development environment by installing project dependencies and running a script within your terminal. To do this, follow these simple steps:
 
 * Before you begin, make sure your development environment includes Node.js and npm. Download and install Node.js from https://nodejs.org/en/download/ which will install Node.js and npm on your system.
-* Unpack `ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz`
+* Unpack `src/main/ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz`
 * Open your terminal, and navigate into the root folder of the theme.
 * Install project dependencies by running `npm install`
 * Start the project by running `npm start`

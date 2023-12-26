@@ -39,7 +39,7 @@ and layout throughout the site.
 
 IMPORTANT: Make sure to control the image builds and containers by using the
 xref:AUTO-GENERATED:Makefile.adoc[Makefile]. The
-`make ui/material-admin-pro/ui-bundle/build/ui-bundle.zip` is a mandatory
+`make src/main/ui/material-admin-pro/ui-bundle/build/ui-bundle.zip` is a mandatory
 prerequisite (which the Makefile ensures). Otherwise the build breaks due to a
 missing UI bundle.
 
