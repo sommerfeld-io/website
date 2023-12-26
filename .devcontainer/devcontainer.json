@@ -31,5 +31,16 @@
 	"postCreateCommand": "pre-commit install",
 	"postStartCommand": "docker compose --file ${containerWorkspaceFolder}/.devcontainer/ops/docker-compose.yml --env-file ${containerWorkspaceFolder}/.devcontainer/ops/.env up -d",
 
-	"forwardPorts": [7990]
+    "forwardPorts": [
+		7888,
+        7990
+    ],
+    "portsAttributes": {
+        "7888": {
+            "label": "website"
+        },
+        "7990": {
+            "label": "portainer"
+        }
+    }
 }
