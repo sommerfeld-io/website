@@ -2,8 +2,6 @@
 
 This example shows the implementation of an InSpec profile.
 
-CAUTION: TODO ... decide what to do with this README
-
 == Create new profile
 
 [source, bash]
