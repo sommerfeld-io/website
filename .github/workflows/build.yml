@@ -254,7 +254,7 @@ jobs:
         run: docker run --rm --name ${{ env.CONTAINER_NAME }} -d -p 7888:7888 ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
         shell: bash
       - name: Stop ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }} container
-        run: docker stop --name ${{ env.CONTAINER_NAME }}
+        run: docker stop ${{ env.CONTAINER_NAME }}
         shell: bash
 
   on-failure:
