@@ -1,24 +1,23 @@
 ---
 ls:
   .adoc: kebab-case | SCREAMING_SNAKE_CASE | PascalCase
-  .puml: kebab-case
   .md: kebab-case | SCREAMING_SNAKE_CASE
+  .puml: kebab-case
 
   .conf: kebab-case
+  .feature: kebab-case
   .go: snake_case
   .json: kebab-case
   .rb: kebab-case
+  .sh: kebab-case
   .tf: kebab-case
   .yml: kebab-case
   .yaml: kebab-case
-  .feature: kebab-case
-
-  .sh: kebab-case
 
   .css: kebab-case
+  .hbs: kebab-case
   .html: kebab-case
   .js: kebab-case
-  .hbs: kebab-case
   .svg: kebab-case
 
   Dockerfile: PascalCase
@@ -28,9 +27,9 @@ ls:
 
   .env: lowercase
   .folderslintrc: lowercase
-  .shellcheckrc: lowercase
   .gitignore: lowercase
   .gitkeep: lowercase
+  .shellcheckrc: lowercase
 
   .properties: kebab-case
 

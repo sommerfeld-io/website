@@ -36,7 +36,9 @@
     "src/main/ui/material-admin-pro/ui-bundle/src/layouts",
     "src/main/ui/material-admin-pro/ui-bundle/src/partials",
 
-    "src/test/inspec/**",
+    "src/test/inspec/*/controls",
+    "src/test/inspec/*/libraries",
+    "src/test/inspec/*/files",
 
     "target/**"
   ]

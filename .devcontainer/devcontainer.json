@@ -8,19 +8,20 @@
 		"vscode": {
 			"settings": {},
 			"extensions": [
-				"streetsidesoftware.code-spell-checker",
-				"asciidoctor.asciidoctor-vscode",
-				"ms-azuretools.vscode-docker",
-				"aaron-bond.better-comments",
-				"pomdtr.markdown-kroki",
-				"timonwong.shellcheck",
-				"jebbs.plantuml",
-				"golang.go",
-				"github.vscode-github-actions",
-				"redhat.vscode-yaml",
-				"alexkrechik.cucumberautocomplete",
-				"ms-vscode.makefile-tools"
-			]
+                "streetsidesoftware.code-spell-checker",
+                "asciidoctor.asciidoctor-vscode",
+                "ms-azuretools.vscode-docker",
+                "aaron-bond.better-comments",
+                "pomdtr.markdown-kroki",
+                "timonwong.shellcheck",
+                "jebbs.plantuml",
+                "golang.go",
+                "github.vscode-github-actions",
+                "redhat.vscode-yaml",
+                "alexkrechik.cucumberautocomplete",
+                "ms-vscode.makefile-tools",
+                "chef-software.chef"
+            ]
 		}
 	},
 

@@ -63,24 +63,14 @@ services:
     volumes:
       - ./src/main/ui/material-admin-pro/template/pages:/usr/local/apache2/htdocs
 
-  inspec-check:
-    container_name: inspec-check
+  inspec:
+    container_name: inspec
     image: chef/inspec:5.22.36
     volumes:
-      - &inspec-volume ./src/test/inspec:/src/test/inspec
-    working_dir: &working_dir /src/test/inspec
-    command: check website --chef-license=accept-no-persist
-
-  inspec-website:
-    container_name: inspec-website
-    image: chef/inspec:5.22.36
-    volumes:
-      - *inspec-volume
+      - ./src/test/inspec:/src/test/inspec
       - /var/run/docker.sock:/var/run/docker.sock
-    working_dir: *working_dir
+    working_dir: /src/test/inspec
     command: exec website --target docker://website --chef-license=accept-no-persist
-    depends_on: &inspec-test-depends
+    depends_on:
       website:
         condition: service_healthy
-      inspec-check:
-        condition: service_completed_successfully
