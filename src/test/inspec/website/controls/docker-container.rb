@@ -11,7 +11,7 @@
 
 title "Verify Docker container"
 
-control "os" do
+control "docker-container-os" do
     impact 0.5
     title "Verify operating system"
     desc "Verify if the operating system type and configuration"
@@ -21,7 +21,7 @@ control "os" do
     end
 end
 
-# control "image-config" do
+# control "docker-container-config" do
 #     impact 0.8
 #     title "A human-readable title ... ... ... ... ... ... ... ... ... ... ... ... ... ... ..."
 #     desc "An optional description ... ... ... ... ... ... ... ... ... ... ... ... ... ... ..."
