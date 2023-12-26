@@ -46,7 +46,7 @@ FONTS = $(UI_SRC_DIR)/src/font
 UI_BUNDLE_ZIP = $(UI_SRC_DIR)/build/ui-bundle.zip
 
 .DEFAULT_GOAL := run
-.PHONY: all clean build-ui run lint-makefile lint-yaml lint-folders lint-filenames test
+.PHONY: all clean build-ui run lint-makefile lint-yaml lint-folders lint-filenames validate-inspec test
 
 all: build-ui clean
 
@@ -62,7 +62,10 @@ lint-folders:
 lint-filenames:
 	docker run --rm -i --volume "$(shell pwd):/data" --workdir "/data" lslintorg/ls-lint:1.11.2
 
-test: lint-makefile lint-yaml lint-folders lint-filenames
+validate-inspec:
+	docker run --rm --volume ./src/test/inspec:/src/test/inspec --workdir /src/test/inspec chef/inspec:5.22.36 check website --chef-license=accept-no-persist
+
+test: lint-makefile lint-yaml lint-folders lint-filenames validate-inspec
 	docker run --rm -i hadolint/hadolint:latest < Dockerfile
 
 $(NODE_MODULES):
