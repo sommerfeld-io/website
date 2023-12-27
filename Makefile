@@ -39,11 +39,18 @@
 # * xref:AUTO-GENERATED:src/main/ui/material-admin-pro/ui-bundle/Dockerfile.adoc[src/main/ui/material-admin-pro/ui-bundle/Dockerfile]
 # * xref:AUTO-GENERATED:docker-compose-yml.adoc[docker-compose.yml]
 
+SRC_DIR = src/main
+TEST_DIR = src/test
+TARGET_DIR = target
 
-UI_SRC_DIR = src/main/ui/material-admin-pro/ui-bundle
+UI_SRC_DIR = $(SRC_DIR)/ui/material-admin-pro/ui-bundle
 NODE_MODULES = $(UI_SRC_DIR)/node_modules
 FONTS = $(UI_SRC_DIR)/src/font
 UI_BUNDLE_ZIP = $(UI_SRC_DIR)/build/ui-bundle.zip
+
+INSPEC_TEST_DIR = $(TARGET_DIR)/test/inspec
+INSPEC_BASELINE_APACHE = apache-baseline
+INSPEC_BASELINE_LINUX = linux-baseline
 
 .DEFAULT_GOAL := run
 .PHONY: all clean build-ui run lint-makefile lint-yaml lint-folders lint-filenames validate-inspec test
@@ -63,7 +70,7 @@ lint-filenames:
 	docker run --rm -i --volume "$(shell pwd):/data" --workdir "/data" lslintorg/ls-lint:1.11.2
 
 validate-inspec:
-	docker run --rm --volume ./src/test/inspec:/src/test/inspec --workdir /src/test/inspec chef/inspec:5.22.36 check website --chef-license=accept-no-persist
+	docker run --rm --volume ./$(TEST_DIR)/inspec:/inspec --workdir /inspec chef/inspec:5.22.36 check website --chef-license=accept-no-persist
 
 test: lint-makefile lint-yaml lint-folders lint-filenames validate-inspec
 	docker run --rm -i hadolint/hadolint:latest < Dockerfile
@@ -87,7 +94,18 @@ $(UI_BUNDLE_ZIP): $(FONTS)
 	@cd $(UI_SRC_DIR) || exit \
 		&& gulp bundle
 
-run: test $(UI_BUNDLE_ZIP)
+$(INSPEC_TEST_DIR):
+	mkdir -p $(INSPEC_TEST_DIR)
+
+$(INSPEC_TEST_DIR)/$(INSPEC_BASELINE_APACHE): $(INSPEC_TEST_DIR)
+	rm -rf $(INSPEC_TEST_DIR)/$(INSPEC_BASELINE_APACHE)
+	git clone https://github.com/dev-sec/$(INSPEC_BASELINE_APACHE) $(INSPEC_TEST_DIR)/$(INSPEC_BASELINE_APACHE)
+
+$(INSPEC_TEST_DIR)/$(INSPEC_BASELINE_LINUX): $(INSPEC_TEST_DIR)
+	rm -rf $(INSPEC_TEST_DIR)/$(INSPEC_BASELINE_LINUX)
+	git clone https://github.com/dev-sec/$(INSPEC_BASELINE_LINUX) $(INSPEC_TEST_DIR)/$(INSPEC_BASELINE_LINUX)
+
+run: test $(UI_BUNDLE_ZIP) $(INSPEC_TEST_DIR)/$(INSPEC_BASELINE_APACHE) $(INSPEC_TEST_DIR)/$(INSPEC_BASELINE_LINUX)
 	docker compose build --no-cache
 	docker compose up
 
@@ -95,13 +113,14 @@ clean:
 	@echo "[INFO] Remove containers"
 	docker compose down --rmi all --volumes --remove-orphans
 
-	@echo "[INFO] Remove fonts"
+	@echo "[INFO] Cleanup ui bundle files"
 	rm -rf $(FONTS)
-
-	@echo "[INFO] Cleanup local filesystem"
 	rm -rf $(UI_BUNDLE_ZIP)
 	rm -rf $(NODE_MODULES)
 	rm -rf $(UI_SRC_DIR)/public
+
+	@echo "[INFO] Cleanup inspec tests from target"
+	rm -rf $(INSPEC_TEST_DIR)
 
 	@echo "[INFO] Remove yarn.loc"
 	rm -f $(UI_SRC_DIR)/yarn.lock

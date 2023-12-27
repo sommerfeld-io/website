@@ -259,8 +259,8 @@ jobs:
           sleep 5s
           docker run --rm \
             --volume /var/run/docker.sock:/var/run/docker.sock  \
-            --volume ./src/test/inspec:/src/test/inspec \
-            --workdir /src/test/inspec \
+            --volume ./src/test/inspec:/inspec \
+            --workdir /inspec \
             chef/inspec:5.22.36 exec ${{ matrix.inspec-profile }} --target docker://${{ matrix.inspec-profile }} --chef-license=accept-no-persist
         shell: bash
       - name: Stop ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }} container

@@ -67,10 +67,34 @@ services:
     container_name: inspec
     image: chef/inspec:5.22.36
     volumes:
-      - ./src/test/inspec:/src/test/inspec
-      - /var/run/docker.sock:/var/run/docker.sock
-    working_dir: /src/test/inspec
+      - ./src/test/inspec:/inspec
+      - &inspec-docker-sock /var/run/docker.sock:/var/run/docker.sock
+    working_dir: &work_dir /inspec
     command: exec website --target docker://website --chef-license=accept-no-persist
     depends_on:
       website:
         condition: service_healthy
+
+  inspec-baseline-linux:
+    container_name: inspec-baseline-linux
+    image: chef/inspec:5.22.36
+    volumes:
+      - ./target/test/inspec:/inspec
+      - *inspec-docker-sock
+    working_dir: *work_dir
+    command: exec  linux-baseline --target docker://website --chef-license=accept-no-persist
+    depends_on:
+      inspec:
+        condition: service_completed_successfully
+
+  inspec-baseline-apache:
+    container_name: inspec-baseline-apache
+    image: chef/inspec:5.22.36
+    volumes:
+      - ./target/test/inspec:/inspec
+      - *inspec-docker-sock
+    working_dir: *work_dir
+    command: exec apache-baseline --target docker://website --chef-license=accept-no-persist
+    depends_on:
+      inspec-baseline-linux:
+        condition: service_completed_successfully
