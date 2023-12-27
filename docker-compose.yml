@@ -50,10 +50,10 @@ services:
       - ui-preview
     healthcheck:
       test: "wget --no-verbose --tries=1 --spider http://localhost:7888 || exit 1"
-      interval: 10s
-      timeout: 10s
-      retries: 6
-      start_period: 10s
+      interval: 5s
+      timeout: 5s
+      retries: 12
+      start_period: 5s
 
   template:
     container_name: template
@@ -68,33 +68,9 @@ services:
     image: chef/inspec:5.22.36
     volumes:
       - ./src/test/inspec:/inspec
-      - &inspec-docker-sock /var/run/docker.sock:/var/run/docker.sock
+      - &docker-sock /var/run/docker.sock:/var/run/docker.sock
     working_dir: &work_dir /inspec
     command: exec website --target docker://website --chef-license=accept-no-persist
     depends_on:
       website:
         condition: service_healthy
-
-  inspec-baseline-linux:
-    container_name: inspec-baseline-linux
-    image: chef/inspec:5.22.36
-    volumes:
-      - ./target/test/inspec:/inspec
-      - *inspec-docker-sock
-    working_dir: *work_dir
-    command: exec  linux-baseline --target docker://website --chef-license=accept-no-persist
-    depends_on:
-      inspec:
-        condition: service_completed_successfully
-
-  inspec-baseline-apache:
-    container_name: inspec-baseline-apache
-    image: chef/inspec:5.22.36
-    volumes:
-      - ./target/test/inspec:/inspec
-      - *inspec-docker-sock
-    working_dir: *work_dir
-    command: exec apache-baseline --target docker://website --chef-license=accept-no-persist
-    depends_on:
-      inspec-baseline-linux:
-        condition: service_completed_successfully

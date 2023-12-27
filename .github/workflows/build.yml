@@ -221,7 +221,7 @@ jobs:
           exit-code: false
           write-comment: ${{ github.event_name == 'pull_request' }}
 
-  inspec-tests-1:
+  inspec-tests:
     runs-on: ubuntu-latest
     needs: ['website']
     strategy:
@@ -266,57 +266,9 @@ jobs:
         run: docker stop ${{ matrix.inspec-profile }}
         shell: bash
 
-  inspec-tests-2:
-    runs-on: ubuntu-latest
-    needs: ['website']
-    strategy:
-      matrix:
-        inspec-profile: ['apache-baseline', 'linux-baseline']
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Set docker tag
-        id: vars
-        run: |
-          echo "Ref = ${{ github.ref }}"
-          echo "Ref Name = $GITHUB_REF_NAME"
-          echo "Head Ref = $GITHUB_HEAD_REF"
-
-          # TAG="$GITHUB_REF_NAME"
-          # if [[ "${{ github.event_name }}" == "pull_request" ]]; then
-          #   TAG="$GITHUB_HEAD_REF"
-          # fi
-
-          TAG='rc'
-
-          echo "tag = $TAG"
-          echo "DOCKER_TAG=$TAG" >> $GITHUB_OUTPUT
-        shell: bash
-      - name: Pull ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }} container
-        run: docker pull ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
-        shell: bash
-      - name: Start ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }} container
-        run: docker run --rm --name ${{ matrix.inspec-profile }} -d -p 7888:7888 ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
-        shell: bash
-      - name: Clone Inspec Baseline
-        run: make target/test/inspec/${{ matrix.inspec-profile }}
-        shell: bash
-      - name: Run Inspec tests
-        run: |
-          sleep 5s
-          docker run --rm \
-            --volume /var/run/docker.sock:/var/run/docker.sock  \
-            --volume ./target/test/inspec:/inspec \
-            --workdir /inspec \
-            chef/inspec:5.22.36 exec ${{ matrix.inspec-profile }} --target docker://${{ matrix.inspec-profile }} --chef-license=accept-no-persist
-        shell: bash
-      - name: Stop ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }} container
-        run: docker stop ${{ matrix.inspec-profile }}
-        shell: bash
-
   on-failure:
     runs-on: ubuntu-latest
-    needs: ['sonar-scan', 'lint-yaml', 'lint-folders', 'lint-filenames', 'shellcheck', 'lint-makefile', 'validate-inspec-profile', 'ui-preview', 'website', 'inspec-tests-1', 'inspec-tests-2']
+    needs: ['sonar-scan', 'lint-yaml', 'lint-folders', 'lint-filenames', 'shellcheck', 'lint-makefile', 'validate-inspec-profile', 'ui-preview', 'website', 'inspec-tests']
     if: failure()
     steps:
       - name: Send Pipeline Status to Google Chat

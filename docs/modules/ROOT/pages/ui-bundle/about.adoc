@@ -26,6 +26,7 @@ This project currently features multiple layouts:
 * `default.hbs` -> Default layout for documentation pages
 * `full-page.hbs` -> Layout for documentation pages which uses the full width of the page and does not render a Table of Contents.
 * `article.hbs` -> Layout for articles that feel more like blog posts and less like documentation pages
+* `403.hbs` -> Special layout which acts as the 403 error page
 * `404.hbs` -> Special layout which acts as the 404 error page
 
 If a page doesn't specify a layout, the `[.path]_default.hbs_` layout is used. To specify a layout, the page file must declare the `page-layout` document attribute in the AsciiDoc header. The value of that attribute should match the stem of the layout file (the filename minus the file extension, e.g., `article`).

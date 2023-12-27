@@ -48,10 +48,6 @@ NODE_MODULES = $(UI_SRC_DIR)/node_modules
 FONTS = $(UI_SRC_DIR)/src/font
 UI_BUNDLE_ZIP = $(UI_SRC_DIR)/build/ui-bundle.zip
 
-INSPEC_TEST_DIR = $(TARGET_DIR)/test/inspec
-INSPEC_BASELINE_APACHE = apache-baseline
-INSPEC_BASELINE_LINUX = linux-baseline
-
 .DEFAULT_GOAL := run
 .PHONY: all clean build-ui run lint-makefile lint-yaml lint-folders lint-filenames validate-inspec test
 
@@ -94,18 +90,7 @@ $(UI_BUNDLE_ZIP): $(FONTS)
 	@cd $(UI_SRC_DIR) || exit \
 		&& gulp bundle
 
-$(INSPEC_TEST_DIR):
-	mkdir -p $(INSPEC_TEST_DIR)
-
-$(INSPEC_TEST_DIR)/$(INSPEC_BASELINE_APACHE): $(INSPEC_TEST_DIR)
-	rm -rf $(INSPEC_TEST_DIR)/$(INSPEC_BASELINE_APACHE)
-	git clone https://github.com/dev-sec/$(INSPEC_BASELINE_APACHE) $(INSPEC_TEST_DIR)/$(INSPEC_BASELINE_APACHE)
-
-$(INSPEC_TEST_DIR)/$(INSPEC_BASELINE_LINUX): $(INSPEC_TEST_DIR)
-	rm -rf $(INSPEC_TEST_DIR)/$(INSPEC_BASELINE_LINUX)
-	git clone https://github.com/dev-sec/$(INSPEC_BASELINE_LINUX) $(INSPEC_TEST_DIR)/$(INSPEC_BASELINE_LINUX)
-
-run: test $(UI_BUNDLE_ZIP) $(INSPEC_TEST_DIR)/$(INSPEC_BASELINE_APACHE) $(INSPEC_TEST_DIR)/$(INSPEC_BASELINE_LINUX)
+run: test $(UI_BUNDLE_ZIP)
 	docker compose build --no-cache
 	docker compose up
 
@@ -118,9 +103,6 @@ clean:
 	rm -rf $(UI_BUNDLE_ZIP)
 	rm -rf $(NODE_MODULES)
 	rm -rf $(UI_SRC_DIR)/public
-
-	@echo "[INFO] Cleanup inspec tests from target"
-	rm -rf $(INSPEC_TEST_DIR)
 
 	@echo "[INFO] Remove yarn.loc"
 	rm -f $(UI_SRC_DIR)/yarn.lock

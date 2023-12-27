@@ -82,6 +82,7 @@ COPY config/httpd.conf /usr/local/apache2/conf/httpd.conf
 
 ARG USER=www-data
 RUN chown -hR "$USER:$USER" /usr/local/apache2 \
+    && chmod g-w /usr/local/apache2/conf/httpd.conf \
     && rm /usr/local/apache2/htdocs/index.html
 
 COPY --from=build-antora-site /tmp/antora/sommerfeld-io/public /usr/local/apache2/htdocs/docs
