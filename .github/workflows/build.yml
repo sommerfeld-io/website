@@ -107,7 +107,6 @@ jobs:
 
   ui-preview:
     runs-on: ubuntu-latest
-    needs: ['lint-yaml', 'lint-folders', 'lint-filenames', 'shellcheck', 'lint-makefile', 'validate-inspec-profile']
     permissions:
       contents: read
       pull-requests: write
