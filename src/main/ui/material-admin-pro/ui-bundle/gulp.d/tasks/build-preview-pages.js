@@ -46,9 +46,7 @@ module.exports = (src, previewSrc, previewDest, sink = () => map()) => (done) =>
             uiModel.page = { ...uiModel.page }
             uiModel.siteRootPath = siteRootPath
             uiModel.uiRootPath = path.join(siteRootPath, '_')
-            if (file.stem === '403') {
-              uiModel.page = { layout: '403', title: 'Forbidden' }
-            } else if (file.stem === '404') {
+           if (file.stem === '404') {
               uiModel.page = { layout: '404', title: 'Page Not Found' }
             } else {
               const doc = Asciidoctor.load(file.contents, { safe: 'safe', attributes: ASCIIDOC_ATTRIBUTES })

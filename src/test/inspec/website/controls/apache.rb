@@ -151,6 +151,18 @@ control 'apache-error-document' do
     describe file(apache.conf_path) do
         its('content') { should match(/^\s*?ErrorDocument\s+?404/) }
     end
+
+    describe file(apache.conf_path) do
+        its('content') { should match(/^\s*?ErrorDocument\s+?500/) }
+    end
+
+    describe file(apache.conf_path) do
+        its('content') { should match(/^\s*?ErrorDocument\s+?503/) }
+    end
+
+    describe file(apache.conf_path) do
+        its('content') { should match(/^\s*?ErrorDocument\s+?504/) }
+    end
 end
 
 control 'apache-server-status' do
