@@ -139,12 +139,18 @@ control 'apache-12' do
     end
 end
 
-control 'apache-error-pages' do
+control 'apache-error-document' do
     impact 1.0
     title 'HTTP codes'
     desc 'Check HTTP code handling'
 
-    # TODO ...
+    describe file(apache.conf_path) do
+        its('content') { should match(/^\s*?ErrorDocument\s+?403/) }
+    end
+
+    describe file(apache.conf_path) do
+        its('content') { should match(/^\s*?ErrorDocument\s+?404/) }
+    end
 end
 
 control 'apache-server-status' do
@@ -161,10 +167,9 @@ control 'apache-server-status' do
     #     its('ExtendedStatus') { should eq 'On' }
     # end
 
-    # TODO
-    # describe file(apache.conf_path) do
-    #     its('content') { should match(/^\s*?<Location\s+?server-status/) }
-    # end
+    describe file(apache.conf_path) do
+        its('content') { should match(/^\s*?SetHandler\s+?server-status/) }
+    end
 end
 
 control 'apache-rewrite' do

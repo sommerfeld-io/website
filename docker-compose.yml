@@ -50,9 +50,9 @@ services:
       - ui-preview
     healthcheck:
       test: "wget --no-verbose --tries=1 --spider http://localhost:7888 || exit 1"
-      interval: 5s
-      timeout: 5s
-      retries: 12
+      interval: 10s
+      timeout: 2s
+      retries: 16
       start_period: 5s
 
   template:
