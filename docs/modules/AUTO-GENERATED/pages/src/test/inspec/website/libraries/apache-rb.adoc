@@ -1,0 +1,8 @@
+= apache.rb
+
+Library module which provides some helper functions for the `apache.rb` Inspec test.
+
+== Overview
+
+This Inspec Library module provides some helper functions for
+the `apache.rb` Inspec test.

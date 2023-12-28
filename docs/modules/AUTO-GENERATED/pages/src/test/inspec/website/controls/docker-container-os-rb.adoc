@@ -1,0 +1,24 @@
+= docker-container-os.rb
+
+Verify the operating system and configuration of the Docker container.
+
+== Overview
+
+This Inspec Module verifies the operating system and configuration of
+the Docker container. The basic Docker container setup is checked as well.
+
+This module adopts tests from https://dev-sec.io/baselines/linux/.
+
+The following checks are part of this test file:
+
+* Verify operating system
+* Container Configuration Validation
+* Trusted hosts login
+* Check owner and permissions for /etc/shadow
+* Check owner and permissions for /etc/passwd
+* Check passwords hashes in /etc/passwd
+* Dot in PATH variable
+* Unique uid and gid
+* Check for .rhosts and .netrc file
+* Protect log-directory
+* Protect cron directories and files
