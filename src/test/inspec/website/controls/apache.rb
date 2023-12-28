@@ -125,7 +125,7 @@ control 'apache-12' do
   end
 end
 
-control 'apache-98' do
+control 'apache-status' do
   impact 1.0
   title 'ExtendedStatus should be on'
   desc 'ExtendedStatus is needed to expose apache information through /server-status'
@@ -144,7 +144,7 @@ control 'apache-98' do
   # end
 end
 
-control 'apache-99' do
+control 'apache-rewrite' do
   impact 1.0
   title 'Rewrite Engine should be on'
   desc 'Website uses rewrite rules to steer certain requests to the desired target'
