@@ -223,6 +223,7 @@ jobs:
 
   inspec-tests:
     runs-on: ubuntu-latest
+    if: ${{ (github.actor != 'dependabot[bot]') && (github.ref == 'refs/heads/main') }}
     needs: ['website']
     strategy:
       matrix:
@@ -263,6 +264,7 @@ jobs:
             chef/inspec:5.22.36 exec ${{ matrix.inspec-profile }} --target docker://${{ matrix.inspec-profile }} --chef-license=accept-no-persist
         shell: bash
       - name: Stop ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }} container
+        if: always()
         run: docker stop ${{ matrix.inspec-profile }}
         shell: bash
 
