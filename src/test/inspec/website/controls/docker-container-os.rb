@@ -30,15 +30,6 @@ control "docker-image-config" do
     describe os.family do
         it { should eq 'linux' }
     end
-
-    # describe docker_container('website') do
-    #     it { should exist }
-    #     it { should be_running }
-    #     its('image') { should eq 'httpd:2.4.58-alpine3.18' }
-    #     its('repo') { should eq 'httpd' }
-    #     its('tag') { should eq '2.4.58-alpine3.18' }
-    #     its('ports') { should eq '0.0.0.0:7888->7888/tcp' }
-    # end
 end
 
 control "docker-user-config" do
