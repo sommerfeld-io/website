@@ -8,11 +8,12 @@
 # simultaneously. Each container within this Compose configuration corresponds to a distinct
 # component or service of the development environment.
 #
-# | Image                       | URL                   | Info                                        |
-# | --------------------------- | --------------------- | ------------------------------------------- |
-# | ``local/website:dev``       | http://localhost:7888 | Antora-generated website with real contents (see xref:AUTO-GENERATED:Dockerfile.adoc[Dockerfile]) |
-# | ``local/ui-preview:dev``    | http://localhost:5252 | UI bundle preview for local development (see xref:AUTO-GENERATED:src/main/ui/material-admin-pro/ui-bundle/Dockerfile.adoc[src/main/ui/material-admin-pro/ui-bundle/Dockerfile]) |
-# | ``httpd:2.4.58-alpine3.18`` | http://localhost:5353 | Serve the static HTML template files, which form the foundation of the UI bundle (and hence the whole website UI) through an Apache webserver. |
+# | What (Container)       | URL                   | Info                                        |
+# | ---------------------- | --------------------- | ------------------------------------------- |
+# | Website                | http://localhost:7888 | Antora-generated website with real contents (see xref:AUTO-GENERATED:Dockerfile.adoc[Dockerfile]) |
+# | UI Bundle Preview      | http://localhost:5252 | UI bundle preview for local development (see xref:AUTO-GENERATED:src/main/ui/material-admin-pro/ui-bundle/Dockerfile.adoc[src/main/ui/material-admin-pro/ui-bundle/Dockerfile]) |
+# | UI Template HTML files | http://localhost:5353 | Serve the static HTML template files which form the foundation of the UI bundle (and hence the whole website UI) through an Apache webserver |
+# | Chef InSpec            | -                     | Run Chef InSpec tests against the website container |
 #
 # === Prerequisites
 #
@@ -40,6 +41,14 @@ services:
     volumes:
       - ./src/main/ui/material-admin-pro/ui-bundle:/ui-bundle
 
+  template:
+    container_name: template
+    image: httpd:2.4.58-alpine3.19
+    ports:
+      - 5353:80
+    volumes:
+      - ./src/main/ui/material-admin-pro/template/pages:/usr/local/apache2/htdocs
+
   website:
     container_name: website
     build: .
@@ -54,14 +63,6 @@ services:
       timeout: 2s
       retries: 16
       start_period: 5s
-
-  template:
-    container_name: template
-    image: httpd:2.4.58-alpine3.18
-    ports:
-      - 5353:80
-    volumes:
-      - ./src/main/ui/material-admin-pro/template/pages:/usr/local/apache2/htdocs
 
   inspec:
     container_name: inspec
