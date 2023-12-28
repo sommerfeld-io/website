@@ -3,7 +3,19 @@
 #
 # @description This Inspec Module verifies Apache httpd configuration inside
 # the ``sommerfeldio/website:rc`` Docker image.
-# TODO ...
+#
+# The following checks are part of this test file:
+#
+# * Check Apache config folder owner, group and permissions
+# * Check Apache config file owner, group and permissions
+# * User and group should be set properly
+# * Should not load certain modules
+# * Disable insecure HTTP-methods
+# * Disable Apache's follows Symbolic Links for directories in httpd.conf
+# * Disable Directory Listing for directories in httpd.conf
+# * Check HTTP code handling
+# * ExtendedStatus should be on
+# * Rewrite Engine should be on
 
 title 'Apache server config'
 
@@ -15,7 +27,7 @@ title 'Apache server config'
 
 control 'apache-04' do
     impact 1.0
-    title 'Check Apache config folder owner, group and permissions.'
+    title 'Check Apache config folder owner, group and permissions'
     desc 'The Apache config folder should owned and grouped by www-data, be writable, readable and executable by owner. It should be readable by group and others, executable by group, not writeable by others.'
 
     describe file(apache.conf_dir) do
@@ -35,7 +47,7 @@ end
 
 control 'apache-05' do
     impact 1.0
-    title 'Check Apache config file owner, group and permissions.'
+    title 'Check Apache config file owner, group and permissions'
     desc 'The Apache config file should owned and grouped by root, readable by everyone, only be writable by owner and not writeable by group or others.'
 
     describe file(apache.conf_path) do
@@ -125,7 +137,15 @@ control 'apache-12' do
     end
 end
 
-control 'apache-status' do
+control 'apache-error-pages' do
+    impact 1.0
+    title 'HTTP codes'
+    desc 'Check HTTP code handling'
+
+    # TODO ...
+end
+
+control 'apache-server-status' do
     impact 1.0
     title 'ExtendedStatus should be on'
     desc 'ExtendedStatus is needed to expose apache information through /server-status'

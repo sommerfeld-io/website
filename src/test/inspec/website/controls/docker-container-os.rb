@@ -1,18 +1,26 @@
 # @file docker-container-os.rb
-# @brief Verify if the operating system type and configuration
+# @brief Verify the operating system and configuration of the Docker container.
 #
-# @description This Inspec Module verifies if the operating system type and configuration.
-# The basic Docker container setup is checked as well.
-# TODO ...
+# @description This Inspec Module verifies the operating system and configuration of
+# the Docker container. The basic Docker container setup is checked as well.
 #
-# == See also
+# The following checks are part of this test file:
 #
-# * https://docs.chef.io/inspec/resources/os
-# * https://docs.chef.io/inspec/resources/user
+# * Verify operating system
+# * Container Configuration Validation
+# * Trusted hosts login
+# * Check owner and permissions for /etc/shadow
+# * Check owner and permissions for /etc/passwd
+# * Check passwords hashes in /etc/passwd
+# * Dot in PATH variable
+# * Unique uid and gid
+# * Check for .rhosts and .netrc file
+# * Protect log-directory
+# * Protect cron directories and files
 
-title "Verify Docker container"
+title "Verify Docker container operating system"
 
-control "docker-container-os" do
+control "docker-image-config" do
     impact 0.5
     title "Verify operating system"
     desc "Verify if the operating system type and configuration"
@@ -20,6 +28,15 @@ control "docker-container-os" do
     describe os.family do
         it { should eq 'linux' }
     end
+
+    # describe docker_container('website') do
+    #     it { should exist }
+    #     it { should be_running }
+    #     its('image') { should eq 'httpd:2.4.58-alpine3.18' }
+    #     its('repo') { should eq 'httpd' }
+    #     its('tag') { should eq '2.4.58-alpine3.18' }
+    #     its('ports') { should eq '0.0.0.0:7888->7888/tcp' }
+    # end
 end
 
 control "docker-user-config" do
@@ -38,15 +55,6 @@ control "docker-user-config" do
         it { should have_home_directory '/home/www-data' }
         it { should have_login_shell '/sbin/nologin' }
     end
-
-#     describe docker_container('website') do
-#         it { should exist }
-#         it { should be_running }
-#         its('image') { should eq 'httpd:2.4.58-alpine3.18' }
-#         its('repo') { should eq 'httpd' }
-#         its('tag') { should eq '2.4.58-alpine3.18' }
-#         its('ports') { should eq '0.0.0.0:7888->7888/tcp' }
-#     end
 end
 
 shadow_group = 'root'

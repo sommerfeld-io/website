@@ -3,7 +3,6 @@
 #
 # @description This Inspec Library module provides some helper functions for
 # the ``apache.rb`` Inspec test.
-# TODO ...
 
 class Apache < Inspec.resource(1)
   name 'apache'
@@ -31,17 +30,6 @@ class Apache < Inspec.resource(1)
 
   def initialize
     super
-    # if inspec.os.debian?
-    #   @service = 'apache2'
-    #   @conf_dir = '/etc/apache2/'
-    #   @conf_path = File.join @conf_dir, 'apache2.conf'
-    #   @user = 'www-data'
-    # else
-    #   @service = 'httpd'
-    #   @conf_dir = '/etc/httpd/'
-    #   @conf_path = File.join @conf_dir, '/conf/httpd.conf'
-    #   @user = 'apache'
-    # end
 
     @service = 'httpd'
     @conf_dir = '/usr/local/apache2'
