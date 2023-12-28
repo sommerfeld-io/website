@@ -75,7 +75,7 @@ RUN antora --version \
 RUN sleep 5
 
 
-FROM httpd:2.4.58-alpine3.18 AS run
+FROM httpd:2.4.58-alpine3.19 AS run
 LABEL maintainer="sebastian@sommerfeld.io"
 
 COPY config/httpd.conf /usr/local/apache2/conf/httpd.conf
