@@ -25,6 +25,7 @@ control "docker-multistage" do
         end
     end
 
+    # TODO move to docker-packages.rb
     # FORBIDDEN_NODE_PACKAGE = %w(
     #     @asciidoctor/core
     #     asciidoctor-kroki
