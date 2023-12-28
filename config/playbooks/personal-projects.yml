@@ -39,7 +39,7 @@ antora:
 ui:
   bundle:
     # url: https://gitlab.com/antora/antora-ui-default/-/jobs/artifacts/HEAD/raw/build/ui-bundle.zip?job=bundle-stabl
-    url: /antora-ui/material-admin-pro/ui-bundle.zip
+    url: /antora-src/main/ui/material-admin-pro/ui-bundle.zip
     snapshot: true
 
 output:

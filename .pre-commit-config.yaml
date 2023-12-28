@@ -24,11 +24,11 @@ repos:
       - id: check-added-large-files
         exclude: |
             (?x)^(
-                ui/material-admin-pro/template/pages/js/material.js|
-                ui/material-admin-pro/template/pages/css/styles.css|
-                ui/material-admin-pro/ui-bundle/src/js/material.js|
-                ui/material-admin-pro/ui-bundle/src/css/styles.css|
-                ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz
+                src/main/ui/material-admin-pro/template/pages/js/material.js|
+                src/main/ui/material-admin-pro/template/pages/css/styles.css|
+                src/main/ui/material-admin-pro/ui-bundle/src/js/material.js|
+                src/main/ui/material-admin-pro/ui-bundle/src/css/styles.css|
+                src/main/ui/material-admin-pro/material-admin-pro-1.0.6.tar.xz
             )$
       - id: check-executables-have-shebangs
       - id: check-shebang-scripts-are-executable

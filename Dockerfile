@@ -36,7 +36,7 @@
 #
 # IMPORTANT: Make sure to control the image builds and containers by using the
 # xref:AUTO-GENERATED:Makefile.adoc[Makefile]. The
-# ``make ui/material-admin-pro/ui-bundle/build/ui-bundle.zip`` is a mandatory
+# ``make src/main/ui/material-admin-pro/ui-bundle/build/ui-bundle.zip`` is a mandatory
 # prerequisite (which the Makefile ensures). Otherwise the build breaks due to a
 # missing UI bundle.
 #
@@ -63,7 +63,7 @@ RUN yarn add @asciidoctor/core@~3.0.2 \
     && yarn add asciidoctor-kroki@~0.18.1 \
     && yarn add @antora/lunr-extension@~1.0.0-alpha.8
 
-COPY ui/material-admin-pro/ui-bundle/build/ui-bundle.zip /antora-ui/material-admin-pro/ui-bundle.zip
+COPY src/main/ui/material-admin-pro/ui-bundle/build/ui-bundle.zip /antora-src/main/ui/material-admin-pro/ui-bundle.zip
 COPY config /antora
 WORKDIR /antora
 
@@ -82,13 +82,15 @@ COPY config/httpd.conf /usr/local/apache2/conf/httpd.conf
 
 ARG USER=www-data
 RUN chown -hR "$USER:$USER" /usr/local/apache2 \
+    && chmod g-w /usr/local/apache2/conf/httpd.conf \
+    && chmod g-r /etc/shadow \
     && rm /usr/local/apache2/htdocs/index.html
 
 COPY --from=build-antora-site /tmp/antora/sommerfeld-io/public /usr/local/apache2/htdocs/docs
 COPY --from=build-antora-site /tmp/antora/personal-projects/public /usr/local/apache2/htdocs/docs-personal-projects
 
-COPY static-pages/contact.html /usr/local/apache2/htdocs/contact.html
-COPY static-pages/terms-conditions.html /usr/local/apache2/htdocs/terms-conditions.html
+COPY src/main/static-pages/contact.html /usr/local/apache2/htdocs/contact.html
+COPY src/main/static-pages/terms-conditions.html /usr/local/apache2/htdocs/terms-conditions.html
 
 RUN cp /usr/local/apache2/htdocs/docs/robots.txt /usr/local/apache2/htdocs/robots.txt
 

@@ -92,7 +92,7 @@ jobs:
           short-description: ${{ github.event.repository.description }}
           readme-filepath: ./README.md
       - name: Build UI bundle
-        run: make ui/material-admin-pro/ui-bundle/build/ui-bundle.zip
+        run: make src/main/ui/material-admin-pro/ui-bundle/build/ui-bundle.zip
         shell: bash
       - name: Create tag and Github release
         env:
@@ -103,8 +103,8 @@ jobs:
           VERSION="${{ github.event.inputs.version }}"
           VERSION="${VERSION:1}"
 
-          UI_BUNDLE="ui/material-admin-pro/ui-bundle/build/ui-bundle.zip"
-          UPLOAD_PATH="ui/material-admin-pro/ui-bundle/build/ui-bundle-$VERSION.zip"
+          UI_BUNDLE="src/main/ui/material-admin-pro/ui-bundle/build/ui-bundle.zip"
+          UPLOAD_PATH="src/main/ui/material-admin-pro/ui-bundle/build/ui-bundle-$VERSION.zip"
 
           echo "[INFO] Add version to zip filename"
           mv "$UI_BUNDLE" "$UPLOAD_PATH"

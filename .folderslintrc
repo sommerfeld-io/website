@@ -24,17 +24,21 @@
     "*/docs/modules/*/partials/**",
 
     "config/playbooks",
-    "ui/material-admin-pro/template/**",
-    "ui/material-admin-pro/ui-bundle/gulp.d/lib",
-    "ui/material-admin-pro/ui-bundle/gulp.d/tasks",
-    "ui/material-admin-pro/ui-bundle/preview-src",
-    "ui/material-admin-pro/ui-bundle/src/css",
-    "ui/material-admin-pro/ui-bundle/src/font",
-    "ui/material-admin-pro/ui-bundle/src/helpers",
-    "ui/material-admin-pro/ui-bundle/src/img/**",
-    "ui/material-admin-pro/ui-bundle/src/js/vendor",
-    "ui/material-admin-pro/ui-bundle/src/layouts",
-    "ui/material-admin-pro/ui-bundle/src/partials",
+    "src/main/ui/material-admin-pro/template/**",
+    "src/main/ui/material-admin-pro/ui-bundle/gulp.d/lib",
+    "src/main/ui/material-admin-pro/ui-bundle/gulp.d/tasks",
+    "src/main/ui/material-admin-pro/ui-bundle/preview-src",
+    "src/main/ui/material-admin-pro/ui-bundle/src/css",
+    "src/main/ui/material-admin-pro/ui-bundle/src/font",
+    "src/main/ui/material-admin-pro/ui-bundle/src/helpers",
+    "src/main/ui/material-admin-pro/ui-bundle/src/img/**",
+    "src/main/ui/material-admin-pro/ui-bundle/src/js/vendor",
+    "src/main/ui/material-admin-pro/ui-bundle/src/layouts",
+    "src/main/ui/material-admin-pro/ui-bundle/src/partials",
+
+    "src/test/inspec/*/controls",
+    "src/test/inspec/*/libraries",
+    "src/test/inspec/*/files",
 
     "target/**"
   ]

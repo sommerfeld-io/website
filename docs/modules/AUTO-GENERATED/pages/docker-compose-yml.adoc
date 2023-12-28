@@ -19,7 +19,7 @@ component or service of the development environment.
 
 | `local/ui-preview:dev`
 | http://localhost:5252
-| UI bundle preview for local development (see xref:AUTO-GENERATED:ui/material-admin-pro/ui-bundle/Dockerfile.adoc[ui/material-admin-pro/ui-bundle/Dockerfile])
+| UI bundle preview for local development (see xref:AUTO-GENERATED:src/main/ui/material-admin-pro/ui-bundle/Dockerfile.adoc[src/main/ui/material-admin-pro/ui-bundle/Dockerfile])
 
 | `httpd:2.4.58-alpine3.18`
 | http://localhost:5353
@@ -35,6 +35,6 @@ Ubuntu 22.10.
 
 Make sure to control the image builds and containers by using the xref:AUTO-GENERATED:Makefile.adoc[Makefile].
 
-The `make ui/material-admin-pro/ui-bundle/build/ui-bundle.zip` is a mandatory prerequisite
+The `make src/main/ui/material-admin-pro/ui-bundle/build/ui-bundle.zip` is a mandatory prerequisite
 (which the Makefile ensures). Otherwise the build breaks due to a
 missing UI bundle.

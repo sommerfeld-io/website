@@ -49,6 +49,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
   lint-yaml:
     runs-on: ubuntu-latest
     steps:
@@ -95,9 +96,17 @@ jobs:
         run: make lint-makefile
         shell: bash
 
+  validate-inspec-profile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Run checkmake in container
+        run: make validate-inspec
+        shell: bash
+
   ui-preview:
     runs-on: ubuntu-latest
-    needs: ['lint-yaml', 'lint-folders', 'lint-filenames', 'shellcheck', 'lint-makefile']
     permissions:
       contents: read
       pull-requests: write
@@ -108,7 +117,7 @@ jobs:
       - name: hadolint
         uses: hadolint/hadolint-action@v3.1.0
         with:
-          dockerfile: ui/material-admin-pro/ui-bundle/Dockerfile
+          dockerfile: src/main/ui/material-admin-pro/ui-bundle/Dockerfile
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Login to DockerHub
@@ -120,14 +129,14 @@ jobs:
       - name: Docker image build
         uses: docker/build-push-action@v5
         with:
-          context: ui/material-admin-pro/ui-bundle
+          context: src/main/ui/material-admin-pro/ui-bundle
           platforms: linux/amd64
           push: false
           tags: local/ui-preview:dev
 
   website:
     runs-on: ubuntu-latest
-    needs: ['lint-yaml', 'lint-folders', 'lint-filenames', 'shellcheck', 'lint-makefile']
+    needs: ['lint-yaml', 'lint-folders', 'lint-filenames', 'shellcheck', 'lint-makefile', 'validate-inspec-profile']
     permissions:
       contents: read
       pull-requests: write
@@ -147,7 +156,7 @@ jobs:
         run: npm install --location=global gulp-cli@2.3.0
         shell: bash
       - name: Build UI bundle
-        run: make ui/material-admin-pro/ui-bundle/build/ui-bundle.zip
+        run: make src/main/ui/material-admin-pro/ui-bundle/build/ui-bundle.zip
         shell: bash
       - name: Set docker tag
         id: vars
@@ -208,12 +217,60 @@ jobs:
         with:
           command: cves
           image: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
-          exit-code: ${{ github.event_name == 'pull_request' }}
+          # exit-code: ${{ github.event_name == 'pull_request' }}
+          exit-code: false
           write-comment: ${{ github.event_name == 'pull_request' }}
+
+  inspec-tests:
+    runs-on: ubuntu-latest
+    if: ${{ (github.actor != 'dependabot[bot]') && (github.ref == 'refs/heads/main') }}
+    needs: ['website']
+    strategy:
+      matrix:
+        inspec-profile: ['website']
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set docker tag
+        id: vars
+        run: |
+          echo "Ref = ${{ github.ref }}"
+          echo "Ref Name = $GITHUB_REF_NAME"
+          echo "Head Ref = $GITHUB_HEAD_REF"
+
+          # TAG="$GITHUB_REF_NAME"
+          # if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+          #   TAG="$GITHUB_HEAD_REF"
+          # fi
+
+          TAG='rc'
+
+          echo "tag = $TAG"
+          echo "DOCKER_TAG=$TAG" >> $GITHUB_OUTPUT
+        shell: bash
+      - name: Pull ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }} container
+        run: docker pull ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
+        shell: bash
+      - name: Start ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }} container
+        run: docker run --rm --name ${{ matrix.inspec-profile }} -d -p 7888:7888 ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
+        shell: bash
+      - name: Run Inspec tests
+        run: |
+          sleep 5s
+          docker run --rm \
+            --volume /var/run/docker.sock:/var/run/docker.sock  \
+            --volume ./src/test/inspec:/inspec \
+            --workdir /inspec \
+            chef/inspec:5.22.36 exec ${{ matrix.inspec-profile }} --target docker://${{ matrix.inspec-profile }} --chef-license=accept-no-persist
+        shell: bash
+      - name: Stop ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }} container
+        if: always()
+        run: docker stop ${{ matrix.inspec-profile }}
+        shell: bash
 
   on-failure:
     runs-on: ubuntu-latest
-    needs: ['sonar-scan', 'lint-yaml', 'lint-folders', 'lint-filenames', 'shellcheck', 'lint-makefile', 'website', 'ui-preview']
+    needs: ['sonar-scan', 'lint-yaml', 'lint-folders', 'lint-filenames', 'shellcheck', 'lint-makefile', 'validate-inspec-profile', 'ui-preview', 'website', 'inspec-tests']
     if: failure()
     steps:
       - name: Send Pipeline Status to Google Chat

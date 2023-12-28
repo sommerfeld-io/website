@@ -23,7 +23,7 @@
 # are triggered automatically if needed. Take a look at xref:AUTO-GENERATED:docker-compose-yml.adoc[docker-compose.yml]
 # for further information on the started Docker containers.
 #
-# === ``make ui/material-admin-pro/ui-bundle/build/ui-bundle.zip``
+# === ``make src/main/ui/material-admin-pro/ui-bundle/build/ui-bundle.zip``
 #
 # Automates the process of building the Antora UI bundle. Use this target from a Github Actions
 # workflow to build the UI bundle from a pipeline. Installing dependencies is triggered
@@ -36,17 +36,20 @@
 # == See also
 #
 # * xref:AUTO-GENERATED:Dockerfile.adoc[Dockerfile]
-# * xref:AUTO-GENERATED:ui/material-admin-pro/ui-bundle/Dockerfile.adoc[ui/material-admin-pro/ui-bundle/Dockerfile]
+# * xref:AUTO-GENERATED:src/main/ui/material-admin-pro/ui-bundle/Dockerfile.adoc[src/main/ui/material-admin-pro/ui-bundle/Dockerfile]
 # * xref:AUTO-GENERATED:docker-compose-yml.adoc[docker-compose.yml]
 
+SRC_DIR = src/main
+TEST_DIR = src/test
+TARGET_DIR = target
 
-UI_SRC_DIR = ui/material-admin-pro/ui-bundle
+UI_SRC_DIR = $(SRC_DIR)/ui/material-admin-pro/ui-bundle
 NODE_MODULES = $(UI_SRC_DIR)/node_modules
 FONTS = $(UI_SRC_DIR)/src/font
 UI_BUNDLE_ZIP = $(UI_SRC_DIR)/build/ui-bundle.zip
 
 .DEFAULT_GOAL := run
-.PHONY: all clean build-ui run lint-makefile lint-yaml lint-folders lint-filenames test
+.PHONY: all clean build-ui run lint-makefile lint-yaml lint-folders lint-filenames validate-inspec test
 
 all: build-ui clean
 
@@ -62,7 +65,10 @@ lint-folders:
 lint-filenames:
 	docker run --rm -i --volume "$(shell pwd):/data" --workdir "/data" lslintorg/ls-lint:1.11.2
 
-test: lint-makefile lint-yaml lint-folders lint-filenames
+validate-inspec:
+	docker run --rm --volume ./$(TEST_DIR)/inspec:/inspec --workdir /inspec chef/inspec:5.22.36 check website --chef-license=accept-no-persist
+
+test: lint-makefile lint-yaml lint-folders lint-filenames validate-inspec
 	docker run --rm -i hadolint/hadolint:latest < Dockerfile
 
 $(NODE_MODULES):
@@ -92,10 +98,11 @@ clean:
 	@echo "[INFO] Remove containers"
 	docker compose down --rmi all --volumes --remove-orphans
 
-	@echo "[INFO] Remove fonts"
+	@echo "[INFO] Cleanup ui bundle files"
 	rm -rf $(FONTS)
-
-	@echo "[INFO] Cleanup local filesystem"
 	rm -rf $(UI_BUNDLE_ZIP)
 	rm -rf $(NODE_MODULES)
 	rm -rf $(UI_SRC_DIR)/public
+
+	@echo "[INFO] Remove yarn.loc"
+	rm -f $(UI_SRC_DIR)/yarn.lock
