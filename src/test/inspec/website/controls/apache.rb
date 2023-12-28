@@ -1,8 +1,10 @@
 # @file apache.rb
 # @brief Verify Apache httpd configuration inside the ``sommerfeldio/website:rc`` Docker image.
 #
-# @description This Inspec Module verifies Apache httpd configuration inside
+# @description This Inspec module verifies Apache httpd configuration inside
 # the ``sommerfeldio/website:rc`` Docker image.
+#
+# This module adopts tests from https://dev-sec.io/baselines/apache.
 #
 # The following checks are part of this test file:
 #

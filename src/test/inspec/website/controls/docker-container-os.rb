@@ -4,6 +4,8 @@
 # @description This Inspec Module verifies the operating system and configuration of
 # the Docker container. The basic Docker container setup is checked as well.
 #
+# This module adopts tests from https://dev-sec.io/baselines/linux/.
+#
 # The following checks are part of this test file:
 #
 # * Verify operating system

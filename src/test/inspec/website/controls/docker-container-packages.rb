@@ -3,6 +3,8 @@
 #
 # @description This Inspec Module verifies the pacakge installations inside the Docker container.
 #
+# This module adopts tests from https://dev-sec.io/baselines/linux/.
+#
 # The following checks are part of this test file:
 #
 # * Do not run deprecated inetd or xinetd
