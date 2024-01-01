@@ -1,7 +1,6 @@
 Welcome to the comprehensive documentation hub of link:http://www.sommerfeld.io[www.sommerfeld.io]. Here, you'll find an extensive array of documentation spanning across all projects within the link:https://github.com/sommerfeld-io[sommerfeld-io Github organization].
 
 image:{github-actions-url}/{job-generate-docs}/{badge}[Github Badge, link={github-actions-url}/{job-generate-docs}]
-image:{github-actions-url}/{job-lint}/{badge}[Github Badge, link={github-actions-url}/{job-lint}]
 image:{github-actions-url}/{job-build}/{badge}[Github Badge, link={github-actions-url}/{job-build}]
 
 == About this project
