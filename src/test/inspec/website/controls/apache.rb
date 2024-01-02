@@ -5,19 +5,6 @@
 # the ``sommerfeldio/website:rc`` Docker image.
 #
 # This module adopts tests from https://dev-sec.io/baselines/apache.
-#
-# The following checks are part of this test file:
-#
-# * Check Apache config folder owner, group and permissions
-# * Check Apache config file owner, group and permissions
-# * User and group should be set properly
-# * Should not load certain modules
-# * Disable insecure HTTP-methods
-# * Disable Apache's follows Symbolic Links for directories in httpd.conf
-# * Disable Directory Listing for directories in httpd.conf
-# * Check HTTP code handling
-# * ExtendedStatus should be on
-# * Rewrite Engine should be on
 
 title 'Apache server config'
 

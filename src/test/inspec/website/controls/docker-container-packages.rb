@@ -3,17 +3,7 @@
 #
 # @description This Inspec Module verifies the pacakge installations inside the Docker container.
 #
-# This module adopts tests from https://dev-sec.io/baselines/linux/.
-#
-# The following checks are part of this test file:
-#
-# * Do not run deprecated inetd or xinetd
-# * Do not install Telnet server
-# * Do not install rsh server
-# * Do not install ypserv server (NIS)
-# * Do not install tftp server
-# * CIS: Additional process hardening
-# * No Node, NPM or Yarn binaries, node_modules or configs
+# This module adopts tests from https://dev-sec.io/baselines/linux.
 
 title "Verify packages inside Docker container"
 
