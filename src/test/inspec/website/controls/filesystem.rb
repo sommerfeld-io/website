@@ -4,11 +4,6 @@
 # @description This Inspec Module verifies files and folders containing the webserver
 # configuration and the website content. That includes that no artifacts from intermediate
 # stages should be present in the final image (other than the website itself).
-#
-# The following checks are part of this test file:
-#
-# * Check existence of mandatory files and folders
-# * No files of folders from intermediate stages
 
 title "Verify files and folders"
 
