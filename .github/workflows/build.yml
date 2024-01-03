@@ -101,7 +101,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Run checkmake in container
+      - name: Validate inspec profile
         run: make validate-inspec
         shell: bash
 
