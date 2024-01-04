@@ -104,5 +104,5 @@ clean:
 	rm -rf $(NODE_MODULES)
 	rm -rf $(UI_SRC_DIR)/public
 
-	@echo "[INFO] Remove yarn.loc"
+	@echo "[INFO] Remove yarn.lock"
 	rm -f $(UI_SRC_DIR)/yarn.lock
