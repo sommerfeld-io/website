@@ -130,7 +130,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: src/main/ui/material-admin-pro/ui-bundle
-          platforms: linux/amd64,linux/arm64,linux/arm/v5
+          platforms: linux/amd64,linux/arm64/v8,linux/arm/v7
           push: false
           tags: local/ui-preview:dev
 
@@ -196,7 +196,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          platforms: linux/amd64
+          platforms: linux/amd64,linux/arm64,linux/arm/v5
           push: ${{ (github.actor != 'dependabot[bot]') && (github.ref == 'refs/heads/main') }}
           tags: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
           labels: ${{ steps.meta.outputs.labels }}
