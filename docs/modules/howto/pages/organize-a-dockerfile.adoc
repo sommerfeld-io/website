@@ -1,0 +1,42 @@
+= How to organize a Dockerfile
+
+Here are some thoughts on how we want to organize Dockerfiles. Some of these thoughts are not our own but proved useful to us.
+
+== Strategically layer to optimize the Docker Build cache
+ack in the day, Docker builds could feel like a slow dance. You make a small change in your code, and wait for what feels like an eternity for the build to complete. It was a frequent frustration, especially when you're iterating rapidly and need to test a small change. The problem? Our Dockerfiles weren't optimized for efficient caching, leading to unnecessary rebuilds and time wasted.
+
+Here's a trick: Strategic layering in your Dockerfile can turn the tide. Place those instructions that don't change often, like installing dependencies, right at the top. Then, put your COPY or ADD commands for your application code lower down.
+
+This structure is a game-changer. It means Docker can reuse cached layers for the top parts of your Dockerfile, and you're only rebuilding what's actually changed. The result? Your build times get slashed, and you spend more time coding and less time waiting.
+
+Another lifesaver is using `RUN --mount type=cache` when installing packages. This little gem keeps your package cache intact between builds. No more re-downloading the entire internet every time you build your image. It's especially handy when you're working with large dependencies. Implement this, and watch your build efficiency go through the roof.
+
+To give you a better idea, here's how you might apply these principles in a Dockerfile for a Node.js application:
+
+[code, Dockerfile]
+----
+# Use an official Node base image
+FROM node:14
+
+# Install dependencies first to leverage Docker cache
+COPY package.json package-lock.json ./
+
+# Using cache mount for npm install, so unchanged packages aren't downloaded every time
+RUN --mount=type=cache,target=/root/.npm \
+    npm install
+
+# Copy the rest of your app's source code
+COPY . .
+
+# Your app's start command
+CMD ["npm", "start"]
+----
+
+This example Dockerfile demonstrates the strategic layering and `RUN` cache usage in action, showcasing how these practices can significantly optimize your Docker builds.
+
+== Avoid the bloat to keep builds efficient
+In the earlier days of Docker, the sheer size of our builds often slowed everything down. It was like packing your entire house for a weekend trip. I'd end up sending tons of unnecessary files to the Docker daemon, resulting in bloated build contexts and painfully slow build times. Not exactly ideal when you're trying to keep things lean and agile.
+
+The key? Getting smarter with what to include in the build context. In your `.dockerignore`, specify only the essentials – leave out anything that doesn't contribute to your final image. This approach is like packing a well-organized suitcase and bringing only what you need. The benefit is twofold: You speed up the build process and reduce resource consumption by sending less data to the Docker daemon. It's a straightforward yet powerful tweak that has saved us countless hours.
+
+Another game-changer has been adopting multi-stage builds in our Dockerfiles. Imagine building a complex app and having to include all the build tools and dependencies in your final image. It's like taking the construction crew with you after building your house. Instead, with multi-stage builds, you compile and build everything in an initial stage, and then, in a separate stage, you copy over just the necessary artifacts. This results in a much leaner, more efficient final image. It's not only good practice for keeping image sizes down, but it also means quicker deployments and reduced storage costs.
