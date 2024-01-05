@@ -43,8 +43,8 @@ database Local_Repo as "Local Repo"
 database Github
 database DockerHub
 
-Developer -> Github: create an issue (user\nstory or task)
-note right: preferably user story
+Developer -> Github: create an issue
+note right: preferably user story but a simple\ntask might sometimes also be okay
 Local_Repo <- Github: clone Repo
 Developer --> Local_Repo: create Branch (optional)
 note right: pushing directly to main is also valid
