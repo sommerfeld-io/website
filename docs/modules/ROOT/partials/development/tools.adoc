@@ -3,18 +3,12 @@ Each project is hosted within its dedicated repository on GitHub. All projects, 
 
 Most projects follow this directory structure:
 
-* `.devcontainer`
-** This folder contains specifications for development containers. These configurations help in standardizing the development environment for consistency among team members. This is not a mandatory folder but it is recommended to use a development container.
-* `.github`
-** This directory houses all things related to GitHub, including workflow definitions.
-* `config`
-** Application configuration files reside here. These files contain settings, parameters, or environment-specific configurations necessary for the application to run.
-* `docs`
-** This folder uses AsciiDoc organized for Antora to manage documentation. Antora is a documentation site generator, and AsciiDoc is the markup language used to write the documentation.
-* `src/main`
-** Here lies the main application code. Can be structured this into subdirectories based on components (`components/<COMPONENT_NAME>`).
-* `src/test`
-** This directory holds test code used for testing the application. Similar to the main code, these tests can also be structured into subdirectories based on components (`components/<COMPONENT_NAME>`).
+* `.devcontainer` -> This folder contains specifications for development containers. These configurations help in standardizing the development environment for consistency among team members. This is not a mandatory folder but it is recommended to use a development container.
+* `.github` -> This directory houses all things related to GitHub, including workflow definitions.
+* `config` -> Application configuration files reside here. These files contain settings, parameters, or environment-specific configurations necessary for the application to run.
+* `docs` -> This folder uses AsciiDoc organized for Antora to manage documentation. Antora is a documentation site generator, and AsciiDoc is the markup language used to write the documentation.
+* `src/main` -> Here lies the main application code. Can be structured this into subdirectories based on components (`components/<COMPONENT_NAME>`).
+* `src/test` -> This directory holds test code used for testing the application. Similar to the main code, these tests can also be structured into subdirectories based on components (`components/<COMPONENT_NAME>`).
 
 A `Dockerfile` in the project root allows building the application with all dependencies. Alternatively this Dockerfile can be placed in a component-folder (`components/<COMPONENT_NAME>`). An optional `docker-compose.yml` can be places alongside the `Dockerfile`. A `Makefile` in the project root controls dependency management and building the application.
 
