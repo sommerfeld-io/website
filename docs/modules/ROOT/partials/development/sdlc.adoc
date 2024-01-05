@@ -1,5 +1,3 @@
-CAUTION: Work in Progress ...
-
 [plantuml, puml-build-image, svg]
 ----
 @startuml
