@@ -1,4 +1,5 @@
 = Software Development Life Cycle
 Sebastian Sommerfeld <sebastian@sommerfeld.io>
+:page-layout: full-page
 
 include::ROOT:partial$/development/sdlc.adoc[]
