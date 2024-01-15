@@ -59,11 +59,11 @@
 FROM node:21.5.0-alpine3.19 AS build-antora-site
 LABEL maintainer="sebastian@sommerfeld.io"
 
-RUN yarn add @asciidoctor/core@~3.0.2 \
-    && yarn add asciidoctor-kroki@~0.18.1 \
+RUN yarn global add @asciidoctor/core@~3.0.2 \
+    && yarn global add asciidoctor-kroki@~0.18.1 \
     && yarn global add @antora/cli@3.1.7 \
     && yarn global add @antora/site-generator@3.1.7 \
-    && yarn add @antora/lunr-extension@~1.0.0-alpha.8
+    && yarn global add @antora/lunr-extension@~1.0.0-alpha.8
 
 COPY src/main/ui/material-admin-pro/ui-bundle/build/ui-bundle.zip /antora-src/main/ui/material-admin-pro/ui-bundle.zip
 COPY config /antora
