@@ -28,22 +28,6 @@ component or service of the development environment.
 | Chef InSpec
 | -
 | Run Chef InSpec tests against the website container
-
-| Prometheus
-| http://localhost:7090
-| https://prometheus.io
-
-| Grafana
-| http://localhost:7000
-| https://grafana.com
-
-| Prometheus Blackbox Exporter
-| http://localhost:7115
-| The blackbox exporter allows blackbox probing of endpoints over HTTP, HTTPS (amont others)
-
-| Prometheus Apache Status Exporter
-| http://localhost:7117
-| Exports apache mod_status statistics via HTTP for Prometheus consumption
 |===
 
 === About Host Port and Container Port
