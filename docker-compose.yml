@@ -88,15 +88,15 @@ services:
       - 7100:3100
     command: -config.file=/etc/loki/local-config.yaml
 
-  promtail:
-    container_name: promtail
+  loki-promtail:
+    container_name: loki-promtail
     image: grafana/promtail:2.9.0
     volumes:
       - /var/log:/var/log
     command: -config.file=/etc/promtail/config.yml
 
-  grafana:
-    container_name: grafana
+  loki-grafana:
+    container_name: loki-grafana
     image: grafana/grafana:10.0.10
     volumes:
       - ./config/loki/grafana:/etc/grafana/provisioning:ro
