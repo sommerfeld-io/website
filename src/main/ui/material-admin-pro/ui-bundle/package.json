@@ -23,7 +23,7 @@
     "@fontsource/material-icons-sharp": "5.0.11",
     "@fontsource/material-icons-two-tone": "5.0.11",
     "@vscode/gulp-vinyl-zip": "~2.5",
-    "autoprefixer": "~9.7",
+    "autoprefixer": "~9.8",
     "browser-pack-flat": "~3.5",
     "browserify": "~17.0",
     "cssnano": "~4.1",
