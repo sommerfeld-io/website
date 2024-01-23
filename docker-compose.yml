@@ -58,6 +58,10 @@ services:
     container_name: website
     build: .
     image: local/website:dev
+    volumes:
+      - ./target/logs/website-access.log:/usr/local/apache2/logs/access_log:rw
+      - ./target/logs/website-error.log:/usr/local/apache2/logs/error_log:rw
+      - /etc/timezone:/etc/timezone:ro
     ports:
       - 7888:7888
     depends_on:
@@ -92,14 +96,15 @@ services:
     container_name: loki-promtail
     image: grafana/promtail:2.9.0
     volumes:
-      - /var/log:/var/log
+      - ./src/main/loki/promtail/config.yml:/etc/promtail/config.yml:ro
+      - ./target/logs:/var/log:rw
     command: -config.file=/etc/promtail/config.yml
 
   loki-grafana:
     container_name: loki-grafana
     image: grafana/grafana:10.0.10
     volumes:
-      - ./config/loki/grafana:/etc/grafana/provisioning:ro
+      - ./src/main/loki/grafana:/etc/grafana/provisioning:ro
       - /etc/timezone:/etc/timezone:ro
     ports:
       - 7000:3000
