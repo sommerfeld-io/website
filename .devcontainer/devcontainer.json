@@ -4,6 +4,19 @@
         "dockerfile": "Dockerfile"
     },
 
+    "mounts": [
+        {
+            "source": "/etc/timezone",
+            "target": "/etc/timezone",
+            "type": "bind"
+        },
+        {
+            "source": "/etc/localtime",
+            "target": "/etc/localtime",
+            "type": "bind"
+        }
+    ],
+
     "customizations": {
 		"vscode": {
 			"settings": {},
