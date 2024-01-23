@@ -18,6 +18,10 @@
 # | Loki Promtail     | -                     | Ship logfiles to loki |
 # | Loki Grafana      | http://localhost:7000 | Visualize logfiles in dashboards |
 #
+# The Grafana Loki configuration integrated into this Docker stack functions as a blueprint. This
+# setup collects logfiles from the apache serving the website. This blueprint can help with shipping
+# logs from instances running in both test and production stages to link:https://grafana.com/products/cloud[Grafana Cloud].
+#
 # === About Host Port and Container Port
 # It is important to note the distinction between ``HOST_PORT`` and ``CONTAINER_PORT``. Networked
 # service-to-service communication uses the ``CONTAINER_PORT``. When ``HOST_PORT`` is defined, the
