@@ -1,0 +1,30 @@
+---
+# @file docker-compose.yml
+# @brief Docker Compose configuration for test/pre-production environment.
+#
+# @description This Docker compose configuration is tailored to encompass all containers
+# essential for running the latest release candidate of our website in a test or pre-production
+# environment. It serves as a controlled space where the upcoming changes can be thoroughly
+# evaluated before being deployed to a live production setting.
+#
+# | Image                       | URL (host-port)       | Info                                            |
+# | --------------------------- | --------------------- | ----------------------------------------------- |
+# | ``sommerfeldio/website:rc`` | http://localhost:7081 | Antora-generated website, pulled from DockerHub |
+#
+# === Prerequisites
+#
+# This compose config has been developed and tested with Docker version 24.0.2 on top of
+# Ubuntu 22.10.
+
+
+version: "3.3"
+services:
+
+  website:
+    container_name: ${COMPOSE_PROJECT_NAME}
+    image: sommerfeldio/website:rc
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 7081:7888

@@ -8,12 +8,15 @@
 # simultaneously. Each container within this Compose configuration corresponds to a distinct
 # component or service of the development environment.
 #
-# | What (Container)                  | URL (host-port)       | Info                                        |
-# | --------------------------------- | --------------------- | ------------------------------------------- |
-# | Website                           | http://localhost:7888 | Antora-generated website with real contents (see xref:AUTO-GENERATED:Dockerfile.adoc[Dockerfile]) |
-# | UI Bundle Preview                 | http://localhost:5252 | UI bundle preview for local development (see xref:AUTO-GENERATED:src/main/ui/material-admin-pro/ui-bundle/Dockerfile.adoc[src/main/ui/material-admin-pro/ui-bundle/Dockerfile]) |
-# | UI Template HTML files            | http://localhost:5353 | Serve the static HTML template files which form the foundation of the UI bundle (and hence the whole website UI) through an Apache webserver |
-# | Chef InSpec                       | -                     | Run Chef InSpec tests against the website container |
+# | What (Container)  | URL (host-port)       | Info                                        |
+# | ----------------- | --------------------- | ------------------------------------------- |
+# | Website           | http://localhost:7888 | Antora-generated website with real contents (see xref:AUTO-GENERATED:Dockerfile.adoc[Dockerfile]) |
+# | UI Bundle Preview | http://localhost:5252 | UI bundle preview for local development (see xref:AUTO-GENERATED:src/main/ui/material-admin-pro/ui-bundle/Dockerfile.adoc[src/main/ui/material-admin-pro/ui-bundle/Dockerfile]) |
+# | UI HTML Template  | http://localhost:5353 | Serve the static HTML template files which form the foundation of the UI bundle (and hence the whole website UI) through an Apache webserver |
+# | Chef InSpec       | -                     | Run Chef InSpec tests against the website container |
+# | Loki              | -                     | Loki is a log aggregation system designed to store and query logs from applications and infrastructure. |
+# | Loki Promtail     | -                     | Ship logfiles to loki |
+# | Loki Grafana      | http://localhost:7000 | Visualize logfiles in dashboards |
 #
 # === About Host Port and Container Port
 # It is important to note the distinction between ``HOST_PORT`` and ``CONTAINER_PORT``. Networked
@@ -25,7 +28,7 @@
 # This compose config has been developed and tested with Docker version 24.0.2 on top of
 # Ubuntu 22.10.
 #
-# == How to Use
+# == How to use
 #
 # Make sure to control the image builds and containers by using the xref:AUTO-GENERATED:Makefile.adoc[Makefile].
 #
@@ -62,6 +65,7 @@ services:
       - ./target/logs/website-access.log:/usr/local/apache2/logs/access_log:rw
       - ./target/logs/website-error.log:/usr/local/apache2/logs/error_log:rw
       - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     ports:
       - 7888:7888
     depends_on:
@@ -88,8 +92,6 @@ services:
   loki:
     container_name: loki
     image: grafana/loki:2.9.0
-    ports:
-      - 7100:3100
     command: -config.file=/etc/loki/local-config.yaml
 
   loki-promtail:
@@ -106,6 +108,7 @@ services:
     volumes:
       - ./src/main/loki/grafana:/etc/grafana/provisioning:ro
       - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     ports:
       - 7000:3000
     environment:
