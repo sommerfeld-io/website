@@ -42,14 +42,16 @@
 SRC_DIR = src/main
 TEST_DIR = src/test
 TARGET_DIR = target
+LOGS_DIR = $(TARGET_DIR)/logs
 
 UI_SRC_DIR = $(SRC_DIR)/ui/material-admin-pro/ui-bundle
 NODE_MODULES = $(UI_SRC_DIR)/node_modules
 FONTS = $(UI_SRC_DIR)/src/font
 UI_BUNDLE_ZIP = $(UI_SRC_DIR)/build/ui-bundle.zip
-WEBSITE_LOGS = $(TARGET_DIR)/logs
-WEBSITE_LOGS_ACCESS = $(WEBSITE_LOGS)/website-access.log
-WEBSITE_LOGS_ERROR = $(WEBSITE_LOGS)/website-error.log
+
+WEBSITE_LOGS = $(LOGS_DIR)/website
+WEBSITE_LOGS_ACCESS = $(WEBSITE_LOGS)/access.log
+WEBSITE_LOGS_ERROR = $(WEBSITE_LOGS)/error.log
 
 .DEFAULT_GOAL := run
 .PHONY: all clean build-ui run lint-makefile lint-yaml lint-folders lint-filenames validate-inspec test
@@ -123,4 +125,4 @@ clean:
 	rm -f $(UI_SRC_DIR)/yarn.lock
 
 	@echo "[INFO] Remove target"
-	rm -rf $(WEBSITE_LOGS)
+	rm -rf $(TARGET_DIR)

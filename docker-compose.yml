@@ -66,8 +66,8 @@ services:
     build: .
     image: local/website:dev
     volumes:
-      - ./target/logs/website-access.log:/usr/local/apache2/logs/access_log:rw
-      - ./target/logs/website-error.log:/usr/local/apache2/logs/error_log:rw
+      - ./target/logs/website/access.log:/usr/local/apache2/logs/access_log:rw
+      - ./target/logs/website/error.log:/usr/local/apache2/logs/error_log:rw
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
     ports:
