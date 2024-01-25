@@ -14,13 +14,6 @@
 # | UI Bundle Preview | http://localhost:5252 | UI bundle preview for local development (see xref:AUTO-GENERATED:src/main/ui/material-admin-pro/ui-bundle/Dockerfile.adoc[src/main/ui/material-admin-pro/ui-bundle/Dockerfile]) |
 # | UI HTML Template  | http://localhost:5353 | Serve the static HTML template files which form the foundation of the UI bundle (and hence the whole website UI) through an Apache webserver |
 # | Chef InSpec       | -                     | Run Chef InSpec tests against the website container |
-# | Loki              | -                     | Loki is a log aggregation system designed to store and query logs from applications and infrastructure. |
-# | Loki Promtail     | -                     | Ship logfiles to loki |
-# | Loki Grafana      | http://localhost:7000 | Visualize logfiles in dashboards |
-#
-# The Grafana Loki configuration integrated into this Docker stack functions as a blueprint. This
-# setup collects logfiles from the apache serving the website. This blueprint can help with shipping
-# logs from instances running in both test and production stages to link:https://grafana.com/products/cloud[Grafana Cloud].
 #
 # === About Host Port and Container Port
 # It is important to note the distinction between ``HOST_PORT`` and ``CONTAINER_PORT``. Networked
@@ -92,32 +85,3 @@ services:
     depends_on:
       website:
         condition: service_healthy
-
-  loki:
-    container_name: loki
-    image: grafana/loki:2.9.0
-    command: -config.file=/etc/loki/local-config.yaml
-
-  loki-promtail:
-    container_name: loki-promtail
-    image: grafana/promtail:2.9.0
-    volumes:
-      - ./src/main/loki/promtail/config.yml:/etc/promtail/config.yml:ro
-      - ./target/logs:/var/log:rw
-    command: -config.file=/etc/promtail/config.yml
-
-  loki-grafana:
-    container_name: loki-grafana
-    image: grafana/grafana:10.0.10
-    volumes:
-      - ./src/main/loki/grafana:/etc/grafana/provisioning:ro
-      - /etc/timezone:/etc/timezone:ro
-      - /etc/localtime:/etc/localtime:ro
-    ports:
-      - 7000:3000
-    environment:
-      - GF_PATHS_PROVISIONING=/etc/grafana/provisioning
-      - GF_AUTH_ANONYMOUS_ENABLED=true
-      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
-      - GF_SECURITY_ADMIN_USER=admin
-      - GF_SECURITY_ADMIN_PASSWORD=admin
