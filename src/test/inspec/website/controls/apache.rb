@@ -154,11 +154,11 @@ end
 
 control 'apache-server-status' do
     impact 1.0
-    title 'ExtendedStatus should be on'
+    title 'ExtendedStatus should be off'
     desc 'ExtendedStatus is needed to expose apache information through /server-status'
 
     describe file(apache.conf_path) do
-        its('content') { should match(/^\s*?ExtendedStatus\s+?On/) }
+        its('content') { should match(/^\s*?ExtendedStatus\s+?Off/) }
     end
 
     # open bug https://github.com/chef/inspec/issues/786, if the bug solved use this test
@@ -166,9 +166,10 @@ control 'apache-server-status' do
     #     its('ExtendedStatus') { should eq 'On' }
     # end
 
-    describe file(apache.conf_path) do
-        its('content') { should match(/^\s*?SetHandler\s+?server-status/) }
-    end
+    # Enable again, when ExtendedStatus is On
+    # describe file(apache.conf_path) do
+    #     its('content') { should match(/^\s*?SetHandler\s+?server-status/) }
+    # end
 end
 
 control 'apache-rewrite' do

@@ -21,29 +21,13 @@ component or service of the development environment.
 | http://localhost:5252
 | UI bundle preview for local development (see xref:AUTO-GENERATED:src/main/ui/material-admin-pro/ui-bundle/Dockerfile.adoc[src/main/ui/material-admin-pro/ui-bundle/Dockerfile])
 
-| UI Template HTML files
+| UI HTML Template
 | http://localhost:5353
 | Serve the static HTML template files which form the foundation of the UI bundle (and hence the whole website UI) through an Apache webserver
 
 | Chef InSpec
 | -
 | Run Chef InSpec tests against the website container
-
-| Prometheus
-| http://localhost:7090
-| https://prometheus.io
-
-| Grafana
-| http://localhost:7000
-| https://grafana.com
-
-| Prometheus Blackbox Exporter
-| http://localhost:7115
-| The blackbox exporter allows blackbox probing of endpoints over HTTP, HTTPS (amont others)
-
-| Prometheus Apache Status Exporter
-| http://localhost:7117
-| Exports apache mod_status statistics via HTTP for Prometheus consumption
 |===
 
 === About Host Port and Container Port
@@ -56,7 +40,7 @@ service is accessible outside the compose stack as well.
 This compose config has been developed and tested with Docker version 24.0.2 on top of
 Ubuntu 22.10.
 
-== How to Use
+== How to use
 
 Make sure to control the image builds and containers by using the xref:AUTO-GENERATED:Makefile.adoc[Makefile].
 

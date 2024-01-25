@@ -8,16 +8,12 @@
 # simultaneously. Each container within this Compose configuration corresponds to a distinct
 # component or service of the development environment.
 #
-# | What (Container)                  | URL (host-port)       | Info                                        |
-# | --------------------------------- | --------------------- | ------------------------------------------- |
-# | Website                           | http://localhost:7888 | Antora-generated website with real contents (see xref:AUTO-GENERATED:Dockerfile.adoc[Dockerfile]) |
-# | UI Bundle Preview                 | http://localhost:5252 | UI bundle preview for local development (see xref:AUTO-GENERATED:src/main/ui/material-admin-pro/ui-bundle/Dockerfile.adoc[src/main/ui/material-admin-pro/ui-bundle/Dockerfile]) |
-# | UI Template HTML files            | http://localhost:5353 | Serve the static HTML template files which form the foundation of the UI bundle (and hence the whole website UI) through an Apache webserver |
-# | Chef InSpec                       | -                     | Run Chef InSpec tests against the website container |
-# | Prometheus                        | http://localhost:7090 | https://prometheus.io |
-# | Grafana                           | http://localhost:7000 | https://grafana.com |
-# | Prometheus Blackbox Exporter      | http://localhost:7115 | The blackbox exporter allows blackbox probing of endpoints over HTTP, HTTPS (amont others) |
-# | Prometheus Apache Status Exporter | http://localhost:7117 | Exports apache mod_status statistics via HTTP for Prometheus consumption |
+# | What (Container)  | URL (host-port)       | Info                                        |
+# | ----------------- | --------------------- | ------------------------------------------- |
+# | Website           | http://localhost:7888 | Antora-generated website with real contents (see xref:AUTO-GENERATED:Dockerfile.adoc[Dockerfile]) |
+# | UI Bundle Preview | http://localhost:5252 | UI bundle preview for local development (see xref:AUTO-GENERATED:src/main/ui/material-admin-pro/ui-bundle/Dockerfile.adoc[src/main/ui/material-admin-pro/ui-bundle/Dockerfile]) |
+# | UI HTML Template  | http://localhost:5353 | Serve the static HTML template files which form the foundation of the UI bundle (and hence the whole website UI) through an Apache webserver |
+# | Chef InSpec       | -                     | Run Chef InSpec tests against the website container |
 #
 # === About Host Port and Container Port
 # It is important to note the distinction between ``HOST_PORT`` and ``CONTAINER_PORT``. Networked
@@ -29,7 +25,7 @@
 # This compose config has been developed and tested with Docker version 24.0.2 on top of
 # Ubuntu 22.10.
 #
-# == How to Use
+# == How to use
 #
 # Make sure to control the image builds and containers by using the xref:AUTO-GENERATED:Makefile.adoc[Makefile].
 #
@@ -50,8 +46,8 @@ services:
     volumes:
       - ./src/main/ui/material-admin-pro/ui-bundle:/ui-bundle
 
-  template:
-    container_name: template
+  ui-template:
+    container_name: ui-template
     image: httpd:2.4.58-alpine3.19
     ports:
       - 5353:80
@@ -62,11 +58,15 @@ services:
     container_name: website
     build: .
     image: local/website:dev
+    volumes:
+      - ./target/logs/website/access.log:/usr/local/apache2/logs/access_log:rw
+      - ./target/logs/website/error.log:/usr/local/apache2/logs/error_log:rw
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     ports:
       - 7888:7888
     depends_on:
       - ui-preview
-      - prometheus
     healthcheck:
       test: "wget --no-verbose --tries=1 --spider http://localhost:7888 || exit 1"
       interval: 10s
@@ -85,56 +85,3 @@ services:
     depends_on:
       website:
         condition: service_healthy
-
-  apache-exporter:
-    container_name: apache-exporter
-    image: lusotycoon/apache-exporter:v1.05
-    ports:
-      - 7117:9117
-    entrypoint: /bin/apache_exporter --scrape_uri="http://website:7888/server-status?auto"
-    depends_on:
-      website:
-        condition: service_healthy
-
-  prometheus:
-    image: prom/prometheus:v2.49.1
-    container_name: prometheus
-    volumes:
-      - ./config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
-      - prometheus_data:/prometheus
-      - /etc/timezone:/etc/timezone:ro
-    command: --config.file=/etc/prometheus/prometheus.yml
-    ports:
-      - 7090:9090
-
-  grafana:
-    image: grafana/grafana:10.2.3
-    container_name: grafana
-    depends_on:
-      - prometheus
-    environment:
-      - GF_SECURITY_ADMIN_USER=admin
-      - GF_SECURITY_ADMIN_PASSWORD=admin
-      - GF_AUTH_ANONYMOUS_ENABLED=true
-    volumes:
-      - ./config/prometheus/provisioning/grafana:/etc/grafana/provisioning:ro
-      - grafana_data:/var/lib/grafana
-      - /etc/timezone:/etc/timezone:ro
-    ports:
-      - 7000:3000
-
-  blackbox-exporter:
-    image: prom/blackbox-exporter:v0.24.0
-    container_name: blackbox-exporter
-    depends_on:
-      - prometheus
-    ports:
-      - 7115:9115
-    volumes:
-      - ./config/prometheus/blackbox-exporter.yml:/etc/prometheus/blackbox-exporter.yml:ro
-      - /etc/timezone:/etc/timezone:ro
-    command: --config.file=/etc/prometheus/blackbox-exporter.yml
-
-volumes:
-  prometheus_data:
-  grafana_data:

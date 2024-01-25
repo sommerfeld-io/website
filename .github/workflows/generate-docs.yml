@@ -79,7 +79,7 @@ jobs:
         with:
           author_name: sebastian
           author_email: sebastian@sommerfeld.io
-          message: "[Actions Bot] generate dpcs"
+          message: "[Actions Bot] generate docs"
 
   on-failure:
     runs-on: ubuntu-latest

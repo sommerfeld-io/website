@@ -1,7 +1,7 @@
 ---
 name: website
 title: Sommerfeld.io Website
-version: main
+version: log-management
 start_page: ROOT:index.adoc
 nav:
   - modules/ROOT/nav.adoc

@@ -1,0 +1,29 @@
+---
+# @file docker-compose.yml
+# @brief Docker Compose configuration for production environment.
+#
+# @description This Docker Compose configuration is crafted to encompass all the essential
+# containers required for running the latest released version of our website in a production
+# environment.
+#
+# | Image                          | URL (host-port)       | Info                                            |
+# | ------------------------------ | --------------------- | ----------------------------------------------- |
+# | ``sommerfeldio/website:0.5.0`` | http://localhost:7080 | Antora-generated website, pulled from DockerHub |
+#
+# === Prerequisites
+#
+# This compose config has been developed and tested with Docker version 24.0.2 on top of
+# Ubuntu 22.10.
+
+
+version: "3.3"
+services:
+
+  website:
+    container_name: ${COMPOSE_PROJECT_NAME}
+    image: sommerfeldio/website:0.5.0
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    ports:
+      - 7080:7888
