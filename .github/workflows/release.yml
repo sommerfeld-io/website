@@ -84,7 +84,7 @@ jobs:
           pandoc -f docbook -t markdown_strict README.xml -o README.md
         shell: bash
       - name: Update DockerHub description
-        uses: peter-evans/dockerhub-description@v3
+        uses: peter-evans/dockerhub-description@v4
         with:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
