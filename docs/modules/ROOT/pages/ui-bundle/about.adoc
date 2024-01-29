@@ -150,6 +150,6 @@ For further instructions, see https://docs.startbootstrap.com/material-admin-pro
 This project comes with a few static pages which are plain HTML files. All needed resources like CSS and JS files are copied from the ui-bundle (see Dockerfile).
 
 == 3rd-Party Artifacts
-* The Github logos shipped with the UI bundle are downloaded from https://github.com/logos (see this page for Githubs terms of use)
+* The GitHub logos shipped with the UI bundle are downloaded from https://github.com/logos (see this page for GitHubs terms of use)
 * The Docker logos shipped with the UI bundle are downloaded from https://www.docker.com/company/newsroom/media-resources (see this page for Dockers terms of use)
 * The Google fonts are shipped as part of the UI bundle, so there are no requests to a Google server from the live website (for Googles terms of use see https://developers.google.com/fonts/terms and the "Can I embed Google Fonts in my website without sending end-user data to Google's servers?" section on https://developers.google.com/fonts/faq/privacy)

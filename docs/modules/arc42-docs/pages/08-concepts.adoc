@@ -2,10 +2,10 @@
 :description: Overall, principal regulations and solution ideas that are relevant in multiple parts (= cross-cutting) of the system.
 
 {description}
-In many ways, this repository acts as a blueprint for other projects in the link:https://github.com/sommerfeld-io[Sommerfeld.io Github organization].
+In many ways, this repository acts as a blueprint for other projects in the link:https://github.com/sommerfeld-io[Sommerfeld.io GitHub organization].
 
-== Github Organization Settings
-The link:https://github.com/sommerfeld-io[Sommerfeld.io Github organization] is structured to consolidate multiple projects under a single umbrella. This bundling approach  allows for easier management, collaboration, and resource-sharing among the various projects it encompasses. By centralizing these projects, it streamlines administrative tasks, fosters synergies among contributors, and provides a cohesive platform for developers interested in these specific projects.
+== GitHub Organization Settings
+The link:https://github.com/sommerfeld-io[Sommerfeld.io GitHub organization] is structured to consolidate multiple projects under a single umbrella. This bundling approach  allows for easier management, collaboration, and resource-sharing among the various projects it encompasses. By centralizing these projects, it streamlines administrative tasks, fosters synergies among contributors, and provides a cohesive platform for developers interested in these specific projects.
 
 link:https://docs.github.com/en/organizations/collaborating-with-groups-in-organizations/about-organizations[Organizations] are shared accounts where businesses and open-source projects can collaborate across many projects at once, with sophisticated security and administrative features.
 
@@ -17,34 +17,34 @@ Setting up Discussions for your organization will allow you to broadcast updates
 Discussions cannot be enabled / disabled for each individual repository. Discussions are enabled for all repositories at organization-level (see https://github.com/organizations/sommerfeld-io/settings/discussions).
 
 === Actions secrets
-Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/actions[Github Actions secrets for the organization] to prepare interaction with DockerHub and Google Chat from Github Actions workflows:
+Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/actions[GitHub Actions secrets for the organization] to prepare interaction with DockerHub and Google Chat from GitHub Actions workflows:
 
 [cols="1,3", options="header"]
 |===
 |Secrets |Description
 |`DOCKERHUB_USER` |Bitwarden entry "DOCKERHUB_USER"
-|`DOCKERHUB_TOKEN` |See https://hub.docker.com/settings/security (Access Token Description = "Github Organization sommerfeld-io")
+|`DOCKERHUB_TOKEN` |See https://hub.docker.com/settings/security (Access Token Description = "GitHub Organization sommerfeld-io")
 |`GH_TOKEN_REPO_AND_PROJECT` |Bitwarden entry "GH_TOKEN_REPO_AND_PROJECT"
 |`GOOGLE_CHAT_WEBHOOK` |Google Chat (Account = sebastian@sommerfeld.io) -> Channel "Workflows: sommerfeld-io" -> Apps & Integrations -> Manage Webhooks
 |===
 
 === Dependabot secrets
-Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/dependabot[Dependabot secrets for the organization] to allow successful Github Actions workflows which are triggered by dependabot (like assigning PRs to a project).
+Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/dependabot[Dependabot secrets for the organization] to allow successful GitHub Actions workflows which are triggered by dependabot (like assigning PRs to a project).
 
 [cols="1,3", options="header"]
 |===
 |Secrets |Description
 |`DOCKERHUB_USER` |Bitwarden entry "DOCKERHUB_USER"
-|`DOCKERHUB_TOKEN` |See https://hub.docker.com/settings/security (Access Token Description = "Github Organization sommerfeld-io")
+|`DOCKERHUB_TOKEN` |See https://hub.docker.com/settings/security (Access Token Description = "GitHub Organization sommerfeld-io")
 |`GH_TOKEN_REPO_AND_PROJECT` |Bitwarden entry "GH_TOKEN_REPO_AND_PROJECT"
 |`GOOGLE_CHAT_WEBHOOK` |Google Chat (Account = sebastian@sommerfeld.io) -> Channel "Workflows: sommerfeld-io" -> Apps & Integrations -> Webhooks
 |===
 
-== Github Repository Settings
+== GitHub Repository Settings
 A summary of all settings that are specific to this project.
 
 === Actions Secrets
-Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/actions[Github Actions secrets for the organization] to prepare interaction with DockerHub and Google Chat from Github Actions workflows:
+Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/actions[GitHub Actions secrets for the organization] to prepare interaction with DockerHub and Google Chat from GitHub Actions workflows:
 
 [cols="1,3", options="header"]
 |===
@@ -58,7 +58,7 @@ Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/acti
 NOTE: Secrets must be specified here because a private repository cannot inherit actions secrets from the organization with my plan.
 
 === Dependabot Secrets
-Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/dependabot[Dependabot secrets for the organization] to allow successful Github Actions workflows which are triggered by dependabot (like assigning PRs to a project).
+Create link:https://github.com/organizations/sommerfeld-io/settings/secrets/dependabot[Dependabot secrets for the organization] to allow successful GitHub Actions workflows which are triggered by dependabot (like assigning PRs to a project).
 
 [cols="1,3", options="header"]
 |===
@@ -80,10 +80,10 @@ By default, when you create a new repository in your personal account, `GITHUB_T
 . In the left sidebar, click *Actions*, then click *General*.
 . Under "Workflow permissions", choose whether you want the `GITHUB_TOKEN` to have read and write access for all scopes, or just read access for the `contents` and `packages` scopes.
 .. For the sommerfeld-io organization choose *Read repository contents and packages permissions*.
-.. For the sommerfeld-io organization check *Allow Github Actions to create and approve pull requests*.
+.. For the sommerfeld-io organization check *Allow GitHub Actions to create and approve pull requests*.
 . Click Save to apply the settings.
 
-See link:https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions[Configuring the default `GITHUB_TOKEN` permissions] on the Github docs pages for more information.
+See link:https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-default-github_token-permissions[Configuring the default `GITHUB_TOKEN` permissions] on the GitHub docs pages for more information.
 
 // Development Tools
 include::ROOT:partial$/development/tools.adoc[]

@@ -1,6 +1,6 @@
 ---
 # @file build.yml
-# @brief Github Actions workflow for the website module that builds the app and runs automated tests.
+# @brief GitHub Actions workflow for the website module that builds the app and runs automated tests.
 #
 # @description This GitHub Actions workflow for the website module is designed for integration and
 # automates essential tasks such as code linting, building the application, and running automated

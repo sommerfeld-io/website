@@ -40,29 +40,29 @@ skinparam activity {
 
 actor Developer
 database Local_Repo as "Local Repo"
-database Github
+database GitHub
 database DockerHub
 
-Developer -> Github: create an issue
+Developer -> GitHub: create an issue
 note right: preferably a user story but a simple\ntask might sometimes also be okay
-Local_Repo <- Github: clone repo
+Local_Repo <- GitHub: clone repo
 Developer --> Local_Repo: create branch (optional)
 note right: pushing directly to main is also valid
-Github --> Github: when working in branch,\nthen create Pull Request
+GitHub --> GitHub: when working in branch,\nthen create Pull Request
 Developer -> Developer: write code
 note right: preferably TDD, add BDD style\n test cases if useful
 Developer -> Developer: still writing code and still testing
 Developer -> Developer: still writing code and still testing
 Developer -> Local_Repo: commit
 Local_Repo -> Local_Repo: run pre-commit checks
-Local_Repo -> Github: push
-Github -> Github: run Github Actions workflows
-Github --> Github: when working in branch,\nthen merge into main (close PR)
-Github -> DockerHub: deploy release candidate artifact
+Local_Repo -> GitHub: push
+GitHub -> GitHub: run GitHub Actions workflows
+GitHub --> GitHub: when working in branch,\nthen merge into main (close PR)
+GitHub -> DockerHub: deploy release candidate artifact
 note left: performed by github actions workflow if all tests pass
-Github --> Github: create a release
+GitHub --> GitHub: create a release
 note left: when the need arises / the changeset is large enough\n(do not do this for every change)
-Github -> DockerHub: when release is created,\nthen deploy release artifact
+GitHub -> DockerHub: when release is created,\nthen deploy release artifact
 note left: performed by github actions workflow if all tests pass
 
 @enduml

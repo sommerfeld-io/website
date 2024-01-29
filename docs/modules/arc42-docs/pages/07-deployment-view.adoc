@@ -3,7 +3,7 @@
 
 {description}
 
-== Github Actions Workflows and Docker Image
+== GitHub Actions Workflows and Docker Image
 The deployment of the website through GitHub Actions pipelines involves a series of automated steps to ensure the reliability and efficiency of the deployment process.
 
 [plantuml, puml-build-image, svg]
@@ -44,10 +44,10 @@ skinparam activity {
     FontName Roboto
 }
 
-database code_repo <<Github>>
-control lint_workflow <<Github-Action>>
-control build_workflow <<Github-Action>>
-control release_workflow <<Github-Action>>
+database code_repo <<GitHub>>
+control lint_workflow <<GitHub-Action>>
+control build_workflow <<GitHub-Action>>
+control release_workflow <<GitHub-Action>>
 database artifact_repo <<DockerHub>>
 
 == Build ==

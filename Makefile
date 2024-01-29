@@ -25,7 +25,7 @@
 #
 # === ``make src/main/ui/material-admin-pro/ui-bundle/build/ui-bundle.zip``
 #
-# Automates the process of building the Antora UI bundle. Use this target from a Github Actions
+# Automates the process of building the Antora UI bundle. Use this target from a GitHub Actions
 # workflow to build the UI bundle from a pipeline. Installing dependencies is triggered
 # automatically if needed.
 #

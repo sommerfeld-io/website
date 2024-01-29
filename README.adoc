@@ -16,17 +16,17 @@ Sebastian Sommerfeld <sebastian@sommerfeld.io>
 // |                                          |
 // +------------------------------------------+
 
-Welcome to the comprehensive documentation hub of link:http://www.sommerfeld.io[www.sommerfeld.io]. Here, you'll find an extensive array of documentation spanning across all projects within the link:https://github.com/sommerfeld-io[sommerfeld-io Github organization].
+Welcome to the comprehensive documentation hub of link:http://www.sommerfeld.io[www.sommerfeld.io]. Here, you'll find an extensive array of documentation spanning across all projects within the link:https://github.com/sommerfeld-io[sommerfeld-io GitHub organization].
 
-image:{github-actions-url}/{job-generate-docs}/{badge}[Github Badge, link={github-actions-url}/{job-generate-docs}]
-image:{github-actions-url}/{job-build}/{badge}[Github Badge, link={github-actions-url}/{job-build}]
+image:{github-actions-url}/{job-generate-docs}/{badge}[GitHub Badge, link={github-actions-url}/{job-generate-docs}]
+image:{github-actions-url}/{job-build}/{badge}[GitHub Badge, link={github-actions-url}/{job-build}]
 
 == About this project
 The entire codebase for link:http://www.sommerfeld.io[www.sommerfeld.io] is housed in this one repository. Within this repository, you'll find several components. Each of these components holds specific sets of code or logic that collectively contribute to building and running the sommerfeld.io website.
 
 The Docker image `link:https://hub.docker.com/r/sommerfeldio/website[sommerfeldio/website]` represents the complete website from link:https://www.sommerfeld.io[www.sommerfeld.io]. The image is hosted on DockerHub. This image encapsulates all necessary components including the UI bundle required to run the link:http://www.sommerfeld.io[www.sommerfeld.io website] within a Docker container (locally or in a test or production environment).
 
-* Github Repository -> {url-project}
+* GitHub Repository -> {url-project}
 * Where to file issues -> {url-project}/issues
 * Container Registry -> https://hub.docker.com/r/sommerfeldio/website
 * License -> {url-project}/blob/main/LICENSE.adoc
@@ -50,7 +50,7 @@ This project also contains the Antora UI bundle sources. This UI bundle represen
 
 The UI bundle is built alongside the whole website ensuring that the latest UI bundle is used for www.sommerfeld.io. This way there is no need to download the UI bundle from anywhere because it is part of the Docker image which serves the website.
 
-Still a download is possible because the UI bundle is published as a zip-File with each Github release. This way other projects can use this UI bundle as well.
+Still a download is possible because the UI bundle is published as a zip-File with each GitHub release. This way other projects can use this UI bundle as well.
 
 [source,yaml]
 ----
@@ -61,8 +61,7 @@ ui:
 ----
 
 == Risks and Technical Debts
-link:{url-project}/issues?q=is%3Aissue+label%3Asecurity%2Crisk+is%3Aopen[All issues labeled as risk (= some sort of risk or a technical debt) or security (= related to security issues)] are tracked as Github issue and carry the respective label.
+link:{url-project}/issues?q=is%3Aissue+label%3Asecurity%2Crisk+is%3Aopen[All issues labeled as risk (= some sort of risk or a technical debt) or security (= related to security issues)] are tracked as GitHub issue and carry the respective label.
 
 == Contact
 Feel free to contact me via sebastian@sommerfeld.io or visit my website https://www.sommerfeld.io.
-

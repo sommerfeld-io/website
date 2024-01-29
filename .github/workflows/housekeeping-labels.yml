@@ -1,6 +1,6 @@
 ---
 # @file housekeeping-labels.yml
-# @brief Github Actions workflow that ensures all mandatory labels are present for a repo and all obsolete labels are removed.
+# @brief GitHub Actions workflow that ensures all mandatory labels are present for a repo and all obsolete labels are removed.
 #
 # @description The workflow, that is called this way, is responsible for deleting unnecessary
 # labels and creating the required labels for issues and pull requests. By executing this workflow,

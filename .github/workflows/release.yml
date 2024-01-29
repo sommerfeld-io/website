@@ -1,6 +1,6 @@
 ---
 # @file release.yml
-# @brief Github Actions to create a new release of this software project (= this repository).
+# @brief GitHub Actions to create a new release of this software project (= this repository).
 #
 # @description This GitHub Actions workflow automates the release process for the software project
 # hosted in this repository. Its main objective is to create new releases while ensuring consistency
@@ -94,7 +94,7 @@ jobs:
       - name: Build UI bundle
         run: make src/main/ui/material-admin-pro/ui-bundle/build/ui-bundle.zip
         shell: bash
-      - name: Create tag and Github release
+      - name: Create tag and GitHub release
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN_REPO_AND_PROJECT }}
         # If a matching git tag does not yet exist, one will automatically get created

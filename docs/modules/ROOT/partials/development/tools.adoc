@@ -1,5 +1,5 @@
 == Code Repositories
-Each project is hosted within its dedicated repository on GitHub. All projects, that provide any service to www.sommerfeld.io, are part of the link:https://github.com/sommerfeld-io[sommerfeld-io Github organization], ensuring centralized management and fostering collaboration across our entire software ecosystem.
+Each project is hosted within its dedicated repository on GitHub. All projects, that provide any service to www.sommerfeld.io, are part of the link:https://github.com/sommerfeld-io[sommerfeld-io GitHub organization], ensuring centralized management and fostering collaboration across our entire software ecosystem.
 
 Normally a repository contains the whole application with all components (we do not split a single app into multiple repos). Instead we introduce component-folders. This way we can share resources like workflows or issue templates and can release the application as a whole.
 
@@ -16,18 +16,18 @@ A `Dockerfile` in the project root allows building the application with all depe
 
 A `pre-commit` config is present in every repositories root to run checks before committing changes. Also linter definitions are places in the project root.
 
-== Automated Pipelines with Github Actions Workflows
-The GitHub Actions workflows within this repository adhere to a standardized approach tailored for the link:https://github.com/sommerfeld-io[Sommerfeld.io Github organization]. These workflows serve as a blueprint, showcasing best practices and a consistent structure that other projects can leverage and adapt. While maintaining this standardized framework, individual projects within the Sommerfeld.io organization might diverge in certain details to accommodate their unique requirements or specific workflows.
+== Automated Pipelines with GitHub Actions Workflows
+The GitHub Actions workflows within this repository adhere to a standardized approach tailored for the link:https://github.com/sommerfeld-io[Sommerfeld.io GitHub organization]. These workflows serve as a blueprint, showcasing best practices and a consistent structure that other projects can leverage and adapt. While maintaining this standardized framework, individual projects within the Sommerfeld.io organization might diverge in certain details to accommodate their unique requirements or specific workflows.
 
 This project is equipped with linter definitions, serving as a foundational standard for other repositories within the organization. These linter definitions establish a baseline coding style and quality standard that other projects can adopt and build upon. This serves as a valuable resource for other repositories within the organization, allowing them to maintain a cohesive codebase and adhere to best practices in coding standards.
 
 Most repositories utilize these workflows in one form or another:
 
-* Build (is releasable) -> Github Actions workflow for the website module that builds the app and runs automated tests.
-* Generate Docs -> Github Actions workflow that generates Asciidoc documentation based on source code from this repo and updates the projects README file.
-* Housekeeping: Issues + PRs -> Github Actions workflow handles the automatic assignment of newly created issues and pull requests.
-* Housekeeping: Labels -> Github Actions workflow that ensures all mandatory labels are present for a repo and all obsolete labels are removed.
-* Deploy + Release -> Github Actions to create a new release of this software project.
+* Build (is releasable) -> GitHub Actions workflow for the website module that builds the app and runs automated tests.
+* Generate Docs -> GitHub Actions workflow that generates Asciidoc documentation based on source code from this repo and updates the projects README file.
+* Housekeeping: Issues + PRs -> GitHub Actions workflow handles the automatic assignment of newly created issues and pull requests.
+* Housekeeping: Labels -> GitHub Actions workflow that ensures all mandatory labels are present for a repo and all obsolete labels are removed.
+* Deploy + Release -> GitHub Actions to create a new release of this software project.
 
 == Artifact Repositories
 DockerHub serves as our only artifact repository for storing and distributing software, providing a reliable and efficient solution for containerized components. Since we publish everything as Docker images, there is no need for any other artifact repository.

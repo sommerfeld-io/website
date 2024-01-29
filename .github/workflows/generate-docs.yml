@@ -1,6 +1,6 @@
 ---
 # @file generate-docs.yml
-# @brief Github Actions workflow that generates Asciidoc documentation based on source code from this repo and updates the projects README file.
+# @brief GitHub Actions workflow that generates Asciidoc documentation based on source code from this repo and updates the projects README file.
 #
 # @description This GitHub Actions workflow serves the purpose of generating Asciidoc documentation
 # based on the source code from the repository and updating the project's ``README.adoc`` based on
