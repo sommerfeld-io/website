@@ -23,6 +23,7 @@ services:
   website:
     container_name: ${COMPOSE_PROJECT_NAME}
     image: sommerfeldio/website:rc
+    restart: unless-stopped
     volumes:
       - /etc/timezone:/etc/timezone:ro
       - /etc/localtime:/etc/localtime:ro
