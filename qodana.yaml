@@ -7,13 +7,29 @@ include:
     paths:
       - docs
       - CHANGELOG.adoc
+      - LICENSE.adoc
+      - README.adoc
 exclude:
   - name: All
     paths:
-      - README.adoc
-      - LICENSE.adoc
       - .github
       - .devcontainer
+      - .idea
       - .vscode
       - src
+      - config
       - target
+      - docker-compose.yml
+      - Dockerfile
+      - .dockerignore
+      - .env
+      - .folderslintrc
+      - .gitignore
+      - .ls-lint.yml
+      - Makefile
+      - .pre-commit-config.yaml
+      - qodana-asciidoc-inspection.xml
+      - qodana.yaml
+      - .shellcheckrc
+      - sonar-project.properties
+      - .yamllint.yml

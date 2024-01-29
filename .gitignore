@@ -13,3 +13,6 @@ yamllint-*
 *.pass
 *.user
 *.secret
+
+# qodana
+qodana.sarif.json

@@ -15,7 +15,7 @@ The Project = https://github.com/sommerfeld-io/website
 . Modification, reverse engineering, or any form of alteration of the Project is strictly prohibited.
 
 .Limited Use for UI Bundle
-. The Project's user interface (the so called UI Bundle) includes components is based on a HTML template a, which is separately licensed.
+. The Project's user interface (the so-called UI Bundle) includes components is based on a HTML template a, which is separately licensed.
 . The HTML template, obtained from https://themes.getbootstrap.com, comes with its proprietary license.
 . The terms and conditions of the HTML template license are separate from this license and must be adhered to accordingly.
 
