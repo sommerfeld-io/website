@@ -2,7 +2,7 @@
   "name": "sommerfeld-io-ui-bundle",
   "description": "Antora UI bundle for sommerfeld.io",
   "homepage": "https://github.com/sommerfeld-io/www-sommerfeld-io",
-  "license": "none",
+  "license": "proprietary",
   "repository": {
     "type": "git",
     "url": "https://github.com/sommerfeld-io/www-sommerfeld-io.git"

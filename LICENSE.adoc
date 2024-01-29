@@ -1,0 +1,38 @@
+= Proprietary License for this project
+Sebastian Sommerfeld <sebastian@sommerfeld.io>
+
+This software project, hereinafter referred to as "the Project," is provided under the terms of this proprietary license agreement. By accessing, downloading, or using the Project, you agree to comply with the terms outlined below.
+
+The Project = https://github.com/sommerfeld-io/website
+
+.License Grant
+. The Project is licensed for informational purposes only.
+. You may start the link:https://hub.docker.com/r/sommerfeldio/website[Docker image] locally to view and interact with the Project's user interface for information gathering and educational purposes.
+
+.Restrictions
+. You are expressly prohibited from using the Project, or any part thereof, for any commercial, production, or public-facing purposes.
+. You may not redistribute, sublicense, or otherwise make the Project or its components available to third parties.
+. Modification, reverse engineering, or any form of alteration of the Project is strictly prohibited.
+
+.Limited Use for UI Bundle
+. The Project's user interface (the so called UI Bundle) includes components is based on a HTML template a, which is separately licensed.
+. The HTML template, obtained from https://themes.getbootstrap.com, comes with its proprietary license.
+. The terms and conditions of the HTML template license are separate from this license and must be adhered to accordingly.
+
+.Public Repository Access
+. While this repository is publicly accessible, no rights are granted to use, modify, or distribute the Project beyond the specified limitations.
+. Any use of the Project beyond starting the Docker image locally is considered a violation of this license.
+
+.No Warranty and Liability
+. The Project is provided "as is" without warranty of any kind, express or implied.
+. The Licensor (project creator) shall not be liable for any direct, indirect, incidental, special, exemplary, or consequential damages arising out of the use or inability to use the Project.
+
+.Termination
+. This license is effective until terminated by the Licensor.
+. The Licensor reserves the right to terminate this license at any time without notice if you fail to comply with its terms.
+
+By using the Project, you acknowledge that you have read, understood, and agree to be bound by the terms and conditions of this proprietary license. If you do not agree to these terms, you are not authorized to use the Project.
+
+Sebastian Sommerfeld
+sebastian@sommerfeld.io
+2024-01-29

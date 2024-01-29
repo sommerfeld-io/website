@@ -74,6 +74,9 @@ jobs:
         uses: sebastian-sommerfeld-io/github-action-generate-readme@main
         with:
           caption: ${{ github.event.repository.name }}
+      - name: LICENSE.adoc
+        run: cp docs/modules/ROOT/pages/license.adoc LICENSE.adoc
+        shell: bash
       - name: Commit and push
         uses: EndBug/add-and-commit@v9
         with:

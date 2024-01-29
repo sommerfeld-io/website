@@ -8,3 +8,5 @@
 * xref:ROOT:development/infrastructure-checklist.adoc[]
 
 * xref:ROOT:ui-bundle/about.adoc[]
+
+* xref:ROOT:license.adoc[]

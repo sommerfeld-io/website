@@ -11,6 +11,7 @@ The Docker image `link:https://hub.docker.com/r/sommerfeldio/website[sommerfeldi
 * Github Repository -> {url-project}
 * Where to file issues -> {url-project}/issues
 * Container Registry -> https://hub.docker.com/r/sommerfeldio/website
+* License -> {url-project}/blob/main/LICENSE.adoc
 // * Sonar -> https://sonarcloud.io/project/overview?id=sommerfeld-io_{project-name}
 
 == How to use this project
