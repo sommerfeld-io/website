@@ -1,7 +1,7 @@
 ---
 name: website
 title: Sommerfeld.io Website
-version: validate-asciidoc
+version: main
 start_page: ROOT:index.adoc
 nav:
   - modules/ROOT/nav.adoc
