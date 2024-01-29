@@ -24,8 +24,8 @@ This project is equipped with linter definitions, serving as a foundational stan
 Most repositories utilize these workflows in one form or another:
 
 * Build (is releasable) -> GitHub Actions workflow for the website module that builds the app and runs automated tests.
-* Generate Docs -> GitHub Actions workflow that generates Asciidoc documentation based on source code from this repo and updates the projects README file.
-* Housekeeping: Issues + PRs -> GitHub Actions workflow handles the automatic assignment of newly created issues and pull requests.
+* Generate Docs -> GitHub Actions workflow that generates Asciidoc documentation based on source code from this repo and updates the project README file.
+* Housekeeping: Issues + PRs -> GitHub Actions workflow that handles the automatic assignment of newly created issues and pull requests.
 * Housekeeping: Labels -> GitHub Actions workflow that ensures all mandatory labels are present for a repo and all obsolete labels are removed.
 * Deploy + Release -> GitHub Actions to create a new release of this software project.
 

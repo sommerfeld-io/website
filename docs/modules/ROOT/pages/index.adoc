@@ -1,5 +1,4 @@
 = About Sommerfeld.io
 include::ROOT:partial$vars.adoc[]
-:page-layout: homepage
 
 include::ROOT:partial$README.adoc[]

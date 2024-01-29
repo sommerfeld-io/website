@@ -1,3 +1,12 @@
+Sebastian Sommerfeld <sebastian@sommerfeld.io>
+:project-name: www-sommerfeld-io
+:url-project: https://github.com/sommerfeld-io/{project-name}
+:github-actions-url: {url-project}/actions/workflows
+:job-build: build.yml
+:job-generate-docs: generate-docs.yml
+:badge: badge.svg
+:page-layout: homepage
+
 Welcome to the comprehensive documentation hub of link:http://www.sommerfeld.io[www.sommerfeld.io]. Here, you'll find an extensive array of documentation spanning across all projects within the link:https://github.com/sommerfeld-io[sommerfeld-io GitHub organization].
 
 image:{github-actions-url}/{job-generate-docs}/{badge}[GitHub Badge, link={github-actions-url}/{job-generate-docs}]
