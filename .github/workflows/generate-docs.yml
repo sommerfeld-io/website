@@ -115,7 +115,7 @@ jobs:
       - name: Qodana for Docs
         run: |
           touch qodana.sarif.json
-          docker run --rm -p 8080:8080 \
+          docker run --rm \
             --volume "$(pwd):/data/project" \
             --volume "$(pwd)/qodana.sarif.json:/data/results/qodana.sarif.json:rw" \
             sommerfeldio/qodana:rc \
