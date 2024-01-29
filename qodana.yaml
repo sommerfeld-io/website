@@ -1,0 +1,19 @@
+---
+version: "1.0"
+profile:
+  path: qodana-asciidoc-inspection.xml
+include:
+  - name: docs
+    paths:
+      - docs
+      - CHANGELOG.adoc
+exclude:
+  - name: All
+    paths:
+      - README.adoc
+      - LICENSE.adoc
+      - .github
+      - .devcontainer
+      - .vscode
+      - src
+      - target
