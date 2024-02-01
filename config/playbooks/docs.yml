@@ -14,7 +14,7 @@ content:
     - url: https://github.com/sommerfeld-io/docker-images.git
       start_path: docs
     - url: https://github.com/sommerfeld-io/fantasy-hockey.git
-      start_path: docs
+      start_path: components/docs
 
     # Personal projects
     - url: https://github.com/sebastian-sommerfeld-io/configs.git
