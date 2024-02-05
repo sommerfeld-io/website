@@ -26,7 +26,7 @@
     "autoprefixer": "~9.8",
     "browser-pack-flat": "~3.5",
     "browserify": "~17.0",
-    "cssnano": "~4.1",
+    "cssnano": "~6.0",
     "eslint": "~8.56",
     "eslint-config-standard": "~15.0",
     "eslint-plugin-import": "~2.29",
