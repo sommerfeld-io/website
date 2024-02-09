@@ -187,7 +187,7 @@ jobs:
       # https://github.com/docker/metadata-action
       - name: Extract Docker metadata
         id: meta
-        uses: docker/metadata-action@v5.5.0
+        uses: docker/metadata-action@v5.5.1
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE }}
           labels: |
@@ -205,7 +205,7 @@ jobs:
           provenance: true
           sbom: true
       - name: Docker Scout Compare
-        uses: docker/scout-action@v1.3.0
+        uses: docker/scout-action@v1.4.1
         with:
           command: compare
           image: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
@@ -213,7 +213,7 @@ jobs:
           exit-code: false
           write-comment: ${{ github.event_name == 'pull_request' }}
       - name: Docker Scout CVEs
-        uses: docker/scout-action@v1.3.0
+        uses: docker/scout-action@v1.4.1
         with:
           command: cves
           image: ${{ env.IMAGE }}:${{ steps.vars.outputs.DOCKER_TAG }}
