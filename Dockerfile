@@ -56,7 +56,7 @@
 # The webserver exposes his status information through http://localhost:7888/server-status.
 
 
-FROM node:21.7.1-alpine3.19 AS build-antora-site
+FROM node:21.7.2-alpine3.19 AS build-antora-site
 LABEL maintainer="sebastian@sommerfeld.io"
 
 RUN yarn global add @asciidoctor/core@~3.0.2 \
