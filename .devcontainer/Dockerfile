@@ -44,7 +44,7 @@
 # ```
 
 
-FROM mcr.microsoft.com/devcontainers/javascript-node:20-bullseye
+FROM mcr.microsoft.com/devcontainers/javascript-node:22-bullseye
 LABEL maintainer="sebastian@sommerfeld.io"
 
 ARG USER=node
