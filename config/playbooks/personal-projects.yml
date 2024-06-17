@@ -13,8 +13,6 @@ content:
       start_path: docs
     - url: https://github.com/sebastian-sommerfeld-io/jarvis.git
       start_path: docs
-    - url: https://github.com/sebastian-sommerfeld-io/open-appsec-poc.git
-      start_path: docs
 
     - url: https://github.com/sebastian-sommerfeld-io/github-action-generate-readme.git
       start_path: docs
