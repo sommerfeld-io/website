@@ -127,7 +127,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       - name: Docker image build
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: src/main/ui/material-admin-pro/ui-bundle
           platforms: linux/amd64
@@ -193,7 +193,7 @@ jobs:
           labels: |
             org.opencontainers.image.revision=${{ env.SHA }}
       - name: Docker image build
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           context: .
           platforms: linux/amd64
