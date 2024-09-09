@@ -1,4 +1,4 @@
-* xref:AUTO-GENERATED:docker-compose-yml.adoc[docker-compose.yml]
 * xref:AUTO-GENERATED:-devcontainer/ops/docker-compose-yml.adoc[.devcontainer/ops/docker-compose.yml]
+* xref:AUTO-GENERATED:docker-compose-yml.adoc[docker-compose.yml]
 * xref:AUTO-GENERATED:config/docker-stacks/test/docker-compose-yml.adoc[config/docker-stacks/test/docker-compose.yml]
 * xref:AUTO-GENERATED:config/docker-stacks/prod/docker-compose-yml.adoc[config/docker-stacks/prod/docker-compose.yml]
